@@ -15,6 +15,11 @@ SAP Advanced Event Mesh
         ▼  (your assigned queue)
 Employee Onboarding AI Agent  ←── you run this on your laptop
         │
+        │   ── AI Reasoning ──────────────────────────────────────────
+        │     Anthropic SDK → SAP AI Core → Claude (claude-sonnet)
+        │     AI Core acts as the gateway — no Anthropic account needed
+        │   ─────────────────────────────────────────────────────────────
+        │
         ├── Tool 1: get_new_hire_details
         │     API composition via Integration Suite
         │     combines SuccessFactors Employee, Job, and Manager APIs
