@@ -69,6 +69,7 @@ npm install
 ```
 
 > Requires Node.js v18 or higher — [nodejs.org](https://nodejs.org)
+> The agent runs Claude via SAP AI Core — no Anthropic account needed, access is pre-configured via the shared AI Core proxy.
 
 ### 3. Configure your settings
 
