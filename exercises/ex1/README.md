@@ -1,5 +1,7 @@
 # Exercise 1 — Employee Onboarding AI Agent
 
+> **Disclaimer:** This exercise is designed for workshop and learning purposes only. The architecture, tools, and approach presented here are simplified to provide a realistic hands-on experience within the constraints of a workshop session. They do not represent SAP's recommended, suggested, or officially supported architecture for building AI agents or integrating SAP systems. Always refer to official SAP documentation and best practices for production implementations.
+
 In this exercise you will download, configure and run the Employee Onboarding AI Agent on your laptop. The agent connects to SAP Advanced Event Mesh, receives a new hire event from SuccessFactors, and orchestrates the full onboarding process through SAP Integration Suite — with your own identity propagated to S/4HANA via Principal Propagation.
 
 ## Architecture
