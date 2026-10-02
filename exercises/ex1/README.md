@@ -99,15 +99,7 @@ Open `.env` and fill in the values provided by your instructor:
 | `OIDC_CLIENT_ID` | Shared OIDC client |
 | `OIDC_REDIRECT_URI` | `http://localhost:3000/callback` |
 
-### 4. Test your IAS login
-
-```bash
-node test-login.js
-```
-
-Your browser will open the SAP IAS login page. Log in with your SAP BTP credentials. You should see your name and email printed in the terminal — this is the identity that will be propagated to S/4HANA.
-
-### 5. Run the agent
+### 4. Run the agent
 
 ```bash
 node agent.js
