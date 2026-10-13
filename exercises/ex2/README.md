@@ -17,7 +17,11 @@ By the end, employee data in the composed API will be deployed as a MCP server a
 
 **API Composition** is a capability in SAP Integration Suite that unifies multiple business APIs into a single, semantically connected data graph — accessible through one powerful API endpoint.
 
-For this hands-on session, a **Composed API** for Employee Lookup has been pre-configured for you. It consolidates data entities from nine different SuccessFactors APIs, covering a new hire's personal profile, job details, location, business unit, department, and more — all accessible through a single endpoint.
+When a new employee is hired in SAP SuccessFactors, their data is spread across multiple independent APIs — personal profile, job assignment, location, business unit, department, division, manager, and more. Each API answers one question, but no single API tells the full story of a new hire.
+
+If an AI agent were to call each of these APIs as separate MCP tools, it would quickly run into **context rot** — a problem where the agent's context window fills up with redundant, overlapping, or inconsistently structured data from too many tool calls. The agent loses coherence, misses relationships between fields, and produces unreliable results.
+
+**API Composition** solves this by combining those nine SuccessFactors APIs into a single, semantically connected endpoint. For this hands-on session, this Composed API has been pre-configured for you — exposing two clean custom entities, **Employee Details** and **Job Details**, that give the onboarding agent exactly what it needs in one call, with no noise.
 
 <br>![BDG Overview](/exercises/ex2/images/BDG_Overview.png)
 
