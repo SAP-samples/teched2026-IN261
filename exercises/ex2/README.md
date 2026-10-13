@@ -36,8 +36,6 @@ Instead of building this from scratch, you use this pre-configured Composed API 
 
 > [!NOTE]
 > The **OpenAPI Specification** and **OData URL** for this session will be shared by the instructors.
-
-> [!NOTE]
 > For a deeper understanding of the capability, refer to [SAP Help: API Composition](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
 
 ---
