@@ -130,7 +130,86 @@ On the **Create Tools** screen, two tools are available from the uploaded API sp
 
 6. Click **Add** to finish creating the MCP Server artifact.
 
-### Step 4: Review the Policy Model
+### Step 4: Add Prompt
+
+A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
+
+1. From the artifact overview, click **Edit** (top right).
+
+   <br>![Edit and navigate to Prompts](/exercises/ex2/images/Add_Prompt.png)
+
+2. Go to the **MCP Configuration** tab → **Prompts** sub-tab → click **Add**.
+
+3. In the **Add Prompt** dialog, fill in the **Define Prompt** details:
+
+   | Field | Value |
+   |---|---|
+   | Name | `get_new_hire_context` |
+   | Title | *(see below)* |
+   | Description | *(see below)* |
+
+   Copy and paste the same text into both the **Title** and **Description** fields:
+
+   ```
+   Fetches complete onboarding context for a new hire from SAP SuccessFactors by calling employee personal info and job info tools and combining them into a single enriched payload.
+   ```
+
+   <br>![Define Prompt](/exercises/ex2/images/Add_Prompt2.png)
+
+4. Click **Next**. On the **Define Arguments** screen, fill in the following:
+
+   | Field | Value |
+   |---|---|
+   | Name | `employeeId` |
+   | Title | `New Hire's Employee ID` |
+   | Description | `New Hire's Employee ID` |
+   | Required | ✓ |
+
+   <br>![Define Arguments](/exercises/ex2/images/Add_Prompt3.png)
+
+5. Click **Next**. On the **Define Messages** screen, set the **Role** to `User` and paste the following into the **Content** field:
+
+   ```
+   Fetch the complete onboarding context for new hire {{ .employeeId }}'.
+
+   1. Call getEmployee with $filter=employeeId eq '{{ .employeeId }}'&$expand=personalInfo,emailInfo
+
+   2. Call getEmployeeJob with $filter=employeeId eq '{{ .employeeId }}'&$expand=positionInfo,companyInfo,businessUnitInfo,divisionInfo,departmentInfo,locationInfo
+
+   Combine both responses into a single new hire context object with fields:
+   {
+     "employeeId": "...",
+     "employeeFirstName": "...",
+     "employeeLastName": "...",
+     "employeeName": "...",
+     "hireDate": "...",
+     "gender": "...",
+     "dateOfBirth": "...",
+     "email": "...",
+     "managerId": "...",
+     "managerName": "...",
+     "jobTitle": "...",
+     "company": "...",
+     "companyText": "...",
+     "departmentCode": "...",
+     "departmentText": "...",
+     "businessUnitCode": "...",
+     "businessUnitText": "...",
+     "divisionCode": "...",
+     "divisionText": "...",
+     "locationCode": "...",
+     "locationText": "...",
+     "country": "..."
+   }
+   ```
+
+   <br>![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
+
+6. Click **Add** to save the prompt. Then click **Save** (top right) to save the artifact.
+
+---
+
+### Step 5: Review the Policy Model
 
 After the artifact is created, open it and review the default policy model. No changes are needed — it is pre-configured correctly for this exercise.
 
