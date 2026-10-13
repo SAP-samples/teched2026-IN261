@@ -240,13 +240,10 @@ In this step, you will configure the **Authentication** policy with the IAS tena
 
 3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
-   | Field | Value |
-   |---|---|
-   | External OAuth (OIDC) | ✓ Check this |
-   | Configuration Type | `Well-Known URL` |
-   | Well-Known URL | *(copy from below)* |
-   | ClientID Key | *(copy from below)* |
-   | UserInfo Key | *(copy from below)* |
+   - Check **External OAuth (OIDC)**
+   - Set **Configuration Type** to `Well-Known URL`
+
+   Then copy and paste each value below into the corresponding field:
 
    **Well-Known URL:**
    ```
