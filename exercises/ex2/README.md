@@ -21,11 +21,11 @@ When a new employee is hired in SAP SuccessFactors, their data is spread across 
 
 If an AI agent were to call each of these APIs as separate MCP tools, it would quickly run into **context rot** — a problem where the agent's context window fills up with redundant, overlapping, or inconsistently structured data from too many tool calls. The agent loses coherence, misses relationships between fields, and produces unreliable results.
 
-**API Composition** solves this by combining those nine SuccessFactors APIs into a single, semantically connected endpoint. For this hands-on session, this Composed API has been pre-configured for you — exposing two clean custom entities, **Employee Details** and **Job Details**, that give the onboarding agent exactly what it needs in one call, with no noise.
+**API Composition** solves this by combining multiple SuccessFactors APIs into a single, semantically connected endpoint. For this hands-on session, this Composed API has been pre-configured for you — exposing two clean custom entities, **Employee Details** and **Job Details**, that give the onboarding agent exactly what it needs in one call, with no noise.
 
 <br>![BDG Overview](/exercises/ex2/images/BDG_Overview.png)
 
-The Composed API is built from multiple data sources — each representing a different SuccessFactors API domain:
+The Composed API is built from multiple data entities — each representing a different SuccessFactors API domain:
 
 <br>![BDG Data Sources](/exercises/ex2/images/BDG_DataSource.png)
 
