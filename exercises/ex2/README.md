@@ -11,19 +11,25 @@ By the end, employee data in the composed API will be deployed as a MCP server a
 > [!NOTE]
 > For a deeper understanding of the **Model Context Protocol (MCP)** and **MCP paradigm in SAP Integration Suite**, refer to [What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) and [API-Centric Integration in SAP Integration Suite: A New Paradigm for API & MCP](https://community.sap.com/t5/technology-blog-posts-by-sap/api-centric-integration-in-sap-integration-suite-a-new-paradigm-for-api-amp/ba-p/14438245)
 
-
 ---
 
-## Pre-Delivered: Composed API via API Composion aka Business Data Graph
+## Pre-Delivered: Composed API via API Composition aka Business Data Graph
 
 **API Composition** is a capability in SAP Integration Suite that unifies multiple business APIs into a single, semantically connected data graph — accessible through one powerful API endpoint.
 
 For this hands-on session, a **Composed API** for Employee Lookup has been pre-configured for you. It consolidates data entities from nine different SuccessFactors APIs, covering a new hire's personal profile, job details, location, business unit, department, and more — all accessible through a single endpoint.
 
-Instead of building this from scratch, you use this pre-configured Composed API as the data source for your MCP Server. It comes with an **OpenAPI Specification** and an **ODATA URL** — both of which you will use when creating the MCP artifact in the next steps.
+<br>![BDG Overview](/exercises/ex2/images/BDG_Overview.png)
 
+The Composed API is built from multiple data sources — each representing a different SuccessFactors API domain:
 
+<br>![BDG Data Sources](/exercises/ex2/images/BDG_DataSource.png)
 
+These sources are exposed as unified, queryable entities through the Composed API:
+
+<br>![BDG Custom Entities](/exercises/ex2/images/BDG_CustomEntities.png)
+
+Instead of building this from scratch, you use this pre-configured Composed API as the data source for your MCP Server. It comes with an **OpenAPI Specification** and an **OData URL** — both of which you will use when creating the MCP artifact in the next steps.
 
 > [!NOTE]
 > For a deeper understanding of the capability, refer to [SAP Help: API Composition](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
@@ -46,7 +52,7 @@ Here is how it works in this exercise:
 | 4 | This assertion is forwarded to the backend — the backend sees the *real* user, not a generic service account |
 
 > [!NOTE]
-> For a deeper understanding, refer to [SAP Help: Principal Propogation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
+> For a deeper understanding, refer to [SAP Help: Principal Propagation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
 
 ---
 
@@ -144,11 +150,12 @@ In this sub-exercise, you deploy the MCP Server artifact to the Integration Cell
 
    <br>![](/exercises/ex2/images/02_02_started_status.png)
 
+   > [!IMPORTANT]
+   > Only proceed to Exercise 3 once the status shows **Started**. A *Starting* status means deployment is still in progress — wait and refresh.
 
 ### Step 3: Note the MCP URL
 
 Once the status is **Started**, copy the MCP endpoint URL shown in the details panel:
-
 
 > [!IMPORTANT]
 > **Save this URL — you will need it in Exercise 3** when you connect this MCP Server to the Employee Onboarding Agent.
