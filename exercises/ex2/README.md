@@ -6,7 +6,7 @@ An AI agent is only as useful as the data it can reach. Getting it to enterprise
 
 In this exercise, you will wrap the pre-delivered Business Data Graph (BDG) for Employee Lookup as an **MCP Server** — the standardized bridge between enterprise APIs and AI agents. You will create an MCP artifact, configure it with the BDG's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
-By the end, your employee data is accessible to any MCP-compatible agent — secured, governed, and ready for the onboarding agent in Exercise 3.
+By the end, employee data in the composed API will be deployed as a MCP server and ready for the consumption in Exercise 3.
 
 > [!NOTE]
 > For a deeper understanding of the **Model Context Protocol (MCP)** and **MCP paradigm in SAP Integration Suite**, refer to [What is the Model Context Protocol (MCP)?](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) and [API-Centric Integration in SAP Integration Suite: A New Paradigm for API & MCP](https://community.sap.com/t5/technology-blog-posts-by-sap/api-centric-integration-in-sap-integration-suite-a-new-paradigm-for-api-amp/ba-p/14438245)
@@ -16,14 +16,17 @@ By the end, your employee data is accessible to any MCP-compatible agent — sec
 
 ## Pre-Delivered: Composed API via API Composion aka Business Data Graph
 
-API Composition is a solution to unify your business APIs in the form of a semantically connected data graph, accessed via a single powerful API. Out of the box, it provides developers a single connected and unified view of your SAP-managed business data. API Composition consolidates thousands of data entities from SAP systems like SAP S/4HANA, SAP Sales Cloud, and SAP SuccessFactors, into one curated, semantically connected, data model. We call this connected graph a Business Data Graph.
+**API Composition** is a capability in SAP Integration Suite that unifies multiple business APIs into a single, semantically connected data graph — accessible through one powerful API endpoint.
+
+For this hands-on session, a **Composed API** for Employee Lookup has been pre-configured for you. It consolidates data entities from nine different SuccessFactors APIs, covering a new hire's personal profile, job details, location, business unit, department, and more — all accessible through a single endpoint.
+
+Instead of building this from scratch, you use this pre-configured Composed API as the data source for your MCP Server. It comes with an **OpenAPI Specification** and an **ODATA URL** — both of which you will use when creating the MCP artifact in the next steps.
+
+
+
 
 > [!NOTE]
 > For a deeper understanding of the capability, refer to [SAP Help: API Composition](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
-
-For the hands on we have created a **Composed API** for Employee Lookup. A BDG is a curated, OData-based API layer that exposes structured enterprise data from backend systems through a single, governed endpoint.
-
-Instead of building the composed API from scratch, you use this pre-configured BDG as the data source for your MCP Server. The BDG comes with an **OpenAPI Specification** and a **ODATA URL** that describes the available operations — this is what you will upload when creating the MCP artifact.
 
 ---
 
