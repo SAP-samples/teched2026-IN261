@@ -67,6 +67,9 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
 ### Step 1: Create an Integration Package
 
 1. In SAP Integration Suite, navigate to **Design → Integrations and APIs**.
+
+   <br>![Navigate to Integrations and APIs](/exercises/ex2/images/Create_IntegrationPackage1.png)
+
 2. Click **Create**.
 3. Fill in the package details:
 
@@ -78,6 +81,8 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Vendor | `SAP` |
 
    > Replace **XX** with your assigned participant number throughout this exercise.
+
+   <br>![Fill in Package Details](/exercises/ex2/images/Create_IntegrationPackage2.png)
 
 4. Click **Save**.
 
