@@ -89,37 +89,46 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
 ### Step 2: Add an MCP Server Artifact
 
 1. Open the package you just created and go to the **Artifacts** tab.
-2. Click **Add → MCP Server**.
-3. When prompted for the source type, select **HTTP Endpoint with OpenAPI Specification**.
+2. Click **Add** and select **MCP Server** from the dropdown.
 
-   <br>![](/exercises/ex2/images/02_01_source_type.png)
+   <br>![Add MCP Server](/exercises/ex2/images/Add_MCP_Server.png)
+
+3. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
+
+   <br>![Select Source Type](/exercises/ex2/images/Add_MCP_Server2.png)
 
 4. Fill in the MCP Server details:
 
    | Field | Value |
    |---|---|
-   | Method | Upload |
-   | File | Upload the OpenAPI Specification provided for this session |
-   | Source | URL |
-   | URL | Employee Lookup Composed API OData URL *(provided in the session materials)* |
-   | Name / ID | `employeelookup-XX` |
-   | MCP Path | `/mcp-employeelookup-XX` |
+   | Method | `Upload` |
+   | File Name | Upload `SAP_HCM_Graph.json` *(provided by the instructors)* |
+   | Source | `Destination` |
+   | Destination | `in261_hcmcloud_mcp` |
+   | Relative URL | `/api/in261-hcmcloud` |
+   | Name / ID | `IN261_0XX_Employee_Lookup_MCP` |
+   | MCP Path | `/in261_0XX_employee_lookup_mcp` |
    | Version | `1.0.0` |
    | Runtime Profile | `Integration Cell` |
+
+   > Replace **XX** with your assigned participant number.
+
+   <br>![Provide MCP Details](/exercises/ex2/images/Add_MCP_Server3.png)
 
 5. Click **Next**.
 
 ### Step 3: Select Tools
 
-On the tool selection screen, select the operations from the two custom entities to expose as MCP tools:
+On the **Create Tools** screen, two tools are available from the uploaded API specification. Select both:
 
-- `GET /EmployeeDetails` — retrieve employee personal profile information
-- `GET /EmployeeDetails/{EmployeeID}` — retrieve a single employee's details by ID
-- `GET /JobDetails/{EmployeeID}` — retrieve job information (role, location, business unit, department) for an employee
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/bestrun.hcmcloud/employee` | Returns employee personal info and email. Supports `$filter=employeeId eq '{id}'` and `$expand=personalInfo,emailInfo` |
+| `GET` | `/bestrun.hcmcloud/employeeJob` | Returns job details including manager, company, department, business unit, division, and location |
 
-   <br>![](/exercises/ex2/images/02_01_tool_selection.png)
+   <br>![Create Tools](/exercises/ex2/images/Add_MCP_Server4.png)
 
-6. Click **Next** and then **Finish**.
+6. Click **Add** to finish creating the MCP Server artifact.
 
 ### Step 4: Review the Policy Model
 
