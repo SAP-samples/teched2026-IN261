@@ -42,7 +42,8 @@ Here is how it works in this exercise:
 | 3 | The policy model uses a **SAML Bearer Assertion** to convert the OAuth token into a SAML assertion carrying the user's identity |
 | 4 | This assertion is forwarded to the backend — the backend sees the *real* user, not a generic service account |
 
-This is why the Runtime Profile is set to **Integration Cell** — it is the runtime that supports this full OAuth + SAML propagation chain.
+> [!NOTE]
+> For a deeper understanding, refer to [SAP Help: Principal Propogation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
 
 ---
 
