@@ -25,7 +25,10 @@ The Composed API is built from multiple data sources — each representing a dif
 
 <br>![BDG Data Sources](/exercises/ex2/images/BDG_DataSource.png)
 
-These sources are exposed as unified, queryable entities through the Composed API:
+From these data sources, two custom entities have been created to structure the information for the onboarding use case:
+
+- **Employee Details entity** — consolidates personal profile information of the new hire such as name, contact details, and employment status
+- **Job Details entity** — consolidates job-related information including role, location, business unit, and department
 
 <br>![BDG Custom Entities](/exercises/ex2/images/BDG_CustomEntities.png)
 
@@ -58,7 +61,7 @@ Here is how it works in this exercise:
 
 ## Exercise 2.1 — Create the MCP Server
 
-In this sub-exercise, you create an Integration Package and add an MCP Server artifact configured against the pre-delivered Employee Lookup BDG.
+In this sub-exercise, you create an Integration Package and add an MCP Server artifact configured against the pre-delivered Employee Lookup Composed API.
 
 ### Step 1: Create an Integration Package
 
@@ -69,7 +72,7 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Field | Value |
    |---|---|
    | Name | `employee-onboarding-package-XX` |
-   | Short Description | MCP Server for Employee Lookup using pre-delivered BDG |
+   | Short Description | MCP Server for Employee Lookup using pre-delivered Composed API |
    | Version | `1.0.0` |
    | Vendor | `SAP` |
 
@@ -92,7 +95,7 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Method | Upload |
    | File | Upload the OpenAPI Specification provided for this session |
    | Source | URL |
-   | URL | Employee Lookup BDG OData URL *(provided in the session materials)* |
+   | URL | Employee Lookup Composed API OData URL *(provided in the session materials)* |
    | Name / ID | `employeelookup-XX` |
    | MCP Path | `/mcp-employeelookup-XX` |
    | Version | `1.0.0` |
@@ -102,10 +105,11 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
 
 ### Step 3: Select Tools
 
-On the tool selection screen, select the Employee Lookup operations to expose as MCP tools:
+On the tool selection screen, select the operations from the two custom entities to expose as MCP tools:
 
-- `GET /EmployeeProfile` — retrieve the list of employee profiles
-- `GET /EmployeeProfile/{EmployeeID}` — retrieve a single employee by ID
+- `GET /EmployeeDetails` — retrieve employee personal profile information
+- `GET /EmployeeDetails/{EmployeeID}` — retrieve a single employee's details by ID
+- `GET /JobDetails/{EmployeeID}` — retrieve job information (role, location, business unit, department) for an employee
 
    <br>![](/exercises/ex2/images/02_01_tool_selection.png)
 
@@ -122,7 +126,7 @@ The policy model contains four components that process every agent request:
 | **MCP Sender Adapter** | Entry point — receives requests from the AI agent |
 | **Authentication** | Verifies the caller's identity (OAuth 2.0) |
 | **Authorization** | Checks permissions using OAuth Scope `API.invoke` |
-| **HTTP Receiver Adapter** | Forwards the request to the Employee Lookup BDG backend, carrying the propagated user identity |
+| **HTTP Receiver Adapter** | Forwards the request to the Employee Lookup Composed API backend, carrying the propagated user identity |
 
 This chain is what enables Principal Propagation — the identity verified in Authentication is carried to the backend via the HTTP Receiver Adapter using the SAML Bearer Assertion.
 
@@ -164,8 +168,9 @@ Once the status is **Started**, copy the MCP endpoint URL shown in the details p
 
 ## Summary
 
-You have now created and deployed an MCP Server that wraps the pre-delivered Employee Lookup BDG and exposes it securely to AI agents.
+You have now created and deployed an MCP Server that wraps the pre-delivered Employee Lookup Composed API and exposes it securely to AI agents.
 
+- The Composed API surfaces two custom entities — **Employee Details** and **Job Details** — giving the agent structured access to both personal and job-related onboarding data
 - The MCP Server handles authentication and authorization using OAuth 2.0
 - Principal Propagation ensures the backend sees the real caller identity, not a shared service account
 - The MCP endpoint is live on the Integration Cell and ready to receive agent calls
