@@ -219,22 +219,53 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
 
 ---
 
-### Step 5: Review the Policy Model
+### Step 5: Edit the Policy Model
 
-After the artifact is created, open it and review the default policy model. No changes are needed — it is pre-configured correctly for this exercise.
-
-The policy model contains four components that process every agent request:
+The policy model defines how every agent request is authenticated and authorized before it reaches the backend. It contains four components that process each request in sequence:
 
 | Component | Purpose |
 |---|---|
 | **MCP Sender Adapter** | Entry point — receives requests from the AI agent |
-| **Authentication** | Verifies the caller's identity (OAuth 2.0) |
+| **Authentication** | Verifies the caller's identity using External OAuth (OIDC) via IAS |
 | **Authorization** | Checks permissions using OAuth Scope `API.invoke` |
-| **HTTP Receiver Adapter** | Forwards the request to the Employee Lookup Composed API backend, carrying the propagated user identity |
+| **HTTP Receiver Adapter** | Forwards the request to the backend, carrying the propagated user identity |
 
-This chain is what enables Principal Propagation — the identity verified in Authentication is carried to the backend via the HTTP Receiver Adapter using the SAML Bearer Assertion.
+In this step, you will configure the **Authentication** policy with the IAS tenant credentials so that the MCP Server can validate tokens issued by SAP Identity Authentication Service.
 
-<br>![](/exercises/ex2/images/02_01_policy_model.png)
+1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. *(If the Policies tab is not already active, click it to open it.)*
+
+   <br>![Navigate to Policies](/exercises/ex2/images/Edit_Policies.png)
+
+2. In the policy model diagram, click on the **Authentication** step to select it.
+
+3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
+
+   | Field | Value |
+   |---|---|
+   | External OAuth (OIDC) | ✓ Check this |
+   | Configuration Type | `Well-Known URL` |
+   | Well-Known URL | *(copy from below)* |
+   | ClientID Key | *(copy from below)* |
+   | UserInfo Key | *(copy from below)* |
+
+   **Well-Known URL:**
+   ```
+   https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
+   ```
+
+   **ClientID Key:**
+   ```
+   ${authn.oidc.jwt.azp}
+   ```
+
+   **UserInfo Key:**
+   ```
+   ${authn.oidc.jwt.email}
+   ```
+
+   <br>![Authentication Policy Settings](/exercises/ex2/images/Edit_Policies2.png)
+
+4. Click **Save** (top right).
 
 ---
 
