@@ -148,7 +148,13 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
    | Title | *(see below)* |
    | Description | *(see below)* |
 
-   Copy and paste the same text into both the **Title** and **Description** fields:
+   Copy and paste into the **Title** field:
+
+   ```
+   Fetch complete onboarding context for a new hire from SuccessFactors
+   ```
+
+   Copy and paste into the **Description** field:
 
    ```
    Fetches complete onboarding context for a new hire from SAP SuccessFactors by calling employee personal info and job info tools and combining them into a single enriched payload.
