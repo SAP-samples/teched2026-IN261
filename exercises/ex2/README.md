@@ -4,7 +4,7 @@
 
 An AI agent is only as useful as the data it can reach. Getting it to enterprise data safely is the challenge.
 
-In this exercise, you will wrap the pre-delivered Business Data Graph (BDG) for Employee Lookup as an **MCP Server** — the standardized bridge between enterprise APIs and AI agents. You will create an MCP artifact, configure it with the BDG's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
+In this exercise, you will wrap the pre-configured Business Data Graph (BDG) for Employee Lookup as an **MCP Server** — the standardized bridge between enterprise APIs and AI agents. You will create an MCP artifact, configure it with the BDG's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
 By the end, employee data in the composed API will be deployed as a MCP server and ready for the consumption in Exercise 3.
 
@@ -13,7 +13,7 @@ By the end, employee data in the composed API will be deployed as a MCP server a
 
 ---
 
-## Pre-Delivered: Composed API via API Composition aka Business Data Graph
+## Pre-Configured: Composed API via API Composition aka Business Data Graph
 
 **API Composition** is a capability in SAP Integration Suite that unifies multiple business APIs into a single, semantically connected data graph — accessible through one powerful API endpoint.
 
@@ -73,7 +73,7 @@ Here is how it works in this exercise:
 
 ## Exercise 2.1 — Create the MCP Server
 
-In this sub-exercise, you create an Integration Package and add an MCP Server artifact configured against the pre-delivered Employee Lookup Composed API.
+In this sub-exercise, you create an Integration Package and add an MCP Server artifact configured against the pre-configured Employee Lookup Composed API.
 
 ### Step 1: Create an Integration Package
 
@@ -291,7 +291,7 @@ Once the status shows **STARTED**, your MCP Server is Deployed on the Integratio
 
 ## Summary
 
-You have now created and deployed an MCP Server that wraps the pre-delivered Employee Lookup Composed API and exposes it securely to AI agents.
+You have now created and deployed an MCP Server that wraps the pre-configured Employee Lookup Composed API and exposes it securely to AI agents.
 
 - The Composed API surfaces two custom entities — **Employee Details** and **Job Details** — giving the agent structured access to both personal and job-related onboarding data
 - The MCP Server handles authentication and authorization using OAuth 2.0
