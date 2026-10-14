@@ -163,12 +163,9 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 > [!IMPORTANT]
 > Only proceed to Exercise 4 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
-### Step 3: Note the MCP URL
+### Step 3: MCP Server Ready
 
-Once the status is **STARTED**, copy the **MCP URL** shown below the artifact name — you will need it in Exercise 4.
-
-> [!WARNING]
-> **Save this URL — you will need it in Exercise 4** when you connect both MCP Servers to the Employee Onboarding Agent.
+Once the status shows **STARTED**, your MCP Server is live on the Integration Cell. The deployed MCP Servers from Exercise 2 and this exercise will be published as a **Managed API product** in the following exercises — making them discoverable and consumable by authorized AI agents without any manual configuration.
 
 ---
 
