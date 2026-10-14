@@ -32,7 +32,7 @@ Instead of building this IFlow from scratch, you use this pre-configured IFlow a
 <br>![Pre-delivered IFlow: Prompt to HR Policy RAG Pipeline](/exercises/ex3/images/IFlow_Image.png)
 
 > [!NOTE]
-> The **OpenAPI Specification** and **Destination** details for this session will be shared by the instructors.
+> Download the **OpenAPI Specification** for this exercise: [Company_Policy_RAG_API.json](../ex3/Company_Policy_RAG_API.json)
 > For a deeper understanding of the AI Launch Pad Document Grounding capability, refer to [SAP Help: Document Grounding](https://help.sap.com/docs/sap-ai-launchpad/sap-ai-launchpad/document-grounding)
 
 ---
@@ -70,7 +70,7 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Upload `Company_Policy_RAG_API.json` *(provided by the instructors)* |
+   | File Name | Download and upload [`Company_Policy_RAG_API.json`](../ex3/Company_Policy_RAG_API.json) |
    | Source | `Destination` |
    | Destination | `in261_iflow_as_mcp` |
    | Relative URL | `/http` |
