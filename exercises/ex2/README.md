@@ -84,9 +84,9 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Version | `1.0.0` |
    | Vendor | `SAP` |
 
-   > [!NOTE]
-   > Replace **XX** with your assigned participant number throughout this exercise.
-   > For instance, user **IN261 050** will create a package named **IN261_050_TechEd_2026_Package**
+> [!NOTE]
+> Replace **XX** with your assigned participant number throughout this exercise.
+> For instance, user **IN261 050** will create a package named **IN261_050_TechEd_2026_Package**
 
    
 4. Click **Save**.
