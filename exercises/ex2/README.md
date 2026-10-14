@@ -296,6 +296,6 @@ You have now created and deployed an MCP Server that wraps the pre-delivered Emp
 - The Composed API surfaces two custom entities — **Employee Details** and **Job Details** — giving the agent structured access to both personal and job-related onboarding data
 - The MCP Server handles authentication and authorization using OAuth 2.0
 - Principal Propagation ensures the backend sees the real caller identity, not a shared service account
-- The MCP endpoint is live on the Integration Cell and ready to receive agent calls
+- The MCP endpoint is live on the Integration Cell.
 
 Continue to - [Exercise 3](../ex3/README.md)
