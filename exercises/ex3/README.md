@@ -29,6 +29,8 @@ A **pre-delivered Integration Flow (IFlow)** has been configured for this sessio
 
 Instead of building this IFlow from scratch, you use this pre-configured IFlow as the data source for your MCP Server. It comes with an **OpenAPI Specification** and a **Destination** — both of which you will use when creating the MCP artifact in the next steps.
 
+<br>![Pre-delivered IFlow: Prompt to HR Policy RAG Pipeline](/exercises/ex3/images/IFlow_Image.png)
+
 > [!NOTE]
 > The **OpenAPI Specification** and **Destination** details for this session will be shared by the instructors.
 > For a deeper understanding of the AI Launch Pad Document Grounding capability, refer to [SAP Help: Document Grounding](https://help.sap.com/docs/sap-ai-launchpad/sap-ai-launchpad/document-grounding)
@@ -80,11 +82,9 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
 
    > Replace **XX** with your assigned participant number.
 
-4. Click **Next**.
-
    <br>![Provide MCP Details](/exercises/ex3/images/Add_MCP4.png)
 
-
+4. Click **Next**.
 
 ### Step 3: Select Tools
 
@@ -94,9 +94,9 @@ On the **Create Tools** screen, select the HR Policy Lookup operation:
 |---|---|---|
 | `POST` | `/newhire/applicable-hr-policy` | Retrieve HR onboarding policy for a new hire |
 
-5. Click **Add** to finish creating the MCP Server artifact.
-
    <br>![Select Tools](/exercises/ex3/images/Add_MCP5.png)
+
+5. Click **Add** to finish creating the MCP Server artifact.
 
 ### Step 4: Edit the Policy Model
 
@@ -132,9 +132,9 @@ The policy model for the HR Policy MCP Server follows the same authentication co
    ${authn.oidc.jwt.email}
    ```
 
-   4. Click **Save** (top right).
-
    <br>![Authentication Policy Settings](/exercises/ex3/images/Edit_Policies2.png)
+
+4. Click **Save** (top right).
 
 ---
 
