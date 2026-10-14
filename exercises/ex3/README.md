@@ -80,9 +80,11 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
 
    > Replace **XX** with your assigned participant number.
 
+4. Click **Next**.
+
    <br>![Provide MCP Details](/exercises/ex3/images/Add_MCP4.png)
 
-4. Click **Next**.
+
 
 ### Step 3: Select Tools
 
@@ -92,9 +94,9 @@ On the **Create Tools** screen, select the HR Policy Lookup operation:
 |---|---|---|
 | `POST` | `/newhire/applicable-hr-policy` | Retrieve HR onboarding policy for a new hire |
 
-   <br>![Select Tools](/exercises/ex3/images/Add_MCP5.png)
-
 5. Click **Add** to finish creating the MCP Server artifact.
+
+   <br>![Select Tools](/exercises/ex3/images/Add_MCP5.png)
 
 ### Step 4: Edit the Policy Model
 
@@ -130,9 +132,9 @@ The policy model for the HR Policy MCP Server follows the same authentication co
    ${authn.oidc.jwt.email}
    ```
 
-   <br>![Authentication Policy Settings](/exercises/ex3/images/Edit_Policies2.png)
+   4. Click **Save** (top right).
 
-4. Click **Save** (top right).
+   <br>![Authentication Policy Settings](/exercises/ex3/images/Edit_Policies2.png)
 
 ---
 
