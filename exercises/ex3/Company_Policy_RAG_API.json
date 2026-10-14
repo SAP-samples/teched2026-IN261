@@ -1,0 +1,109 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Company Policy RAG API",
+    "version": "2.0.0"
+  },
+  "paths": {
+    "/newhire/applicable-hr-policy": {
+      "post": {
+        "summary": "Retrieve HR onboarding policy for a new hire",
+        "operationId": "get_applicable_hr_policy",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "prompt"
+                ],
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "description": "Natural language description of the new hire including role, department, location, and start date",
+                    "example": "A new hire has joined as a Software Engineer in the Research and Development department, based in United States, starting 2026-10-15. What equipment, system access, and training are required for their onboarding?"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "HR Policy result for the new hire",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "equipment": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "equipmentName": {
+                            "type": "string"
+                          },
+                          "equipmentMaterialNo": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "system_access": {
+                      "type": "object",
+                      "properties": {
+                        "day1_automatic": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "additional_support_ticket": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "training": {
+                      "type": "object",
+                      "properties": {
+                        "mandatory_day5": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "mandatory_day10": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "mandatory_day30": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "role_specific": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

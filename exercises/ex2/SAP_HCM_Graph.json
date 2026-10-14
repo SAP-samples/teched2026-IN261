@@ -1,0 +1,549 @@
+{
+  "externalDocs": {
+    "description": "Graph Documentation",
+    "url": "https://help.sap.com/docs/graph"
+  },
+  "info": {
+    "title": "SAP HCM Graph",
+    "version": "1.0.0",
+    "description": "SAP SuccessFactors HCM data via Business Data Graph — Employee Personal Info and Job Details"
+  },
+  "openapi": "3.0.2",
+  "x-sap-shortText": "SAP HCM Employee and Job data via Business Data Graph",
+  "servers": [
+    {
+      "description": "Business Data Graph",
+      "url": "https://sapgraph-api-router/graph/catalog/bestrun.hcmcloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "employee",
+      "description": "Employee personal information — name, gender, date of birth, email, hire date"
+    },
+    {
+      "name": "employeeJob",
+      "description": "Employee job information — job title, manager, company, department, business unit, division, location"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "components": {
+    "schemas": {
+      "bestrun.hcmcloud.employee": {
+        "title": "employee",
+        "type": "object",
+        "properties": {
+          "employeeId": {
+            "type": "string",
+            "example": "IN261-000"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date",
+            "example": "1996-10-04",
+            "nullable": true
+          },
+          "countryOfBirth": {
+            "type": "string",
+            "example": "IND",
+            "nullable": true
+          },
+          "personalInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/bestrun.hcmcloud.employee_personalInfo"
+            }
+          },
+          "emailInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/bestrun.hcmcloud.employee_emailInfo"
+            }
+          }
+        }
+      },
+      "bestrun.hcmcloud.employee_personalInfo": {
+        "title": "employee_personalInfo",
+        "type": "object",
+        "properties": {
+          "employeeId": {
+            "type": "string",
+            "example": "IN261-000"
+          },
+          "employeeStartDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-10-04"
+          },
+          "employeeName": {
+            "type": "string",
+            "example": "Sunny Kapoor",
+            "nullable": true
+          },
+          "employeeFirstName": {
+            "type": "string",
+            "example": "Sunny",
+            "nullable": true
+          },
+          "employeeLastName": {
+            "type": "string",
+            "example": "Kapoor",
+            "nullable": true
+          },
+          "employeeGender": {
+            "type": "string",
+            "example": "M",
+            "nullable": true
+          }
+        }
+      },
+      "bestrun.hcmcloud.employee_emailInfo": {
+        "title": "employee_emailInfo",
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "type": "string",
+            "example": "sunny@example.com",
+            "nullable": true
+          },
+          "isPrimaryEmailAddress": {
+            "type": "boolean",
+            "example": true,
+            "nullable": true
+          }
+        }
+      },
+      "bestrun.hcmcloud.employeeJob": {
+        "title": "employeeJob",
+        "type": "object",
+        "properties": {
+          "seqNumber": {
+            "type": "string",
+            "example": "1"
+          },
+          "employeeId": {
+            "type": "string",
+            "example": "IN261-000"
+          },
+          "hireDate": {
+            "type": "string",
+            "example": "2026-10-04"
+          },
+          "managerEmployeeId": {
+            "type": "string",
+            "example": "M2",
+            "nullable": true
+          },
+          "managerName": {
+            "type": "string",
+            "example": "Wes Lin Chang",
+            "nullable": true
+          },
+          "managerJobTitle": {
+            "type": "string",
+            "example": "ABC",
+            "nullable": true
+          },
+          "managerEmailAddress": {
+            "type": "string",
+            "example": "manager@company.com",
+            "nullable": true
+          },
+          "eventReason": {
+            "type": "string",
+            "example": "HIRNEW",
+            "nullable": true
+          },
+          "positionInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/bestrun.hcmcloud.employeeJob_positionInfo"
+            }
+          },
+          "companyInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/bestrun.hcmcloud.employeeJob_companyInfo"
+            }
+          },
+          "businessUnitInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/bestrun.hcmcloud.employeeJob_businessUnitInfo"
+            }
+          },
+          "divisionInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/bestrun.hcmcloud.employeeJob_divisionInfo"
+            }
+          },
+          "departmentInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/bestrun.hcmcloud.employeeJob_departmentInfo"
+            }
+          },
+          "locationInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/bestrun.hcmcloud.employeeJob_locationInfo"
+            }
+          }
+        }
+      },
+      "bestrun.hcmcloud.employeeJob_positionInfo": {
+        "title": "employeeJob_positionInfo",
+        "type": "object",
+        "properties": {
+          "positionCode": {
+            "type": "string",
+            "example": "90002007"
+          },
+          "positionTitle": {
+            "type": "string",
+            "example": "Business Developer Senior",
+            "nullable": true
+          }
+        }
+      },
+      "bestrun.hcmcloud.employeeJob_companyInfo": {
+        "title": "employeeJob_companyInfo",
+        "type": "object",
+        "properties": {
+          "companyCode": {
+            "type": "string",
+            "example": "10000"
+          },
+          "companyName": {
+            "type": "string",
+            "example": "BestRun",
+            "nullable": true
+          },
+          "companyCountry": {
+            "type": "string",
+            "example": "USA",
+            "nullable": true
+          },
+          "companyCurrency": {
+            "type": "string",
+            "example": "USD",
+            "nullable": true
+          }
+        }
+      },
+      "bestrun.hcmcloud.employeeJob_businessUnitInfo": {
+        "title": "employeeJob_businessUnitInfo",
+        "type": "object",
+        "properties": {
+          "businessUnitCode": {
+            "type": "string",
+            "example": "PRODS"
+          },
+          "businessUnitName": {
+            "type": "string",
+            "example": "Products",
+            "nullable": true
+          }
+        }
+      },
+      "bestrun.hcmcloud.employeeJob_divisionInfo": {
+        "title": "employeeJob_divisionInfo",
+        "type": "object",
+        "properties": {
+          "divisionCode": {
+            "type": "string",
+            "example": "RES_DEV"
+          },
+          "divisionName": {
+            "type": "string",
+            "example": "Research & development",
+            "nullable": true
+          }
+        }
+      },
+      "bestrun.hcmcloud.employeeJob_departmentInfo": {
+        "title": "employeeJob_departmentInfo",
+        "type": "object",
+        "properties": {
+          "departmentCode": {
+            "type": "string",
+            "example": "5000132"
+          },
+          "departmentName": {
+            "type": "string",
+            "example": "Development",
+            "nullable": true
+          }
+        }
+      },
+      "bestrun.hcmcloud.employeeJob_locationInfo": {
+        "title": "employeeJob_locationInfo",
+        "type": "object",
+        "properties": {
+          "locationCode": {
+            "type": "string",
+            "example": "10000-0002"
+          },
+          "locationName": {
+            "type": "string",
+            "example": "New York",
+            "nullable": true
+          },
+          "locationTimezone": {
+            "type": "string",
+            "example": "US/Eastern",
+            "nullable": true
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "JWT Bearer token from BTP/Graph token service"
+      }
+    }
+  },
+  "paths": {
+    "/bestrun.hcmcloud/employee": {
+      "get": {
+        "operationId": "getEmployee",
+        "summary": "Get employee personal info with filter by employeeId",
+        "description": "Returns employee personal info and email. Use $filter=employeeId eq '{id}' and $expand=personalInfo,emailInfo",
+        "tags": [
+          "employee"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "required": true,
+            "description": "Filter by employeeId. Example: employeeId eq 'IN261-000'",
+            "schema": {
+              "type": "string",
+              "example": "employeeId eq 'IN261-000'"
+            }
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "Expand related entities",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "personalInfo",
+                "emailInfo",
+                "personalInfo,emailInfo"
+              ],
+              "example": "personalInfo,emailInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Employee personal info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/bestrun.hcmcloud.employee"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "value": [
+                    {
+                      "employeeId": "IN261-000",
+                      "dateOfBirth": "1996-10-04",
+                      "countryOfBirth": "IND",
+                      "personalInfo": [
+                        {
+                          "employeeId": "IN261-000",
+                          "employeeStartDate": "2026-10-04",
+                          "employeeName": "Sunny Kapoor",
+                          "employeeFirstName": "Sunny",
+                          "employeeLastName": "Kapoor",
+                          "employeeGender": "M"
+                        }
+                      ],
+                      "emailInfo": [
+                        {
+                          "emailAddress": "simplykapoor@gmail.com",
+                          "isPrimaryEmailAddress": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/bestrun.hcmcloud/employeeJob": {
+      "get": {
+        "operationId": "getEmployeeJob",
+        "summary": "Get employee job info with filter by employeeId",
+        "description": "Returns job details including manager, company, department, business unit, division and location. Use $filter=employeeId eq '{id}' and $expand to include sub-entities.",
+        "tags": [
+          "employeeJob"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "required": true,
+            "description": "Filter by employeeId. Example: employeeId eq 'IN261-000'",
+            "schema": {
+              "type": "string",
+              "example": "employeeId eq 'IN261-000'"
+            }
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "description": "Expand related entities",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "positionInfo",
+                "companyInfo",
+                "departmentInfo",
+                "locationInfo",
+                "positionInfo,companyInfo,businessUnitInfo,divisionInfo,departmentInfo,locationInfo"
+              ],
+              "example": "positionInfo,companyInfo,businessUnitInfo,divisionInfo,departmentInfo,locationInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Employee job info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/bestrun.hcmcloud.employeeJob"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "value": [
+                    {
+                      "seqNumber": "1",
+                      "employeeId": "IN261-000",
+                      "hireDate": "2026-10-04",
+                      "managerEmployeeId": "M2",
+                      "managerName": "Wes Lin Chang",
+                      "managerJobTitle": "Director",
+                      "managerEmailAddress": "wes@bestrun.com",
+                      "eventReason": "HIRNEW",
+                      "positionInfo": [
+                        {
+                          "positionCode": "90002007",
+                          "positionTitle": "Business Developer Senior"
+                        }
+                      ],
+                      "companyInfo": [
+                        {
+                          "companyCode": "10000",
+                          "companyName": "BestRun",
+                          "companyCountry": "USA",
+                          "companyCurrency": "USD"
+                        }
+                      ],
+                      "businessUnitInfo": [
+                        {
+                          "businessUnitCode": "PRODS",
+                          "businessUnitName": "Products"
+                        }
+                      ],
+                      "divisionInfo": [
+                        {
+                          "divisionCode": "RES_DEV",
+                          "divisionName": "Research & development"
+                        }
+                      ],
+                      "departmentInfo": [
+                        {
+                          "departmentCode": "5000132",
+                          "departmentName": "Development"
+                        }
+                      ],
+                      "locationInfo": [
+                        {
+                          "locationCode": "10000-0002",
+                          "locationName": "New York",
+                          "locationTimezone": "US/Eastern"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  }
+}
