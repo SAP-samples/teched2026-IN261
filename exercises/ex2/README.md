@@ -42,6 +42,13 @@ Instead of building this from scratch, you use this pre-configured Composed API 
 > The **OpenAPI Specification** and **OData URL** for this session will be shared by the instructors.
 > For a deeper understanding of the capability, refer to [SAP Help: API Composition](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
 
+The entities in the Composed API are linked by their associations — these are the OData expand paths used when calling the tools:
+
+| Entity | Associated Entities |
+|---|---|
+| `employee` | `personalInfo`, `emailInfo` |
+| `employeeJob` | `positionInfo`, `companyInfo`, `businessUnitInfo`, `divisionInfo`, `departmentInfo`, `locationInfo` |
+
 ---
 
 ## Concept: Principal Propagation — Why It Matters Here
@@ -276,12 +283,9 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 
    <br>![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
 
-### Step 3: Note the MCP URL
+### Step 3: MCP Server Ready
 
-Once the status is **STARTED**, copy the **MCP URL** shown below the artifact name — you will need it in Exercise 3.
-
-> [!WARNING]
-> **Save this URL — you will need it in Exercise 3** when you connect this MCP Server to the Employee Onboarding Agent.
+Once the status shows **STARTED**, your MCP Server is live on the Integration Cell. The deployed MCP Servers from this exercise and Exercise 3 will be published as a **Managed API product** in the following exercises — making them discoverable and consumable by authorized AI agents without any manual configuration.
 
 ---
 
