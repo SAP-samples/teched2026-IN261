@@ -4,7 +4,7 @@
 
 An onboarding agent is only as helpful as the knowledge it can access. Knowing *who* the new hire is (Exercise 2) is the first step — knowing *what policies apply to them* is the next.
 
-In this exercise, you will wrap the pre-delivered Integration Flow (IFlow) for HR Policy Lookup as an **MCP Server** — giving the onboarding agent governed, real-time access to company HR policies via SAP Integration Suite. You will create an MCP artifact, configure it with the IFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
+In this exercise, you will wrap the pre-configured Integration Flow (IFlow) for HR Policy Lookup as an **MCP Server** — giving the onboarding agent governed, real-time access to company HR policies via SAP Integration Suite. You will create an MCP artifact, configure it with the IFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
 By the end, the onboarding agent can query HR policies — leave, IT access, code of conduct, and more — through a single secured MCP tool.
 
@@ -13,7 +13,7 @@ By the end, the onboarding agent can query HR policies — leave, IT access, cod
 
 ---
 
-## Pre-Delivered: Integration Flow for HR Policy Lookup
+## Pre-Configured: Integration Flow for HR Policy Lookup
 
 When a new hire joins, they need answers to policy questions — leave entitlements, IT access rules, code of conduct, and more. These policies exist as documents, but an AI agent cannot search unstructured documents on its own.
 
@@ -21,7 +21,7 @@ The **AI Launch Pad Orchestration Document Grounding API** solves this. It index
 
 However, calling the Document Grounding API directly from an agent raises the same governance concerns as any other enterprise API — authentication, authorization, audit, and principal propagation. This is where SAP Integration Suite steps in.
 
-A **pre-delivered Integration Flow (IFlow)** has been configured for this session. It acts as the governed middleware between the MCP Server and the Document Grounding API:
+A **pre-configured Integration Flow (IFlow)** has been configured for this session. It acts as the governed middleware between the MCP Server and the Document Grounding API:
 
 - Receives the policy query from the MCP tool call
 - Authenticates and forwards the request to the AI Launch Pad Document Grounding API
@@ -29,7 +29,7 @@ A **pre-delivered Integration Flow (IFlow)** has been configured for this sessio
 
 Instead of building this IFlow from scratch, you use this pre-configured IFlow as the data source for your MCP Server. It comes with an **OpenAPI Specification** and a **Destination** — both of which you will use when creating the MCP artifact in the next steps.
 
-<br>![Pre-delivered IFlow: Prompt to HR Policy RAG Pipeline](/exercises/ex3/images/IFlow_Image.png)
+<br>![Pre-configured IFlow: Prompt to HR Policy RAG Pipeline](/exercises/ex3/images/IFlow_Image.png)
 
 > [!NOTE]
 > Download the **OpenAPI Specification** for this exercise: [Company_Policy_RAG_API.json](../ex3/Company_Policy_RAG_API.json)
@@ -171,7 +171,7 @@ Once the status shows **STARTED**, your MCP Server is deployed on the Integratio
 
 ## Summary
 
-You have now created and deployed an MCP Server that wraps the pre-delivered HR Policy Lookup IFlow and exposes it securely to AI agents.
+You have now created and deployed an MCP Server that wraps the pre-configured HR Policy Lookup IFlow and exposes it securely to AI agents.
 
 - The IFlow acts as governed middleware between the MCP Server and the AI Launch Pad Document Grounding API
 - The MCP Server handles authentication and authorization using OAuth 2.0
