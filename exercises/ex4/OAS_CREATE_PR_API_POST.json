@@ -1,0 +1,107 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Create Purchase Requisition API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://workshop01a.it-cpi049-rt.cfapps.eu10-003.hana.ondemand.com/http"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "paths": {
+        "/newhire/equipments": {
+            "post": {
+                "description": "Post manager approved new hire equipments to Cloud Integration Flow that creates Purchase Requisition in S/4HANA",
+                "operationId": "create_purchase_requisition",
+                "summary": "Post Manager Approved New Hire Equipments",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "context": {
+                                        "type": "object",
+                                        "properties": {
+                                            "employeeId": {
+                                                "type": "string",
+                                                "title": "Employee ID"
+                                            },
+                                            "employeeName": {
+                                                "type": "string",
+                                                "title": "Employee Name"
+                                            },
+                                            "employeeHireDate": {
+                                                "type": "string",
+                                                "title": "Employee Hire Date"
+                                            },
+                                            "employeeEmail": {
+                                                "type": "string",
+                                                "title": "Employee Email"
+                                            },
+                                            "equipments": {
+                                                "type": "array",
+                                                "title": "Equipments",
+                                                "items": {
+                                                    "type": "object",
+                                                    "title": "Equipment",
+                                                    "properties": {
+                                                        "equipmentName": {
+                                                            "type": "string",
+                                                            "title": "Equipment Name"
+                                                        },
+                                                        "equipmentMaterialNo": {
+                                                            "type": "string",
+                                                            "title": "Equipment Material No"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Purchase Requisition created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "response": {
+                                            "type": "string",
+                                            "title": "PR Response"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "response": "A new purchase requisition https://my426786.s4hana.cloud.sap/ui#PurchaseRequisition-displayFactSheet?PurchaseRequisition=10000801 for approved equipments has been submitted successfully on behalf of newly hired John Doe (EMP001)."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
