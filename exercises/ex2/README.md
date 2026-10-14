@@ -272,28 +272,30 @@ In this sub-exercise, you deploy the MCP Server artifact to the Integration Cell
 
 ### Step 1: Deploy
 
-1. From the artifact overview, click **Deploy**.
-2. Confirm the **Runtime Profile** (`Integration Cell`) and **Virtual Host**.
-3. Click **Yes** to confirm.
+1. From the artifact overview, click **Deploy** (top right).
+2. A confirmation dialog appears. Verify the defaults:
+   - **Runtime Profile:** `Integration Cell`
+   - **Virtual Host:** *(pre-selected, leave as default)*
+3. Click **Deploy** in the dialog to confirm.
 
-### Step 2: Verify Status in Monitoring
+   <br>![Deploy confirmation dialog](/exercises/ex2/images/Deploy.png)
 
-1. Navigate to **Monitor → Integrations and APIs**.
-2. Set **Runtime** to `Integration Cell`.
-3. Click the **Manage Integration Content** tile.
-4. Locate `employeelookup-XX` in the list.
-5. Confirm the Runtime Status shows **Started**.
+### Step 2: Verify Deployment Status
 
-   <br>![](/exercises/ex2/images/02_02_started_status.png)
+Once deployed, the status bar at the top of the artifact page updates to confirm:
+
+**`Deployed on [date], Runtime Status: STARTED`**
+
+   <br>![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
 
    > [!IMPORTANT]
-   > Only proceed to Exercise 3 once the status shows **Started**. A *Starting* status means deployment is still in progress — wait and refresh.
+   > Only proceed to Exercise 3 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ### Step 3: Note the MCP URL
 
-Once the status is **Started**, copy the MCP endpoint URL shown in the details panel:
+Once the status is **STARTED**, copy the **MCP URL** shown below the artifact name — you will need it in Exercise 3.
 
-> [!IMPORTANT]
+> [!WARNING]
 > **Save this URL — you will need it in Exercise 3** when you connect this MCP Server to the Employee Onboarding Agent.
 
 ---
