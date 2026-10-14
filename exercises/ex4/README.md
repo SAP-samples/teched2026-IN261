@@ -118,11 +118,10 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
 1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. *(If the Policies tab is not already active, click it to open it.)*
 
-   <br>![Navigate to Policies tab](/exercises/ex4/images/Auth_Policy.jpg.png)
+   <br>![Navigate to Policies tab](/exercises/ex4/images/after_tool_added.jpg)
 
 2. In the policy model diagram, click on the **Authentication** step to select it.
-
-3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
+ In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
    - Check **External OAuth (OIDC)**
    - Set **Configuration Type** to `Well-Known URL`
@@ -146,9 +145,14 @@ The policy model for the HR Policy MCP Server follows the same authentication co
    ${authn.oidc.jwt.email}
    ```
 
-   <br>![Authentication Policy Settings](/exercises/ex4/images/Auth_Policy.jpg.png)
+   <br>![Authentication Policy Settings](/exercises/ex4/images/Auth_Policy.jpg)
 
-4. Click **Save** (top right).
+4.Click **HTTP Adapter** and got to connections.The destination details will be shown
+<br>![Authentication Policy Settings](/exercises/ex4/images/Connection_details.jpg)
+
+
+5. Click **Save** (top right).
+     <br>![Authentication Policy Settings](/exercises/ex4/images/Save.jpg)
 
 ---
 
