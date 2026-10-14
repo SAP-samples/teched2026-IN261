@@ -25,7 +25,7 @@ A **pre-delivered Integration Flow (IFlow)** has been configured for this sessio
 
 Instead of building this IFlow from scratch, you use this pre-configured IFlow as the data source for your MCP Server. It comes with an **OpenAPI Specification** and a **Destination** — both of which you will use when creating the MCP artifact in the next steps.
 
-<br>![Pre-delivered IFlow: Create Purchase Requisition in S/4HANA system](/exercises/ex3/images/IFlow_Image.png)
+<br>![Pre-delivered IFlow: Create Purchase Requisition in S/4HANA system](/exercises/ex4/images/Predeployed_createPR_Iflow.jpg)
 
 > [!NOTE]
 > Download the **OpenAPI Specification** for this exercise: [OAS_CREATE_PR_API_POST.json](../ex4/OAS_CREATE_PR_API_POST.json)
@@ -84,7 +84,7 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download and upload [`Company_Policy_RAG_API.json`](../ex3/Company_Policy_RAG_API.json) |
+   | File Name | Download and upload [`OAS_CREATE_PR_API_POST.json`](../ex4/OAS_CREATE_PR_API_POST.json) |
    | Source | `Destination` |
    | Destination | `in261_iflow_as_mcp` |
    | Relative URL | `/http` |
@@ -112,11 +112,11 @@ On the **Create Tools** screen, select the HR Policy Lookup operation:
 
 5. Click **Add** to finish creating the MCP Server artifact.
 
-### Step 4: Edit the Policy Model
+### Step 4: Define the Authorization and Authentication policy
 
-The policy model for the HR Policy MCP Server follows the same authentication configuration as Exercise 2 — External OAuth (OIDC) via IAS, ensuring every agent request is verified before reaching the HR policy backend.
+The policy model for the Create PR follows the same authentication configuration as Exercise 2 — External OAuth (OIDC) via IAS, ensuring every agent request is authenticated ,authorised and propagates the user identity to S/4HANA backend
 
-1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. *(If the Policies tab is not already active, click it to open it.)*
+1. From the tools tab in which the tool sleected gets addded can be seen, click **Policies** tab.
 
    <br>![Navigate to Policies tab](/exercises/ex4/images/after_tool_added.jpg)
 
@@ -158,7 +158,7 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
 ## Exercise 3.2 — Deploy the MCP Server
 
-In this sub-exercise, you deploy the HR Policy MCP Server artifact to the Integration Cell and verify it is running.
+In this sub-exercise, you deploy the Create Purchase Requisition MCP Server artifact to the Integration Cell and verify it is running.
 
 ### Step 1: Deploy
 
@@ -182,7 +182,7 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 )
 
 > [!IMPORTANT]
-> Only proceed to Exercise 4 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
+> Only proceed to Exercise 5 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ### Step 3: MCP Server Ready
 
@@ -192,11 +192,11 @@ Once the status shows **STARTED**, your MCP Server is deployed on the Integratio
 
 ## Summary
 
-You have now created and deployed an MCP Server that wraps the pre-delivered HR Policy Lookup IFlow and exposes it securely to AI agents.
+You have now created and deployed an MCP Server that wraps the pre-delivered Create Purchase Requisition IFlow and exposes it securely to AI agents.
 
-- The IFlow acts as governed middleware between the MCP Server and the AI Launch Pad Document Grounding API
-- The MCP Server handles authentication and authorization using OAuth 2.0
-- Principal Propagation ensures the backend sees the real caller identity, not a shared service account
+- The IFlow acts as mediation layer between the MCP Server and the S/4 HANA backend system
+- The MCP Server handles authentication and authorization using External OIDC oAuth2JWTBearer Authentication
+- Principal Propagation ensures the backend sees the real caller identity
 - The MCP endpoint is live on the Integration Cell.
 
 Continue to - [Exercise 4](../ex4/README.md)
