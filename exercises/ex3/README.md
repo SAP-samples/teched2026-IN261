@@ -68,19 +68,21 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Upload the HR Policy OpenAPI Specification *(provided by the instructors)* |
+   | File Name | Upload `Company_Policy_RAG_API.json` *(provided by the instructors)* |
    | Source | `Destination` |
-   | Destination | `[TODO: Destination name — provided by instructors]` |
-   | Relative URL | `[TODO: Relative URL of the HR Policy IFlow]` |
-   | Name | `IN261_0XX_HR_Policy_MCP` |
-   | ID | `IN261_0XX_HR_Policy_MCP` |
-   | MCP Path | `/in261_0XX_hr_policy_mcp` |
+   | Destination | `in261_iflow_as_mcp` |
+   | Relative URL | `/http` |
+   | Name | `IN261_0XX_HR_Policy_Lookup_MCP` |
+   | ID | `IN261_0XX_HR_Policy_Lookup_MCP` |
+   | MCP Path | `/in261_0XX_hr_policy_lookup_mcp` |
    | Version | `1.0.0` |
    | Runtime Profile | `Integration Cell` |
 
    > Replace **XX** with your assigned participant number.
 
-5. Click **Next**.
+   <br>![Provide MCP Details](/exercises/ex3/images/Add_MCP4.png)
+
+4. Click **Next**.
 
 ### Step 3: Select Tools
 
@@ -88,47 +90,22 @@ On the **Create Tools** screen, select the HR Policy Lookup operation:
 
 | Method | Path | Description |
 |---|---|---|
-| `[TODO]` | `[TODO: HR Policy tool path]` | `[TODO: Tool description]` |
+| `POST` | `/newhire/applicable-hr-policy` | Retrieve HR onboarding policy for a new hire |
 
-6. Click **Add** to finish creating the MCP Server artifact.
+   <br>![Select Tools](/exercises/ex3/images/Add_MCP5.png)
 
-### Step 4: Add Prompt
+5. Click **Add** to finish creating the MCP Server artifact.
 
-A **Prompt** gives the onboarding agent a structured, reusable way to query HR policies for a new hire — so it always asks the right question in the right format.
-
-1. From the artifact overview, click **Edit** (top right).
-2. Go to the **MCP Configuration** tab → **Prompts** sub-tab → click **Add**.
-3. In the **Add Prompt** dialog, fill in the **Define Prompt** details and click **Next**:
-
-   | Field | Value |
-   |---|---|
-   | Name | `[TODO: prompt name]` |
-   | Title | `[TODO: prompt title]` |
-   | Description | `[TODO: prompt description]` |
-
-4. On the **Define Arguments** screen, fill in the following and click **Next**:
-
-   | Field | Value |
-   |---|---|
-   | Name | `[TODO: argument name]` |
-   | Title | `[TODO: argument title]` |
-   | Description | `[TODO: argument description]` |
-   | Required | ✓ |
-
-5. On the **Define Messages** screen, set the **Role** to `User` and paste the following into the **Content** field:
-
-   ```
-   [TODO: Prompt message content]
-   ```
-
-6. Click **Add** to save the prompt. Then click **Save** (top right) to save the artifact.
-
-### Step 5: Edit the Policy Model
+### Step 4: Edit the Policy Model
 
 The policy model for the HR Policy MCP Server follows the same authentication configuration as Exercise 2 — External OAuth (OIDC) via IAS, ensuring every agent request is verified before reaching the HR policy backend.
 
 1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. *(If the Policies tab is not already active, click it to open it.)*
+
+   <br>![Navigate to Policies tab](/exercises/ex3/images/Edit_Policies.png)
+
 2. In the policy model diagram, click on the **Authentication** step to select it.
+
 3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
    - Check **External OAuth (OIDC)**
@@ -153,6 +130,8 @@ The policy model for the HR Policy MCP Server follows the same authentication co
    ${authn.oidc.jwt.email}
    ```
 
+   <br>![Authentication Policy Settings](/exercises/ex3/images/Edit_Policies2.png)
+
 4. Click **Save** (top right).
 
 ---
@@ -169,11 +148,15 @@ In this sub-exercise, you deploy the HR Policy MCP Server artifact to the Integr
    - **Virtual Host:** *(pre-selected, leave as default)*
 3. Click **Deploy** in the dialog to confirm.
 
+   <br>![Deploy confirmation dialog](/exercises/ex3/images/Deploy1.png)
+
 ### Step 2: Verify Deployment Status
 
 Once deployed, the status bar at the top of the artifact page updates to confirm:
 
 **`Deployed on [date], Runtime Status: STARTED`**
+
+   <br>![Deployment status STARTED](/exercises/ex3/images/Deploy2.png)
 
 > [!IMPORTANT]
 > Only proceed to Exercise 4 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
