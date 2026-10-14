@@ -165,7 +165,7 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 
 ### Step 3: MCP Server Ready
 
-Once the status shows **STARTED**, your MCP Server is live on the Integration Cell. The deployed MCP Servers from Exercise 2 and this exercise will be published as a **Managed API product** in the following exercises — making them discoverable and consumable by authorized AI agents without any manual configuration.
+Once the status shows **STARTED**, your MCP Server is deployed on the Integration Cell. The deployed MCP Servers from Exercise 2 and this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
 
 ---
 
@@ -176,6 +176,6 @@ You have now created and deployed an MCP Server that wraps the pre-delivered HR 
 - The IFlow acts as governed middleware between the MCP Server and the AI Launch Pad Document Grounding API
 - The MCP Server handles authentication and authorization using OAuth 2.0
 - Principal Propagation ensures the backend sees the real caller identity, not a shared service account
-- The MCP endpoint is live on the Integration Cell and ready to receive agent calls
+- The MCP endpoint is live on the Integration Cell.
 
 Continue to - [Exercise 4](../ex4/README.md)
