@@ -285,7 +285,7 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 
 ### Step 3: MCP Server Ready
 
-Once the status shows **STARTED**, your MCP Server is live on the Integration Cell. The deployed MCP Servers from this exercise and Exercise 3 will be published as a **Managed API product** in the following exercises — making them discoverable and consumable by authorized AI agents without any manual configuration.
+Once the status shows **STARTED**, your MCP Server is Deployed on the Integration Cell. The deployed MCP Servers from this exercise and Exercise 3 will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
 
 ---
 
