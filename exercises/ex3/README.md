@@ -42,16 +42,28 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
 ### Step 1: Open the Existing Integration Package
 
 1. In SAP Integration Suite, navigate to **Design → Integrations and APIs**.
+
+   <br>![Navigate to Integrations and APIs](/exercises/ex3/images/Int_Package1.png)
+
 2. Search for and open your package `IN261_0XX_TechEd_2026_Package` from Exercise 2.
 
    > Replace **XX** with your assigned participant number.
 
+3. Inside the package, click **Edit** (top right) to enter edit mode. The `IN261_0XX_Employee_Lookup_MCP` artifact from Exercise 2 will already be visible — you will add the HR Policy MCP Server alongside it.
+
+   <br>![Open package and click Edit](/exercises/ex3/images/Add_MCP1.png)
+
 ### Step 2: Add an MCP Server Artifact
 
-1. In the package, go to the **Artifacts** tab.
-2. Click **Add** and select **MCP Server** from the dropdown.
-3. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
-4. Fill in the MCP Server details:
+1. In the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
+
+   <br>![Add MCP Server](/exercises/ex3/images/Add_MCP2.png)
+
+2. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
+
+   <br>![Select Source Type](/exercises/ex3/images/Add_MCP3.png)
+
+3. Fill in the MCP Server details:
 
    | Field | Value |
    |---|---|
