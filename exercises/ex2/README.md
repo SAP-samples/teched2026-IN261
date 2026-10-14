@@ -1,4 +1,4 @@
-# Exercise 2 — Create and Deploy a MCP Server for Employee Lookup
+# Exercise 2 — Create and Deploy an MCP Server for New Hire Employee Lookup
 
 ## Overview
 
