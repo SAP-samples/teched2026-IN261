@@ -73,11 +73,11 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
 
 1. In the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
 
-   <br>![Add MCP Server](/exercises/ex3/images/Add_MCP2.png)
+   <br>![Add MCP Server](/exercises/ex4/images/Add_MCP_Server.jpg)
 
 2. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
 
-   <br>![Select Source Type](/exercises/ex3/images/Add_MCP3.png)
+   <br>![Select Source Type](/exercises/ex4/images/MCP_HTTP_Endpoint.jpg)
 
 3. Fill in the MCP Server details:
 
@@ -96,7 +96,7 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
 
    > Replace **XX** with your assigned participant number.
 
-   <br>![Provide MCP Details](/exercises/ex3/images/Add_MCP4.png)
+   <br>![Provide MCP Details](/exercises/ex4/images/CreateMCP.jpg)
 
 4. Click **Next**.
 
@@ -108,7 +108,7 @@ On the **Create Tools** screen, select the HR Policy Lookup operation:
 |---|---|---|
 | `POST` | `/newhire/equipments` | Retrieve HR onboarding policy for a new hire |
 
-   <br>![Select Tools](/exercises/ex3/images/Add_MCP5.png)
+   <br>![Select Tools](/exercises/ex4/images/Tool_Selection.jpg)
 
 5. Click **Add** to finish creating the MCP Server artifact.
 
@@ -118,7 +118,7 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
 1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. *(If the Policies tab is not already active, click it to open it.)*
 
-   <br>![Navigate to Policies tab](/exercises/ex3/images/Edit_Policies.png)
+   <br>![Navigate to Policies tab](/exercises/ex4/images/Auth_Policy.jpg.png)
 
 2. In the policy model diagram, click on the **Authentication** step to select it.
 
@@ -146,7 +146,7 @@ The policy model for the HR Policy MCP Server follows the same authentication co
    ${authn.oidc.jwt.email}
    ```
 
-   <br>![Authentication Policy Settings](/exercises/ex3/images/Edit_Policies2.png)
+   <br>![Authentication Policy Settings](/exercises/ex4/images/Auth_Policy.jpg.png)
 
 4. Click **Save** (top right).
 
@@ -159,12 +159,14 @@ In this sub-exercise, you deploy the HR Policy MCP Server artifact to the Integr
 ### Step 1: Deploy
 
 1. From the artifact overview, click **Deploy** (top right).
+    <br>![Deploy](/exercises/ex4/images/Click_Deploy.jpg)
+
 2. A confirmation dialog appears. Verify the defaults:
    - **Runtime Profile:** `Integration Cell`
    - **Virtual Host:** *(pre-selected, leave as default)*
 3. Click **Deploy** in the dialog to confirm.
 
-   <br>![Deploy confirmation dialog](/exercises/ex3/images/Deploy1.png)
+   <br>![Deploy confirmation dialog](/exercises/ex4/images/After_Deploy.jpg)
 
 ### Step 2: Verify Deployment Status
 
@@ -172,7 +174,8 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 
 **`Deployed on [date], Runtime Status: STARTED`**
 
-   <br>![Deployment status STARTED](/exercises/ex3/images/Deploy2.png)
+   <br>![Deployment status STARTED](/exercises/ex4/images/After_Deployed.jpg
+)
 
 > [!IMPORTANT]
 > Only proceed to Exercise 4 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
