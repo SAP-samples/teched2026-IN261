@@ -17,7 +17,7 @@ By the end, employee data in the composed API will be deployed as a MCP server a
 
 **API Composition** is a capability in SAP Integration Suite that unifies multiple business APIs into a single, semantically connected data graph — accessible through one powerful API endpoint.
 
-When a new employee is hired in SAP SuccessFactors, their data is spread across multiple independent APIs — personal profile, job assignment, location, business unit, department, division, manager, and more. Each API answers one question, but no single API tells the full story of a new hire.
+When a new employee is hired, their data is spread across multiple independent APIs — personal profile, job assignment, location, business unit, department, division, manager, and more. Each API answers one question, but no single API tells the full story of a new hire.
 
 If an AI agent were to call each of these APIs as separate MCP tools, it would quickly run into **context rot** — a problem where the agent's context window fills up with redundant, overlapping, or inconsistently structured data from too many tool calls. The agent loses coherence, misses relationships between fields, and produces unreliable results.
 
@@ -71,24 +71,29 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
 ### Step 1: Create an Integration Package
 
 1. In SAP Integration Suite, navigate to **Design → Integrations and APIs**.
+2. Click **Create**.
 
    <br>![Navigate to Integrations and APIs](/exercises/ex2/images/Create_IntegrationPackage1.png)
 
-2. Click **Create**.
 3. Fill in the package details:
 
    | Field | Value |
    |---|---|
-   | Name | `employee-onboarding-package-XX` |
-   | Short Description | MCP Server for Employee Lookup using pre-delivered Composed API |
+   | Name | `IN261_0XX_TechEd_2026_Package` |
+   | Short Description | Learn how the MCP Gateway in SAP Integration Suite applies policy, security, and analytics while curating MCP tools. Securely connect enterprise tools to an AI agent, including unified APIs with event-driven context and governed access. |
    | Version | `1.0.0` |
    | Vendor | `SAP` |
 
+   > [!NOTE]
    > Replace **XX** with your assigned participant number throughout this exercise.
+   > For instance, user **IN261 050** will create a package named **IN261_050_TechEd_2026_Package**
+
+   
+4. Click **Save**.
 
    <br>![Fill in Package Details](/exercises/ex2/images/Create_IntegrationPackage2.png)
 
-4. Click **Save**.
+
 
 ### Step 2: Add an MCP Server Artifact
 
@@ -110,16 +115,18 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Source | `Destination` |
    | Destination | `in261_hcmcloud_mcp` |
    | Relative URL | `/api/in261-hcmcloud` |
-   | Name / ID | `IN261_0XX_Employee_Lookup_MCP` |
+   | Name | `IN261_0XX_Employee_Lookup_MCP` |
+   | ID | `IN261_0XX_Employee_Lookup_MCP` |
    | MCP Path | `/in261_0XX_employee_lookup_mcp` |
    | Version | `1.0.0` |
    | Runtime Profile | `Integration Cell` |
 
    > Replace **XX** with your assigned participant number.
+5. Click **Next**.
 
    <br>![Provide MCP Details](/exercises/ex2/images/Add_MCP_Server3.png)
 
-5. Click **Next**.
+
 
 ### Step 3: Select Tools
 
@@ -130,9 +137,10 @@ On the **Create Tools** screen, two tools are available from the uploaded API sp
 | `GET` | `/bestrun.hcmcloud/employee` | Returns employee personal info and email. Supports `$filter=employeeId eq '{id}'` and `$expand=personalInfo,emailInfo` |
 | `GET` | `/bestrun.hcmcloud/employeeJob` | Returns job details including manager, company, department, business unit, division, and location |
 
+6. Click **Add** to finish creating the MCP Server artifact.
+
    <br>![Create Tools](/exercises/ex2/images/Add_MCP_Server4.png)
 
-6. Click **Add** to finish creating the MCP Server artifact.
 
 ### Step 4: Add Prompt
 
@@ -144,29 +152,17 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
 
 2. Go to the **MCP Configuration** tab → **Prompts** sub-tab → click **Add**.
 
-3. In the **Add Prompt** dialog, fill in the **Define Prompt** details:
+3. In the **Add Prompt** dialog, fill in the **Define Prompt** details and Click **Next** :
 
    | Field | Value |
    |---|---|
    | Name | `get_new_hire_context` |
-   | Title | *(see below)* |
-   | Description | *(see below)* |
-
-   Copy and paste into the **Title** field:
-
-   ```
-   Fetch complete onboarding context for a new hire from SuccessFactors
-   ```
-
-   Copy and paste into the **Description** field:
-
-   ```
-   Fetches complete onboarding context for a new hire from SAP SuccessFactors by calling employee personal info and job info tools and combining them into a single enriched payload.
-   ```
+   | Title | Fetch complete onboarding context for a new hire from SuccessFactors |
+   | Description | Fetches complete onboarding context for a new hire from SAP SuccessFactors by calling employee personal info and job info tools and combining them into a single enriched payload. |
 
    <br>![Define Prompt](/exercises/ex2/images/Add_Prompt2.png)
 
-4. Click **Next**. On the **Define Arguments** screen, fill in the following:
+4. On the **Define Arguments** screen, fill in the following and Click **Next** :
 
    | Field | Value |
    |---|---|
@@ -177,7 +173,7 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
 
    <br>![Define Arguments](/exercises/ex2/images/Add_Prompt3.png)
 
-5. Click **Next**. On the **Define Messages** screen, set the **Role** to `User` and paste the following into the **Content** field:
+5. On the **Define Messages** screen, set the **Role** to `User` and paste the following into the **Content** field:
 
    ```
    Fetch the complete onboarding context for new hire {{ .employeeId }}'.
@@ -212,27 +208,19 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
      "country": "..."
    }
    ```
-
+6. Click **Add** to save the prompt. Then click **Save** (top right) to save the artifact.
    <br>![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
 
-6. Click **Add** to save the prompt. Then click **Save** (top right) to save the artifact.
 
 ---
 
 ### Step 5: Edit the Policy Model
 
-The policy model defines how every agent request is authenticated and authorized before it reaches the backend. It contains four components that process each request in sequence:
-
-| Component | Purpose |
-|---|---|
-| **MCP Sender Adapter** | Entry point — receives requests from the AI agent |
-| **Authentication** | Verifies the caller's identity using External OAuth (OIDC) via IAS |
-| **Authorization** | Checks permissions using OAuth Scope `API.invoke` |
-| **HTTP Receiver Adapter** | Forwards the request to the backend, carrying the propagated user identity |
+The policy model defines how every agent request is authenticated and authorized before it reaches the backend. 
 
 In this step, you will configure the **Authentication** policy with the IAS tenant credentials so that the MCP Server can validate tokens issued by SAP Identity Authentication Service.
 
-1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. *(If the Policies tab is not already active, click it to open it.)*
+1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. 
 
    <br>![Navigate to Policies](/exercises/ex2/images/Edit_Policies.png)
 
@@ -250,6 +238,7 @@ In this step, you will configure the **Authentication** policy with the IAS tena
    https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
    ```
 
+   ***Audience** : Leave it empty.
    **ClientID Key:**
    ```
    ${authn.oidc.jwt.azp}
@@ -259,10 +248,9 @@ In this step, you will configure the **Authentication** policy with the IAS tena
    ```
    ${authn.oidc.jwt.email}
    ```
-
-   <br>![Authentication Policy Settings](/exercises/ex2/images/Edit_Policies2.png)
-
 4. Click **Save** (top right).
+   
+   <br>![Authentication Policy Settings](/exercises/ex2/images/Edit_Policies2.png)
 
 ---
 
@@ -287,9 +275,6 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 **`Deployed on [date], Runtime Status: STARTED`**
 
    <br>![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
-
-   > [!IMPORTANT]
-   > Only proceed to Exercise 3 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ### Step 3: Note the MCP URL
 
