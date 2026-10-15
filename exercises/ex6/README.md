@@ -151,7 +151,7 @@ d3230023-bd4b-46ae-901e-65acaeda9ab4
 ```
 
 > [!NOTE]
-> **Save this Client ID** — you will need it alongside the Key (Client Secret) in Exercise 6.3 to authenticate your AI agent.
+> The Client ID is already configured as an environment variable in your AI agent. It is important to use the **exact Client ID** matching your tenant — using the wrong value will cause authentication to fail.
 
 Click **Create**.
 
@@ -191,7 +191,7 @@ On the subscription **Overview** page, note the **Wellknown URL** and locate the
 | **Key** | OAuth Client Secret — click the **eye icon** (top right of the Credentials section) to reveal the value, then click the **copy icon** next to it |
 
 > [!NOTE]
-> Together with the **Client ID** you copied from the subscription dialog, these are the three values your AI agent needs: **Wellknown URL**, **Client ID**, and **Key** (Client Secret).
+> The **Client ID** is already configured as an environment variable in your AI agent — no need to store it separately. The **Wellknown URL** and **Key** (Client Secret) are the values you need to copy from here.
 
 > [!NOTE]
 > It may take a short while for the credentials to appear. If the Credentials section is not yet visible, refresh the page and try again.
