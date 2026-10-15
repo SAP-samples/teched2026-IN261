@@ -62,7 +62,7 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download The **OpenAPI Specification** from here [`Company_Policy_RAG_API.json`](https://github.com/SAP-samples/teched2026-IN261/raw/main/exercises/ex3/Company_Policy_RAG_API.json) and Upload it. |
+   | File Name | Download The **OpenAPI Specification** from here [`Company_Policy_RAG_API.json`](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/Company_Policy_RAG_API.json) and Upload it. |
    | Source | `Destination` |
    | Destination | `in261_iflow_as_mcp` |
    | Relative URL | `/http` |
