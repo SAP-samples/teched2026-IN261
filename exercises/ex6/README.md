@@ -37,7 +37,9 @@ In this sub-exercise, you navigate to the Developer Hub, select all three deploy
 
 You will land on the **Developer Hub** home page — the centralized catalog for APIs, Events, and MCP Servers.
 
-   <br>![Developer Hub home page](/exercises/ex6/images/DeveloperHub_HomePage.png)
+Notice that a product **`IN261 Employee Onboarding`** is already visible in the catalog. This is a **solution product** pre-configured by the session instructors — it contains the same four MCP Servers bundled and published as a reference. In the steps below, you will create your own participant-specific product (`IN261_0XX Employee Onboarding`) in exactly the same way.
+
+   <br>![Developer Hub home page — solution product already visible in catalog](/exercises/ex6/images/DeveloperHub_HomePage.png)
 
 ### Step 3: Open Admin Center → Content
 
