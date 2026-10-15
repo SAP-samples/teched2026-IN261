@@ -4,6 +4,9 @@
 
 In this exercise, you will deploy an **MCP Server** from a pre-configured Integration Flow (iFlow) for HR Policy Lookup — giving the onboarding agent governed, real-time access to company HR policies via SAP Integration Suite. You will create an MCP artifact, configure it with the iFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
+> [!NOTE]
+> This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
+
 ---
 
 ## Pre-Configured: Integration Flow for HR Policy Lookup
@@ -80,7 +83,7 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
 
    <br>![Select Tools](/exercises/ex3/images/Add_MCP5.png)
 
-### Step 3: Edit the Policy Model
+### Step 3: Edit the MCP Policy
 
 
 The policy model for the HR Policy MCP Server follows the same authentication configuration as Exercise 2 — External OAuth (OIDC) via IAS, ensuring every agent request is verified before reaching the HR policy backend.
