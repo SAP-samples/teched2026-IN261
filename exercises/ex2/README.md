@@ -1,19 +1,14 @@
 # Exercise 2 — Create and Deploy an MCP Server for New Hire Employee Lookup
 
-## Overview
-
 An AI agent is only as useful as the data it can reach. Getting it to enterprise data safely is the challenge.
 
-In this exercise, you will wrap the pre-configured Business Data Graph (BDG) for Employee Lookup as an **MCP Server** — the standardized bridge between enterprise APIs and AI agents. You will create an MCP artifact, configure it with the BDG's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
-
-By the end, employee data in the composed API will be deployed as a MCP server and ready for the consumption in Exercise 3.
+In this exercise, you will deploy an **MCP Server** for Employee Lookup from the pre-configured Business Data Graph (BDG). You will create an MCP artifact, configure it with the BDG's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
 > [!NOTE]
 > For a deeper understanding of the **Model Context Protocol (MCP)** and **MCP paradigm in SAP Integration Suite**, refer to [What is the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) and [MCP Gateway in SAP Integration Suite](https://community.sap.com/t5/technology-blog-posts-by-sap/mcp-gateway-in-sap-integration-suite-your-apis-ready-for-the-age-of-agents/ba-p/14438250)
 
----
-
 ## Pre-Configured: Composed API via API Composition aka Business Data Graph
+
 
 **API Composition** is a capability in SAP Integration Suite that unifies multiple business APIs into a single, semantically connected data graph — accessible through one powerful API endpoint.
 
@@ -49,9 +44,9 @@ The entities in the Composed API are linked by their source entities — these a
 | `employee` | `sap.hcm/PerPerson`, `sap.hcm/PerPerson`, `sap.hcm/PerEmail` |
 | `employeeJob` | `sap.hcm/EmpJob`, `sap.hcm/User`, `sap.hcm/FODepartment`, `sap.hcm/FODivision`, `sap.hcm/FOLocation`, `sap.hcm/FOCompany` |
 
----
 
 ## Concept: Principal Propagation — Why It Matters Here
+
 
 When your AI agent calls the MCP Server to look up an employee, the backend system needs to know *who* is making that request. Using a shared service account hides the real caller — this breaks audit trails, access controls, and compliance requirements.
 
@@ -69,7 +64,6 @@ Here is how it works in this exercise:
 > [!NOTE]
 > For a deeper understanding, refer to [SAP Help: Principal Propagation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
 
----
 
 ## Exercise 2.1 — Create the MCP Server
 
@@ -119,7 +113,7 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download The **OpenAPI Specification** from here [`SAP_HCM_Graph.json`](../ex2/SAP_HCM_Graph.json) and upload it. |
+   | File Name | Download The **OpenAPI Specification** from [`SAP_HCM_Graph.json`](../ex2/SAP_HCM_Graph.json) and upload it. |
    | Source | `Destination` |
    | Destination | `in261_hcmcloud_mcp` |
    | Relative URL | `/api/in261-hcmcloud` |
@@ -215,9 +209,7 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
    <br>![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
 
 
----
-
-### Step 5: Edit the Policy Model
+### Step 4: Edit the MCP Policy
 
 The policy model defines how every agent request is authenticated and authorized before it reaches the backend. 
 
@@ -259,7 +251,6 @@ In this step, you will configure the **Authentication** policy with the IAS tena
    
    <br>![Authentication Policy Settings](/exercises/ex2/images/Edit_Policies2.png)
 
----
 
 ## Exercise 2.2 — Deploy the MCP Server
 
@@ -283,11 +274,11 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 
    <br>![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
 
----
+You have now deployed a MCP Server on the Integration Cell. The deployed MCP Servers from this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
+
 
 ## Summary
 
-You have now deployed a MCP Server on the Integration Cell. The deployed MCP Servers from this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
 
 - The Composed API surfaces two custom entities — **Employee Details** and **Job Details** — giving the agent structured access to both personal and job-related onboarding data
 - The MCP Server handles authentication and authorization using OAuth 2.0
