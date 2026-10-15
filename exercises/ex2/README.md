@@ -274,13 +274,12 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 
    <br>![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
 
-You have now deployed a MCP Server on the Integration Cell. The deployed MCP Servers from this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
-
 > [!IMPORTANT]
 > Only proceed to Exercise 3 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ## Summary
 
+You have now deployed a MCP Server on the Integration Cell. The deployed MCP Servers from this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
 
 - The Composed API surfaces two custom entities — **Employee Details** and **Job Details** — giving the agent structured access to both personal and job-related onboarding data
 - The MCP Server handles authentication and authorization using OAuth 2.0
