@@ -34,7 +34,7 @@ From these data sources, two custom entities have been created to structure the 
 Instead of building this from scratch, you use this pre-configured Composed API as the data source for your MCP Server. It comes with an **OpenAPI Specification** and an **OData URL** — both of which you will use when creating the MCP artifact in the next steps.
 
 > [!NOTE]
-> Download the **OpenAPI Specification** for this exercise: [SAP_HCM_Graph.json](../ex2/SAP_HCM_Graph.json)
+> Download the **OpenAPI Specification** for this exercise: [SAP_HCM_Graph.json](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/SAP_HCM_Graph.json)
 > For a deeper understanding of the capability, refer to [SAP Help: API Composition](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
 
 The entities in the Composed API are linked by their source entities — these are the OData expand paths used when calling the tools:
@@ -113,7 +113,7 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download The **OpenAPI Specification** from [`SAP_HCM_Graph.json`](../ex2/SAP_HCM_Graph.json) and upload it. |
+   | File Name | Download The **OpenAPI Specification** from [`SAP_HCM_Graph.json`](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/SAP_HCM_Graph.json) and upload it. |
    | Source | `Destination` |
    | Destination | `in261_hcmcloud_mcp` |
    | Relative URL | `/api/in261-hcmcloud` |
