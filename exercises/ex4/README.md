@@ -75,7 +75,7 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download and upload [`OAS_CREATE_PR_API_POST.json`](../ex4/OAS_CREATE_PR_API_POST.json) |
+   | File Name | Download and upload [`OAS_CREATE_PR_API_POST.json`](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/OAS_CREATE_PR_API_POST.json) |
    | Source | `Destination` |
    | Destination | `in261_iflow_as_mcp` |
    | Relative URL | `/http` |
