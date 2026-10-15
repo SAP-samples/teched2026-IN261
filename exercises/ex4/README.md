@@ -2,7 +2,7 @@
 
 Once the policies applicable to New Hire are determined in (Exercise 3)
 
-In this exercise, you will wrap the pre-delivered Integration Flow (iFlow) for Creating Purchase Requisition as an **MCP Server** — giving the onboarding agent governed, real-time access to creating Purchase Requisition in SAP S/4HANA via SAP Integration Suite. You will create an MCP artifact, configure it with the iFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
+In this exercise, you will wrap the pre-configured Integration Flow (iFlow) for Creating Purchase Requisition as an **MCP Server** — giving the onboarding agent governed, real-time access to creating Purchase Requisition in SAP S/4HANA via SAP Integration Suite. You will create an MCP artifact, configure it with the iFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
 By the end, the onboarding agent can create Purchase Requisition post manager approval — through a single secured MCP tool.
 
@@ -10,11 +10,11 @@ By the end, the onboarding agent can create Purchase Requisition post manager ap
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
 
 
-## Pre-Delivered: Integration Flow for Creating Purchase Requisition
+## Pre-Configured: Integration Flow for Creating Purchase Requisition
 
 When the manager has approved the relevant equipment for the new hire, the Purchase Requisition needs to be created in S/4 HANA system to make it available to the new hire to carry out day-to-day tasks
 
-A **pre-delivered Integration Flow (iFlow)** has been configured for this session. It acts as the mediation layer to post purchase requisition in S/4HANA
+A **pre-configured Integration Flow (iFlow)** has been configured for this session. It acts as the mediation layer to post purchase requisition in S/4HANA
 
 - MCP tool call invokes the integration flow via POST with the approved equipment and trainings payload
 - Authenticates and forwards the request to S/4 HANA System based on oAuth2SAMLBearerAssertion
@@ -22,7 +22,7 @@ A **pre-delivered Integration Flow (iFlow)** has been configured for this sessio
 
 Instead of building this iFlow from scratch, you use this pre-configured iFlow as the data source for your MCP Server. It comes with an **OpenAPI Specification** and a **Destination** — both of which you will use when creating the MCP artifact in the next steps.
 
-<br>![Pre-delivered iFlow: Create Purchase Requisition in S/4HANA system](/exercises/ex4/images/Predeployed_createPR_Iflow.jpg)
+<br>![Pre-configured iFlow: Create Purchase Requisition in S/4HANA system](/exercises/ex4/images/Predeployed_createPR_Iflow.jpg)
 
 ## Concept: Principal Propagation — Why It Matters Here
 
@@ -44,7 +44,7 @@ Here is how it works in this exercise:
 
 ## Exercise 4.1 — Create the MCP Server
 
-In this sub-exercise, you add a new MCP Server artifact to your existing Integration Package, configured against the pre-delivered Create Purchase Requisition iFlow.
+In this sub-exercise, you add a new MCP Server artifact to your existing Integration Package, configured against the pre-configured Create Purchase Requisition iFlow.
 
 ### Step 1: Open the Existing Integration Package
 
