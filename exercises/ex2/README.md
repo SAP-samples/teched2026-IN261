@@ -119,7 +119,7 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download The **OpenAPI Specification** for the repo [`SAP_HCM_Graph.json`](../ex2/SAP_HCM_Graph.json) and upload it. |
+   | File Name | Download The **OpenAPI Specification** from here [`SAP_HCM_Graph.json`](../ex2/SAP_HCM_Graph.json) and upload it. |
    | Source | `Destination` |
    | Destination | `in261_hcmcloud_mcp` |
    | Relative URL | `/api/in261-hcmcloud` |
