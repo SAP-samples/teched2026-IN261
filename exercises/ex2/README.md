@@ -276,6 +276,8 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 
 You have now deployed a MCP Server on the Integration Cell. The deployed MCP Servers from this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
 
+> [!IMPORTANT]
+> Only proceed to Exercise 3 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ## Summary
 
