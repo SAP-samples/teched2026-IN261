@@ -2,11 +2,7 @@
 
 ## Overview
 
-An onboarding agent is only as helpful as the knowledge it can access. Knowing *who* the new hire is (Exercise 2) is the first step — knowing *what policies apply to them* is the next.
-
-In this exercise, you will wrap the pre-configured Integration Flow (IFlow) for HR Policy Lookup as an **MCP Server** — giving the onboarding agent governed, real-time access to company HR policies via SAP Integration Suite. You will create an MCP artifact, configure it with the IFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
-
-By the end, the onboarding agent can query HR policies — leave, IT access, code of conduct, and more — through a single secured MCP tool.
+In this exercise, you will deploy a pre-configured Integration Flow (IFlow) for HR Policy Lookup as an **MCP Server** — giving the onboarding agent governed, real-time access to company HR policies via SAP Integration Suite. You will create an MCP artifact, configure it with the IFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
 > [!NOTE]
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
@@ -32,7 +28,6 @@ Instead of building this IFlow from scratch, you use this pre-configured IFlow a
 <br>![Pre-configured IFlow: Prompt to HR Policy RAG Pipeline](/exercises/ex3/images/IFlow_Image.png)
 
 > [!NOTE]
-> Download the **OpenAPI Specification** for this exercise: [Company_Policy_RAG_API.json](../ex3/Company_Policy_RAG_API.json)
 > For a deeper understanding of the AI Launch Pad Document Grounding capability, refer to [SAP Help: Document Grounding](https://help.sap.com/docs/sap-ai-launchpad/sap-ai-launchpad/document-grounding)
 
 ---
