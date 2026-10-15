@@ -19,7 +19,7 @@ When the manager has approved the relevant equipment for the new hire, the Purch
 
 A **pre-delivered Integration Flow (IFlow)** has been configured for this session. It acts as the mediation layer to post purchase requisition in S/4HANA
 
-- MCP tool call invokes the integration flow via GET with the approved equipment and trainings payload
+- MCP tool call invokes the integration flow via POST with the approved equipment and trainings payload
 - Authenticates and forwards the request to S/4 HANA System based on oAuth2SAMLBearerAssertion
 - Returns the Purchase Requisition created in S/4HANA system
 
