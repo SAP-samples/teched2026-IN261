@@ -42,12 +42,12 @@ Instead of building this from scratch, you use this pre-configured Composed API 
 > Download the **OpenAPI Specification** for this exercise: [SAP_HCM_Graph.json](../ex2/SAP_HCM_Graph.json)
 > For a deeper understanding of the capability, refer to [SAP Help: API Composition](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
 
-The entities in the Composed API are linked by their associations — these are the OData expand paths used when calling the tools:
+The entities in the Composed API are linked by their source entities — these are the OData expand paths used when calling the tools:
 
-| Entity | Associated Entities |
+| Entity | Source Entities |
 |---|---|
-| `employee` | `personalInfo`, `emailInfo` |
-| `employeeJob` | `positionInfo`, `companyInfo`, `businessUnitInfo`, `divisionInfo`, `departmentInfo`, `locationInfo` |
+| `employee` | `sap.hcm/PerPerson`, `sap.hcm/PerPerson`, `sap.hcm/PerEmail` |
+| `employeeJob` | `sap.hcm/EmpJob`, `sap.hcm/User`, `sap.hcm/FODepartment`, `sap.hcm/FODivision`, `sap.hcm/FOLocation`, `sap.hcm/FOCompany` |
 
 ---
 
@@ -84,16 +84,17 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
 
 3. Fill in the package details:
 
+> [!NOTE]
+> Replace **XX** with your assigned participant number throughout this exercise.
+> For instance, user **IN261 050** will create a package named **IN261_050_TechEd_2026_Package**
+
    | Field | Value |
    |---|---|
-   | Name | `IN261_0XX_TechEd_2026_Package` |
+   | Name | `IN261_0XX_TechEd_2026_Package` (replace XX with your assigned participant number) |
    | Short Description | Learn how the MCP Gateway in SAP Integration Suite applies policy, security, and analytics while curating MCP tools. Securely connect enterprise tools to an AI agent, including unified APIs with event-driven context and governed access. |
    | Version | `1.0.0` |
    | Vendor | `SAP` |
 
-> [!NOTE]
-> Replace **XX** with your assigned participant number throughout this exercise.
-> For instance, user **IN261 050** will create a package named **IN261_050_TechEd_2026_Package**
 
    
 4. Click **Save**.
@@ -118,38 +119,34 @@ In this sub-exercise, you create an Integration Package and add an MCP Server ar
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download and upload [`SAP_HCM_Graph.json`](../ex2/SAP_HCM_Graph.json) |
+   | File Name | Download The **OpenAPI Specification** for the repo [`SAP_HCM_Graph.json`](../ex2/SAP_HCM_Graph.json) and upload it. |
    | Source | `Destination` |
    | Destination | `in261_hcmcloud_mcp` |
    | Relative URL | `/api/in261-hcmcloud` |
-   | Name | `IN261_0XX_Employee_Lookup_MCP` |
-   | ID | `IN261_0XX_Employee_Lookup_MCP` |
-   | MCP Path | `/in261_0XX_employee_lookup_mcp` |
+   | Name | `IN261_0XX_Employee_Lookup_MCP` (replace XX with your assigned participant number) |
+   | ID | `IN261_0XX_Employee_Lookup_MCP` (replace XX with your assigned participant number) |
+   | MCP Path | `/in261_0XX_employee_lookup_mcp` (replace XX with your assigned participant number) |
    | Version | `1.0.0` |
    | Runtime Profile | `Integration Cell` |
 
-   > Replace **XX** with your assigned participant number.
 5. Click **Next**.
 
    <br>![Provide MCP Details](/exercises/ex2/images/Add_MCP_Server3.png)
 
 
-
-### Step 3: Select Tools
-
-On the **Create Tools** screen, two tools are available from the uploaded API specification. Select both:
+6. On the **Create Tools** screen, two tools are available from the uploaded API specification. Select both:
 
 | Method | Path | Description |
 |---|---|---|
 | `GET` | `/bestrun.hcmcloud/employee` | Returns employee personal info and email. Supports `$filter=employeeId eq '{id}'` and `$expand=personalInfo,emailInfo` |
 | `GET` | `/bestrun.hcmcloud/employeeJob` | Returns job details including manager, company, department, business unit, division, and location |
 
-6. Click **Add** to finish creating the MCP Server artifact.
+7. Click **Add** to finish creating the MCP Server artifact.
 
    <br>![Create Tools](/exercises/ex2/images/Add_MCP_Server4.png)
 
 
-### Step 4: Add Prompt
+### Step 3: Add Prompt
 
 A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
 
@@ -180,7 +177,7 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
 
    <br>![Define Arguments](/exercises/ex2/images/Add_Prompt3.png)
 
-5. On the **Define Messages** screen, set the **Role** to `User` and paste the following into the **Content** field:
+5. On the **Define Messages** screen, set the **Role** to `User` and paste the following into the **Content** field and Click **Add** to save the prompt. Then click **Save** (top right) to save the artifact.:
 
    ```
    Fetch the complete onboarding context for new hire {{ .employeeId }}'.
@@ -215,7 +212,6 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
      "country": "..."
    }
    ```
-6. Click **Add** to save the prompt. Then click **Save** (top right) to save the artifact.
    <br>![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
 
 
@@ -245,7 +241,11 @@ In this step, you will configure the **Authentication** policy with the IAS tena
    https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
    ```
 
-   ***Audience** : Leave it empty.
+   **Audience:**
+   
+   Leave it empty.
+   
+   
    **ClientID Key:**
    ```
    ${authn.oidc.jwt.azp}
@@ -283,15 +283,11 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 
    <br>![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
 
-### Step 3: MCP Server Ready
-
-Once the status shows **STARTED**, your MCP Server is Deployed on the Integration Cell. The deployed MCP Servers from this exercise and Exercise 3 will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
-
 ---
 
 ## Summary
 
-You have now created and deployed an MCP Server that wraps the pre-configured Employee Lookup Composed API and exposes it securely to AI agents.
+You have now deployed a MCP Server on the Integration Cell. The deployed MCP Servers from this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
 
 - The Composed API surfaces two custom entities — **Employee Details** and **Job Details** — giving the agent structured access to both personal and job-related onboarding data
 - The MCP Server handles authentication and authorization using OAuth 2.0
