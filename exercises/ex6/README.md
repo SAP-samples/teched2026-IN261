@@ -150,7 +150,7 @@ d3230023-bd4b-46ae-901e-65acaeda9ab4
 65cd1664-3e34-42c7-abbe-e9af594be5cd
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > The Client ID is already configured as an environment variable in your AI agent. It is important to use the **exact Client ID** matching your tenant — using the wrong value will cause authentication to fail.
 
 Click **Create**.
