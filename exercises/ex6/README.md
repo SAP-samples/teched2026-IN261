@@ -1,6 +1,6 @@
 # Exercise 6 — Publish MCP Servers as a Product and Subscribe via Developer Hub
 
-With three MCP Servers deployed across Exercises 2, 3, and 4, the onboarding agent now has governed access to employee data, HR policies, and purchase requisition creation. But deployment alone is not enough — for an AI agent to discover, authenticate against, and consume these servers, they need to be published as a **Product** in the **Developer Hub**.
+With three MCP Servers deployed across Exercises 2, 3, and 4, the onboarding agent now has governed access to employee data, HR policies, and purchase requisition creation. But deployment alone is not enough — for an AI agent to discover, authenticate against, and consume these servers, they need to be published as a **Product** in the **Developer Hub** and need to be **Subscribed**.
 
 In this exercise, you will publish all three MCP Servers as a single product in the Developer Hub, create a subscription for your AI agent, and retrieve the OAuth credentials the agent needs to authenticate. By the end, your onboarding agent has everything it needs to connect and call all three MCP tools.
 
@@ -25,7 +25,7 @@ In this sub-exercise, you navigate to the Developer Hub, select all three deploy
 
 ### Step 1: Navigate to Developer Hub
 
-1. From your Integration Package `IN261_0XX_TechEd_2026_Package`, click the **grid icon (⠿)** in the top-right navigation bar.
+1. From your Integration Package `IN261_0XX_TechEd_2026_Package` (replace XX with your assigned participant number), click the **grid icon (⠿)** in the top-right navigation bar.
 
    <br>![Click the grid icon from the Integration Package](/exercises/ex6/images/Navigate_to_DeveloperHub.png)
 
@@ -84,8 +84,8 @@ Fill in the product details:
 |---|---|
 | Name | `IN261_0XX Employee Onboarding` (replace XX with your assigned participant number) |
 | ID | `IN261_0XX_Employee_Onboarding` (replace XX with your assigned participant number) |
-| Short Text | `The IN261_0XX Employee Onboarding MCP Artifacts are deployed as a product.` |
-| Description | `The IN261_0XX Employee Onboarding MCP Artifacts are deployed as a product.` |
+| Short Text | `The IN261_0XX Employee Onboarding MCP Artifacts are deployed as a product.` (replace XX with your assigned participant number) |
+| Description | `The IN261_0XX Employee Onboarding MCP Artifacts are deployed as a product.` (replace XX with your assigned participant number)|
 
 Click **Publish**.
 
