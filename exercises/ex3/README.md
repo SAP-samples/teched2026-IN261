@@ -60,30 +60,25 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
 
    <br>![Select Source Type](/exercises/ex3/images/Add_MCP3.png)
 
-3. Fill in the MCP Server details:
+3. Fill in the MCP Server details and  Click **Next** :
 
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download and upload [`Company_Policy_RAG_API.json`](../ex3/Company_Policy_RAG_API.json) |
+   | File Name | Download The **OpenAPI Specification** from here [`Company_Policy_RAG_API.json`](../ex3/Company_Policy_RAG_API.json) and Upload it. |
    | Source | `Destination` |
    | Destination | `in261_iflow_as_mcp` |
    | Relative URL | `/http` |
-   | Name | `IN261_0XX_HR_Policy_Lookup_MCP` |
-   | ID | `IN261_0XX_HR_Policy_Lookup_MCP` |
-   | MCP Path | `/in261_0XX_hr_policy_lookup_mcp` |
+   | Name | `IN261_0XX_HR_Policy_Lookup_MCP` (replace XX with your assigned participant number) |
+   | ID | `IN261_0XX_HR_Policy_Lookup_MCP` (replace XX with your assigned participant number) |
+   | MCP Path | `/in261_0XX_hr_policy_lookup_mcp` (replace XX with your assigned participant number) |
    | Version | `1.0.0` |
    | Runtime Profile | `Integration Cell` |
 
-   > Replace **XX** with your assigned participant number.
-
    <br>![Provide MCP Details](/exercises/ex3/images/Add_MCP4.png)
 
-4. Click **Next**.
 
-### Step 3: Select Tools
-
-On the **Create Tools** screen, select the HR Policy Lookup operation:
+4. On the **Create Tools** screen, select the HR Policy Lookup operation and Click **Add** :
 
 | Method | Path | Description |
 |---|---|---|
@@ -91,9 +86,8 @@ On the **Create Tools** screen, select the HR Policy Lookup operation:
 
    <br>![Select Tools](/exercises/ex3/images/Add_MCP5.png)
 
-5. Click **Add** to finish creating the MCP Server artifact.
+### Step 3: Edit the Policy Model
 
-### Step 4: Edit the Policy Model
 
 The policy model for the HR Policy MCP Server follows the same authentication configuration as Exercise 2 — External OAuth (OIDC) via IAS, ensuring every agent request is verified before reaching the HR policy backend.
 
@@ -115,7 +109,10 @@ The policy model for the HR Policy MCP Server follows the same authentication co
    https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
    ```
 
-   **Audience:** Leave it empty.
+   **Audience:** 
+   
+   Leave it empty.
+   
 
    **ClientID Key:**
    ```
@@ -127,9 +124,10 @@ The policy model for the HR Policy MCP Server follows the same authentication co
    ${authn.oidc.jwt.email}
    ```
 
+4. Click **Save** (top right).
    <br>![Authentication Policy Settings](/exercises/ex3/images/Edit_Policies2.png)
 
-4. Click **Save** (top right).
+
 
 ---
 
@@ -158,15 +156,11 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 > [!IMPORTANT]
 > Only proceed to Exercise 4 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
-### Step 3: MCP Server Ready
-
-Once the status shows **STARTED**, your MCP Server is deployed on the Integration Cell. The deployed MCP Servers from Exercise 2 and this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
-
 ---
 
 ## Summary
 
-You have now created and deployed an MCP Server that wraps the pre-configured HR Policy Lookup IFlow and exposes it securely to AI agents.
+You have now created and deployed a  MCP Server on the Integration Cell. The deployed MCP Servers from Exercise 2 and this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
 
 - The IFlow acts as governed middleware between the MCP Server and the AI Launch Pad Document Grounding API
 - The MCP Server handles authentication and authorization using OAuth 2.0
