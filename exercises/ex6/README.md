@@ -126,55 +126,58 @@ In this sub-exercise, you subscribe to the published product, creating the agent
 
    > Replace **XX** with your assigned participant number.
 
-2. On the product detail page, click **Subscribe → Create New Subscription for Agent**.
+2. On the product detail page, click **Subscribe** (top right) and select **Create New Subscription for Agent** from the dropdown.
 
-   <br>![Product detail — Subscribe dropdown](/exercises/ex6/images/Subscribe.png)
+   <br>![Product detail — Subscribe dropdown](/exercises/ex6/images/SubscribeProduct1.png)
 
 ### Step 2: Fill in Subscription Details
 
-Fill in the subscription details:
+In the **Create New Subscription for Agent** dialog, fill in the following details:
 
 | Field | Value |
 |---|---|
-| Name | `IN261_0XX_Onboarding_Agent_Subscription` (replace XX with your assigned participant number) |
-| Short Text | `Subscription for the onboarding AI agent to access Employee Lookup, HR Policy, and Purchase Requisition MCP tools` |
-| Description | `Subscription for the onboarding AI agent to access Employee Lookup, HR Policy, and Purchase Requisition MCP tools` |
+| Name | `IN261_0XX Employee Onboarding AI Agent` (replace XX with your assigned participant number) |
+| Client ID | `IN261_0XX_Employee_Onboarding_AI_Agent` (replace XX with your assigned participant number) |
+| Short Text | `IN261_0XX Employee Onboarding AI Agent` (replace XX with your assigned participant number) |
+| Description | `IN261_0XX Employee Onboarding AI Agent` (replace XX with your assigned participant number) |
 
 Click **Create**.
 
-   <br>![Create New Subscription for Agent](/exercises/ex6/images/Create_Subscription.png)
+   <br>![Create New Subscription for Agent dialog](/exercises/ex6/images/SubscribeProduct2.png)
 
 > [!NOTE]
 > Subscription provisioning may take a short while. Proceed to Exercise 6.3 once the subscription appears under **My Workspace → Subscriptions → Agents**.
 
 ## Exercise 6.3 — Retrieve OAuth Credentials
 
-In this sub-exercise, you retrieve the OAuth credentials generated for your subscription. These are what the onboarding AI agent will use to authenticate against all three MCP tools.
+In this sub-exercise, you retrieve the OAuth credentials generated for your subscription. These are what the onboarding AI agent will use to authenticate against all MCP tools.
 
 ### Step 1: Open My Workspace
 
 1. In the Developer Hub top navigation bar, click **My Workspace**.
-2. On the Subscriptions page, click the **Agents** tab.
-3. Click on **`IN261_0XX_Onboarding_Agent_Subscription`** to open it.
+2. On the Subscriptions page, click the **Agents** tab. You will see your newly created subscription `IN261_0XX Employee Onboarding AI Agent` listed with Type **AI**.
+3. Click on the subscription name to open it.
 
    > Replace **XX** with your assigned participant number.
 
-   <br>![My Workspace — Agents subscriptions list](/exercises/ex6/images/My_Workspace.png)
+   <br>![My Workspace — Agents subscriptions list](/exercises/ex6/images/SubscribeProduct3.png)
 
 ### Step 2: Copy Your Credentials
 
-On the subscription **Overview** page, locate the **Credentials** section. Copy and save all three values — your AI agent will need them in the next exercise:
+On the subscription **Overview** page, note the **Wellknown URL** and locate the **Credentials** section. Copy and save these values — your AI agent will need them in the next exercise:
 
 | Credential | What it is |
 |---|---|
-| **Token URL** | OAuth token endpoint — used to exchange credentials for a bearer token before calling any MCP tool |
-| **Key** | OAuth Client ID |
-| **Secret** | OAuth Client Secret |
+| **Wellknown URL** | OpenID Connect discovery endpoint — used to derive the OAuth token endpoint for authentication |
+| **Key** | OAuth Client Secret — click the **eye icon** to reveal the value, then copy it |
+
+> [!NOTE]
+> The **Client ID** is the value you set during subscription creation: `IN261_0XX_Employee_Onboarding_AI_Agent`. Keep this alongside the Key — your agent needs both to authenticate.
 
 > [!NOTE]
 > It may take a short while for the credentials to appear. If the Credentials section is not yet visible, refresh the page and try again.
 
-   <br>![Subscription — Credentials section](/exercises/ex6/images/Credentials.png)
+   <br>![Subscription — Credentials section](/exercises/ex6/images/SubscribeProduct4.png)
 
 ## Summary
 
