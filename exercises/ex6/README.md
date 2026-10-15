@@ -62,11 +62,9 @@ Notice that a product **`IN261 Employee Onboarding`** is already visible in the 
 2. Use the **Search by Name** field to filter by your participant number (e.g. `IN261_050`). This narrows the list to your three MCP Servers.
 
 3. Select all three by checking the checkbox next to each:
-   - `IN261_0XX_Create_PR_S4Hana_MCP`
-   - `IN261_0XX_Employee_Lookup_MCP`
-   - `IN261_0XX_HR_Policy_Lookup_MCP`
-
-   > Replace **XX** with your assigned participant number.
+   - `IN261_0XX_Create_PR_S4Hana_MCP` (replace XX with your assigned participant number)
+   - `IN261_0XX_Employee_Lookup_MCP` (replace XX with your assigned participant number)
+   - `IN261_0XX_HR_Policy_Lookup_MCP` (replace XX with your assigned participant number)
 
    <br>![AI Artifacts — filter by participant number and select your three MCP Servers](/exercises/ex6/images/CreateProduct3.png)
 
