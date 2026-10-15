@@ -1,34 +1,29 @@
 # Exercise 4 — Create and Deploy a MCP Server for Purchase Requisition Creation in SAP S/4HANA for New Hire Equipments Post Manager Approval
 
-## Overview
-
 Once the policies applicable to New Hire are determined in (Exercise 3)
 
-In this exercise, you will wrap the pre-delivered Integration Flow (IFlow) for Creating Purchase Requisition as an **MCP Server** — giving the onboarding agent governed, real-time access to creating Purchase Requisition in SAP S/4HANA via SAP Integration Suite. You will create an MCP artifact, configure it with the IFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
+In this exercise, you will wrap the pre-delivered Integration Flow (iFlow) for Creating Purchase Requisition as an **MCP Server** — giving the onboarding agent governed, real-time access to creating Purchase Requisition in SAP S/4HANA via SAP Integration Suite. You will create an MCP artifact, configure it with the iFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
 By the end, the onboarding agent can create Purchase Requisition post manager approval — through a single secured MCP tool.
 
 > [!NOTE]
-> This exercise builds on the same Integration Package created in [Exercise 3](../ex3/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
+> This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
 
----
 
 ## Pre-Delivered: Integration Flow for Creating Purchase Requisition
 
 When the manager has approved the relevant equipment for the new hire, the Purchase Requisition needs to be created in S/4 HANA system to make it available to the new hire to carry out day-to-day tasks
 
-A **pre-delivered Integration Flow (IFlow)** has been configured for this session. It acts as the mediation layer to post purchase requisition in S/4HANA
+A **pre-delivered Integration Flow (iFlow)** has been configured for this session. It acts as the mediation layer to post purchase requisition in S/4HANA
 
 - MCP tool call invokes the integration flow via POST with the approved equipment and trainings payload
 - Authenticates and forwards the request to S/4 HANA System based on oAuth2SAMLBearerAssertion
 - Returns the Purchase Requisition created in S/4HANA system
 
-Instead of building this IFlow from scratch, you use this pre-configured IFlow as the data source for your MCP Server. It comes with an **OpenAPI Specification** and a **Destination** — both of which you will use when creating the MCP artifact in the next steps.
+Instead of building this iFlow from scratch, you use this pre-configured iFlow as the data source for your MCP Server. It comes with an **OpenAPI Specification** and a **Destination** — both of which you will use when creating the MCP artifact in the next steps.
 
-<br>![Pre-delivered IFlow: Create Purchase Requisition in S/4HANA system](/exercises/ex4/images/Predeployed_createPR_Iflow.jpg)
+<br>![Pre-delivered iFlow: Create Purchase Requisition in S/4HANA system](/exercises/ex4/images/Predeployed_createPR_Iflow.jpg)
 
-> [!NOTE]
-> Download the **OpenAPI Specification** for this exercise: [OAS_CREATE_PR_API_POST.json](../ex4/OAS_CREATE_PR_API_POST.json)
 ## Concept: Principal Propagation — Why It Matters Here
 
 When your AI agent calls the create Purchase Requisition MCP server, the backend system needs to know *who* is making that request and has the right scopes. Ensuring  audit trails are logged, access controls, and compliance requirements adherence.
@@ -47,13 +42,9 @@ Here is how it works in this exercise:
 > [!NOTE]
 > For a deeper understanding, refer to [SAP Help: Principal Propagation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
 
----
+## Exercise 4.1 — Create the MCP Server
 
----
-
-## Exercise 3.1 — Create the MCP Server
-
-In this sub-exercise, you add a new MCP Server artifact to your existing Integration Package, configured against the pre-delivered Create Purchase Requisition IFlow.
+In this sub-exercise, you add a new MCP Server artifact to your existing Integration Package, configured against the pre-delivered Create Purchase Requisition iFlow.
 
 ### Step 1: Open the Existing Integration Package
 
@@ -79,7 +70,7 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
 
    <br>![Select Source Type](/exercises/ex4/images/MCP_HTTP_Endpoint.jpg)
 
-3. Fill in the MCP Server details:
+3. Fill in the MCP Server details and Click **Next**.:
 
    | Field | Value |
    |---|---|
@@ -88,21 +79,16 @@ In this sub-exercise, you add a new MCP Server artifact to your existing Integra
    | Source | `Destination` |
    | Destination | `in261_iflow_as_mcp` |
    | Relative URL | `/http` |
-   | Name | `IN261_0XX_Create_PR_S4Hana_MCP` |
-   | ID | `IN261_0XX_Create_PR_S4Hana_MCP` |
-   | MCP Path | `/in261_0XX_create_pr_s4hana_mcp` |
+   | Name | `IN261_0XX_Create_PR_S4Hana_MCP` (replace XX with your assigned participant number) |
+   | ID | `IN261_0XX_Create_PR_S4Hana_MCP` (replace XX with your assigned participant number) |
+   | MCP Path | `/in261_0XX_create_pr_s4hana_mcp` (replace XX with your assigned participant number) |
    | Version | `1.0.0` |
    | Runtime Profile | `Integration Cell` |
 
-   > Replace **XX** with your assigned participant number.
 
    <br>![Provide MCP Details](/exercises/ex4/images/CreateMCP.jpg)
 
-4. Click **Next**.
-
-### Step 3: Select Tools
-
-On the **Create Tools** screen, select the HR Policy Lookup operation:
+4. On the **Create Tools** screen, select the HR Policy Lookup operation and Click **Add**:
 
 | Method | Path | Description |
 |---|---|---|
@@ -110,13 +96,12 @@ On the **Create Tools** screen, select the HR Policy Lookup operation:
 
    <br>![Select Tools](/exercises/ex4/images/Tool_Selection.jpg)
 
-5. Click **Add** to finish creating the MCP Server artifact.
 
-### Step 4: Define the Authorization and Authentication policy
+### Step 3: Edit the MCP Policy
 
 The policy model for the Create PR follows the same authentication configuration as Exercise 2 — External OAuth (OIDC) via IAS, ensuring every agent request is authenticated ,authorised and propagates the user identity to S/4HANA backend
 
-1. From the tools tab in which the tool sleected gets addded can be seen, click **Policies** tab.
+1. From the tools tab in which the tool selected gets addded can be seen, click **Policies** tab.
 
    <br>![Navigate to Policies tab](/exercises/ex4/images/after_tool_added.jpg)
 
@@ -133,7 +118,10 @@ The policy model for the Create PR follows the same authentication configuration
    https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
    ```
 
-   **Audience:** Leave it empty.
+   **Audience:** 
+   
+   Leave it empty.
+   
 
    **ClientID Key:**
    ```
@@ -147,14 +135,12 @@ The policy model for the Create PR follows the same authentication configuration
 
    <br>![Authentication Policy Settings](/exercises/ex4/images/Auth_Policy.jpg)
 
-4.Click **HTTP Adapter** and got to connections.The destination details will be shown
+3.Click **HTTP Adapter** and got to connections.The destination details will be shown
 <br>![Authentication Policy Settings](/exercises/ex4/images/Connection_details.jpg)
 
 
-5. Click **Save** (top right).
+4. Click **Save** (top right).
      <br>![Authentication Policy Settings](/exercises/ex4/images/Save.jpg)
-
----
 
 ## Exercise 3.2 — Deploy the MCP Server
 
@@ -184,17 +170,11 @@ Once deployed, the status bar at the top of the artifact page updates to confirm
 > [!IMPORTANT]
 > Only proceed to Exercise 5 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
-### Step 3: MCP Server Ready
-
-Once the status shows **STARTED**, your MCP Server is deployed on the Integration Cell. The deployed MCP Servers from Exercise 2 and this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
-
----
-
 ## Summary
 
-You have now created and deployed an MCP Server that wraps the pre-delivered Create Purchase Requisition IFlow and exposes it securely to AI agents.
+You have now deployed a MCP Server on the Integration Cell. The deployed MCP Servers from this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
 
-- The IFlow acts as mediation layer between the MCP Server and the S/4 HANA backend system
+- The iFlow acts as mediation layer between the MCP Server and the S/4 HANA backend system
 - The MCP Server handles authentication and authorization using External OIDC oAuth2JWTBearer Authentication
 - Principal Propagation ensures the backend sees the real caller identity
 - The MCP endpoint is live on the Integration Cell.
