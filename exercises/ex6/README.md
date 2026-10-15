@@ -25,62 +25,96 @@ In this sub-exercise, you navigate to the Developer Hub, select all three deploy
 
 ### Step 1: Navigate to Developer Hub
 
-1. From any screen in SAP Integration Suite, click the **grid icon (⠿)** in the top-right navigation bar.
-2. In the menu, click **Developer Hub**.
+1. From your Integration Package `IN261_0XX_TechEd_2026_Package`, click the **grid icon (⠿)** in the top-right navigation bar.
 
-   <br>![Navigate to Developer Hub](/exercises/ex6/images/Navigate_DeveloperHub.png)
+   <br>![Click the grid icon from the Integration Package](/exercises/ex6/images/Navigate_to_DeveloperHub.png)
 
-### Step 2: Open Admin Center → Content
+2. In the menu that appears, click **Developer Hub**.
+
+   <br>![Click Developer Hub from the grid menu](/exercises/ex6/images/Navigate_to_DeveloperHub2.png)
+
+### Step 2: Developer Hub Home
+
+You will land on the **Developer Hub** home page — the centralized catalog for APIs, Events, and MCP Servers.
+
+   <br>![Developer Hub home page](/exercises/ex6/images/DeveloperHub_HomePage.png)
+
+### Step 3: Open Admin Center → Content
 
 1. In the Developer Hub top navigation bar, click **Admin Center**.
 2. From the dropdown, select **Content**.
 
-   <br>![Admin Center — Content](/exercises/ex6/images/Admin_Center_Content.png)
+   <br>![Admin Center — select Content](/exercises/ex6/images/CreateProduct.png)
 
-### Step 3: Select the Business System
+### Step 4: Select the Business System
 
-1. On the **Manage Content** page, click the **Business Systems** tab.
-2. Click on your Integration Suite business system to open it.
+1. On the **Manage Content** page, the **Business Systems** tab is active by default.
+2. Click on the business system **`workshop01b`** to open it.
 
-   <br>![Business Systems list](/exercises/ex6/images/Business_Systems.png)
+   <br>![Manage Content — Business Systems list](/exercises/ex6/images/CreateProduct2.png)
 
-### Step 4: Select the AI Artifacts
+### Step 5: Select the AI Artifacts
 
-1. Click the **AI Artifacts** tab. You will see all three MCP Servers deployed in this session.
-2. Select all three MCP Servers for your participant number by checking the checkbox next to each:
+1. Click the **AI Artifacts** tab. You will see all MCP Servers deployed on this business system.
+
+2. Use the **Search by Name** field to filter by your participant number (e.g. `IN261_050`). This narrows the list to your three MCP Servers.
+
+3. Select all three by checking the checkbox next to each:
+   - `IN261_0XX_Create_PR_S4Hana_MCP`
    - `IN261_0XX_Employee_Lookup_MCP`
    - `IN261_0XX_HR_Policy_Lookup_MCP`
-   - `IN261_0XX_Create_PR_S4Hana_MCP`
 
    > Replace **XX** with your assigned participant number.
 
-3. Click **Create Product**.
+   <br>![AI Artifacts — filter by participant number and select your three MCP Servers](/exercises/ex6/images/CreateProduct3.png)
 
-   <br>![AI Artifacts — select all three MCP Servers and click Create Product](/exercises/ex6/images/AI_Artifacts.png)
+4. Clear the search and search for **`ServiceCloud`**. Select `IN261_Create_SC_ServiceCloud_MCP` to add it to your selection.
 
-### Step 5: Fill in Product Details and Publish
+   <br>![AI Artifacts — select the ServiceCloud MCP Server](/exercises/ex6/images/CreateProduct4.png)
+
+5. Clear the search field. You should now see **4 Selected AI artifacts**. Click **Create Product**.
+
+   <br>![AI Artifacts — 4 selected, click Create Product](/exercises/ex6/images/CreatePrdouct5.png)
+
+### Step 6: Fill in Product Details and Publish
 
 Fill in the product details:
 
 | Field | Value |
 |---|---|
-| Name | `IN261_0XX_Onboarding_Agent_Product` (replace XX with your assigned participant number) |
-| ID | `IN261_0XX_Onboarding_Agent_Product` (replace XX with your assigned participant number) |
-| Short Text | `MCP Product bundling Employee Lookup, HR Policy Lookup, and Purchase Requisition MCP Servers for the onboarding agent` |
-| Description | `MCP Product bundling Employee Lookup, HR Policy Lookup, and Purchase Requisition MCP Servers for the onboarding agent` |
+| Name | `IN261_0XX Employee Onboarding` (replace XX with your assigned participant number) |
+| ID | `IN261_0XX_Employee_Onboarding` (replace XX with your assigned participant number) |
+| Short Text | `The IN261_0XX Employee Onboarding MCP Artifacts are deployed as a product.` |
+| Description | `The IN261_0XX Employee Onboarding MCP Artifacts are deployed as a product.` |
 
 Click **Publish**.
 
-   <br>![Create Product dialog — fill in details and click Publish](/exercises/ex6/images/Create_Product.png)
+   <br>![Create Product dialog — fill in details and click Publish](/exercises/ex6/images/CreateProduct6.png)
+
+### Step 7: Acknowledge the Confirmation
+
+An **Information** dialog confirms that your publish request has been submitted. Click **Close**.
+
+   <br>![Information dialog — request submitted](/exercises/ex6/images/CreateProduct7.png)
 
 > [!NOTE]
-> Publishing triggers an AI-assisted content creation process in the background. Wait a moment for the product to appear in the Developer Hub catalog before proceeding to the next step.
+> Publishing triggers an AI-assisted content creation process in the background. You can monitor progress in **Admin Center → Scheduled Requests**.
 
-### Step 6: Confirm the Product is Live
+### Step 8: Monitor via Scheduled Requests
 
-In the top navigation bar, click **Developer Hub** to return to the home page. Your product `IN261_0XX_Onboarding_Agent_Product` should now appear in the catalog.
+1. Click **Admin Center** and select **Scheduled Requests**.
 
-   <br>![Product live in Developer Hub catalog](/exercises/ex6/images/Product_Published.png)
+   <br>![Admin Center — Scheduled Requests](/exercises/ex6/images/CreateProduct8.png)
+
+2. You will see your product `IN261_0XX Employee Onboarding` listed with status **In Progress**. Wait until the status changes to **Success** before proceeding.
+
+   <br>![Scheduled Requests — In Progress](/exercises/ex6/images/CreateProduct9.png)
+
+### Step 9: Confirm the Product is Live
+
+Once the Scheduled Request shows **Success**, click **Developer Hub** in the top navigation bar to return to the home page. Your product `IN261_0XX Employee Onboarding` should now appear in the catalog.
+
+   <br>![Developer Hub home — product live in catalog](/exercises/ex6/images/CreateProduct10.png)
 
 ## Exercise 6.2 — Subscribe to the Product
 
@@ -88,7 +122,7 @@ In this sub-exercise, you subscribe to the published product, creating the agent
 
 ### Step 1: Open the Product and Subscribe
 
-1. Click on **`IN261_0XX_Onboarding_Agent_Product`** from the Developer Hub catalog.
+1. Click on **`IN261_0XX Employee Onboarding`** from the Developer Hub catalog.
 
    > Replace **XX** with your assigned participant number.
 
@@ -146,7 +180,7 @@ On the subscription **Overview** page, locate the **Credentials** section. Copy 
 
 You have now published all three MCP Servers as a governed product in the Developer Hub and retrieved the OAuth credentials for your onboarding AI agent.
 
-- All three MCP tools — **Employee Lookup**, **HR Policy Lookup**, and **Purchase Requisition** — are bundled into a single discoverable product
+- All MCP tools are bundled into a single discoverable product **`IN261_0XX Employee Onboarding`** in the Developer Hub catalog
 - The Developer Hub manages access control — only subscribed agents with valid credentials can authenticate and invoke the tools
 - The OAuth credentials (Token URL, Client ID, Client Secret) are what the AI agent uses to get a bearer token before calling any MCP tool
 
