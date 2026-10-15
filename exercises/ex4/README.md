@@ -2,9 +2,7 @@
 
 Once the policies applicable to New Hire are determined in (Exercise 3)
 
-In this exercise, you will wrap the pre-configured Integration Flow (iFlow) for Creating Purchase Requisition as an **MCP Server** — giving the onboarding agent governed, real-time access to creating Purchase Requisition in SAP S/4HANA via SAP Integration Suite. You will create an MCP artifact, configure it with the iFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
-
-By the end, the onboarding agent can create Purchase Requisition post manager approval — through a single secured MCP tool.
+In this exercise, you will deploy an MCP Server for Creating Purchase Requisition from the pre-configured Integration Flow (iFlow) — giving the onboarding agent governed, real-time access to creating Purchase Requisition in SAP S/4HANA via SAP Integration Suite. You will create an MCP artifact, configure it with the iFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
 
 > [!NOTE]
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
