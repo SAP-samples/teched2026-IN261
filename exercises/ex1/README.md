@@ -6,69 +6,66 @@ SAP Integration Suite, advanced event mesh (AEM) is the event backbone that conn
 
 Each participant needs to create a queue and subscribe to their dedicated topic. This queue will be used later in the session when configuring and running the AI agent.
 
-## Exercise 1.1 - Create a queue and subscribe to their dedicated new hire topic in SAP Integration Suite, advanced event mesh (AEM)
+## Exercise 1.1 - Create a queue and subscribe to the dedicated new hire topic in AEM
 
-Log on to SAP Integration Suite, advanced event mesh (AEM) and explore it
-After completing these steps, you will have familiarized yourself with AEM. These steps will give you a first impression and an overview of AEM.
-
-1. Log on to [SAP Integration Suite, advanced event mesh](https://url.sap/hu5r93) tenant using the user ID and password that is already provided by the instructors.
-
-	<img src="/exercises/ex1/images/ex11-1.png" alt="Pic 11-1" width=40% height=40%>
+1. Log on to [AEM](https://url.sap/hu5r93) tenant using the user ID and password that is already provided by the instructors.
+   <br>For login, use the participant number that is assigned to you.
+	
+	![Log on](/exercises/ex1/images/ex11-1.png)
         
 2. Click **Cluster Manager** in the left navigation menu on the landing page.
+
+   ![Cluster Manager](/exercises/ex1/images/ex11-2.png)
    
-        <img src="/exercises/ex1/images/ex11-2.png" alt="Pic 11-2" width=40% height=40%>
-   
-2. In the **Cluster Manager: Services** screen, click on the **teched-2025-europe** tile.
+3. In the **Cluster Manager: Services** screen, click on the **TechEd2026-IN261** tile.
+   >**HINT:** If you cannot see the tile, uncheck the **"Only show my services"** checkbox.
 
-	**HINT:** If you cannot see the tile, uncheck the **"Only show my services"** checkbox.
+	![Cluster](/exercises/ex1/images/ex11-3.png)
 
-	<img src="/exercises/ex1/images/ex11-3.png" alt="Pic 11-3" width=40% height=40%>
-
-3. Switch to the **Manage** tab.
-
-        <img src="/exercises/ex1/images/ex11-4.png" alt="Pic 11-4" width=40% height=40%>
-
-4. Click on the **Queues** link button on the left panel.
-
-        <img src="/exercises/ex1/images/ex11-5.png" alt="Pic 11-5" width=40% height=40%>
-
-6.  A new browser tab will open listing all available queues. Click the **+ Queue** button on the top right to create a queue.
-         **HINT:** You will be able to see Queues created by other participants
-
-         <img src="/exercises/ex1/images/ex11-6.png" alt="Pic 11-6" width=40% height=40%>     
-
-8. In the pop up, enter the queue name: <b>IN261-0**</b> *(replace ** with the participant number that is assigned to you)* and click on the **Create** button.
-
-	<img src="/exercises/ex1/images/ex11-7.png" alt="Pic 11-7" width=40% height=40%>  
-
-9. On the next screen, leave the configurations at their default settings, and click on the **Apply** button.
+4. Switch to the **Manage** tab.
 	
-	<img src="/exercises/ex1/images/ex11-8.png" alt="Pic 11-8" width=40% height=40%>     
+	![Manage](/exercises/ex1/images/ex11-4.png)
 
-10. Select and open the queue that you have just created i.e., <b>IN162-0**</b> *(replace ** with the participant number that is assigned to you)*
+5. Click on the **Queues** link button on the left panel.
 
-        <img src="/exercises/ex1/images/ex11-9.png" alt="Pic 11-9" width=40% height=40%> 
+	![Queues](/exercises/ex1/images/ex11-5.png)
+
+6. A new browser tab will open, listing all the available queues. Click the **+ Queue** button on the top right to create a queue.
+   >**HINT:** You will be able to see the queues created by other participants as well.
+	
+	![Queues](/exercises/ex1/images/ex11-6.png)    
+
+7. In the pop up, enter the queue name: <b>IN261_0**</b> *(replace ** with the participant number that is assigned to you)* and click on the **Create** button.
+
+	![Create Queue](/exercises/ex1/images/ex11-7.png)     
+
+8. On the next screen, leave the configurations at their default settings and click on the **Apply** button.
+	
+	![Queue Default Settings](/exercises/ex1/images/ex11-8.png)     
+
+9. Select and open the queue that you have just created i.e., <b>IN261_0**</b> *(replace ** with the participant number that is assigned to you)*
+
+	![Open Queue](/exercises/ex1/images/ex11-9.png)   
    
-11. Switch to the **Subscriptions** tab and click on the **+ Subscription** button on the top right area to create a new topic subscription.
+10. Switch to the **Subscriptions** tab and click on the **+ Subscription** button on the top right area to create a new topic subscription.
 
-	<img src="/exercises/ex1/images/ex11-10.png" alt="Pic 11-10" width=40% height=40%> 
+    ![Navigate Queue Subscriptions](/exercises/ex1/images/ex11-10.png)   
 
-12. Click on the **+ Subscription** button on the top right area to create a new topic subscription.
+11. Click on the **+ Subscription** button on the top right area, to create a new topic subscription.
 
-	<img src="/exercises/ex1/images/ex11-11.png" alt="Pic 11-11" width=40% height=40%> 
+	![Create Queue Subscriptions](/exercises/ex1/images/ex11-11.png)  
 
-13. In the pop up, enter the topic: <b>"sap/sfsf/newhire/TechEd_IN261_0**"</b>  *(replace ** with the participant number that is assigned to you)* and click on the **Create** button.
+12. In the pop up, enter the topic: <b>"sap/sfsf/newhire/TechEd_IN261_0**"</b>  *(replace ** with the participant number that is assigned to you)* and click on the **Create** button.
+    >**HINT:** Each participant will have their own topic, dynamically created by SAP SuccessFactors based on the new hire's employee ID.
 
-        <img src="/exercises/ex1/images/ex11-12.png" alt="Pic 11-12" width=40% height=40%> 
+    ![Add Topic Subscriptions](/exercises/ex1/images/ex11-12.png)
 
-14. Check whether your queue subscription has been created.
+13. Check whether your queue subscription has been created.
 
-	<img src="/exercises/ex1/images/ex11-13.png" alt="Pic 11-13" width=40% height=40%>
+	![Check Topic Subscriptions](/exercises/ex1/images/ex11-13.png)
 
 ## Summary
 
-At the end of the first exercise, you should have familiarized yourself with SAP Integration Suite, advanced event mesh (AEM), created 2 queues, and subscribed to the relevant topics.
-Please make sure that you have used the right nomenclature and replaced <b>***</b> with the participant number that is assigned to you.
+At the end of this exercise, you have created your personal AEM queue and subscribed it to your dedicated new hire event topic. With this in place, your agent will receive NEWHIRE events from SAP SuccessFactors in near real-time as they happen.
 
-Continue to - [Exercise 2 - (AI Core)](../ex2/README.md)
+Continue to - [Exercise 2 - Create and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition](../ex2/README.md)
