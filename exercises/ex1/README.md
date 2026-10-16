@@ -1,151 +1,76 @@
-# Exercise 1 — Employee Onboarding AI Agent
+# Exercise 1 - Set Up Your SAP Integration Suite, advanced event mesh (AEM) Queue and Topic Subscription
 
-> **Disclaimer:** This exercise is designed for workshop and learning purposes only. The architecture, tools, and approach presented here are simplified to provide a realistic hands-on experience within the constraints of a workshop session. They do not represent SAP's recommended, suggested, or officially supported architecture for building AI agents or integrating SAP systems. Always refer to official SAP documentation and best practices for production implementations.
+## Overview
 
-In this exercise you will download, configure and run the Employee Onboarding AI Agent on your laptop. The agent connects to SAP Advanced Event Mesh, receives a new hire event from SuccessFactors, and orchestrates the full onboarding process through SAP Integration Suite — with your own identity propagated to S/4HANA via Principal Propagation.
+SAP Integration Suite, advanced event mesh (AEM) is the event backbone that connects SAP SuccessFactors to your AI agent. When a new hire completes onboarding in SAP SuccessFactors, a **NEWHIRE** event is published to a topic dedicated to each participant. Your agent needs a dedicated queue subscribed to that topic to receive and process the event.
 
-## Architecture
+Each participant needs to create a queue and subscribe to their dedicated topic. This queue will be used later in the session when configuring and running the AI agent.
 
-```
-SuccessFactors (HiringComplete notification event — no payload details)
-        │
-        ▼
-SAP Advanced Event Mesh
-        │
-        ▼  (your assigned queue)
-Employee Onboarding AI Agent  ←── you run this on your laptop
-        │
-        │   ── AI Reasoning ──────────────────────────────────────────
-        │     Anthropic SDK → SAP AI Core → Claude (claude-sonnet)
-        │     AI Core acts as the gateway — no Anthropic account needed
-        │   ─────────────────────────────────────────────────────────────
-        │
-        ├── Tool 1: get_new_hire_details
-        │     API composition via Integration Suite
-        │     combines SuccessFactors Employee, Job, and Manager APIs
-        │     returns full new hire profile in one call
-        │
-        ├── Tool 2: get_company_policy
-        │     reads onboarding policy grounded via RAG
-        │     backed by SAP AI Launchpad Orchestration flow
-        │     returns role/location-specific equipment and access policies
-        │
-        │   ── Human-in-the-Loop ──────────────────────────────────────
-        │     Agent presents onboarding plan to manager for approval
-        │     workflow pauses until manager approves
-        │   ─────────────────────────────────────────────────────────────
-        │
-        ├── Tool 3: create_purchase_requisition  (after manager approval)
-        │     creates PR in SAP S/4HANA On-Premise
-        │     your IAS identity propagated via Principal Propagation
-        │     PR recorded under your name in S/4 audit log
-        │
-        └── Tool 4: create_service_cloud_ticket  (after manager approval)
-              creates ticket in SAP Service Cloud
-              covers both IT system access and training enrollment requests
+## Exercise 1.1 - Create a queue and subscribe to their dedicated new hire topic in SAP Integration Suite, advanced event mesh (AEM)
 
-        All tools exposed via SAP Integration Suite MCP Gateway
-        which enforces authentication, audit logging, and PP
-```
+Log on to SAP Integration Suite, advanced event mesh (AEM) and explore it
+After completing these steps, you will have familiarized yourself with AEM. These steps will give you a first impression and an overview of AEM.
 
-## What happens when you run it
+1. Log on to [SAP Integration Suite, advanced event mesh](https://url.sap/hu5r93) tenant using the user ID and password that is already provided by the instructors.
 
-1. Your browser opens → log in with your SAP IAS credentials
-2. Agent confirms your identity in the terminal
-3. Agent connects to your AEM queue and waits for a new hire event
-4. New hire notification arrives → agent fetches full employee, job and manager details via API composition
-5. Agent reads company policy via RAG-grounded AI Launchpad Orchestration flow
-6. Agent presents onboarding plan → **manager approves** (human-in-the-loop)
-7. After approval → Purchase Requisition created in S/4HANA On-Premise under your identity via PP
-8. After approval → Service Cloud ticket created for IT access and training enrollment
+	<img src="/exercises/ex1/images/ex11-1.png" alt="Pic 11-1" width=40% height=40%>
+        
+2. Click **Cluster Manager** in the left navigation menu on the landing page.
+   
+        <img src="/exercises/ex1/images/ex11-2.png" alt="Pic 11-2" width=40% height=40%>
+   
+2. In the **Cluster Manager: Services** screen, click on the **teched-2025-europe** tile.
 
-## Steps
+	**HINT:** If you cannot see the tile, uncheck the **"Only show my services"** checkbox.
 
-### 1. Download and unzip
+	<img src="/exercises/ex1/images/ex11-3.png" alt="Pic 11-3" width=40% height=40%>
 
-Download [employee-onboarding-ai-agent.zip](./employee-onboarding-ai-agent.zip) and unzip it on your laptop.
+3. Switch to the **Manage** tab.
 
-### 2. Install dependencies
+        <img src="/exercises/ex1/images/ex11-4.png" alt="Pic 11-4" width=40% height=40%>
 
-Open a terminal in the unzipped folder and run:
+4. Click on the **Queues** link button on the left panel.
 
-```bash
-npm install
-```
+        <img src="/exercises/ex1/images/ex11-5.png" alt="Pic 11-5" width=40% height=40%>
 
-> Requires Node.js v18 or higher — [nodejs.org](https://nodejs.org)
-> The agent runs Claude via SAP AI Core — no Anthropic account needed, access is pre-configured via the shared AI Core proxy.
+6.  A new browser tab will open listing all available queues. Click the **+ Queue** button on the top right to create a queue.
+         **HINT:** You will be able to see Queues created by other participants
+    
+	- Topic Subscription: <b>"sap/sfsf/newhire/TechEd_IN261_0**"</b> *(replace ** with the participant number that is assigned to you)*
 
-### 3. Configure your settings
+         <img src="/exercises/ex1/images/ex11-6.png" alt="Pic 11-6" width=40% height=40%>     
 
-Copy the environment template:
+8. In the pop up, enter the queue name: <b>IN162-0**</b> *(replace ** with the participant number that is assigned to you)* and click on the **Create** button.
 
-```bash
-cp .env.example .env
-```
+	<img src="/exercises/ex1/images/ex11-7.png" alt="Pic 11-7" width=40% height=40%>  
 
-Open `.env` and fill in the values provided by your instructor:
+9. On the next screen, leave the configurations at their default settings, and click on the **Apply** button.
+	
+	<img src="/exercises/ex1/images/ex11-8.png" alt="Pic 11-8" width=40% height=40%>     
 
-| Variable | What to do |
-|---|---|
-| `AICORE_API_KEY` | Enter the value provided by instructor |
-| `AEM_USERNAME` | Enter the value provided by instructor |
-| `AEM_PASSWORD` | Enter the value provided by instructor |
-| `AEM_QUEUE` | Change `XX` to your participant number e.g. `onboarding/participant-01` |
+10. Select and open the queue that you have just created i.e., <b>IN162-0**</b> *(replace ** with the participant number that is assigned to you)*
 
-**Pre-configured for this workshop — do not change:**
+        <img src="/exercises/ex1/images/ex11-9.png" alt="Pic 11-9" width=40% height=40%> 
+   
+11. Switch to the **Subscriptions** tab and click on the **+ Subscription** button on the top right area to create a new topic subscription.
 
-| Variable | Value |
-|---|---|
-| `AICORE_BASE_URL` | Shared AI Core proxy |
-| `AEM_HOST` | Shared AEM hostname |
-| `AEM_VPN` | Shared AEM Message VPN |
-| `MCP_GATEWAY_URL` | Shared Integration Suite MCP Gateway |
-| `IAS_TENANT` | Shared IAS tenant |
-| `OIDC_CLIENT_ID` | Shared OIDC client |
-| `OIDC_REDIRECT_URI` | `http://localhost:3000/callback` |
+	<img src="/exercises/ex1/images/ex11-10.png" alt="Pic 11-10" width=40% height=40%> 
 
-### 4. Run the agent
+12. Click on the **+ Subscription** button on the top right area to create a new topic subscription.
 
-```bash
-node agent.js
-```
+	<img src="/exercises/ex1/images/ex11-11.png" alt="Pic 11-11" width=40% height=40%> 
 
-Log in when the browser opens. The agent will connect to your AEM queue and wait for a new hire event. Your instructor will trigger the event — watch your terminal for the onboarding workflow to execute.
+13. In the pop up, enter the topic: <b>"sap/sfsf/newhire/TechEd_IN261_0**"</b>  *(replace ** with the participant number that is assigned to you)* and click on the **Create** button.
 
-## Project Structure
+        <img src="/exercises/ex1/images/ex11-12.png" alt="Pic 11-12" width=40% height=40%> 
 
-| File | Purpose |
-|---|---|
-| `agent.js` | The agent itself — Claude agentic loop, entry point |
-| `test-login.js` | Verify your IAS login works before running the full agent |
-| `tools/ias-login.js` | IAS login flow — OIDC + PKCE, opens browser, returns token |
-| `tools/aem-subscriber-amqp.js` | Connects to AEM queue via AMQP, receives new hire events |
-| `tools/mcp-client.js` | Calls Integration Suite MCP Gateway with your identity token |
-| `prompts/employee-onboarding.md` | Claude system prompt — defines what the agent does |
-| `package.json` | Defines dependencies — needed for `npm install` |
-| `package-lock.json` | Locks exact dependency versions for consistent installs |
-| `.env.example` | Template — copy to `.env` and fill in your values |
+14. Check whether your queue subscription has been created.
 
-## Troubleshooting
-
-**Port 3000 already in use**
-```bash
-netstat -ano | findstr :3000
-taskkill /PID <pid from above> /F
-```
-
-**Browser does not open automatically**
-Copy the URL printed in the terminal and open it manually in your browser.
-
-**Token exchange fails**
-Make sure `http://localhost:3000/callback` is registered as a redirect URI in the IAS app settings.
-
-**npm install fails**
-Make sure you have Node.js v18 or higher installed: [nodejs.org](https://nodejs.org)
+	<img src="/exercises/ex1/images/ex11-13.png" alt="Pic 11-13" width=40% height=40%>
 
 ## Summary
 
-You've now run an AI agent that uses your own SAP IAS identity to orchestrate employee onboarding across SAP systems via Principal Propagation.
+At the end of the first exercise, you should have familiarized yourself with SAP Integration Suite, advanced event mesh (AEM), created 2 queues, and subscribed to the relevant topics.
+Please make sure that you have used the right nomenclature and replaced <b>***</b> with the participant number that is assigned to you.
 
-Continue to - [Exercise 2](../ex2/README.md)
+Continue to - [Exercise 2 - (AI Core)](../ex2/README.md)
