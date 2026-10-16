@@ -26,7 +26,7 @@ Each participant needs to create a queue and subscribe to their dedicated topic.
 	
 	![Manage](/exercises/ex1/images/ex11-4.png)
 
-5. Click on the **Queues** link button on the left panel.
+5. Click on the **Queues** link on the left panel.
 
 	![Queues](/exercises/ex1/images/ex11-5.png)
 
@@ -47,11 +47,11 @@ Each participant needs to create a queue and subscribe to their dedicated topic.
 
 	![Open Queue](/exercises/ex1/images/ex11-9.png)   
    
-10. Switch to the **Subscriptions** tab and click on the **+ Subscription** button on the top right area to create a new topic subscription.
+10. Switch to the **Subscriptions** tab.
 
     ![Navigate Queue Subscriptions](/exercises/ex1/images/ex11-10.png)   
 
-11. Click on the **+ Subscription** button on the top right area, to create a new topic subscription.
+11. Click on the **+ Subscription** on the top right area to create a new topic subscription.
 
 	![Create Queue Subscriptions](/exercises/ex1/images/ex11-11.png)  
 
@@ -60,12 +60,12 @@ Each participant needs to create a queue and subscribe to their dedicated topic.
 
     ![Add Topic Subscriptions](/exercises/ex1/images/ex11-12.png)
 
-13. Check whether your queue subscription has been created.
+13. Verify that your newly created topic subscription <b>"sap/sfsf/newhire/TechEd_IN261_0**"</b> appears in the list.
 
 	![Check Topic Subscriptions](/exercises/ex1/images/ex11-13.png)
 
 ## Summary
 
-At the end of this exercise, you have created your personal AEM queue and subscribed it to your dedicated new hire event topic. With this in place, your agent will receive NEWHIRE events from SAP SuccessFactors in near real-time as they happen.
+At the end of this exercise, you have created your personal AEM queue and subscribed it to your dedicated new hire event topic. With this in place, your agent will receive **NEWHIRE** events from SAP SuccessFactors in near real-time as they happen.
 
 Continue to - [Exercise 2 - Create and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition](../ex2/README.md)
