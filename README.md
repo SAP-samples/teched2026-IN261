@@ -120,13 +120,13 @@ This section also serves as a Table of Content; use the breadcrumb navigation at
 - [Exercise 1 - Set Up Your SAP Integration Suite, advanced event mesh (AEM) Queue and Topic Subscription](exercises/ex1/README.md)
   - [Exercise 1.1 - Create a queue and subscribe to the dedicated new hire topic in AEM](exercises/ex1#exercise-11---create-a-queue-and-subscribe-to-the-dedicated-new-hire-topic-in-aem)
 - [Exercise 2 — Create and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition](exercises/ex2/README.md)
-    - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
-    - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
 - [Exercise 3 — Create and Deploy a MCP Server for HR Policy Lookup](exercises/ex3/README.md)
 - [Exercise 4 — Create and Deploy a MCP Server for Purchase Requisition Creation in SAP S/4HANA for New Hire Equipments Post Manager Approval](exercises/ex4/README.md)
-- [Exercise 5 — ](exercises/ex5/README.md)
+- [Exercise 5 — ]()
 - [Exercise 6 — Publish MCP Servers as a Product and Subscribe via Developer Hub](exercises/ex6/README.md)
 - [Exercise 7 — Download, Configure, and Run the Employee Onboarding AI Agent](exercises/ex7/README.md)
+- [Exercise 8 — ]()
+- [Exercise 9 — ]()
 
 ## Feedback
 Kindly provide your feedback on this hands-on session i.e. **IN261**.
