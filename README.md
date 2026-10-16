@@ -1,19 +1,12 @@
-# Containing Files
-
-1. The LICENSE file:
-In most cases, the license for SAP sample projects is `Apache 2.0`.
-
-2. The REUSE.toml file: 
-The [Reuse Tool](https://reuse.software/) must be used for your samples project. You can find the REUSE.toml in the project initial. Please replace the parts inside the single angle quotation marks < > by the specific information for your repository.
-
-3. The README.md file (this file):
-Please edit this file as it is the primary description file for your project.You can find some placeholder titles for sections below.
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2026-IN261)](https://api.reuse.software/info/github.com/SAP-samples/teched2026-IN261)
 
 # IN261 - Model context protocol (MCP) unlocked: Enable governed access to AI agents 
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2026 session called Session ID - Session Title.  
+This repository contains the material for the SAP TechEd 2026 Hands-on Workshop session [IN261 | Model context protocol (MCP) unlocked: Enable governed access to AI agents](https://www.sap.com/events/teched/berlin/flow/sap/te26/catalog/page/catalog/session/1786027688241001k1kf)  
+
+In this hands-on workshop you will learn how to operationalize AI agents from pilots to production with governed connectivity. Learn how the **MCP Gateway in SAP Integration Suite** applies policy, **security**, and **analytics** while curating MCP tools for AI agents. Securely connect enterprise tools to an AI agent - including **unified APIs** via **API Composiition**, **event-driven context** from **SAP Advanced Event Mesh (AEM)**, and **Retrieval-Augmented Generation (RAG)** grounded retrieval via **SAP AI Launchpad Orchestration** - with **governed access** using **Principal Propagation** and **human-in-the-loop** approvals to achieve **end-to-end traceability**.
 
 ## Overview
 
