@@ -1,4 +1,4 @@
-# Exercise 2 — Create and Deploy an MCP Server for New Hire Employee Lookup
+# Exercise 2 — Create and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition
 
 An AI agent is only as useful as the data it can reach. Getting it to enterprise data safely is the challenge.
 
