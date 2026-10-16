@@ -75,9 +75,9 @@ SAP Advanced Event Mesh (AEM)
 ```
 ---
 
-### 🎯 What You Will Learn
+### 🎯 Concepts in Action
 
-| Concept | What You Experience |
+| Concept | In This Session |
 |---|---|
 | **Model Context Protocol (MCP)** | AI agent dynamically discovers and calls enterprise tools at runtime |
 | **SAP Integration Suite MCP Gateway** | Governed bridge between the AI agent and SAP backends — policy, security, analytics in one place |
