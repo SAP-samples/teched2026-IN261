@@ -6,15 +6,24 @@
 
 This repository contains the material for the SAP TechEd 2026 Hands-on Workshop session [IN261 | Model context protocol (MCP) unlocked: Enable governed access to AI agents](https://www.sap.com/events/teched/berlin/flow/sap/te26/catalog/page/catalog/session/1786027688241001k1kf)  
 
-In this hands-on workshop you will learn how to **operationalize AI agents** from pilots to production with governed connectivity. Learn how the **MCP Gateway in SAP Integration Suite** applies policy, **security**, and **analytics** while curating MCP tools for AI agents. Securely connect enterprise tools to an AI agent - including **unified APIs** via **API Composiition**, **event-driven context** from **SAP Advanced Event Mesh (AEM)**, and **Retrieval-Augmented Generation (RAG)** grounded retrieval via **SAP AI Launchpad Orchestration** - with **governed access** using **Principal Propagation** and **human-in-the-loop** approvals to achieve **end-to-end traceability**.
-
 ## Overview
 
-This session introduces attendees to...
+In this hands-on workshop you will learn how to **operationalize AI agents** from pilots to production with governed connectivity. Learn how the **MCP Gateway in SAP Integration Suite** applies policy, **security**, and **analytics** while curating MCP tools for AI agents. Securely connect enterprise tools to an AI agent - including **unified APIs** via **API Composiition**, **event-driven context** from **SAP Advanced Event Mesh (AEM)**, and **Retrieval-Augmented Generation (RAG)** grounded retrieval via **SAP AI Launchpad Orchestration** - with **governed access** using **Principal Propagation** and **human-in-the-loop** approvals to achieve **end-to-end traceability**.
 
 ## Requirements
+There are no dedicated requirements for this session. You will be able to complete all exercises by following the step-by-step instructions, even without prior experience with SAP Integration Suite, SAP AI Core, or AI agent development. All tenant access, credentials, and pre-configured environments will be provided by your instructor. No local installation is required.
 
-The requirements to follow the exercises in this repository are...
+You will derive the most value from this session if you have some familiarity with the following:
+
+- SAP Integration Suite
+- AI agents and large language models (LLMs)
+- The Model Context Protocol (MCP)
+- Event-driven architectures (events, queues, topics)
+- API composition and unified APIs
+- Principal Propagation and identity federation
+- Retrieval-Augmented Generation (RAG)
+
+> **Note:** This is an advanced session — it combines multiple SAP technologies and concepts to implement a realistic end-to-end AI agentic workflow.
 
 ## Exercises
 
