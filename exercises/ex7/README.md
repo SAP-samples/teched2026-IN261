@@ -7,7 +7,7 @@ With all four MCP Servers deployed and published as a governed product in the De
 
 ## What is the Employee Onboarding AI Agent?
 
-The **Employee Onboarding AI Agent** is a Claude-powered agent that listens for new hire events from SAP SuccessFactors via Advanced Event Mesh and orchestrates the full onboarding process through the four MCP Servers you have deployed.
+The **Employee Onboarding AI Agent** listens for new hire events from SAP SuccessFactors via Advanced Event Mesh and orchestrates the full onboarding process through the four MCP Servers you have deployed.
 
 When a new hire event arrives, the agent:
 
