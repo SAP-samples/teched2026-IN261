@@ -4,7 +4,7 @@
 
 SAP Integration Suite, advanced event mesh (AEM) is the event backbone that connects SAP SuccessFactors to your AI agent. When a new hire completes onboarding in SAP SuccessFactors, a **NEWHIRE** event is published to a topic dedicated to each participant. Your agent needs a dedicated queue subscribed to that topic to receive and process the event.
 
-Each participant needs to create a queue and subscribe to their dedicated topic. This queue will be used later in the session when configuring and running the AI agent.
+Each participant needs to create a queue and subscribe to their dedicated topic. This queue will be used in Exercise 7 when configuring and running the AI agent.
 
 ## Exercise 1.1 - Create a queue and subscribe to the dedicated new hire topic in AEM
 
