@@ -113,25 +113,26 @@ To complete the exercises, the access to the following systems have been provide
 > - _Do not delete, change or undeploy any artifact in the tenant other than yours._
 
 ## Exercises
-
-Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
+The complete list of exercise steps are listed below, run through them in the given order.
+This section also serves as a Table of Content; use the breadcrumb navigation at the top of the pages to return here at any time.
 
 - [Getting Started](exercises/ex0/)
-- [Exercise 1 - First Exercise Description](exercises/ex1/)
-    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-    - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)
+  - [Exercise 1 - Explore and Configure SAP Integration Suite, advanced event mesh (AEM)](exercises/ex1/README.md)
+  - [Exercise 1.1 - Log on to SAP Integration Suite, advanced event mesh (AEM) and explore it](exercises/ex1#exercise-11---log-on-to-sap-integration-suite-advanced-event-mesh-aem-and-explore-it)
 - [Exercise 2 - Second Exercise Description](exercises/ex2/)
     - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
     - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
 
-  
-**OR** Link to the Tutorial Navigator for example...
+## Feedback
+Kindly provide your feedback on this hands-on session i.e. **IN261**.
 
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
+## Additional Relevant Sessions
+You can also gain some further knowledge around SAP Integration Suite and its capabilities by attending the following SAP TechEd Hands-on Workshop sessions:
 
-**IMPORTANT**
+- [IN262 | Build an integration scenario from scratch with AI assistance at every step | Hands-on Workshop](http://sap.com/events/teched/berlin/flow/sap/te26/catalog/page/catalog/session/1786027888165001UXeS)
+- [IN263 | AI-supported integrations: From design quality to agent readiness | Hands-on Workshop](https://www.sap.com/events/teched/berlin/flow/sap/te26/catalog/page/catalog/session/1786028735882001Q0Hd)
+- [IN163 | Build your own event-driven scenario with advanced event mesh | Hands-on Workshop](https://www.sap.com/events/teched/berlin/flow/sap/te26/catalog/page/catalog/session/1786029069284001qBM4)
 
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder. 
 
 ## Contributing
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
