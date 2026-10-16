@@ -35,12 +35,10 @@ After completing these steps, you will have familiarized yourself with AEM. Thes
 
 6.  A new browser tab will open listing all available queues. Click the **+ Queue** button on the top right to create a queue.
          **HINT:** You will be able to see Queues created by other participants
-    
-	- Topic Subscription: <b>"sap/sfsf/newhire/TechEd_IN261_0**"</b> *(replace ** with the participant number that is assigned to you)*
 
          <img src="/exercises/ex1/images/ex11-6.png" alt="Pic 11-6" width=40% height=40%>     
 
-8. In the pop up, enter the queue name: <b>IN162-0**</b> *(replace ** with the participant number that is assigned to you)* and click on the **Create** button.
+8. In the pop up, enter the queue name: <b>IN261-0**</b> *(replace ** with the participant number that is assigned to you)* and click on the **Create** button.
 
 	<img src="/exercises/ex1/images/ex11-7.png" alt="Pic 11-7" width=40% height=40%>  
 
