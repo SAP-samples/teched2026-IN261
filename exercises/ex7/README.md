@@ -1,4 +1,4 @@
-# Exercise 7 — Set Up and Run the Employee Onboarding AI Agent
+# Exercise 7 — Download, Configure, and Run the Employee Onboarding AI Agent
 
 With all four MCP Servers deployed and published as a governed product in the Developer Hub, the last step is to connect an AI agent to them. In this exercise, you will download the pre-built employee onboarding agent from the Solution Package, configure it with your deployed MCP Server URLs, and run it — connecting it to your SAP Advanced Event Mesh (AEM) queue so it is ready to respond when a new hire event arrives.
 
