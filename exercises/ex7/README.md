@@ -114,6 +114,9 @@ The agent bundle includes a file called `mcp-servers.json`. The **`active`** sec
    | `IN261_0XX_Create_PR_S4Hana_MCP` | `"create-pr-s4hana-mcp"` |
    | `IN261_Create_SC_ServiceCloud_MCP` | `"create-sc-servicecloud-mcp"` |
 
+> [!IMPORTANT]
+> Each MCP Server URL must be pasted into the **exact matching `name` entry** in the `active` section. Pasting a URL into the wrong entry will cause the agent to call the wrong server and fail at runtime. Double-check the `name` field before saving.
+
    <br>![AI Artifacts — repeat for the remaining three MCP Servers](/exercises/ex7/images/Repeat_for_remaining_MCPs.png)
 
 5. Once all four `"url"` fields are filled in, **save the file** (`Ctrl + S`).
