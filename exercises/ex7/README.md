@@ -180,11 +180,27 @@ Setup complete! Run 'node agent.js' to start the agent.
 node agent.js
 ```
 
-Your browser will open automatically for SAP IAS login. Log in with your workshop credentials. Once authenticated, close the browser tab and return to the terminal.
-
-The agent is now connected to your AEM queue and listening for new hire events.
+Your browser will open automatically for SAP IAS login. Log in with your workshop credentials.
 
    <br>![Terminal — node agent.js running, browser login initiated](/exercises/ex7/images/terminal3.png)
+
+Once login is complete, the browser displays:
+
+> *"Login successful! You can close this tab and return to the Employee Onboarding AI Agent Terminal."*
+
+Close this browser tab and return to the terminal.
+
+   <br>![Browser — login successful, close the tab](/exercises/ex7/images/Authentication_Done.png)
+
+Back in the terminal, the agent connects to all four MCP Servers and subscribes to your AEM queue. Once you see the following lines, the agent is ready:
+
+```
+AEM Connected via AMQP to VPN: teched2026-in261
+AEM Subscribed to queue: IN261_050
+AEM Waiting for new hire events from SuccessFactors...
+```
+
+   <br>![Terminal — agent connected to all MCP tools and waiting for new hire events](/exercises/ex7/images/agentislistening.png)
 
 > [!NOTE]
 > Keep the terminal open and the agent running — you will need it in Exercise 8, where your instructor will trigger a new hire event and the agent will orchestrate the full onboarding workflow.
