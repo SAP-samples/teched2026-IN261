@@ -13,9 +13,9 @@ In this exercise, you will create an **MCP Server** backed by this pre-configure
 By the end, you will have a deployed MCP Server that exposes the complete new hire profile with governed access and Principal Propagation — ensuring every agent call to SAP SuccessFactors is traceable to the real user identity, not a shared service account — ready to be consumed by the AI agent in Exercise 7.
 
 <details>
-<summary><strong>📖 Pre-Configured: Composed API via API Composition (Business Data Graph)</strong></summary>
+<summary><strong>📖 Pre-Configured: Composed API via SAP API Composition (Business Data Graph)</strong></summary>
 
-For this hands-on session, Composed API has been pre-configured for you that give the onboarding agent exactly what it needs in two focused calls, with no noise.
+For this hands-on session, the Composed API has been pre-configured for you, giving the onboarding agent exactly what it needs in two focused calls, with no noise.
 You will use this pre-configured Composed API as the data source for your MCP Server — it comes with an **OpenAPI Specification** that you will upload in the next steps.
 
 The Composed API is built from multiple SuccessFactors data entities — each representing a different domain:
@@ -63,83 +63,69 @@ Here is how it flows in this exercise:
 | 5 | SAP BDG exchanges the JWT Bearer for a **SAML Bearer Assertion** and calls SAP SuccessFactors — the backend sees the *real* user, not a shared service account |
 
 > **Note:** Principal Propagation is specific to this MCP Server — the employee profile lookup talks directly to SAP SuccessFactors on behalf of the calling user.
-> For a deeper understanding, refer to [SAP Help: Principal Propagation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
+> <br>For a deeper understanding, refer to [SAP Help: Principal Propagation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
 </details>
 
-## Exercise 2.1 — Create the MCP Server
+## Exercise 2.1 — Create, Configure and Deploy the MCP Server for New Hire Employee Profile Lookup
 
-In this sub-exercise, you create an Integration Package and add an MCP Server artifact configured against the pre-configured Employee Lookup Composed API.
+In this exercise, you will create an Integration Package and an MCP Server artifact backed by the pre-configured Employee Lookup Composed API, configure it with a prompt and authentication policy, and deploy it to the Integration Cell.
 
 ### Step 1: Create an Integration Package
 
-1. In SAP Integration Suite, navigate to **Design → Integrations and APIs**.
-2. Click **Create**.
+1. Log in to your assigned SAP Integration Suite tenant — refer to the [System URL and Login Details](../../README.md#system-url-and-login-details) for your SAP Integration Suite tenant URL.
+   For login, use the participant number that is assigned to you.
+2. After login, navigate to **Design → Integrations and APIs** and click **Create**.
 
-   <br>![Navigate to Integrations and APIs](/exercises/ex2/images/Create_IntegrationPackage1.png)
+   ![Navigate to Integrations and APIs](/exercises/ex2/images/Create_IntegrationPackage1.png)
 
-3. Fill in the package details:
-
-> [!NOTE]
-> Replace **XX** with your assigned participant number throughout this exercise.
-> For instance, user **IN261 050** will create a package named **IN261_050_TechEd_2026_Package**
+4. Fill in the package details — copy and paste the values below:
 
    | Field | Value |
    |---|---|
-   | Name | `IN261_0XX_TechEd_2026_Package` (replace XX with your assigned participant number) |
+   | Name | <b>IN261_0**_TechEd_2026_Package</b> *(replace ** with the participant number that is assigned to you)*|
    | Short Description | Learn how the MCP Gateway in SAP Integration Suite applies policy, security, and analytics while curating MCP tools. Securely connect enterprise tools to an AI agent, including unified APIs with event-driven context and governed access. |
    | Version | `1.0.0` |
    | Vendor | `SAP` |
 
-
+   Click **Save**.
    
-4. Click **Save**.
+   ![Fill in Package Details](/exercises/ex2/images/Create_IntegrationPackage2.png)
 
-   <br>![Fill in Package Details](/exercises/ex2/images/Create_IntegrationPackage2.png)
+### Step 2: Create the MCP Server Artifact
 
+1. Go to the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
 
+   ![Add MCP Server](/exercises/ex2/images/Add_MCP_Server.png)
 
-### Step 2: Add an MCP Server Artifact
+2. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
 
-1. Open the package you just created and go to the **Artifacts** tab.
-2. Click **Add** and select **MCP Server** from the dropdown.
+   ![Select Source Type](/exercises/ex2/images/Add_MCP_Server2.png)
 
-   <br>![Add MCP Server](/exercises/ex2/images/Add_MCP_Server.png)
-
-3. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
-
-   <br>![Select Source Type](/exercises/ex2/images/Add_MCP_Server2.png)
+3. Download the OpenAPI Specification: [`SAP_HCM_Graph.json`](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/SAP_HCM_Graph.json) — you will upload it in the next step.
 
 4. Fill in the MCP Server details:
 
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download The **OpenAPI Specification** from [`SAP_HCM_Graph.json`](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/SAP_HCM_Graph.json) and upload it. |
+   | File Name | Upload the `SAP_HCM_Graph.json` downloaded in the previous step |
    | Source | `Destination` |
    | Destination | `in261_hcmcloud_mcp` |
    | Relative URL | `/api/in261-hcmcloud` |
-   | Name | `IN261_0XX_Employee_Lookup_MCP` (replace XX with your assigned participant number) |
-   | ID | `IN261_0XX_Employee_Lookup_MCP` (replace XX with your assigned participant number) |
-   | MCP Path | `/in261_0XX_employee_lookup_mcp` (replace XX with your assigned participant number) |
+   | Name | <b>IN261_0**_Employee_Lookup_MCP</b> *(replace ** with the participant number that is assigned to you)* |
+   | ID | <b>IN261_0**_Employee_Lookup_MCP</b> *(replace ** with the participant number that is assigned to you)* |
+   | MCP Path | <b>/in261_0**_employee_lookup_mcp</b> *(replace ** with the participant number that is assigned to you)* |
    | Version | `1.0.0` |
-   | Runtime Profile | `Integration Cell` |
 
-5. Click **Next**.
+   Click **Next**.
+   
+   ![Provide MCP Details](/exercises/ex2/images/Add_MCP_Server3.png)
 
-   <br>![Provide MCP Details](/exercises/ex2/images/Add_MCP_Server3.png)
 
+5. On the **Create Tools** screen, two tools are available from the uploaded API specification.
+   <br>Select both and click **Add** to finish creating the MCP Server artifact.
 
-6. On the **Create Tools** screen, two tools are available from the uploaded API specification. Select both:
-
-| Method | Path | Description |
-|---|---|---|
-| `GET` | `/bestrun.hcmcloud/employee` | Returns employee personal info and email. Supports `$filter=employeeId eq '{id}'` and `$expand=personalInfo,emailInfo` |
-| `GET` | `/bestrun.hcmcloud/employeeJob` | Returns job details including manager, company, department, business unit, division, and location |
-
-7. Click **Add** to finish creating the MCP Server artifact.
-
-   <br>![Create Tools](/exercises/ex2/images/Add_MCP_Server4.png)
-
+   ![Create Tools](/exercises/ex2/images/Add_MCP_Server4.png)
 
 ### Step 3: Add Prompt
 
