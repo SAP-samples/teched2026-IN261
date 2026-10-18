@@ -1,69 +1,70 @@
 # Exercise 2 — Create and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition
 
-An AI agent is only as useful as the data it can reach. Getting it to enterprise data safely is the challenge.
+SAP Integration Suite's **MCP Gateway** lets you expose any enterprise API as an MCP tool — with authentication, authorization, and audit logging enforced at the gateway level, keeping your backend systems protected.
 
-In this exercise, you will deploy an **MCP Server** for Employee Lookup from the pre-configured Business Data Graph (BDG). You will create an MCP artifact, configure it with the BDG's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
+> **Note:** For a deeper understanding of the **Model Context Protocol (MCP)** and **MCP Gateway and API Cpomposition in SAP Integration Suite**, refer to [What is the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) and [MCP Gateway in SAP Integration Suite](https://community.sap.com/t5/technology-blog-posts-by-sap/mcp-gateway-in-sap-integration-suite-your-apis-ready-for-the-age-of-agents/ba-p/14438250)
 
-> [!NOTE]
-> For a deeper understanding of the **Model Context Protocol (MCP)** and **MCP paradigm in SAP Integration Suite**, refer to [What is the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) and [MCP Gateway in SAP Integration Suite](https://community.sap.com/t5/technology-blog-posts-by-sap/mcp-gateway-in-sap-integration-suite-your-apis-ready-for-the-age-of-agents/ba-p/14438250)
+A new hire's data in SAP SuccessFactors is spread across multiple independent APIs — personal profile, job assignment, manager, department, business unit, division, and location. If an AI agent called each of these as a separate MCP tool, it would make too many round trips, receive overlapping and inconsistently structured data, and lose coherence trying to piece it all together.
 
-## Pre-Configured: Composed API via API Composition aka Business Data Graph
+**API Composition** solves this by unifying those APIs into a single, semantically connected endpoint — exposing exactly two clean entities: **Employee Details** and **Job Details**. The agent gets the full new hire picture in two focused calls instead of many fragmented ones.
 
+In this exercise, you will create an **MCP Server** backed by this pre-configured Composed API. You will upload the OpenAPI specification, configure the authentication policy with your IAS tenant, add a prompt that tells the agent exactly how to call the tools, and deploy the MCP Server to the Integration Cell. 
 
-**API Composition** is a capability in SAP Integration Suite that unifies multiple business APIs into a single, semantically connected data graph — accessible through one powerful API endpoint.
+By the end, you will have a deployed MCP Server that exposes the complete new hire profile with governed access and Principal Propagation — ensuring every agent call to SAP SuccessFactors is traceable to the real user identity, not a shared service account — ready to be consumed by the AI agent in Exercise 7.
 
-When a new employee is hired, their data is spread across multiple independent APIs — personal profile, job assignment, location, business unit, department, division, manager, and more. Each API answers one question, but no single API tells the full story of a new hire.
+<details>
+<summary><strong>📖 Pre-Configured: Composed API via API Composition (Business Data Graph)</strong></summary>
 
-If an AI agent were to call each of these APIs as separate MCP tools, it would quickly run into **context rot** — a problem where the agent's context window fills up with redundant, overlapping, or inconsistently structured data from too many tool calls. The agent loses coherence, misses relationships between fields, and produces unreliable results.
+For this hands-on session, Composed API has been pre-configured for you that give the onboarding agent exactly what it needs in two focused calls, with no noise.
+You will use this pre-configured Composed API as the data source for your MCP Server — it comes with an **OpenAPI Specification** that you will upload in the next steps.
 
-**API Composition** solves this by combining multiple SuccessFactors APIs into a single, semantically connected endpoint. For this hands-on session, this Composed API has been pre-configured for you — exposing two clean custom entities, **Employee Details** and **Job Details**, that give the onboarding agent exactly what it needs in one call, with no noise.
+The Composed API is built from multiple SuccessFactors data entities — each representing a different domain:
 
-<br>![BDG Overview](/exercises/ex2/images/BDG_Overview.png)
+![BDG Data Sources](/exercises/ex2/images/BDG_DataSource.png)
 
-The Composed API is built from multiple data entities — each representing a different SuccessFactors API domain:
+From these, two custom entities have been created to give the onboarding agent exactly what it needs:
 
-<br>![BDG Data Sources](/exercises/ex2/images/BDG_DataSource.png)
+- **Employee Details entity** — consolidates personal profile information such as name, contact details, and employment status
+- **Employee Job Details entity** — consolidates job-related information including role, location, business unit, department, and manager
 
-From these data sources, two custom entities have been created to structure the information for the onboarding use case:
+![BDG Custom Entities](/exercises/ex2/images/BDG_CustomEntities.png)
 
-- **Employee Details entity** — consolidates personal profile information of the new hire such as name, contact details, and employment status
-- **Job Details entity** — consolidates job-related information including role, location, business unit, and department
-
-<br>![BDG Custom Entities](/exercises/ex2/images/BDG_CustomEntities.png)
-
-Instead of building this from scratch, you use this pre-configured Composed API as the data source for your MCP Server. It comes with an **OpenAPI Specification** and an **OData URL** — both of which you will use when creating the MCP artifact in the next steps.
-
-> [!NOTE]
-> Download the **OpenAPI Specification** for this exercise: [SAP_HCM_Graph.json](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/SAP_HCM_Graph.json)
-> For a deeper understanding of the capability, refer to [SAP Help: API Composition](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
-
-The entities in the Composed API are linked by their source entities — these are the OData expand paths used when calling the tools:
+The entities and their underlying source mappings are:
 
 | Entity | Source Entities |
 |---|---|
-| `employee` | `sap.hcm/PerPerson`, `sap.hcm/PerPerson`, `sap.hcm/PerEmail` |
-| `employeeJob` | `sap.hcm/EmpJob`, `sap.hcm/User`, `sap.hcm/FODepartment`, `sap.hcm/FODivision`, `sap.hcm/FOLocation`, `sap.hcm/FOCompany` |
+| `employee` | `sap.hcm/PerPerson`, `sap.hcm/PerPersonal`, `sap.hcm/PerEmail` |
+| `employeeJob` | `sap.hcm/EmpJob`, `sap.hcm/User`, `sap.hcm/Position`, `sap.hcm/FOCompany`, `sap.hcm/FOLocation`, `sap.hcm/FODivision`, `sap.hcm/FOBusinessUnit`, `sap.hcm/FODepartment`|
 
+If an AI agent were to call each of these APIs as separate MCP tools, it would quickly run into **context rot** — a problem where the agent's context window fills up with redundant, overlapping, or inconsistently structured data from too many tool calls. The agent loses coherence, misses relationships between fields, and produces unreliable results. The Composed API solves this by surfacing exactly these two focused entities — nothing more, nothing less.
 
-## Concept: Principal Propagation — Why It Matters Here
+![BDG Overview](/exercises/ex2/images/BDG_Overview.png)
 
+> **Note:** For a deeper understanding of the capability, refer to [SAP Help: API Composition in SAP Integration Suite](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
+</details>
 
-When your AI agent calls the MCP Server to look up an employee, the backend system needs to know *who* is making that request. Using a shared service account hides the real caller — this breaks audit trails, access controls, and compliance requirements.
+<details>
+<summary><strong>📖 Background: Principal Propagation — Why It Matters Here</strong></summary>
 
-**Principal Propagation** solves this by forwarding the authenticated user's identity from the MCP Server all the way through to the backend SAP system.
+When your AI agent calls the MCP Server to look up an employee, the backend needs to know *who* is making that request — not just that a valid service account is calling. Using a shared technical user hides the real caller, breaking audit trails, access controls, and compliance requirements — especially critical when accessing sensitive new hire personal and employment details.
 
-Here is how it works in this exercise:
+**Principal Propagation** solves this by forwarding the authenticated user's identity from the AI Agent to the MCP Server all the way through to SAP SuccessFactors.
+
+> AI Agent → **(OAuth 2.0 / OIDC)** → MCP Server → **(JWT Bearer)** → SAP BDG → **(SAML Bearer Assertion)** → SAP SuccessFactors
+
+Here is how it flows in this exercise:
 
 | Step | What Happens |
 |---|---|
-| 1 | The AI agent authenticates to the MCP Server using **OAuth 2.0** |
-| 2 | SAP Integration Suite verifies the caller via the configured **IAS (Identity Authentication Service)** trust |
-| 3 | The policy model uses a **SAML Bearer Assertion** to convert the OAuth token into a SAML assertion carrying the user's identity |
-| 4 | This assertion is forwarded to the backend — the backend sees the *real* user, not a generic service account |
+| 1 | The AI agent obtains an **OAuth 2.0 token** from **IAS** on behalf of the logged-in user|
+| 2 | The agent calls the MCP Server presenting the token |
+| 3 | The MCP Server validates the token against the configured **IAS Well-Known URL** |
+| 4 | The MCP Server forwards the request to **SAP Business Data Graph** using a **JWT Bearer** BTP destination, carrying the real user's identity |
+| 5 | SAP BDG exchanges the JWT Bearer for a **SAML Bearer Assertion** and calls SAP SuccessFactors — the backend sees the *real* user, not a shared service account |
 
-> [!NOTE]
+> **Note:** Principal Propagation is specific to this MCP Server — the employee profile lookup talks directly to SAP SuccessFactors on behalf of the calling user.
 > For a deeper understanding, refer to [SAP Help: Principal Propagation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
-
+</details>
 
 ## Exercise 2.1 — Create the MCP Server
 
