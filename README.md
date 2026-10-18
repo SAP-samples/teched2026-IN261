@@ -87,7 +87,7 @@ SAP Advanced Event Mesh (AEM)
 | **Retrieval-Augmented Generation (RAG)** | AI decisions grounded in company HR policy documents, not model assumptions |
 | **Human-in-the-Loop** | Manager approval gate pauses the agent mid-workflow — no automation without consent |
 
-## System URL and login information 
+## System URL and Login Details 
 To complete the exercises, the access to the following systems have been provided. \
 **In case you are not able to access any of these systems please contact the workshop instructors**.
 
