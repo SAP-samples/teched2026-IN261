@@ -1,5 +1,9 @@
-# Exercise 2 — Create and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition
+# Exercise 2 — Create, Configure and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition
+In this exercise, you will create an Integration Package and an MCP Server artifact backed by the pre-configured Employee Lookup Composed API, configure it with a prompt and authentication policy, and deploy it to the Integration Cell.
 
+⏱ **Estimated time: 15 minutes**
+
+## Overview
 SAP Integration Suite's **MCP Gateway** lets you expose any enterprise API as an MCP tool — with authentication, authorization, and audit logging enforced at the gateway level, keeping your backend systems protected.
 
 > **Note:** For a deeper understanding of the **Model Context Protocol (MCP)** and **MCP Gateway and API Cpomposition in SAP Integration Suite**, refer to [What is the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) and [MCP Gateway in SAP Integration Suite](https://community.sap.com/t5/technology-blog-posts-by-sap/mcp-gateway-in-sap-integration-suite-your-apis-ready-for-the-age-of-agents/ba-p/14438250)
@@ -66,11 +70,7 @@ Here is how it flows in this exercise:
 > <br>For a deeper understanding, refer to [SAP Help: Principal Propagation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/principal-propagation)
 </details>
 
-## Exercise 2.1 — Create, Configure and Deploy the MCP Server for New Hire Employee Profile Lookup
-
-In this exercise, you will create an Integration Package and an MCP Server artifact backed by the pre-configured Employee Lookup Composed API, configure it with a prompt and authentication policy, and deploy it to the Integration Cell.
-
-### Step 1: Create an Integration Package
+## Exercise 2.1 — Create an Integration Package
 
 1. Log in to your assigned SAP Integration Suite tenant — refer to the [System URL and Login Details](../../README.md#system-url-and-login-details) for your SAP Integration Suite tenant URL.
    For login, use the participant number that is assigned to you.
@@ -91,7 +91,7 @@ In this exercise, you will create an Integration Package and an MCP Server artif
    
    ![Fill in Package Details](/exercises/ex2/images/Create_IntegrationPackage2.png)
 
-### Step 2: Create the MCP Server Artifact
+## Exercise 2.2 — Create the MCP Server Artifact
 
 1. Go to the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
 
@@ -127,7 +127,7 @@ In this exercise, you will create an Integration Package and an MCP Server artif
 
    ![Create Tools](/exercises/ex2/images/Add_MCP_Server4.png)
 
-### Step 3: Add Prompt
+## Exercise 2.3 — Add Prompt
 
 A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
 
@@ -196,7 +196,7 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
    <br>![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
 
 
-### Step 4: Edit the MCP Policy
+## Exercise 2.4 — Edit the MCP Policy
 
 The policy model defines how every agent request is authenticated and authorized before it reaches the backend. 
 
@@ -239,7 +239,7 @@ In this step, you will configure the **Authentication** policy with the IAS tena
    <br>![Authentication Policy Settings](/exercises/ex2/images/Edit_Policies2.png)
 
 
-## Exercise 2.2 — Deploy the MCP Server
+## Exercise 2.5 — Deploy the MCP Server
 
 In this sub-exercise, you deploy the MCP Server artifact to the Integration Cell and verify it is running.
 
@@ -251,18 +251,15 @@ In this sub-exercise, you deploy the MCP Server artifact to the Integration Cell
    - **Virtual Host:** *(pre-selected, leave as default)*
 3. Click **Deploy** in the dialog to confirm.
 
-   <br>![Deploy confirmation dialog](/exercises/ex2/images/Deploy.png)
+   ![Deploy confirmation dialog](/exercises/ex2/images/Deploy.png)
 
-### Step 2: Verify Deployment Status
+4. Once deployed, the status bar at the top of the artifact page updates to confirm:
+   **`Deployed on [date], Runtime Status: STARTED`**
 
-Once deployed, the status bar at the top of the artifact page updates to confirm:
+   ![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
 
-**`Deployed on [date], Runtime Status: STARTED`**
-
-   <br>![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
-
-> [!IMPORTANT]
-> Only proceed to Exercise 3 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
+   > [!IMPORTANT]
+   > Only proceed to Exercise 3 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ## Summary
 
