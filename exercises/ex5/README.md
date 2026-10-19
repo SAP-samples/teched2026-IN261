@@ -74,6 +74,6 @@ The response includes a case ID — the agent constructs a direct link to the ca
 
 ## Summary
 
-The Service Cloud Case Creation MCP Server has been pre-deployed and is ready to use. It will appear alongside your other MCP Servers when you publish the product in Develop Hub in Exercise 6.
+The Service Cloud Case Creation MCP Server has been pre-deployed and is ready to use. It will appear alongside your other MCP Servers when you publish the product in Developer Hub in Exercise 6.
 
 Continue to - [Exercise 6 - Publish MCP Servers as a Product and Subscribe via Developer Hub](../ex6/README.md)
