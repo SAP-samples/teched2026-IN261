@@ -114,16 +114,17 @@ Here is how it flows in this exercise:
    | File Name | Upload the `SAP_HCM_Graph.json` downloaded in the previous step |
    | Source | `Destination` |
    | Destination | Select `in261_hcmcloud_mcp` from the destination list |
-   | Relative URL | `/api/in261-hcmcloud` <br>**Note:** The Destination and Relative URL are pre-configured for the workshop — copy exactly as shown, do not modify.|
+   | Relative URL | `/api/in261-hcmcloud` |
    | Name | <b>IN261_0**_Employee_Lookup_MCP</b> *(replace ** with the participant number that is assigned to you)* |
    | ID | Auto populated |
    | MCP Path | <b>/in261_0**_employee_lookup_mcp</b> *(replace ** with the participant number that is assigned to you)* |
    | Version | `1.0.0` |
 
+   > **HINT:** The Destination and Relative URL are pre-configured for the workshop — copy exactly as shown, do not modify.
+   
    Click **Next**.
    
    ![Provide MCP Details](images/Add_MCP_Server3.png)
-
 
 5. On the **Create Tools** screen, two tools are available from the uploaded API specification.
    <br>Select both and click **Add** to finish creating the MCP Server artifact.
@@ -255,8 +256,8 @@ Here is how it flows in this exercise:
 
    ![Deployment status STARTED](images/Deploy2.png)
 
-   > [!IMPORTANT]
-   > Make sure the status shows **STARTED** before proceeding to next exercise. If it still shows *Not Deployed*, wait a moment and refresh the page.
+> [!IMPORTANT]
+> Make sure the status shows **STARTED** before proceeding to next exercise. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ## Summary
 
