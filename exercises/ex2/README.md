@@ -85,7 +85,8 @@ Here is how it flows in this exercise:
    | Field | Value |
    |---|---|
    | Name | <b>IN261_0**_TechEd_2026_Package</b> *(replace ** with the participant number that is assigned to you)*|
-   | Short Description | Learn how the MCP Gateway in SAP Integration Suite applies policy, security, and analytics while curating MCP tools. Securely connect enterprise tools to an AI agent, including unified APIs with event-driven context and governed access. |
+   | Technical Name | Auto populated |
+   | Short Description | `Learn how the MCP Gateway in SAP Integration Suite applies policy, security, and analytics while curating MCP tools. Securely connect enterprise tools to an AI agent, including unified APIs with event-driven context and governed access.` |
    | Version | `1.0.0` |
    | Vendor | `SAP` |
 
@@ -129,27 +130,29 @@ Here is how it flows in this exercise:
 
    ![Create Tools](/exercises/ex2/images/Add_MCP_Server4.png)
 
-## Exercise 2.3 — Add Prompt
+## Exercise 2.3 — Configure the MCP Server
 
 A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
 
-1. From the artifact overview, click **Edit** (top right).
+1. Navigate to **MCP Configuration** tab, click **Edit** (top right).
 
-   <br>![Edit and navigate to Prompts](/exercises/ex2/images/Add_Prompt.png)
+   ![Navigate to MCP Configurations and Edit](/exercises/ex2/images/Edit_MCP.png)
 
-2. Go to the **MCP Configuration** tab → **Prompts** sub-tab → click **Add**.
+2. Then go to the **Prompts** sub-tab and click **Add**.
 
-3. In the **Add Prompt** dialog, fill in the **Define Prompt** details and Click **Next** :
+   ![Add Prompt](/exercises/ex2/images/Add_Prompt.png)
+
+3. In the **Add Prompt** dialog, fill in the following **Define Prompt** details and click **Next**.
 
    | Field | Value |
    |---|---|
    | Name | `get_new_hire_context` |
-   | Title | Fetch complete onboarding context for a new hire from SuccessFactors |
-   | Description | Fetches complete onboarding context for a new hire from SAP SuccessFactors by calling employee personal info and job info tools and combining them into a single enriched payload. |
+   | Title | `Fetch complete onboarding context for a new hire from SuccessFactors` |
+   | Description | `Fetches complete onboarding context for a new hire from SAP SuccessFactors by calling employee personal info and job info tools and combining them into a single enriched payload` |
 
    <br>![Define Prompt](/exercises/ex2/images/Add_Prompt2.png)
 
-4. On the **Define Arguments** screen, fill in the following and Click **Next** :
+4. On the **Define Arguments** screen, fill in the following deatisl and click **Next**.
 
    | Field | Value |
    |---|---|
@@ -160,7 +163,7 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
 
    <br>![Define Arguments](/exercises/ex2/images/Add_Prompt3.png)
 
-5. On the **Define Messages** screen, set the **Role** to `User` and paste the following into the **Content** field and Click **Add** to save the prompt. Then click **Save** (top right) to save the artifact.:
+5.  On the **Define Messages** screen, keep the **Role** as `User`, paste the following into the **Content** field, and click **Add** to save the prompt.
 
    ```
    Fetch the complete onboarding context for new hire {{ .employeeId }}'.
@@ -195,9 +198,12 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
      "country": "..."
    }
    ```
-   <br>![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
+   ![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
 
+6. Then click **Save** (top right) to save the artifact.
 
+   ![Save MCP](/exercises/ex2/images/Add_Prompt5.png)
+   
 ## Exercise 2.4 — Edit the MCP Policy
 
 The policy model defines how every agent request is authenticated and authorized before it reaches the backend. 
