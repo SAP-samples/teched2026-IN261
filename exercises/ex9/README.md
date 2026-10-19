@@ -82,7 +82,7 @@ Once both actions complete, the agent prints a full **Onboarding Summary** in th
    <br>![Terminal — Onboarding Summary with PR link and Service Cloud Case link](/exercises/ex9/images/Onboarding_Summary.png)
 
 > [!IMPORTANT]
-> The summary contains two clickable links — the **PR Link** for SAP S/4HANA and the **Case Link** for SAP Service Cloud V2. Hold **Ctrl** (Windows/Linux) or **Cmd** (Mac) and click each link to open it in your browser. You will use these links in Exercise 9.3 to verify the results.
+> The summary contains two clickable links — the **PR Link** for SAP S/4HANA and the **Case Link** for SAP Service Cloud V2. Hold **Ctrl** and click each link to open it in your browser. You will use these links in Exercise 9.3 to verify the results.
 
 ### Step 5: Confirm the Workflow is Complete
 
@@ -96,7 +96,7 @@ With both backend records created, you will now open each one directly from the 
 
 ### Step 1: Open the Purchase Requisition in SAP S/4HANA
 
-1. In the terminal, **Ctrl+Click** (or **Cmd+Click** on Mac) the **PR Link** from the Onboarding Summary. Your browser will open the SAP S/4HANA login page.
+1. In the terminal, **Ctrl+Click** the **PR Link** from the Onboarding Summary. Your browser will open the SAP S/4HANA login page.
 
 2. Log in with your workshop credentials:
    - **User Name:** `IN261-0XX` *(replace XX with your participant number)*
@@ -116,7 +116,7 @@ With both backend records created, you will now open each one directly from the 
 
 ### Step 2: Open the Support Case in SAP Service Cloud V2
 
-1. Return to the terminal and **Ctrl+Click** (or **Cmd+Click**) the **Case Link** from the Onboarding Summary. Your browser will open the SAP Service Cloud V2 login page.
+1. Return to the terminal and **Ctrl+Click** the **Case Link** from the Onboarding Summary. Your browser will open the SAP Service Cloud V2 login page.
 
 2. Click **Sign in using SSO**.
 
