@@ -262,4 +262,4 @@ Here is how it flows in this exercise:
 
 At the end of this exercise, you have created and deployed an MCP Server for New Hire Employee Profile Lookup on the Integration Cell. The MCP Server exposes two tools backed by the pre-configured Composed API — giving the onboarding agent governed, identity-aware access to the complete new hire profile from SAP SuccessFactors.
 
-Continue to - [Exercise 3 - Create and Deploy an MCP Server for HR Policy Lookup](../ex3/README.md)
+Continue to - [Exercise 3 — Create, Configure and Deploy an MCP Server for HR Policy Lookup using SAP AI Launchpad Orchestration with Document Grounding](../ex3/README.md)
