@@ -1,17 +1,22 @@
 # Getting Started — What Has Been Pre-Configured for You
 
-This session is designed so that you focus on what matters — creating MCP Servers, configuring governed access, and running an AI agent. All backend systems have been pre-configured and are ready to use.
+> [!IMPORTANT]
+> **No Action Required — Skip to Exercise 1**
+> <br>You do not need to read this page to complete the session. All backend systems are already set up and ready. This page is for reference only — read it offline, after the session, or if you're curious about what was pre-configured and why.
 
-This page gives you a clear picture of what is already set up per system, so you know what you are working with before you begin.
+System URLs and login credentials are in the [main README](../../README.md#system-url-and-login-details). Your participant number is printed on your seat card.
 
-> [!NOTE]
-> System URLs and login credentials are in the [main README](../../README.md#system-url-and-login-details). Your participant number is printed on your seat card.
+---
+
+Continue to - [Exercise 1 - Set Up Your SAP Integration Suite, advanced event mesh (AEM) Queue and Topic Subscription](../ex1/README.md)
+
+---
 
 ---
 
 ## SAP SuccessFactors
 
-SAP SuccessFactors is the system of record for new hire data. It publishes a **NEWHIRE** event to SAP Advanced Event Mesh when a new hire completes their profile.
+SAP SuccessFactors is the system of record for new hire data. When a new hire completes their profile, SuccessFactors publishes a **NEWHIRE** event to SAP Advanced Event Mesh — triggering the AI agent automatically.
 
 **Pre-configured for this session:**
 
@@ -19,11 +24,64 @@ SAP SuccessFactors is the system of record for new hire data. It publishes a **N
 |---|---|
 | Tenant | BestRun company — `apisalesdemo8.successfactors.eu` |
 | Test Employees | One test employee per participant — hired and ready in the system |
-| New Hire Event | Configured to publish `NEWHIRE` events to AEM topic `sap/sfsf/newhire/TechEd_IN261_0**` per participant |
+| New Hire Event | Configured to publish `NEWHIRE` events to AEM — dynamic topic per participant |
 | OAuth Client | Configured for BTP Destination to call SuccessFactors APIs via SAML Bearer Assertion |
 | BTP Destination | `in261_hcmcloud_mcp` — points to the Business Data Graph endpoint |
 
 **What you do:** Nothing in SuccessFactors — your instructor triggers the new hire event in Exercise 8.
+
+<details>
+<summary><strong>📖 For the Curious: How the New Hire Event Pipeline Works in SAP SuccessFactors</strong></summary>
+
+<br>
+
+Getting a real-time event out of SAP SuccessFactors and into an event broker requires two pieces working together: **SAP Integration Center** constructs and publishes the event payload, and **Intelligent Services** defines the business trigger and routes it to the right destination.
+
+#### Step 1 — SAP Integration Center: Build the Event Payload
+
+SAP Integration Center is SuccessFactors' built-in outbound integration tool. It is used here to define **what data is included in the NEWHIRE event** — essentially building the JSON payload that will be published to AEM.
+
+The integration was configured to extract key fields from the new hire's record — including `employeeId`, `firstName`, `lastName`, `hireDate`, `jobTitle`, and `location` — and serialize them into a structured event payload.
+
+#### Step 2 — Intelligent Services: Define the Business Trigger
+
+Intelligent Services is SuccessFactors' event routing layer — it listens for specific HR business events (like "New Employee Hire") and routes them to one or more outbound channels.
+
+For this session, the **"New Employee Hire"** event was configured in Intelligent Services to call the SAP Integration Center integration as its outbound subscriber — meaning every time a new hire completes their profile, the Integration Center publishes the payload to AEM.
+
+#### Step 3 — Dynamic Topic Construction from the Payload
+
+Rather than publishing every new hire event to a single shared AEM topic, the topic is **dynamically constructed at publish time** using the employee ID from the payload.
+
+The topic pattern is:
+
+```
+sap/sfsf/newhire/TechEd_IN261_0{employeeId}
+```
+
+This means each participant has their own dedicated topic — `sap/sfsf/newhire/TechEd_IN261_001`, `sap/sfsf/newhire/TechEd_IN261_002`, and so on. The employee ID is substituted from the payload at runtime by the Integration Center outbound mapping.
+
+This dynamic topic pattern is what you subscribe your personal AEM queue to in **Exercise 1** — ensuring your agent only receives events for your assigned test employee, not every participant's event on the shared tenant.
+
+#### End-to-End Flow
+
+```
+New hire profile completed in SAP SuccessFactors
+        │
+        ▼
+Intelligent Services — detects "New Employee Hire" event
+        │
+        ▼
+SAP Integration Center — builds JSON payload with employeeId, name, hireDate, jobTitle, location
+        │
+        ▼
+Publishes to AEM topic: sap/sfsf/newhire/TechEd_IN261_0{employeeId}
+        │
+        ▼
+Your AEM queue (subscribed to your topic) — delivers event to AI agent
+```
+
+</details>
 
 ---
 
