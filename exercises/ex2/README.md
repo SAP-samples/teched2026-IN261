@@ -132,14 +132,13 @@ Here is how it flows in this exercise:
 
 ## Exercise 2.3 — Configure the MCP Server
 
-A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
-
 1. Navigate to **MCP Configuration** tab, click **Edit** (top right).
 
    ![Navigate to MCP Configurations and Edit](/exercises/ex2/images/Edit_MCP.png)
 
 2. Then go to the **Prompts** sub-tab and click **Add**.
-
+   >**Hint:** A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
+   
    ![Add Prompt](/exercises/ex2/images/Add_Prompt.png)
 
 3. In the **Add Prompt** dialog, fill in the following **Define Prompt** details and click **Next**.
@@ -150,7 +149,7 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
    | Title | `Fetch complete onboarding context for a new hire from SuccessFactors` |
    | Description | `Fetches complete onboarding context for a new hire from SAP SuccessFactors by calling employee personal info and job info tools and combining them into a single enriched payload` |
 
-   <br>![Define Prompt](/exercises/ex2/images/Add_Prompt2.png)
+   ![Define Prompt](/exercises/ex2/images/Add_Prompt2.png)
 
 4. On the **Define Arguments** screen, fill in the following deatisl and click **Next**.
 
@@ -161,97 +160,89 @@ A **Prompt** in an MCP Server is a reusable, parameterized instruction that tell
    | Description | `New Hire's Employee ID` |
    | Required | ✓ |
 
-   <br>![Define Arguments](/exercises/ex2/images/Add_Prompt3.png)
+   ![Define Arguments](/exercises/ex2/images/Add_Prompt3.png)
 
 5.  On the **Define Messages** screen, keep the **Role** as `User`, paste the following into the **Content** field, and click **Add** to save the prompt.
 
-   ```
-   Fetch the complete onboarding context for new hire {{ .employeeId }}'.
-
-   1. Call getEmployee with $filter=employeeId eq '{{ .employeeId }}'&$expand=personalInfo,emailInfo
-
-   2. Call getEmployeeJob with $filter=employeeId eq '{{ .employeeId }}'&$expand=positionInfo,companyInfo,businessUnitInfo,divisionInfo,departmentInfo,locationInfo
-
-   Combine both responses into a single new hire context object with fields:
-   {
-     "employeeId": "...",
-     "employeeFirstName": "...",
-     "employeeLastName": "...",
-     "employeeName": "...",
-     "hireDate": "...",
-     "gender": "...",
-     "dateOfBirth": "...",
-     "email": "...",
-     "managerId": "...",
-     "managerName": "...",
-     "jobTitle": "...",
-     "company": "...",
-     "companyText": "...",
-     "departmentCode": "...",
-     "departmentText": "...",
-     "businessUnitCode": "...",
-     "businessUnitText": "...",
-     "divisionCode": "...",
-     "divisionText": "...",
-     "locationCode": "...",
-     "locationText": "...",
-     "country": "..."
-   }
-   ```
-   ![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
+      ```
+      Fetch the complete onboarding context for new hire {{ .employeeId }}'.
+   
+      1. Call getEmployee with $filter=employeeId eq '{{ .employeeId }}'&$expand=personalInfo,emailInfo
+   
+      2. Call getEmployeeJob with $filter=employeeId eq '{{ .employeeId }}'&$expand=positionInfo,companyInfo,businessUnitInfo,divisionInfo,departmentInfo,locationInfo
+   
+      Combine both responses into a single new hire context object with fields:
+      {
+        "employeeId": "...",
+        "employeeFirstName": "...",
+        "employeeLastName": "...",
+        "employeeName": "...",
+        "hireDate": "...",
+        "gender": "...",
+        "dateOfBirth": "...",
+        "email": "...",
+        "managerId": "...",
+        "managerName": "...",
+        "jobTitle": "...",
+        "company": "...",
+        "companyText": "...",
+        "departmentCode": "...",
+        "departmentText": "...",
+        "businessUnitCode": "...",
+        "businessUnitText": "...",
+        "divisionCode": "...",
+        "divisionText": "...",
+        "locationCode": "...",
+        "locationText": "...",
+        "country": "..."
+      }
+      ```
+      ![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
 
 6. Then click **Save** (top right) to save the artifact.
 
    ![Save MCP](/exercises/ex2/images/Add_Prompt5.png)
    
-## Exercise 2.4 — Edit the MCP Policy
+7. Now click on the **Policies** tab.
+   >**HINT:** The **Policy Model** defines how every agent request is authenticated and authorized before it reaches the backend. 
+   
+   ![Navigate to Policies](/exercises/ex2/images/Edit_Policies.png)
 
-The policy model defines how every agent request is authenticated and authorized before it reaches the backend. 
+8. In the policy model diagram, double click on the **Authentication** step to open its property sheet.
 
-In this step, you will configure the **Authentication** policy with the IAS tenant credentials so that the MCP Server can validate tokens issued by SAP Identity Authentication Service.
-
-1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. 
-
-   <br>![Navigate to Policies](/exercises/ex2/images/Edit_Policies.png)
-
-2. In the policy model diagram, click on the **Authentication** step to select it.
-
-3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
+   ![Navigate to Authentication Step](/exercises/ex2/images/Navigate_Authentication.png)
+   
+9. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
    - Check **External OAuth (OIDC)**
    - Set **Configuration Type** to `Well-Known URL`
 
-   Then copy and paste each value below into the corresponding field:
-
-   **Well-Known URL:**
-   ```
-   https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
-   ```
-
-   **Audience:**
+      Then copy and paste each value below into the corresponding field:
    
-   Leave it empty.
+      **Well-Known URL:**
+      ```
+      https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
+      ```
+      **Audience:**
+      <br>Leave it empty.
+      
+      **ClientID Key:**
+      ```
+      ${authn.oidc.jwt.azp}
+      ```
    
+      **UserInfo Key:**
+      ```
+      ${authn.oidc.jwt.email}
+      ```
+
+      > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
+
+10. Click **Save** (top right).
    
-   **ClientID Key:**
-   ```
-   ${authn.oidc.jwt.azp}
-   ```
+   ![Authentication Policy Settings](/exercises/ex2/images/Edit_Policies2.png)
 
-   **UserInfo Key:**
-   ```
-   ${authn.oidc.jwt.email}
-   ```
-4. Click **Save** (top right).
-   
-   <br>![Authentication Policy Settings](/exercises/ex2/images/Edit_Policies2.png)
-
-
-## Exercise 2.5 — Deploy the MCP Server
-
-In this sub-exercise, you deploy the MCP Server artifact to the Integration Cell and verify it is running.
-
-### Step 1: Deploy
+## Exercise 2.4 — Deploy the MCP Server
 
 1. From the artifact overview, click **Deploy** (top right).
 2. A confirmation dialog appears. Verify the defaults:
