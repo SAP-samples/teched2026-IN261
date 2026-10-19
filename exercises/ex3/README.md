@@ -1,100 +1,122 @@
-# Exercise 3 — Create and Deploy a MCP Server for HR Policy Lookup
+# Exercise 3 — Create, Configure and Deploy an MCP Server for HR Policy Lookup using SAP AI Launchpad Orchestration with Document Grounding
+In this exercise, you will add a second MCP Server to your existing Integration Package — backed by a pre-configured Integration Flow that connects to SAP AI Launchpad Orchestration Document Grounding to retrieve HR policies for equipment, system access and training enrollment relevant to the new hire's role and location.
+
+⏱ **Estimated time: 10 minutes**
 
 ## Overview
+When a new hire joins, the agent needs to determine what equipment, system access and training enrollment applies — based on their role and location. This information lives in HR policy documents that cannot be queried directly by an AI agent.
 
-In this exercise, you will deploy an **MCP Server** from a pre-configured Integration Flow (iFlow) for HR Policy Lookup — giving the onboarding agent governed, real-time access to company HR policies via SAP Integration Suite. You will create an MCP artifact, configure it with the iFlow's OpenAPI specification, deploy it to the Integration Cell, and verify it is running.
+**SAP AI Launchpad Orchestration with Document Grounding** solves this by indexing HR policy documents into a vector store and exposing a semantic search API — so the agent can retrieve the most relevant policies in real-time. A pre-configured Integration Flow acts as the governed middleware between the MCP Server and the Document Grounding API.
+
+In this exercise, you will add a second MCP Server to your existing Integration Package, configure it with the iFlow's OpenAPI specification and authentication policy, and deploy it to the Integration Cell.
+
+By the end, you will have a deployed MCP Server that gives the onboarding agent governed, real-time access to HR policies — ready to be consumed alongside the Employee Lookup MCP from Exercise 2.
+
+<details>
+<summary><strong>📖 Pre-Configured: Integration Flow for HR Policy Lookup</strong></summary>
+
+<br>
+
+A **pre-configured Integration Flow (Prompt to HR Policy RAG Pipeline using SAP AI Core)** has been configured and deployed for this session. It acts as the governed middleware between the MCP Server and the SAP AI Launchpad Orchestration Document Grounding API:
+
+- Receives the policy query from the MCP tool call
+- Handles the API structure mapping and forwards the request to the SAP AI Launchpad Orchestration Document Grounding API
+- Extracts and structures the relevant HR policy content from the Orchestration API response
+- Returns the policy content back to the agent
+
+Instead of building this integration flow from scratch, you will use this pre-configured iFlow as the data source for your MCP Server — it comes with an **OpenAPI Specification** and a **Destination** that you will use when creating the MCP artifact in the next steps.
+
+> **Note:** For a deeper understanding, refer to [SAP AI Launchpad Document Grounding](https://help.sap.com/docs/sap-ai-launchpad)
+
+![Pre-configured iFlow: Prompt to HR Policy RAG Pipeline](images/IFlow_Image.png)
+</details>
+
+## Exercise 3.1 — Open your Existing Integration Package
 
 > [!NOTE]
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
 
----
+1. In SAP Integration Suite tenant, navigate to **Design → Integrations and APIs**, search for and open your package <b>IN261_0**_TechEd_2026_Package</b> *(replace ** with the participant number assigned to you)*.
 
-## Pre-Configured: Integration Flow for HR Policy Lookup
+   ![Navigate to Integrations and APIs](images/Int_Package1.png)
 
-When a new hire joins, they need answers to policy questions — leave entitlements, IT access rules, code of conduct, and more. These policies exist as documents, but an AI agent cannot search unstructured documents on its own.
+2. Click **Edit** (top right) to enter edit mode. The <b>IN261_0**_Employee_Lookup_MCP</b> artifact from Exercise 2 will already be visible — you will add the HR Policy MCP Server alongside it.
 
-The **AI Launch Pad Orchestration Document Grounding API** solves this. It indexes HR policy documents into a vector store and exposes a semantic search API — so the agent can ask a natural language question and retrieve the most relevant policy content.
+   ![Open package and click Edit](images/Add_MCP1.png)
 
-However, calling the Document Grounding API directly from an agent raises the same governance concerns as any other enterprise API — authentication, authorization, audit, and principal propagation. This is where SAP Integration Suite steps in.
+## Exercise 3.2 — Create the MCP Server Artifact
 
-A **pre-configured Integration Flow ()** has been configured for this session. It acts as the governed middleware between the MCP Server and the Document Grounding API:
+1. Go to the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
 
-- Receives the policy query from the MCP tool call
-- Authenticates and forwards the request to the AI Launch Pad Document Grounding API
-- Returns the relevant HR policy content back to the agent
-
-Instead of building this iFlow from scratch, you use this pre-configured iFlow as the data source for your MCP Server. It comes with an **OpenAPI Specification** and a **Destination** — both of which you will use when creating the MCP artifact in the next steps.
-
-<br>![Pre-configured iFlow: Prompt to HR Policy RAG Pipeline](/exercises/ex3/images/IFlow_Image.png)
-
----
-
-## Exercise 3.1 — Create the MCP Server
-
-In this sub-exercise, you add a new MCP Server artifact to your existing Integration Package, from the pre-configured HR Policy Lookup iFlow.
-
-### Step 1: Open the Existing Integration Package
-
-1. In SAP Integration Suite, navigate to **Design → Integrations and APIs**.
-
-   <br>![Navigate to Integrations and APIs](/exercises/ex3/images/Int_Package1.png)
-
-2. Search for and open your package `IN261_0XX_TechEd_2026_Package` from Exercise 2.
-
-   > Replace **XX** with your assigned participant number.
-
-3. Inside the package, click **Edit** (top right) to enter edit mode. The `IN261_0XX_Employee_Lookup_MCP` artifact from Exercise 2 will already be visible — you will add the HR Policy MCP Server alongside it.
-
-   <br>![Open package and click Edit](/exercises/ex3/images/Add_MCP1.png)
-
-### Step 2: Add an MCP Server Artifact
-
-1. In the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
-
-   <br>![Add MCP Server](/exercises/ex3/images/Add_MCP2.png)
+   ![Add MCP Server](images/Add_MCP2.png) 
 
 2. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
 
-   <br>![Select Source Type](/exercises/ex3/images/Add_MCP3.png)
+   ![Select Source Type](images/Add_MCP3.png)
 
-3. Fill in the MCP Server details and  Click **Next** :
+3. Download the OpenAPI Specification: [`Company_Policy_RAG_API.json`](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/Company_Policy_RAG_API.json) — you will upload it in the next step.
+
+4. Fill in the MCP Server details:
 
    | Field | Value |
    |---|---|
    | Method | `Upload` |
-   | File Name | Download The **OpenAPI Specification** from [`Company_Policy_RAG_API.json`](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/Company_Policy_RAG_API.json) and Upload it. |
+   | File Name | Upload the `Company_Policy_RAG_API.json` downloaded in the previous step |
    | Source | `Destination` |
-   | Destination | `in261_iflow_as_mcp` |
+   | Destination | Select `in261_iflow_as_mcp` from the destination list |
    | Relative URL | `/http` |
-   | Name | `IN261_0XX_HR_Policy_Lookup_MCP` (replace XX with your assigned participant number) |
-   | ID | `IN261_0XX_HR_Policy_Lookup_MCP` (replace XX with your assigned participant number) |
-   | MCP Path | `/in261_0XX_hr_policy_lookup_mcp` (replace XX with your assigned participant number) |
+   | Name | <b>IN261_0**_HR_Policy_Lookup_MCP</b> *(replace ** with the participant number that is assigned to you)* |
+   | ID | Auto populated |
+   | MCP Path | <b>/in261_0**_hr_policy_lookup_mcp</b> *(replace ** with the participant number that is assigned to you)* |
    | Version | `1.0.0` |
-   | Runtime Profile | `Integration Cell` |
 
-   <br>![Provide MCP Details](/exercises/ex3/images/Add_MCP4.png)
+   > **HINT:** The Destination and Relative URL are pre-configured for the workshop — copy exactly as shown, do not modify.
 
+   Click **Next**.
 
-4. On the **Create Tools** screen, select the HR Policy Lookup operation and Click **Add** :
+   ![Provide MCP Details](images/Add_MCP4.png)
 
-| Method | Path | Description |
-|---|---|---|
-| `POST` | `/newhire/applicable-hr-policy` | Retrieve HR onboarding policy for a new hire |
+5. On the **Create Tools** screen, select the HR Policy Lookup tool and click **Add** to finish creating the MCP Server artifact.
 
-   <br>![Select Tools](/exercises/ex3/images/Add_MCP5.png)
+   ![Select Tools](images/Add_MCP5.png)
 
-### Step 3: Edit the MCP Policy
-
+## Exercise 3.3 — Configure the MCP Server
 
 The policy model for the HR Policy MCP Server follows the same authentication configuration as Exercise 2 — External OAuth (OIDC) via IAS, ensuring every agent request is verified before reaching the HR policy backend.
 
-1. From the artifact overview, click **Edit** (top right), then click on the **Policies** tab. *(If the Policies tab is not already active, click it to open it.)*
+1. Navigate to **MCP Configuration** tab, click **Edit** (top right).
 
-   <br>![Navigate to Policies tab](/exercises/ex3/images/Edit_Policies.png)
+   ![Navigate to MCP Configurations and Edit](images/Edit_Policies.png)
 
-2. In the policy model diagram, click on the **Authentication** step to select it.
+2. Click on the **Policies** tab, then double click on the **Authentication** step to open its property sheet.
 
 3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
+
+   - Check **External OAuth (OIDC)**
+   - Set **Configuration Type** to `Well-Known URL`
+
+      Then copy and paste each value below into the corresponding field:
+   
+      **Well-Known URL:**
+      ```
+      https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
+      ```
+      **Audience:**
+      <br>Leave it empty.
+      
+      **ClientID Key:**
+      ```
+      ${authn.oidc.jwt.azp}
+      ```
+   
+      **UserInfo Key:**
+      ```
+      ${authn.oidc.jwt.email}
+      ```
+
+   > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
+
+4. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
    - Check **External OAuth (OIDC)**
    - Set **Configuration Type** to `Well-Known URL`
@@ -121,47 +143,32 @@ The policy model for the HR Policy MCP Server follows the same authentication co
    ${authn.oidc.jwt.email}
    ```
 
-4. Click **Save** (top right).
-   <br>![Authentication Policy Settings](/exercises/ex3/images/Edit_Policies2.png)
+5. Click **Save** (top right).
 
+   ![Authentication Policy Settings](images/Edit_Policies2.png)
 
+## Exercise 3.4 — Deploy the MCP Server
 
----
+1. Click **Deploy** (top right). In the confirmation dialog, verify the defaults and click **Deploy** to confirm:
 
-## Exercise 3.2 — Deploy the MCP Server
-
-In this sub-exercise, you deploy the HR Policy MCP Server artifact to the Integration Cell and verify it is running.
-
-### Step 1: Deploy
-
-1. From the artifact overview, click **Deploy** (top right).
-2. A confirmation dialog appears. Verify the defaults:
    - **Runtime Profile:** `Integration Cell`
    - **Virtual Host:** *(pre-selected, leave as default)*
-3. Click **Deploy** in the dialog to confirm.
 
-   <br>![Deploy confirmation dialog](/exercises/ex3/images/Deploy1.png)
+   ![Deploy confirmation dialog](images/Deploy1.png)
 
-### Step 2: Verify Deployment Status
+2. Once deployed, the status bar at the top of the artifact page updates to confirm:
 
-Once deployed, the status bar at the top of the artifact page updates to confirm:
+   **`Deployed on [date], Runtime Status: STARTED`**
 
-**`Deployed on [date], Runtime Status: STARTED`**
-
-   <br>![Deployment status STARTED](/exercises/ex3/images/Deploy2.png)
+   ![Deployment status STARTED](images/Deploy2.png)
 
 > [!IMPORTANT]
-> Only proceed to Exercise 4 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
+> Make sure the status shows **STARTED** before proceeding to next exercise. If it still shows *Not Deployed*, wait a moment and refresh the page
 
 ---
 
 ## Summary
 
-You have now created and deployed a  MCP Server on the Integration Cell. The deployed MCP Servers from Exercise 2 and this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
+At the end of this exercise, you have created and deployed an MCP Server for HR Policy Lookup on the Integration Cell. Together with the Employee Lookup MCP from Exercise 2, the onboarding agent now has governed access to both new hire profile data and relevant HR policies for equipment, system access and training enrollment.
 
-- The iFlow acts as governed middleware between the MCP Server and the AI Launch Pad Document Grounding API
-- The MCP Server handles authentication and authorization using OAuth 2.0
-- Principal Propagation ensures the backend sees the real caller identity, not a shared service account
-- The MCP endpoint is live on the Integration Cell.
-
-Continue to - [Exercise 4](../ex4/README.md)
+Continue to - [Exercise 4 — Create, Configure and Deploy a MCP Server for Purchase Requisition Creation in SAP S/4HANA](../ex4/README.md)
