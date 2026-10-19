@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > **Pre-Configured and Pre-Deployed by Instructor — No Action Required**
-> This MCP Server has already been configured and deployed for all participants. You do not need to create or deploy anything in this exercise. This exercise is for reference only — read it to understand what was built and how it fits into the onboarding flow, then proceed to [Exercise 6](../ex6/README.md).
+> <br>This MCP Server has already been configured and deployed for all participants. You do not need to create or deploy anything in this exercise. This exercise is for reference only — read it to understand what was built and how it fits into the onboarding flow, then proceed to [Exercise 6](../ex6/README.md).
 
 In this session, the employee onboarding AI agent creates a Support Case in SAP Service Cloud V2 after manager approval — covering role-specific IT system access and training enrollment for the new hire. The MCP Server that powers this step has been deployed by your instructor and is already available in your package.
 
