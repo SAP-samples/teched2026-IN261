@@ -24,14 +24,14 @@ You will use this pre-configured Composed API as the data source for your MCP Se
 
 The Composed API is built from multiple SuccessFactors data entities — each representing a different domain:
 
-![BDG Data Sources](/exercises/ex2/images/BDG_DataSource.png)
+![BDG Data Sources](images/BDG_DataSource.png)
 
 From these, two custom entities have been created to give the onboarding agent exactly what it needs:
 
 - **Employee Details entity** — consolidates personal profile information such as name, contact details, and employment status
 - **Employee Job Details entity** — consolidates job-related information including role, location, business unit, department, and manager
 
-![BDG Custom Entities](/exercises/ex2/images/BDG_CustomEntities.png)
+![BDG Custom Entities](images/BDG_CustomEntities.png)
 
 The entities and their underlying source mappings are:
 
@@ -42,7 +42,7 @@ The entities and their underlying source mappings are:
 
 If an AI agent were to call each of these APIs as separate MCP tools, it would quickly run into **context rot** — a problem where the agent's context window fills up with redundant, overlapping, or inconsistently structured data from too many tool calls. The agent loses coherence, misses relationships between fields, and produces unreliable results. The Composed API solves this by surfacing exactly these two focused entities — nothing more, nothing less.
 
-![BDG Overview](/exercises/ex2/images/BDG_Overview.png)
+![BDG Overview](images/BDG_Overview.png)
 
 > **Note:** For a deeper understanding of the capability, refer to [SAP Help: API Composition in SAP Integration Suite](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
 </details>
@@ -75,10 +75,10 @@ Here is how it flows in this exercise:
 1. Log in to your assigned SAP Integration Suite tenant — refer to the [System URL and Login Details](../../README.md#system-url-and-login-details) for your SAP Integration Suite tenant URL.
    For login, use the participant number that is assigned to you.
 
-   ![Login to Integration Suite](/exercises/ex2/images/Login_IntegrationSuite.png)
+   ![Login to Integration Suite](images/Login_IntegrationSuite.png)
 2. After login, navigate to **Design → Integrations and APIs** and click **Create**.
 
-   ![Navigate to Integrations and APIs](/exercises/ex2/images/Create_IntegrationPackage1.png)
+   ![Navigate to Integrations and APIs](images/Create_IntegrationPackage1.png)
 
 4. Fill in the package details — copy and paste the values below:
 
@@ -92,17 +92,17 @@ Here is how it flows in this exercise:
 
    Click **Save**.
    
-   ![Fill in Package Details](/exercises/ex2/images/Create_IntegrationPackage2.png)
+   ![Fill in Package Details](images/Create_IntegrationPackage2.png)
 
 ## Exercise 2.2 — Create the MCP Server Artifact
 
 1. Go to the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
 
-   ![Add MCP Server](/exercises/ex2/images/Add_MCP_Server.png)
+   ![Add MCP Server](images/Add_MCP_Server.png)
 
 2. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
 
-   ![Select Source Type](/exercises/ex2/images/Add_MCP_Server2.png)
+   ![Select Source Type](images/Add_MCP_Server2.png)
 
 3. Download the OpenAPI Specification: [`SAP_HCM_Graph.json`](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/SAP_HCM_Graph.json) — you will upload it in the next step.
 
@@ -122,24 +122,24 @@ Here is how it flows in this exercise:
 
    Click **Next**.
    
-   ![Provide MCP Details](/exercises/ex2/images/Add_MCP_Server3.png)
+   ![Provide MCP Details](images/Add_MCP_Server3.png)
 
 
 5. On the **Create Tools** screen, two tools are available from the uploaded API specification.
    <br>Select both and click **Add** to finish creating the MCP Server artifact.
 
-   ![Create Tools](/exercises/ex2/images/Add_MCP_Server4.png)
+   ![Create Tools](images/Add_MCP_Server4.png)
 
 ## Exercise 2.3 — Configure the MCP Server
 
 1. Navigate to **MCP Configuration** tab, click **Edit** (top right).
 
-   ![Navigate to MCP Configurations and Edit](/exercises/ex2/images/Edit_MCP.png)
+   ![Navigate to MCP Configurations and Edit](images/Edit_MCP.png)
 
 2. Then go to the **Prompts** sub-tab and click **Add**.
    >**HINT:** A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
    
-   ![Add Prompt](/exercises/ex2/images/Add_Prompt.png)
+   ![Add Prompt](images/Add_Prompt.png)
 
 3. In the **Add Prompt** dialog, fill in the following **Define Prompt** details and click **Next**.
 
@@ -149,7 +149,7 @@ Here is how it flows in this exercise:
    | Title | `Fetch complete onboarding context for a new hire from SuccessFactors` |
    | Description | `Fetches complete onboarding context for a new hire from SAP SuccessFactors by calling employee personal info and job info tools and combining them into a single enriched payload` |
 
-   ![Define Prompt](/exercises/ex2/images/Add_Prompt2.png)
+   ![Define Prompt](images/Add_Prompt2.png)
 
 4. On the **Define Arguments** screen, fill in the following details and click **Next**.
 
@@ -160,7 +160,7 @@ Here is how it flows in this exercise:
    | Description | `New Hire's Employee ID` |
    | Required | ✓ |
 
-   ![Define Arguments](/exercises/ex2/images/Add_Prompt3.png)
+   ![Define Arguments](images/Add_Prompt3.png)
 
 5.  On the **Define Messages** screen, keep the **Role** as `User`, paste the following into the **Content** field, and click **Add** to save the prompt.
 
@@ -197,20 +197,20 @@ Here is how it flows in this exercise:
         "country": "..."
       }
       ```
-      ![Define Messages](/exercises/ex2/images/Add_Prompt4.png)
+      ![Define Messages](images/Add_Prompt4.png)
 
 6. Then click **Save** (top right) to save the artifact.
 
-   ![Save MCP](/exercises/ex2/images/Add_Prompt5.png)
+   ![Save MCP](images/Add_Prompt5.png)
    
 7. Now click on the **Policies** tab.
    >**HINT:** The **Policy Model** defines how every agent request is authenticated and authorized before it reaches the backend. 
    
-   ![Navigate to Policies](/exercises/ex2/images/Edit_Policies.png)
+   ![Navigate to Policies](images/Edit_Policies.png)
 
 8. In the policy model diagram, double click on the **Authentication** step to open its property sheet.
 
-   ![Navigate to Authentication Step](/exercises/ex2/images/Navigate_Authentication.png)
+   ![Navigate to Authentication Step](images/Navigate_Authentication.png)
    
 9. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
@@ -240,7 +240,7 @@ Here is how it flows in this exercise:
 
 10. Click **Save** (top right).
    
-   ![Authentication Policy Settings](/exercises/ex2/images/Edit_Policies2.png)
+   ![Authentication Policy Settings](images/Edit_Policies2.png)
 
 ## Exercise 2.4 — Deploy the MCP Server
 
@@ -248,12 +248,12 @@ Here is how it flows in this exercise:
       - **Runtime Profile:** `Integration Cell`
       - **Virtual Host:** *(pre-selected, leave as default)*
 
-      ![Deploy confirmation dialog](/exercises/ex2/images/Deploy.png)
+      ![Deploy confirmation dialog](images/Deploy.png)
 
 2. Once deployed, the status bar at the top of the artifact page updates to confirm:
    <br>**`Deployed on [date], Runtime Status: STARTED`**
 
-   ![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
+   ![Deployment status STARTED](images/Deploy2.png)
 
    > [!IMPORTANT]
    > Make sure the status shows **STARTED** before proceeding to next exercise. If it still shows *Not Deployed*, wait a moment and refresh the page.
