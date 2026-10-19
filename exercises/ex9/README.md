@@ -61,8 +61,6 @@ In the terminal, type the following and press **Enter**:
 Approved
 ```
 
-   <br>![Terminal — manager types Approved]()
-
 > [!NOTE]
 > The agent will not proceed until you explicitly approve. If you type anything other than `Approved`, the agent will treat it as a rejection and stop the workflow.
 
@@ -74,17 +72,9 @@ After approval, the agent calls the remaining two MCP Servers in parallel — cr
 
 The agent prints a direct link to the Purchase Requisition created in SAP S/4HANA. Click the link — it will open S/4HANA and log you in automatically via Principal Propagation, showing the PR created for the new hire's equipment.
 
-   <br>![Terminal — PR created, link printed]()
-
-   <br>![SAP S/4HANA — Purchase Requisition opened]()
-
 ### Step 2: Open the Support Case
 
 The agent also prints a direct link to the Support Case created in SAP Service Cloud V2 for the new hire's IT system access and training enrollment. Click the link to verify the case was created with the correct details.
-
-   <br>![Terminal — Support Case created, link printed]()
-
-   <br>![SAP Service Cloud V2 — Support Case opened]()
 
 ## Exercise 9.4 — View MCP Analytics in SAP Integration Suite
 
@@ -95,13 +85,9 @@ Every tool call made by the agent was routed through the SAP Integration Suite M
 1. In SAP Integration Suite, navigate to **Analyze**.
 2. Select **APIs** from the sub-menu.
 
-   <br>![SAP Integration Suite — navigate to Analyze → APIs]()
-
 ### Step 2: Review MCP Tool Call Logs
 
 You will see all MCP tool calls recorded during the onboarding workflow — the tool name, caller identity, response time, and status for each call. This is the governance and observability layer that makes every agent action auditable.
-
-   <br>![Analytics — MCP tool call logs for the onboarding workflow]()
 
 > [!NOTE]
 > Principal Propagation ensures that each tool call log shows the identity of the authenticated user — not a shared service account. This is the audit trail that makes the agentic workflow enterprise-ready.
