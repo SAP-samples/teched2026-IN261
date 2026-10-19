@@ -24,7 +24,7 @@ A **pre-configured Integration Flow (Prompt to HR Policy RAG Pipeline using SAP 
 - Extracts and structures the relevant HR policy content from the Orchestration API response
 - Returns the policy content back to the agent
 
-Instead of building this integration flow from scratch, you will use this pre-configured iFlow as the data source for your MCP Server — it comes with an **OpenAPI Specification** and a **Destination** that you will use when creating the MCP artifact in the next steps.
+Instead of building this integration flow from scratch, you will use this pre-configured integration flow as the data source for your MCP Server — it comes with an **OpenAPI Specification** and a **Destination** that you will use when creating the MCP artifact in the next steps.
 
 > **Note:** For a deeper understanding, refer to [SAP AI Launchpad Document Grounding](https://help.sap.com/docs/sap-ai-launchpad)
 
