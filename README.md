@@ -99,11 +99,10 @@ To complete the exercises, the access to the following systems have been provide
   <br>Use the tenant assigned to your participant number: Your participant number is printed on your seat card.
   <br>Note your tenant as you will be asked to select your tenant during the AI agent setup in Exercise 7.
 
-        | Participant Numbers | Workshop Tenant |
-        |---|---|
-        | 001 – 020 | [**workshop 01a**](https://url.sap/500ufj) |
-        | 021 – 040 | [**workshop 01b**](https://url.sap/f9f56f)|
-
+  | Participant Number | Workshop Tenant |
+  |---|---|
+  | 001 – 020 | [**workshop 01a**](https://url.sap/500ufj) |
+  | 021 – 040 | [**workshop 01b**](https://url.sap/f9f56f)|
 
 > [!IMPORTANT]
 > - _For a smooth experience, tenants have been preconfigured, and you already have all the roles and permissions needed to complete this exercise._
