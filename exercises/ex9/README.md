@@ -144,19 +144,57 @@ With both backend records created, you will now open each one directly from the 
 
 ## Exercise 9.4 — View MCP Analytics in SAP Integration Suite
 
-Every tool call made by the agent was routed through the SAP Integration Suite MCP Gateway — authenticated, authorized, logged, and traceable. In this sub-exercise, you view the analytics to see every MCP call the agent made during this workflow.
+Every tool call made by the agent was routed through the SAP Integration Suite MCP Gateway — authenticated, authorized, logged, and traceable. In this sub-exercise, you verify that your MCP Servers are running and explore the analytics dashboard to see call volumes, response times, and error patterns for your MCP tools.
 
-### Step 1: Navigate to Analytics
+### Step 1: Navigate to Monitor
 
-1. In SAP Integration Suite, navigate to **Analyze**.
-2. Select **APIs** from the sub-menu.
+1. In SAP Integration Suite, navigate to **Monitor → Integrations and APIs** in the left navigation.
 
-### Step 2: Review MCP Tool Call Logs
+   <br>![Integration Suite — Monitor → Integrations and APIs](/exercises/ex9/images/Monitor_Overview.png)
 
-You will see all MCP tool calls recorded during the onboarding workflow — the tool name, caller identity, response time, and status for each call. This is the governance and observability layer that makes every agent action auditable.
+2. Under **Manage Integration Content**, you will see all deployed MCP Servers with their runtime status. Confirm that all your MCP Servers show **Started** and that the **Error** count is **0**.
+
+### Step 2: Verify Your MCP Server Deployment
+
+1. Click on **`IN261_0XX_Employee_Lookup_MCP`** (replace XX with your participant number) from the Integration Content list.
+
+2. The detail panel on the right shows the **Endpoints** tab with your MCP Server URL, the **Status Details** confirming successful deployment, and the deployment metadata.
+
+   <br>![Monitor — MCP Server detail with Endpoints and deployment status](/exercises/ex9/images/Monitor_MCP_Deployed.png)
+
+### Step 3: Navigate to Analyze
+
+1. In the left navigation, click **Analyze**.
+2. Set the filters at the top of the page:
+   - **Runtime:** `Integration Cell`
+   - **Artifact Type:** `MCP Server`
+
+   <br>![Analyze — Overview KPIs for MCP Servers](/exercises/ex9/images/Analyze_Overview_KPIs.png)
+
+3. The **Overview** tab shows three KPIs for the selected period — **Total MCP Calls**, **MCP Response Time**, and **Total MCP Errors** — giving you a health snapshot of all MCP activity across your tenant.
+
+### Step 4: Explore MCP Call Charts
+
+Scroll down the Overview page to see the detailed charts.
+
+The **MCP Server Calls** chart shows the daily call count over time — broken down by cumulative, failure, and success.
+
+   <br>![Analyze Overview — MCP Server Calls daily chart](/exercises/ex9/images/Analyze_Daily_Call_Count.png)
+
+Further down, **Top MCP Servers of the Week** shows which of your MCP Servers received the most calls, and **Top Subscriptions for Agents** shows the agent subscriptions driving that traffic.
+
+   <br>![Analyze Overview — Top MCP Servers and Top Subscriptions for Agents](/exercises/ex9/images/Analyze_Top_MCP_Servers.png)
+
+### Step 5: Review the Health Tab
+
+Click the **Health** tab at the top of the Analyze page.
+
+The Health view shows **MCP Server Errors by Tool vs Resource** and the **MCP Policy Errors** heatmap — breaking down which MCP Servers experienced policy-level failures, how many, and when.
+
+   <br>![Analyze — Health tab with MCP Policy Errors heatmap](/exercises/ex9/images/Analyze_Health_Tab.png)
 
 > [!NOTE]
-> Principal Propagation ensures that each tool call log shows the identity of the authenticated user — not a shared service account. This is the audit trail that makes the agentic workflow enterprise-ready.
+> The analytics dashboard covers all MCP Servers across your tenant — not just the ones called during this workflow. This is the governance and observability layer that makes every agent action auditable and enterprise-ready.
 
 ## Summary
 
