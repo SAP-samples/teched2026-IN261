@@ -1,4 +1,7 @@
 # Exercise 1 - Set Up Your SAP Integration Suite, advanced event mesh (AEM) Queue and Topic Subscription
+In this exercise, you will create a queue in SAP Integration Suite, advanced event mesh (AEM) and subscribe it to your dedicated new hire topic — so your agent can receive **NEWHIRE** events from SAP SuccessFactors in real-time.
+
+⏱ **Estimated time: 10 minutes**
 
 ## Overview
 
@@ -66,6 +69,6 @@ Each participant needs to create a queue and subscribe to their dedicated topic.
 
 ## Summary
 
-At the end of this exercise, you have created your personal AEM queue and subscribed it to your dedicated new hire event topic. With this in place, your agent will receive **NEWHIRE** events from SAP SuccessFactors in near real-time as they happen.
+At the end of this exercise, you have created your personal AEM queue and subscribed it to your dedicated new hire event topic. With this in place, your agent will receive **NEWHIRE** events from SAP SuccessFactors in real-time as they happen.
 
-Continue to - [Exercise 2 - Create and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition](../ex2/README.md)
+Continue to - [Exercise 2 - Create, Configure and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition](../ex2/README.md)
