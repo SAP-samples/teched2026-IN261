@@ -74,6 +74,8 @@ Here is how it flows in this exercise:
 
 1. Log in to your assigned SAP Integration Suite tenant — refer to the [System URL and Login Details](../../README.md#system-url-and-login-details) for your SAP Integration Suite tenant URL.
    For login, use the participant number that is assigned to you.
+
+   ![Login to Integration Suite](/exercises/ex2/images/Login_IntegrationSuite.png)
 2. After login, navigate to **Design → Integrations and APIs** and click **Create**.
 
    ![Navigate to Integrations and APIs](/exercises/ex2/images/Create_IntegrationPackage1.png)
@@ -110,10 +112,10 @@ Here is how it flows in this exercise:
    | Method | `Upload` |
    | File Name | Upload the `SAP_HCM_Graph.json` downloaded in the previous step |
    | Source | `Destination` |
-   | Destination | `in261_hcmcloud_mcp` |
-   | Relative URL | `/api/in261-hcmcloud` |
+   | Destination | Select `in261_hcmcloud_mcp` from the destination list |
+   | Relative URL | `/api/in261-hcmcloud` <br>**Note:** The Destination and Relative URL are pre-configured for the workshop — copy exactly as shown, do not modify.|
    | Name | <b>IN261_0**_Employee_Lookup_MCP</b> *(replace ** with the participant number that is assigned to you)* |
-   | ID | <b>IN261_0**_Employee_Lookup_MCP</b> *(replace ** with the participant number that is assigned to you)* |
+   | ID | Auto populated |
    | MCP Path | <b>/in261_0**_employee_lookup_mcp</b> *(replace ** with the participant number that is assigned to you)* |
    | Version | `1.0.0` |
 
