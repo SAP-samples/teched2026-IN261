@@ -76,7 +76,7 @@ Instead of building this integration flow from scratch, you will use this pre-co
 
    ![Provide MCP Details](images/Add_MCP4.png)
 
-5. On the **Create Tools** screen, select the HR Policy Lookup tool and click **Add** to finish creating the MCP Server artifact.
+5. On the **Create Tools** screen, select the **/newhire/applicable-hr-policy** tool and click **Add** to finish creating the MCP Server artifact.
 
    ![Select Tools](images/Add_MCP5.png)
 
