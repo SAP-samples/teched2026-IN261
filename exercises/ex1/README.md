@@ -9,6 +9,8 @@ SAP Integration Suite, advanced event mesh (AEM) is the event backbone that conn
 
 Each participant needs to create a queue and subscribe to their dedicated topic. This queue will be used in Exercise 7 when configuring and running the AI agent.
 
+By the end, you will have a personal AEM queue subscribed to your dedicated new hire topic — ready to receive **NEWHIRE** events from SAP SuccessFactors when the AI agent runs in Exercise 7.
+
 ## Exercise 1.1 - Create a queue and subscribe to the dedicated new hire topic in AEM
 
 1. Log on to [AEM](https://url.sap/hu5r93) tenant using the user ID and password that is already provided by the instructors.
