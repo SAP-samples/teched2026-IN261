@@ -6,7 +6,7 @@ In this exercise, you will create an Integration Package and an MCP Server artif
 ## Overview
 SAP Integration Suite's **MCP Gateway** lets you expose any enterprise API as an MCP tool — with authentication, authorization, and audit logging enforced at the gateway level, keeping your backend systems protected.
 
-> **Note:** For a deeper understanding of the **Model Context Protocol (MCP)** and **MCP Gateway and API Cpomposition in SAP Integration Suite**, refer to [What is the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) and [MCP Gateway in SAP Integration Suite](https://community.sap.com/t5/technology-blog-posts-by-sap/mcp-gateway-in-sap-integration-suite-your-apis-ready-for-the-age-of-agents/ba-p/14438250)
+> **Note:** For a deeper understanding of the **Model Context Protocol (MCP)** and **MCP Gateway and API Composition in SAP Integration Suite**, refer to [What is the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) and [MCP Gateway in SAP Integration Suite](https://community.sap.com/t5/technology-blog-posts-by-sap/mcp-gateway-in-sap-integration-suite-your-apis-ready-for-the-age-of-agents/ba-p/14438250)
 
 A new hire's data in SAP SuccessFactors is spread across multiple independent APIs — personal profile, job assignment, manager, department, business unit, division, and location. If an AI agent called each of these as a separate MCP tool, it would make too many round trips, receive overlapping and inconsistently structured data, and lose coherence trying to piece it all together.
 
@@ -151,7 +151,7 @@ Here is how it flows in this exercise:
 
    ![Define Prompt](/exercises/ex2/images/Add_Prompt2.png)
 
-4. On the **Define Arguments** screen, fill in the following deatisl and click **Next**.
+4. On the **Define Arguments** screen, fill in the following details and click **Next**.
 
    | Field | Value |
    |---|---|
@@ -165,7 +165,7 @@ Here is how it flows in this exercise:
 5.  On the **Define Messages** screen, keep the **Role** as `User`, paste the following into the **Content** field, and click **Add** to save the prompt.
 
       ```
-      Fetch the complete onboarding context for new hire {{ .employeeId }}'.
+      Fetch the complete onboarding context for new hire {{ .employeeId }}.
    
       1. Call getEmployee with $filter=employeeId eq '{{ .employeeId }}'&$expand=personalInfo,emailInfo
    
