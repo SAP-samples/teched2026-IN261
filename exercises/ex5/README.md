@@ -1,24 +1,26 @@
-# Exercise 5 — MCP Server for Service Cloud Case Creation (Pre-Configured)
+# Exercise 5 — MCP Server for Support Case Creation in SAP Service Cloud V2 for New Hire System Access and Training Enrollment (Pre-Configured and Pre-Deployed)
 
 > [!IMPORTANT]
 > **Pre-Configured and Pre-Deployed by Instructor — No Action Required**
 > This MCP Server has already been configured and deployed for all participants. You do not need to create or deploy anything in this exercise. This exercise is for reference only — read it to understand what was built and how it fits into the onboarding flow, then proceed to [Exercise 6](../ex6/README.md).
 
-In this session, the onboarding agent creates a Support Case in SAP Service Cloud V2 after manager approval — covering IT system access and role-specific training enrollment for the new hire. The MCP Server that powers this step has been deployed by your instructor and is already available in your package.
+In this session, the employee onboarding AI agent creates a Support Case in SAP Service Cloud V2 after manager approval — covering role-specific IT system access and training enrollment for the new hire. The MCP Server that powers this step has been deployed by your instructor and is already available in your package.
 
-⏱ **Reference only — no hands-on steps**
+⏱ **Estimated time: 5 minutes** — Reference only, no hands-on steps
 
 ## Overview
 
 Unlike the Employee Lookup MCP (Exercise 2) which sits in front of a Composed API, and the HR Policy and Purchase Requisition MCPs (Exercises 3 and 4) which go through pre-configured Integration Flows, this MCP Server connects **directly to the SAP Service Cloud V2 API** — no iFlow, no BDG, no intermediate artifact.
 
-SAP Integration Suite's MCP Gateway sits in front of the Service Cloud API, enforcing authentication, authorization, and audit logging before any request reaches the backend. The agent calls two tools in sequence:
+SAP Integration Suite's MCP Gateway sits in front of the Service Cloud API, enforcing authentication and authorization before any request reaches the backend. The agent calls two tools in sequence:
 
-1. **`queryemployeeservice_employee`** — looks up the logged-in user's identity in Service Cloud by their display ID to retrieve their internal UUID
-2. **`createcaseservice_case`** — creates a Support Case in Service Cloud with the system access and training details from the onboarding plan
+1. **`get_sap_c4c_api_v1_employee_service_employees`** — Looks up the logged-in user's identity in Service Cloud by their display ID to retrieve their internal UUID as this is required to create a support case.
+2. **`post_sap_c4c_api_v1_case_service_cases`** — Creates a Support Case in Service Cloud for the new hire with the role-specific system access and training details from the onboarding plan.
+
+![Service Cloud MCP](/exercises/ex2/images/ex5-1.png)
 
 <details>
-<summary><strong>📖 What Was Pre-Configured: MCP Server for Service Cloud Case Creation</strong></summary>
+<summary><strong>📖 For the Curious: Inside the Service Cloud MCP Server</strong></summary>
 
 <br>
 
@@ -26,22 +28,21 @@ The MCP Server was created from the SAP Service Cloud V2 OpenAPI Specification �
 
 | Tool | Method | Path | Description |
 |---|---|---|---|
-| `queryemployeeservice_employee` | `GET` | `/sap/c4c/api/v1/employee-service/employees` | Looks up a Service Cloud employee using `$filter=displayId eq '{id}'` to retrieve their internal UUID |
-| `createcaseservice_case` | `POST` | `/sap/c4c/api/v1/case-service/cases` | Creates a Support Case with subject, employee, reporter, system access details, and training details |
+| `get_sap_c4c_api_v1_employee_service_employees` | `GET` | `/sap/c4c/api/v1/employee-service/employees` | Looks up a Service Cloud employee using `$filter=displayId eq '{id}'` to retrieve their internal UUID |
+| `post_sap_c4c_api_v1_case_service_cases` | `POST` | `/sap/c4c/api/v1/case-service/cases` | Creates a Support Case with subject, employee, reporter, system access details, and training details |
 
-**Authentication:** Technical user via Basic Auth destination — unlike Exercise 2, Principal Propagation is not used here. The MCP Gateway authenticates the agent call via IAS OAuth, then the backend call uses a pre-configured technical user credential stored in the BTP Destination.
+**Authentication:** Technical user via Client Credentials Grant Type — unlike Exercise 2, Principal Propagation is not used here. The MCP Gateway authenticates the agent call via IAS OAuth, then the backend call uses a pre-configured technical user credential.
 
-**Why technical user here?**
-Service Cloud V2 in this workshop environment does not have IAS trust configured for JWT Bearer exchange. A technical user is the practical choice for the session — in a production setup, Principal Propagation would be the recommended approach.
+![Service Cloud MCP Authentication](/exercises/ex2/images/ex5-2.png)
 
 **How the agent uses these tools:**
 
 ```
-Step 1: queryemployeeservice_employee
+Step 1: get_sap_c4c_api_v1_employee_service_employees
   $filter=displayId eq '{loggedInUsername}'
   → returns value[0].id (UUID)
 
-Step 2: createcaseservice_case
+Step 2: post_sap_c4c_api_v1_case_service_cases
   caseType: "ZEST"
   subject: "New Hire Onboarding — System Access & Training Assignment for {employeeName} ({employeeId})"
   employee: { id: "<UUID from Step 1>" }
@@ -56,11 +57,9 @@ Step 2: createcaseservice_case
 
 | Field | Value |
 |---|---|
-| Name | `IN261_Service_Cloud_Case_MCP` |
-| MCP Path | `/in261_service_cloud_case_mcp` |
-| Source | `Destination` |
-| Destination | `in261_service_cloud_mcp` |
-| Runtime Profile | `Integration Cell` |
+| Name | `IN261_Create_SC_ServiceCloud_MCP` |
+| MCP Path | `/in261_create_sc_servicecloud_mcp` |
+| Source | `URL` |
 
 </details>
 
@@ -82,13 +81,13 @@ AEM Event (new hire)
     │
     ├── MCP Tool: create_purchase_requisition      (Exercise 4)
     │
-    └── MCP Tool: queryemployeeservice_employee    (Exercise 5 — this exercise)
-        MCP Tool: createcaseservice_case           (Exercise 5 — this exercise)
+    └── MCP Tool: get_sap_c4c_api_v1_employee_service_employees    (Exercise 5 — this exercise)
+        MCP Tool: post_sap_c4c_api_v1_case_service_cases           (Exercise 5 — this exercise)
 ```
 
-The agent calls `query_employees` first to resolve the logged-in user's identity, then calls `create_case` to raise a Support Case covering all system access and training items that require manual provisioning.
+The agent calls `get_sap_c4c_api_v1_employee_service_employees` first to resolve the logged-in user's identity, then calls `post_sap_c4c_api_v1_case_service_cases` to raise a Support Case covering all role-specific system access and training items that require manual provisioning.
 
-The response includes a case ID — the agent constructs a direct link to the case in the SAP Service Cloud tenant and presents it in the onboarding summary.
+The response includes a case ID — the agent constructs a direct link to the case and presents it in the onboarding summary.
 
 </details>
 
