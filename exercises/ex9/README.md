@@ -64,17 +64,83 @@ Approved
 > [!NOTE]
 > The agent will not proceed until you explicitly approve. If you type anything other than `Approved`, the agent will treat it as a rejection and stop the workflow.
 
+### Step 3: Agent Creates the Purchase Requisition and Support Case
+
+Immediately after your approval, the agent calls the two remaining MCP tools:
+
+1. **`post_newhire_equipments`** (via Create PR S/4HANA MCP) — creates a Purchase Requisition in SAP S/4HANA for the new hire's equipment and returns the PR number and a direct link
+2. **`post_sap_c4c_api_v1_case_service_cases`** (via Create SC Service Cloud MCP) — creates a Support Case in SAP Service Cloud V2 for system access and training assignment and returns the case ID and a direct link
+
+   <br>![Terminal — agent creating Purchase Requisition in SAP S/4HANA](/exercises/ex9/images/Approved_PR_Created.png)
+
+   <br>![Terminal — agent creating Support Case in SAP Service Cloud V2](/exercises/ex9/images/Approved_SC_Created.png)
+
+### Step 4: Review the Onboarding Summary
+
+Once both actions complete, the agent prints a full **Onboarding Summary** in the terminal — a structured table for each outcome with the PR number, Case ID, and a direct link to each record.
+
+   <br>![Terminal — Onboarding Summary with PR link and Service Cloud Case link](/exercises/ex9/images/Onboarding_Summary.png)
+
+> [!IMPORTANT]
+> The summary contains two clickable links — the **PR Link** for SAP S/4HANA and the **Case Link** for SAP Service Cloud V2. Hold **Ctrl** (Windows/Linux) or **Cmd** (Mac) and click each link to open it in your browser. You will use these links in Exercise 9.3 to verify the results.
+
+### Step 5: Confirm the Workflow is Complete
+
+The agent closes with a final **Completed Steps** table confirming all five steps finished successfully.
+
+   <br>![Terminal — all five steps completed](/exercises/ex9/images/Completed_Steps.png)
+
 ## Exercise 9.3 — Verify the Results
 
-After approval, the agent calls the remaining two MCP Servers in parallel — creating the Purchase Requisition in SAP S/4HANA and the Support Case in SAP Service Cloud V2.
+With both backend records created, you will now open each one directly from the links in the Onboarding Summary and verify the details.
 
-### Step 1: Open the Purchase Requisition
+### Step 1: Open the Purchase Requisition in SAP S/4HANA
 
-The agent prints a direct link to the Purchase Requisition created in SAP S/4HANA. Click the link — it will open S/4HANA and log you in automatically via Principal Propagation, showing the PR created for the new hire's equipment.
+1. In the terminal, **Ctrl+Click** (or **Cmd+Click** on Mac) the **PR Link** from the Onboarding Summary. Your browser will open the SAP S/4HANA login page.
 
-### Step 2: Open the Support Case
+2. Log in with your workshop credentials:
+   - **User Name:** `IN261-0XX` *(replace XX with your participant number)*
+   - **Password:** `Acce$$teched26`
 
-The agent also prints a direct link to the Support Case created in SAP Service Cloud V2 for the new hire's IT system access and training enrollment. Click the link to verify the case was created with the correct details.
+   Click **Continue**.
+
+   <br>![SAP S/4HANA — login page](/exercises/ex9/images/S4HANA_Login.png)
+
+3. After login, the Purchase Requisition opens directly. Verify the **General Information** tab — PR number, employee name, number of items, and total value.
+
+   <br>![SAP S/4HANA — Purchase Requisition General Information](/exercises/ex9/images/PR_General_Summary.png)
+
+4. Click the **Items** tab to see the individual equipment lines ordered for the new hire.
+
+   <br>![SAP S/4HANA — Purchase Requisition Items](/exercises/ex9/images/PR_Items.png)
+
+### Step 2: Open the Support Case in SAP Service Cloud V2
+
+1. Return to the terminal and **Ctrl+Click** (or **Cmd+Click**) the **Case Link** from the Onboarding Summary. Your browser will open the SAP Service Cloud V2 login page.
+
+2. Click **Sign in using SSO**.
+
+   <br>![SAP Service Cloud V2 — login page, click Sign in using SSO](/exercises/ex9/images/ServiceCloud_SSO_Login.png)
+
+3. On the IAS login page, enter your workshop credentials:
+   - **User Name:** `IN261-0XX` *(replace XX with your participant number)*
+   - **Password:** `Acce$$teched26`
+
+   Click **Continue**.
+
+   <br>![SAP Service Cloud V2 — IAS SSO login](/exercises/ex9/images/ServiceCloud_IAS_Login.png)
+
+4. The Support Case opens directly on the **Timeline** tab. Verify the case subject, status, and creation timestamp.
+
+   <br>![SAP Service Cloud V2 — Case Timeline](/exercises/ex9/images/ServiceCloud_Case_Timeline.png)
+
+5. Click the **General** tab to see the **Involved Parties** — the processor, reporter, service team, and employee linked to this case.
+
+   <br>![SAP Service Cloud V2 — Case General (Involved Parties)](/exercises/ex9/images/ServiceCloud_Case_General.png)
+
+6. Click the **Changes** tab to see the **Document Flow** — confirming when the case was created and its current status.
+
+   <br>![SAP Service Cloud V2 — Case Changes (Document Flow)](/exercises/ex9/images/ServiceCloud_Case_Changes.png)
 
 ## Exercise 9.4 — View MCP Analytics in SAP Integration Suite
 
