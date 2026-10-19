@@ -144,4 +144,4 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
 At the end of this exercise, you have created and deployed an MCP Server for HR Policy Lookup on the Integration Cell. Together with the Employee Lookup MCP from Exercise 2, the onboarding agent now has governed access to both new hire profile data and relevant HR policies for equipment, system access and training enrollment.
 
-Continue to - [Exercise 4 — Create, Configure and Deploy a MCP Server for Purchase Requisition Creation in SAP S/4HANA](../ex4/README.md)
+Continue to - [Exercise 4 —  Create, Configure and Deploy an MCP Server for Purchase Requisition Creation in SAP S/4HANA](../ex4/README.md)
