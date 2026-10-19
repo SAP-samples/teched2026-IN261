@@ -116,34 +116,7 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
    > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
 
-4. In the bottom panel, go to the **Policy Settings** tab and configure the following:
-
-   - Check **External OAuth (OIDC)**
-   - Set **Configuration Type** to `Well-Known URL`
-
-   Then copy and paste each value below into the corresponding field:
-
-   **Well-Known URL:**
-   ```
-   https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
-   ```
-
-   **Audience:** 
-   
-   Leave it empty.
-   
-
-   **ClientID Key:**
-   ```
-   ${authn.oidc.jwt.azp}
-   ```
-
-   **UserInfo Key:**
-   ```
-   ${authn.oidc.jwt.email}
-   ```
-
-5. Click **Save** (top right).
+4. Click **Save** (top right).
 
    ![Authentication Policy Settings](images/Edit_Policies2.png)
 
