@@ -1,4 +1,4 @@
-# Exercise 5 — MCP Server for Support Case Creation in SAP Service Cloud V2 for New Hire System Access and Training Enrollment (Pre-Configured and Pre-Deployed)
+# Exercise 5 — MCP Server for Support Case Creation in SAP Service Cloud V2 (Pre-Configured and Pre-Deployed)
 
 > [!IMPORTANT]
 > **Pre-Configured and Pre-Deployed by Instructor — No Action Required**
@@ -17,7 +17,7 @@ SAP Integration Suite's MCP Gateway sits in front of the Service Cloud API, enfo
 1. **`get_sap_c4c_api_v1_employee_service_employees`** — Looks up the logged-in user's identity in Service Cloud by their display ID to retrieve their internal UUID as this is required to create a support case.
 2. **`post_sap_c4c_api_v1_case_service_cases`** — Creates a Support Case in Service Cloud for the new hire with the role-specific system access and training details from the onboarding plan.
 
-![Service Cloud MCP](/exercises/ex2/images/ex5-1.png)
+![Service Cloud MCP](images/ex5-1.png)
 
 <details>
 <summary><strong>📖 For the Curious: Inside the Service Cloud MCP Server</strong></summary>
@@ -33,7 +33,7 @@ The MCP Server was created from the SAP Service Cloud V2 OpenAPI Specification �
 
 **Authentication:** Technical user via Client Credentials Grant Type — unlike Exercise 2, Principal Propagation is not used here. The MCP Gateway authenticates the agent call via IAS OAuth, then the backend call uses a pre-configured technical user credential.
 
-![Service Cloud MCP Authentication](/exercises/ex2/images/ex5-2.png)
+![Service Cloud MCP Authentication](images/ex5-2.png)
 
 **How the agent uses these tools:**
 
@@ -93,6 +93,6 @@ The response includes a case ID — the agent constructs a direct link to the ca
 
 ## Summary
 
-The Service Cloud Case Creation MCP Server has been pre-deployed and is ready to use. It will appear alongside your other MCP Servers when you publish the product in Exercise 6.
+The Service Cloud Case Creation MCP Server has been pre-deployed and is ready to use. It will appear alongside your other MCP Servers when you publish the product in Develop Hub in Exercise 6.
 
 Continue to - [Exercise 6 - Publish MCP Servers as a Product and Subscribe via Developer Hub](../ex6/README.md)
