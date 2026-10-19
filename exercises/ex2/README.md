@@ -137,7 +137,7 @@ Here is how it flows in this exercise:
    ![Navigate to MCP Configurations and Edit](/exercises/ex2/images/Edit_MCP.png)
 
 2. Then go to the **Prompts** sub-tab and click **Add**.
-   >**Hint:** A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
+   >**HINT:** A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
    
    ![Add Prompt](/exercises/ex2/images/Add_Prompt.png)
 
@@ -236,7 +236,7 @@ Here is how it flows in this exercise:
       ${authn.oidc.jwt.email}
       ```
 
-      > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
+   > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
 
 10. Click **Save** (top right).
    
@@ -244,29 +244,22 @@ Here is how it flows in this exercise:
 
 ## Exercise 2.4 — Deploy the MCP Server
 
-1. From the artifact overview, click **Deploy** (top right).
-2. A confirmation dialog appears. Verify the defaults:
-   - **Runtime Profile:** `Integration Cell`
-   - **Virtual Host:** *(pre-selected, leave as default)*
-3. Click **Deploy** in the dialog to confirm.
+1.  Click **Deploy** (top right). In the confirmation dialog, verify the defaults and click **Deploy** to confirm:
+      - **Runtime Profile:** `Integration Cell`
+      - **Virtual Host:** *(pre-selected, leave as default)*
 
-   ![Deploy confirmation dialog](/exercises/ex2/images/Deploy.png)
+      ![Deploy confirmation dialog](/exercises/ex2/images/Deploy.png)
 
-4. Once deployed, the status bar at the top of the artifact page updates to confirm:
-   **`Deployed on [date], Runtime Status: STARTED`**
+2. Once deployed, the status bar at the top of the artifact page updates to confirm:
+   <br>**`Deployed on [date], Runtime Status: STARTED`**
 
    ![Deployment status STARTED](/exercises/ex2/images/Deploy2.png)
 
    > [!IMPORTANT]
-   > Only proceed to Exercise 3 once the status shows **STARTED**. If it still shows *Not Deployed*, wait a moment and refresh the page.
+   > Make sure the status shows **STARTED** before proceeding to next exercise. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ## Summary
 
-You have now deployed a MCP Server on the Integration Cell. The deployed MCP Servers from this exercise will be published as a **Product** in the following exercises — making them discoverable and consumable by authorized AI agents.
+At the end of this exercise, you have created and deployed an MCP Server for New Hire Employee Profile Lookup on the Integration Cell. The MCP Server exposes two tools backed by the pre-configured Composed API — giving the onboarding agent governed, identity-aware access to the complete new hire profile from SAP SuccessFactors.
 
-- The Composed API surfaces two custom entities — **Employee Details** and **Job Details** — giving the agent structured access to both personal and job-related onboarding data
-- The MCP Server handles authentication and authorization using OAuth 2.0
-- Principal Propagation ensures the backend sees the real caller identity, not a shared service account
-- The MCP endpoint is live on the Integration Cell.
-
-Continue to - [Exercise 3](../ex3/README.md)
+Continue to - [Exercise 3 - Create and Deploy an MCP Server for HR Policy Lookup](../ex3/README.md)
