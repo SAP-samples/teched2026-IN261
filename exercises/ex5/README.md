@@ -26,6 +26,14 @@ SAP Integration Suite's MCP Gateway sits in front of the Service Cloud API, enfo
 
 The MCP Server was created from the SAP Service Cloud V2 OpenAPI Specification — exposing two tools directly from the Service Cloud REST API with no middleware in between:
 
+**MCP Server details:**
+
+| Field | Value |
+|---|---|
+| Name | `IN261_Create_SC_ServiceCloud_MCP` |
+| MCP Path | `/in261_create_sc_servicecloud_mcp` |
+| Source | `URL` |
+
 | Tool | Method | Path | Description |
 |---|---|---|---|
 | `get_sap_c4c_api_v1_employee_service_employees` | `GET` | `/sap/c4c/api/v1/employee-service/employees` | Looks up a Service Cloud employee using `$filter=displayId eq '{id}'` to retrieve their internal UUID |
@@ -35,37 +43,10 @@ The MCP Server was created from the SAP Service Cloud V2 OpenAPI Specification �
 
 ![Service Cloud MCP Authentication](images/ex5-2.png)
 
-**How the agent uses these tools:**
-
-```
-Step 1: get_sap_c4c_api_v1_employee_service_employees
-  $filter=displayId eq '{loggedInUsername}'
-  → returns value[0].id (UUID)
-
-Step 2: post_sap_c4c_api_v1_case_service_cases
-  caseType: "ZEST"
-  subject: "New Hire Onboarding — System Access & Training Assignment for {employeeName} ({employeeId})"
-  employee: { id: "<UUID from Step 1>" }
-  reporter: { id: "<UUID from Step 1>" }
-  extensions:
-    SystemAccessDetails: "<comma-separated systems>"
-    TrainingDetails: "<comma-separated training courses>"
-  → returns id → agent constructs case URL as {SERVICE_CLOUD_TENANT}/go/detail/case?id={id}
-```
-
-**MCP Server details:**
-
-| Field | Value |
-|---|---|
-| Name | `IN261_Create_SC_ServiceCloud_MCP` |
-| MCP Path | `/in261_create_sc_servicecloud_mcp` |
-| Source | `URL` |
-
 </details>
 
 <details>
-<summary><strong>📖 How This MCP Fits in the Onboarding Flow</strong></summary>
-
+<summary><strong>📖 How This MCP Fits in the New Hire Employee Onboarding Flow</strong></summary>
 <br>
 
 This MCP Server is the last step in the onboarding flow — called by the agent only after manager approval:
