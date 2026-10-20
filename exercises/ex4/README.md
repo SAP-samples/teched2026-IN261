@@ -130,8 +130,6 @@ The policy model for the Purchase Requisition MCP Server follows the same authen
    - **Runtime Profile:** `Integration Cell`
    - **Virtual Host:** *(pre-selected, leave as default)*
 
-   ![Deploy confirmation dialog](images/Click_Deploy.jpg)
-
    ![Deploy confirmation dialog](images/After_Deploy.jpg)
    
 3. Once deployed, the status bar at the top of the artifact page updates to confirm:
