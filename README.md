@@ -116,11 +116,11 @@ The complete list of exercise steps are listed below, run through them in the gi
 This section also serves as a Table of Content; use the breadcrumb navigation at the top of the pages to return here at any time.
 
 - [Getting Started](exercises/ex0/)
-- [Exercise 1 - Set Up Your SAP Integration Suite, advanced event mesh (AEM) Queue and Topic Subscription](exercises/ex1/README.md)
+- [Exercise 1 — Set Up your SAP Integration Suite, advanced event mesh (AEM) Queue and Topic Subscription](exercises/ex1/README.md)
 - [Exercise 2 — Create, Configure and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition](exercises/ex2/README.md)
-- [Exercise 3 — Create, Configure and Deploy an MCP Server for HR Policy Lookup](exercises/ex3/README.md)
-- [Exercise 4 — Create, Configure and Deploy an MCP Server for Purchase Requisition Creation in SAP S/4HANA for New Hire Equipments Post Manager Approval](exercises/ex4/README.md)
-- [Exercise 5 — No Action needed, Pre-configured and pre-deployed MCP Server for Support Case in SAP Service Cloud V2 for New Hire System Access and Trinin Post Manager Approval](exercises/ex5/README.md)
+- [Exercise 3 — Create, Configure and Deploy an MCP Server for HR Policy Lookup using SAP AI Launchpad Orchestration with Document Grounding](exercises/ex3/README.md)
+- [Exercise 4 — Create, Configure and Deploy an MCP Server for Purchase Requisition Creation in SAP S/4HANA](exercises/ex4/README.md)
+- [Exercise 5 — Exercise 5 — MCP Server for Support Case Creation in SAP Service Cloud V2 (Pre-Configured and Pre-Deployed)](exercises/ex5/README.md)
 - [Exercise 6 — Publish MCP Servers as a Product and Subscribe via Developer Hub](exercises/ex6/README.md)
 - [Exercise 7 — Download, Configure, and Run the Employee Onboarding AI Agent](exercises/ex7/README.md)
 - [Exercise 8 — ]()
