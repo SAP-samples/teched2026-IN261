@@ -40,13 +40,14 @@ Instead of building this integration flow from scratch, you will use this pre-co
 
    ![Navigate to Integrations and APIs](images/Int_Package1.png)
 
-2. Click **Edit** (top right) to enter edit mode. The <b>IN261_0**_Employee_Lookup_MCP</b> artifact from Exercise 2 will already be visible — you will add the HR Policy MCP Server alongside it.
+2. Go to the **Artifacts** tab and click **Edit** (top right) to enter edit mode.
+   <br>The <b>IN261_0**_Employee_Lookup_MCP</b> artifact from Exercise 2 will already be visible — you will add the HR Policy MCP Server alongside it.
 
    ![Open package and click Edit](images/Add_MCP1.png)
 
 ## Exercise 3.2 — Create the MCP Server Artifact
 
-1. Go to the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
+1. Click **Add** and select **MCP Server** from the dropdown.
 
    ![Add MCP Server](images/Add_MCP2.png) 
 
