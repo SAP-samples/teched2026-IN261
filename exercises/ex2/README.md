@@ -80,7 +80,7 @@ Here is how it flows in this exercise:
 
    ![Navigate to Integrations and APIs](images/Create_IntegrationPackage1.png)
 
-4. Fill in the package details — copy and paste the values below:
+3. Fill in the package details — copy and paste the values below:
 
    | Field | Value |
    |---|---|
