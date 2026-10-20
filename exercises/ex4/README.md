@@ -141,7 +141,7 @@ The policy model for the Purchase Requisition MCP Server follows the same authen
    ![Deployment status STARTED](images/After_Deployed.jpg)
 
 > [!IMPORTANT]
-> Make sure the status shows **STARTED** before proceeding to Exercise 5. If it still shows *Not Deployed*, wait a moment and refresh the page.
+> Make sure the status shows **STARTED** before proceeding to next exercise. If it still shows *Not Deployed*, wait a moment and refresh the page.
 
 ## Summary
 
