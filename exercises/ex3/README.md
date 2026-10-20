@@ -116,7 +116,7 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
    > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
 
-4. Click **Save** (top right).
+   Click **Save** (top right).
 
    ![Authentication Policy Settings](images/Edit_Policies2.png)
 
