@@ -4,7 +4,6 @@ In this exercise, you will add a third MCP Server to your existing Integration P
 ⏱ **Estimated time: 10 minutes**
 
 ## Overview
-
 When the manager approves the onboarding plan, the agent needs to create a Purchase Requisition in SAP S/4HANA for the new hire's equipment. This cannot be done directly by the agent — it requires a governed call to the S/4HANA backend.
 
 A pre-configured Integration Flow acts as the mediation layer between the MCP Server and SAP S/4HANA — handling data mapping, the API call to S/4HANA, and returning the Purchase Requisition number back to the agent.
