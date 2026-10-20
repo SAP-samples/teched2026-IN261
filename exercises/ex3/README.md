@@ -84,11 +84,11 @@ Instead of building this integration flow from scratch, you will use this pre-co
 
 The policy model for the HR Policy MCP Server follows the same authentication configuration as Exercise 2 — External OAuth (OIDC) via IAS, ensuring every agent request is verified before reaching the HR policy backend.
 
-1. Navigate to **MCP Configuration** tab, click **Edit** (top right).
+1. Navigate to **Policies** tab, click **Edit** (top right).
 
    ![Navigate to MCP Configurations and Edit](images/Edit_Policies.png)
 
-2. Click on the **Policies** tab, then double click on the **Authentication** step to open its property sheet.
+2. Then double click on the **Authentication** step to open its property sheet.
 
 3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
