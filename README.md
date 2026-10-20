@@ -122,7 +122,7 @@ This section also serves as a Table of Content; use the breadcrumb navigation at
 - [Exercise 2 — Create, Configure and Deploy an MCP Server for New Hire Employee Profile Lookup using SAP API Composition](exercises/ex2/README.md)
 - [Exercise 3 — Copy, Configure and Deploy an MCP Server for HR Policy Lookup using SAP AI Launchpad Orchestration with Document Grounding](exercises/ex3/README.md)
 - [Exercise 4 — Create, Configure and Deploy an MCP Server for Purchase Requisition Creation in SAP S/4HANA](exercises/ex4/README.md)
-- [Exercise 5 — Copy, Configure and Deploy an MCP Server for Support Case Creation in SAP Service Cloud V2 (Pre-Configured and Pre-Deployed)](exercises/ex5/README.md)
+- [Exercise 5 — Copy, Configure and Deploy an MCP Server for Support Case Creation in SAP Service Cloud V2](exercises/ex5/README.md)
 - [Exercise 6 — Publish MCP Servers as a Product and Subscribe via Developer Hub](exercises/ex6/README.md)
 - [Exercise 7 — Download, Configure, and Run the Employee Onboarding AI Agent](exercises/ex7/README.md)
 - [Exercise 8 — ]()
