@@ -1,4 +1,4 @@
-# Exercise 4 —  Create, Configure and Deploy an MCP Server for Purchase Requisition Creation in SAP S/4HANA
+# Exercise 4 — Create, Configure and Deploy an MCP Server for Purchase Requisition Creation in SAP S/4HANA
 In this exercise, you will add a third MCP Server to your existing Integration Package — backed by a pre-configured Integration Flow that connects to SAP S/4HANA to create Purchase Requisitions for the new hire's approved equipment, after manager approval.
 
 ⏱ **Estimated time: 10 minutes**
