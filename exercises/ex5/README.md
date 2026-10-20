@@ -46,13 +46,13 @@ The MCP Server was created from the SAP Service Cloud V2 OpenAPI Specification �
 
    ![Artifacts tab](images/ex51-2.png)
 
-3. Find **IN261_Create_SC_ServiceCloud_MCP** and click the **⋯** (three dots) to open the actions menu. Select **Copy**.
+3. Find **IN261_Create_SupportCase_MCP** and click the **⋯** (three dots) to open the actions menu. Select **Copy**.
 
    ![Open actions menu and select Copy](images/ex51-3.png)
 
 4. In the **Copy** dialog, update the **Name** field with your participant number:
 
-   <b>IN261_0**_Create_SC_ServiceCloud_MCP</b> *(replace ** with the participant number assigned to you)*
+   <b>IN261_0**_Create_SupportCase_MCP</b> *(replace ** with the participant number assigned to you)*
 
    > **Note:** Remove the word "Copy" from the name suffix and replace it with your participant number as shown above.
 
@@ -76,7 +76,7 @@ The MCP Server was created from the SAP Service Cloud V2 OpenAPI Specification �
 
 Each MCP Server must have a unique MCP path across the tenant — two artifacts with the same path cannot be deployed simultaneously. You need to update the path to include your participant number.
 
-1. In your package, open the copied MCP Server artifact <b>IN261_0**_Create_SC_ServiceCloud_MCP</b> *(replace ** with the participant number assigned to you)*.
+1. In your package, open the copied MCP Server artifact <b>IN261_0**_Create_SupportCase_MCP</b> *(replace ** with the participant number assigned to you)*.
 
    ![Open copied MCP Server](images/ex52-1.png)
 
@@ -86,7 +86,7 @@ Each MCP Server must have a unique MCP path across the tenant — two artifacts 
 
 3. In the **Overview** tab, update the **MCP Path** field to include your participant number:
 
-   <b>/in261_0**_create_sc_servicecloud_mcp</b> *(replace ** with the participant number assigned to you)*
+   <b>/in261_0**_create_supportcase_mcp</b> *(replace ** with the participant number assigned to you)*
 
    Click **Save** (top right).
 
