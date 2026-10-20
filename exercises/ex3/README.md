@@ -105,7 +105,7 @@ Each MCP Server must have a unique MCP path across the tenant — two artifacts 
 
    Verify that the MCP URL shown reflects your updated MCP path — this confirms the path was saved correctly before deployment.
    
-   ![Deployment status STARTED](images/Deploy2.png)
+   ![Deployment status STARTED](images/ex33-2.png)
 
 > [!IMPORTANT]
 > Make sure the status shows **STARTED** before proceeding to the next exercise. If you get a deployment error, verify that the MCP path was updated and saved correctly — two participants cannot share the same MCP path on the same tenant.
