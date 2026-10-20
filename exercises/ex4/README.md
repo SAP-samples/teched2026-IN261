@@ -77,7 +77,7 @@ Instead of building this integration flow from scratch, you will use this pre-co
    
    ![Provide MCP Details](images/CreateMCP.jpg)
 
-6. On the **Create Tools** screen, select the **/newhire/equipments** tool and click **Add** to finish creating the MCP Server artifact.
+5. On the **Create Tools** screen, select the **/newhire/equipments** tool and click **Add** to finish creating the MCP Server artifact.
 
    ![Select Tools](images/Tool_Selection.jpg)
 
@@ -132,7 +132,7 @@ The policy model for the Purchase Requisition MCP Server follows the same authen
 
    ![Deploy confirmation dialog](images/After_Deploy.jpg)
    
-3. Once deployed, the status bar at the top of the artifact page updates to confirm:
+2. Once deployed, the status bar at the top of the artifact page updates to confirm:
 
    **`Deployed on [date], Runtime Status: STARTED`**
 
