@@ -84,9 +84,9 @@ Instead of building this integration flow from scratch, you will use this pre-co
 
 The policy model for the Purchase Requisition MCP Server follows the same authentication configuration as Exercise 2 and 3 — External OAuth (OIDC) via IAS, ensuring every agent request is authenticated and authorized before reaching the S/4HANA backend.
 
-1. Navigate to **MCP Configuration** tab, click **Edit** (top right).
+1. Navigate to **Policies** tab, click **Edit** (top right).
 
-2. Click on the **Policies** tab, then double click on the **Authentication** step to open its property sheet.
+2. Then double click on the **Authentication** step to open its property sheet.
    ![Policies Tab](images/after_tool_added.jpg)
 
 3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
@@ -107,7 +107,7 @@ The policy model for the Purchase Requisition MCP Server follows the same authen
 
    ![Authentication Policy Settings](images/Auth_Policy.jpg)
 
-4. Click **Save** (top right).
+   Click **Save** (top right).
 
    ![Save](images/Save.jpg)
 
