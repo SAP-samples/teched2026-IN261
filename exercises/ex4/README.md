@@ -145,4 +145,4 @@ The policy model for the Purchase Requisition MCP Server follows the same authen
 
 At the end of this exercise, you have created and deployed an MCP Server for Purchase Requisition Creation on the Integration Cell. Together with the Employee Lookup and HR Policy MCPs from Exercises 2 and 3, the onboarding agent now has governed access to new hire profile data, relevant HR policies, and the ability to create Purchase Requisitions in SAP S/4HANA system.
 
-Continue to - [Exercise 5 — MCP Server for Support Case Creation in SAP Service Cloud V2 (Pre-Configured and Pre-Deployed)](../ex5/README.md)
+Continue to - [Exercise 5 — Copy, Configure and Deploy an MCP Server for Support Case Creation in SAP Service Cloud V2](../ex5/README.md)
