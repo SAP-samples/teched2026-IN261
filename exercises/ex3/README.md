@@ -87,9 +87,11 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
 1. Navigate to **Policies** tab, click **Edit** (top right).
 
-   ![Navigate to MCP Configurations and Edit](images/Edit_Policies.png)
+   ![Navigate to Policiess and Edit](images/Edit_Policies.png)
 
 2. Then double click on the **Authentication** step to open its property sheet.
+
+   ![Navigate to Authentication Step](images/Ex3_Navigate_Authentication.png)
 
 3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
