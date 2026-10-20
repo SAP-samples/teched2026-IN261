@@ -112,6 +112,10 @@ Each MCP Server must have a unique MCP path across the tenant — two artifacts 
 > [!IMPORTANT]
 > Make sure the status shows **STARTED** before proceeding to the next exercise. If you get a deployment error, verify that the MCP path was updated and saved correctly — two participants cannot share the same MCP path on the same tenant.
 
+Your Integration Package now contains all four MCP Servers — all in **Started** status. Verify this before moving on:
+
+![All four MCP Servers in your package](images/ex53-4.png)
+
 ## Summary
 At the end of this exercise, you have copied and deployed an MCP Server for Support Case Creation to the Integration Cell. Together with the MCP Servers from Exercises 2, 3, and 4, the onboarding agent now has governed access to the complete new hire profile, HR policies, Purchase Requisition creation, and now Support Case creation in SAP Service Cloud V2.
 
