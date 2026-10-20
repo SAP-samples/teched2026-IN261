@@ -87,7 +87,7 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
 1. Navigate to **Policies** tab, click **Edit** (top right).
 
-   ![Navigate to Policiess and Edit](images/Edit_Policies.png)
+   ![Navigate to Policies and Edit](images/Edit_Policies.png)
 
 2. Then double click on the **Authentication** step to open its property sheet.
 
@@ -140,8 +140,6 @@ The policy model for the HR Policy MCP Server follows the same authentication co
 
 > [!IMPORTANT]
 > Make sure the status shows **STARTED** before proceeding to next exercise. If it still shows *Not Deployed*, wait a moment and refresh the page
-
----
 
 ## Summary
 
