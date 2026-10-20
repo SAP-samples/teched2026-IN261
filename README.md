@@ -8,6 +8,8 @@ This repository contains the material for the SAP TechEd 2026 Hands-on Workshop 
 
 In this hands-on workshop you will learn how to **operationalize AI agents** from pilots to production with governed connectivity. Learn how the **MCP Gateway in SAP Integration Suite** applies policy, **security**, and **analytics** while curating MCP tools for AI agents. Securely connect enterprise tools to an AI agent - including **unified APIs** via **API Composition**, **event-driven context** from **SAP Integration Suite, advanced event mesh (AEM)**, and **Retrieval-Augmented Generation (RAG)** grounded retrieval via **SAP AI Launchpad Orchestration** - with **governed access** using **Principal Propagation** and **human-in-the-loop** approvals to achieve **end-to-end traceability**.
 
+⏱ Total Duration: 120 minutes
+
 ## Requirements
 There are no dedicated requirements for this session. You will be able to complete all exercises by following the step-by-step instructions, even without prior experience with SAP Integration Suite, SAP AI Core, or AI agent development. 
 
