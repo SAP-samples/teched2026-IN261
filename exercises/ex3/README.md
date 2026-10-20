@@ -21,7 +21,7 @@ By the end, you will have a deployed MCP Server that gives the onboarding agent 
 
 <br>
 
-A **pre-configured Integration Flow (Prompt to HR Policy RAG Pipeline using SAP AI Core)** has been configured and deployed for this session. It acts as the governed middleware between the MCP Server and the SAP AI Launchpad Orchestration Document Grounding API:
+A **pre-configured Integration Flow (IN261_Prompt_to_HR_Policy_RAG_Pipeline_using_SAP_AI_Core)** has been configured and deployed for this session. It acts as the governed middleware between the MCP Server and the SAP AI Launchpad Orchestration Document Grounding API:
 
 - Receives the policy query from the MCP tool call
 - Handles the API structure mapping and forwards the request to the SAP AI Launchpad Orchestration Document Grounding API
@@ -30,7 +30,7 @@ A **pre-configured Integration Flow (Prompt to HR Policy RAG Pipeline using SAP 
 
 > **Note:** For a deeper understanding, refer to [SAP AI Launchpad Document Grounding](https://help.sap.com/docs/sap-ai-launchpad)
 
-![Pre-configured iFlow: Prompt to HR Policy RAG Pipeline](images/IFlow_Image.png)
+![Pre-configured iFlow: IN261_Prompt_to_HR_Policy_RAG_Pipeline_using_SAP_AI_Core](images/IFlow_Image.png)
 </details>
 
 ## Exercise 3.1 — Copy the MCP Server Artifact from the Solution Package
