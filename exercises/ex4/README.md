@@ -38,15 +38,16 @@ Instead of building this integration flow from scratch, you will use this pre-co
 
 1. In SAP Integration Suite tenant, navigate to **Design → Integrations and APIs**, search for and open your package <b>IN261_0**_TechEd_2026_Package</b> *(replace ** with the participant number assigned to you)*.
 
-   ![Navigate to Integrations and APIs](images/Select_Iflow_Package.jpg)
+   ![Navigate to Integrations and APIs](images/Int_Package1.png)
 
-2. Click **Edit** (top right) to enter edit mode. The <b>IN261_0**_HR_Policy_Lookup_MCP</b> artifact from Exercise 3 will already be visible — you will add the Purchase Requisition MCP Server alongside it.
+2. Go to the **Artifacts** tab and click **Edit** (top right) to enter edit mode.
+   <br>The <b>IN261_0**_Employee_Lookup_MCP artifact</b> from Exercise 2 and <b>IN261_0**_HR_Policy_Lookup_MCP</b> artifact from Exercise 3 will already be visible — you will add the Purchase Requisition MCP Server alongside it.
 
-   ![Open package and click Edit](images/Edit_Iflow.jpg)
+   ![Open package and click Edit](images/Edit_Package.png)
 
 ## Exercise 4.2 - Create the MCP Server Artifact
 
-1. Go to the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
+1. Click **Add** and select **MCP Server** from the dropdown.
 
    ![Add MCP Server](images/Add_MCP_Server.jpg)
 
@@ -86,30 +87,41 @@ The policy model for the Purchase Requisition MCP Server follows the same authen
 
 1. Navigate to **Policies** tab, click **Edit** (top right).
 
+   ![Navigate to Policies and Edit](images/Ex4_Edit_Policies.png)
+   
 2. Then double click on the **Authentication** step to open its property sheet.
-   ![Policies Tab](images/after_tool_added.jpg)
+   
+   ![Navigate to Authentication Step](images/Ex4_Navigate_Authentication.png)
 
 3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
    - Check **External OAuth (OIDC)**
    - Set **Configuration Type** to `Well-Known URL`
 
-   Then copy and paste each value below into the corresponding field:
+      Then copy and paste each value below into the corresponding field:
 
-   | Field | Value |
-   |---|---|
-   | Well-Known URL | `https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration` |
-   | Audience | Leave empty |
-   | ClientID Key | `${authn.oidc.jwt.azp}` |
-   | UserInfo Key | `${authn.oidc.jwt.email}` |
+      **Well-Known URL:**
+      ```
+      https://attkvky2u.accounts.ondemand.com/.well-known/openid-configuration
+      ```
+      **Audience:**
+      <br>Leave it empty.
+      
+      **ClientID Key:**
+      ```
+      ${authn.oidc.jwt.azp}
+      ```
+   
+      **UserInfo Key:**
+      ```
+      ${authn.oidc.jwt.email}
+      ```
 
    > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
 
-   ![Authentication Policy Settings](images/Auth_Policy.jpg)
-
    Click **Save** (top right).
 
-   ![Save](images/Save.jpg)
+   ![Authentication Policy Settings](images/Auth_Policy.jpg)
 
 ## Exercise 4.4 - Deploy the MCP Server
 
