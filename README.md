@@ -125,8 +125,8 @@ This section also serves as a Table of Content; use the breadcrumb navigation at
 - [Exercise 5 — Copy, Configure and Deploy an MCP Server for Support Case Creation in SAP Service Cloud V2](exercises/ex5/README.md)
 - [Exercise 6 — Publish MCP Servers as a Product and Subscribe via Developer Hub](exercises/ex6/README.md)
 - [Exercise 7 — Download, Configure, and Run the Employee Onboarding AI Agent](exercises/ex7/README.md)
-- [Exercise 8 — ]()
-- [Exercise 9 — ]()
+- [Exercise 8 — Trigger a New Hire in SAP SuccessFactors](exercises/ex8/README.md)
+- [Exercise 9 — Observe, Approve, and Verify the AI-Orchestrated Onboarding Workflow](exercises/ex9/README.md)
 
 ## Feedback
 Kindly provide your feedback on this hands-on session i.e. **IN261**.
