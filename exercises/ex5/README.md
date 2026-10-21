@@ -119,5 +119,4 @@ Your Integration Package now contains all four MCP Servers — all in **Started*
 ## Summary
 At the end of this exercise, you have copied and deployed an MCP Server for Support Case Creation to the Integration Cell. Together with the MCP Servers from Exercises 2, 3, and 4, the onboarding agent now has governed access to the complete new hire profile, HR policies, Purchase Requisition creation, and now Support Case creation in SAP Service Cloud V2.
 
-Continue to - [Exercise 6 - Publish MCP Servers as a Product and Subscribe via Developer Hub](../ex6/README.md)
-
+Continue to - [Exercise 6 - Publish Deployed MCP Servers as a Product and Subscribe to the AI Agent in Developer Hub](../ex6/README.md)
