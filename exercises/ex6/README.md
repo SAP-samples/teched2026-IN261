@@ -114,9 +114,9 @@ In this exercise, you add your published product to the existing AI Agent subscr
 
    ![Confirmation — product added to subscription](images/SubscribeProduct4.png)
 
->[!NOTE]
->Why add to an existing subscription instead of creating a new one?
->The AI Agent authenticates to the Developer Hub using a single IAS (Identity Authentication Service) app registration — which means all participants share the same OAuth Client ID. The >Developer Hub enforces one Agent subscription per Client ID, so creating a new subscription is not possible. Instead, each participant adds their product to the one shared subscription — the agent's single identity gets access to all participant products this way.
+> [!NOTE]
+> Why add to an existing subscription instead of creating a new one?
+> The AI Agent authenticates to the Developer Hub using a single IAS (Identity Authentication Service) app registration — which means all participants share the same OAuth Client ID. The > Developer Hub enforces one Agent subscription per Client ID, so creating a new subscription is not possible. Instead, each participant adds their product to the one shared subscription — the agent's single identity gets access to all participant products this way.
 
 ## Summary
 You have published your four MCP Servers as a governed product in the Developer Hub and added it to the existing AI Agent subscription.
