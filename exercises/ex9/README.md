@@ -100,7 +100,7 @@ With both backend records created, you will now open each one directly from the 
 
 2. Log in with your workshop credentials:
    - **User Name:** `IN261-0XX` *(replace XX with your participant number)*
-   - **Password:** `Acce$$teched26`
+   - **Password:** *will be shared by the instructors*
 
    Click **Continue**.
 
@@ -124,7 +124,7 @@ With both backend records created, you will now open each one directly from the 
 
 3. On the IAS login page, enter your workshop credentials:
    - **User Name:** `IN261-0XX` *(replace XX with your participant number)*
-   - **Password:** `Acce$$teched26`
+   - **Password:** *will be shared by the instructors*
 
    Click **Continue**.
 
