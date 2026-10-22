@@ -1,18 +1,19 @@
 # Exercise 9 — Observe, Approve, and Verify the AI-Orchestrated Onboarding Workflow
+Everything you built across this session comes together here — watch it work.
 In this exercise, you will observe the employee onboarding AI agent orchestrate the full onboarding workflow in real time, approve the plan as the hiring manager, and verify the outcomes.
 
 ⏱ **Estimated time: 15 minutes**
 
 ## Overview
-Everything you built across Exercises 1 through 8 comes together here. Your agent has received the **NEWHIRE** event from **SAP Advanced Event Mesh** and is now orchestrating the full onboarding workflow — autonomously calling your four MCP Servers, all governed through the **SAP Integration Suite MCP Gateway**.
+Across Exercises 1 through 8, you deployed four MCP Servers, published them as a governed product in the Developer Hub, and started the Employee Onboarding AI Agent — all routed through the **SAP Integration Suite MCP Gateway** with authentication, authorization, and audit logging at every step.
 
-In this exercise, you observe that orchestration happen in real time in the terminal: the agent calls the **Employee Lookup MCP to fetch the new hire's profile**, the **HR Policy Lookup MCP to retrieve applicable equipment, system access, and training requirements** grounded in company policy, then structures everything into a **complete onboarding plan** and presents it to you for review.
+Now you see the result. The agent receives the **NEWHIRE** event from **SAP Advanced Event Mesh**, calls your MCP tools to fetch the new hire profile and retrieve applicable HR policies, and structures everything into a complete onboarding plan — then pauses and waits for you.
 
-This is the **human-in-the-loop** gate — no backend system is touched until you approve. Once you **approve**, the agent calls the **Create PR S/4HANA MCP to raise a Purchase Requisition for the new hire's equipment** and the **Create Support Case MCP to open a Service Cloud case for IT system access and training enrollment**.
+This is the **human-in-the-loop** gate. No Purchase Requisition is raised in SAP S/4HANA, no Support Case is opened in SAP Service Cloud V2, until you explicitly approve. Once you **approve**, the agent calls the **Create PR S/4HANA MCP to raise a Purchase Requisition for the new hire's equipment** and the **Create Support Case MCP to open a Service Cloud case for IT system access and training enrollment**.
 
-You then **verify** both outcomes directly in **SAP S/4HANA and SAP Service Cloud V2**, and close the loop by reviewing MCP tool call analytics in SAP Integration Suite — confirming every call was authenticated, authorized, and traceable end to end.
+You then verify both outcomes, directly in **SAP S/4HANA and SAP Service Cloud V2**. Trace every API call back to your identity in the **SAP SuccessFactors OData API Audit Log,** and review MCP tool call analytics in SAP Integration Suite — confirming the full governance story end to end.
 
-By the end, you have witnessed a complete, governed AI agentic workflow — from event to enterprise outcome, with a human in control at every critical step.
+By the end, you have not just seen an AI agent work — you have seen it work safely, traceably, and with a human in control."
 
 > [!NOTE]
 > This exercise continues directly from [Exercise 8](../ex8/README.md). Your agent terminal must be open and the new hire event must have been triggered before proceeding.
