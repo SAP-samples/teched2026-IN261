@@ -31,7 +31,6 @@ Instead of building this integration flow from scratch, you will use this pre-co
 </details>
 
 ## Exercise 4.1 — Open your Existing Integration Package
-
 > [!NOTE]
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
 
@@ -45,7 +44,6 @@ Instead of building this integration flow from scratch, you will use this pre-co
    ![Open package and click Edit](images/Edit_Package.png)
 
 ## Exercise 4.2 — Create the MCP Server Artifact
-
 1. Click **`Add`** and select **`MCP Server`** from the dropdown.
 
    ![Add MCP Server](images/Add_MCP_Server.jpg)
@@ -81,7 +79,6 @@ Instead of building this integration flow from scratch, you will use this pre-co
    ![Select Tools](images/Tool_Selection.jpg)
 
 ## Exercise 4.3 — Configure the MCP Server
-
 The policy model for the Purchase Requisition MCP Server follows the same authentication configuration as Exercise 2 and 3 — External OAuth (OIDC) via IAS, ensuring every agent request is authenticated and authorized before reaching the S/4HANA backend.
 
 1. Navigate to **`Policies`** tab, click **`Edit`** (top right).
@@ -123,7 +120,6 @@ The policy model for the Purchase Requisition MCP Server follows the same authen
    ![Authentication Policy Settings](images/Auth_Policy.jpg)
 
 ## Exercise 4.4 — Deploy the MCP Server
-
 1. Click **`Deploy`** (top right). In the confirmation dialog, verify the defaults and click **`Deploy`** to confirm:
 
    - **Runtime Profile:** `Integration Cell`
