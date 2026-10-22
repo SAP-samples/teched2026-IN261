@@ -41,7 +41,7 @@ A **pre-configured Integration Flow (`IN261_Prompt_to_HR_Policy_RAG_Pipeline_usi
 > [!NOTE]
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will copy the MCP Server artifact from the solution package into your existing package — no need to create a new one.
 
-1. In **SAP Integration Suite**, navigate to **`Design → Integrations and APIs`**, search for and open **`TechEd 2026 IN261 - Solution Package`**.
+1. In **SAP Integration Suite** tenant, navigate to **`Design → Integrations and APIs`**, search for and open **`TechEd 2026 IN261 - Solution Package`**.
 
    ![Navigate to Solution Package](images/ex31-1.png)
 
