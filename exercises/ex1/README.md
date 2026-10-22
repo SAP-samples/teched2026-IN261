@@ -16,56 +16,59 @@ By the end, you will have a personal AEM queue subscribed to your dedicated new 
 1. Log on to [AEM](https://url.sap/hu5r93) tenant using the user ID and password that is already provided by the instructors.
    <br>For login, use the participant number that is assigned to you.
 	
+	- **User Name:** **`IN261-0**`** *(replace ** with your assigned participant number)*
+   	- **Password:** *will be shared by the instructors*
+	
 	![Log on](images/ex11-1.png)
         
-2. Click **`Cluster Manager`** in the left navigation menu on the landing page.
+3. Click **`Cluster Manager`** in the left navigation menu on the landing page.
 
    ![Cluster Manager](images/ex11-2.png)
    
-3. In the **`Cluster Manager: Services`** screen, click on the **`TechEd2026-IN261`** tile.
+4. In the **`Cluster Manager: Services`** screen, click on the **`TechEd2026-IN261`** tile.
    >**HINT:** If you cannot see the tile, uncheck the **`Only show my services`** checkbox.
 
 	![Cluster](images/ex11-3.png)
 
-4. Switch to the **`Manage`** tab.
+5. Switch to the **`Manage`** tab.
 	
 	![Manage](images/ex11-4.png)
 
-5. Click on the **`Queues`** link on the left panel.
+6. Click on the **`Queues`** link on the left panel.
 
 	![Queues](images/ex11-5.png)
 
-6. A new browser tab will open, listing all the available queues. Click the **`+ Queue`** button on the top right to create a queue.
+7. A new browser tab will open, listing all the available queues. Click the **`+ Queue`** button on the top right to create a queue.
    >**HINT:** You will be able to see the queues created by other participants as well.
 	
 	![Queues](images/ex11-6.png)    
 
-7. In the pop up, enter the queue name: **`IN261_0**`** *(replace ** with the participant number that is assigned to you)* and click on the **`Create`** button.
+8. In the pop up, enter the queue name: **`IN261_0**`** *(replace ** with your assigned participant number)* and click on the **`Create`** button.
 
 	![Create Queue](images/ex11-7.png)     
 
-8. On the next screen, leave the configurations at their default settings and click on the **`Apply`** button.
+9. On the next screen, leave the configurations at their default settings and click on the **`Apply`** button.
 	
 	![Queue Default Settings](images/ex11-8.png)     
 
-9. Select and open the queue that you have just created i.e., **`IN261_0**`** *(replace ** with the participant number that is assigned to you)*
+10. Select and open the queue that you have just created i.e., **`IN261_0**`** *(replace ** with your assigned participant number)*
 
 	![Open Queue](images/ex11-9.png)   
    
-10. Switch to the **`Subscriptions`** tab.
+11. Switch to the **`Subscriptions`** tab.
 
     ![Navigate Queue Subscriptions](images/ex11-10.png)   
 
-11. Click on the **`+ Subscription`** on the top right area to create a new topic subscription.
+12. Click on the **`+ Subscription`** on the top right area to create a new topic subscription.
 
 	![Create Queue Subscriptions](images/ex11-11.png)  
 
-12. In the pop up, enter the topic: **`sap/sfsf/newhire/TechEd_IN261_0**`**  *(replace ** with the participant number that is assigned to you)* and click on the **`Create`** button.
+13. In the pop up, enter the topic: **`sap/sfsf/newhire/TechEd_IN261_0**`**  *(replace ** with your assigned participant number)* and click on the **`Create`** button.
     >**HINT:** Each participant will have their own topic, dynamically created by SAP SuccessFactors based on the new hire's employee ID.
 
     ![Add Topic Subscriptions](images/ex11-12.png)
 
-13. Verify that your newly created topic subscription **`sap/sfsf/newhire/TechEd_IN261_0**`** appears in the list.
+14. Verify that your newly created topic subscription **`sap/sfsf/newhire/TechEd_IN261_0**`** appears in the list.
 
 	![Check Topic Subscriptions](images/ex11-13.png)
 
