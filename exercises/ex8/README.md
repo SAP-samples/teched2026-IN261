@@ -67,7 +67,7 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 10. Choose **`Queue`** radio button.
     ![Choose Queue](./images/ex82-10.png) 
 
-11. Enter **`IN261_0**`** as the Queue name (replace ** with your assigned participant number, e.g. `IN261_050`) — the same queue you created in Exercise 1. Change **`Delivery Mode`** to **`Direct`**.
+11. Enter **`IN261_0**`** as the Queue name *(replace ** with your assigned participant number, e.g. `IN261_050`)* — the same queue you created in Exercise 1. Change **`Delivery Mode`** to **`Direct`**.
 
 12.  Choose an employee from the table below and copy their Employee ID — the HR Policy Lookup MCP will return different equipment, system access, and training requirements based on the employee's role and department:
 
