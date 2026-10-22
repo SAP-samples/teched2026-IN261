@@ -29,13 +29,13 @@ You will derive the most value from this session if you have some familiarity wi
 
 Enterprise AI agents are only as powerful as the systems they can reliably and securely access. This session demonstrates how to build a **production-grade AI agentic workflow** that orchestrates a complete employee onboarding workflow across multiple SAP systems — governed, traceable, and identity-aware.
 
----
-
-### 📖 The Scenario
-
 A new employee has just accepted an offer and completed their profile in SAP SuccessFactors. From this moment, multiple teams — HR, IT, Finance, and the hiring manager — need to act: equipment must be ordered, system access provisioned, training enrolled, and the manager kept in the loop.
 
 Traditionally this involves manual handoffs, emails, and tickets across disconnected systems. In this session, an AI agent handles the entire flow automatically — triggered by a real-time event, grounded in company policy, and governed at every step.
+
+The following chapter explains the scenario in more detail:
+
+- [Scenario Introduction](intro/README.md)
 
 ---
 
