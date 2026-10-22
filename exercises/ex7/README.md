@@ -62,7 +62,7 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
 
    ![Navigate to Developer Hub via grid icon](images/CopyMCP.png)
 
-5. In the Developer Hub search bar, type **`IN261_0** Employee Onboarding`** (replace ** with your assigned participant number) and click the search icon.
+5. In the Developer Hub search bar, type **`IN261_0** Employee Onboarding`** *(replace ** with your assigned participant number)* and click the search icon.
 
    ![Search for your product in Developer Hub](images/SearchProduct.png)
 
@@ -104,7 +104,6 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
     ![Return to the agent folder](images/Save_and_return_to_folder.png)
 
 ## Exercise 7.3 — Install Dependencies and Run Setup
-
 1. In File Explorer, right-click on the **`IN261_employee_onboarding_ai_agent`** folder and select **`Open in Terminal`**.
 
    ![Right-click the folder — Open in Terminal](images/openTerminal.png)
@@ -131,7 +130,7 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
    The setup wizard will ask you two things:
 
    1. **Workshop tenant** — enter **`1`** for **workshop 01a** or **`2`** for **workshop 01b**, as assigned by your instructor.
-   2. **AEM Queue name** — enter your assigned queue in the format **`IN261_0**`** (replace `**` with your assigned participant number, e.g. `IN261_050`)
+   2. **AEM Queue name** — enter your assigned queue in the format **`IN261_0**`** *(replace ** with your assigned participant number, e.g. `IN261_050`)*
 
    Once complete, you will see:
    ```
@@ -151,7 +150,6 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
    ![Terminal — node setup.js complete, tenant and AEM queue set](images/Terminal2.png)
 
 ## Exercise 7.4 — Run the Agent
-
 1. In the **terminal**, run the following command:
 
    ```bash
