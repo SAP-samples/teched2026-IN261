@@ -37,58 +37,6 @@ The following chapter explains the scenario in more detail:
 
 - [Scenario Introduction](intro/README.md)
 
----
-
-### 🔁 AI Agentic WorkFlow
-
-```
-New Hire joins Best Run company, details entered using SAP SuccessFactors
-        │
-        ▼
-SAP Advanced Event Mesh (AEM)
-        │
-        ▼  new hire event triggers the agent
-🤖 Best Run Employee Onboarding AI Agent  ──  Claude Sonnet via SAP AI Core
-        │
-        ├──────────────────────────────────────────────────────┐
-        ▼                                                      ▼
-👤 Employee Profile + Job Data                    📄 Best Run HR Onboarding Policy
-   SAP API Composition                           RAG via SAP AI Launchpad
-   (unified API over SuccessFactors)                 Orchestration
-        │                                                      │
-        └──────────────────┬───────────────────────────────────┘
-                           │
-                           ▼
-              📋 Onboarding Plan Prepared
-                           │
-                           ▼
-              ⏸️  Manager Approval  ← human-in-the-loop
-                           │
-           ┌───────────────┴───────────────┐
-           ▼                               ▼
-  🛒 Purchase Requisition         🎫 Support Case
-     SAP S/4HANA                     SAP Service Cloud V2
-     (equipment)                     (system access + training)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  All tool calls flow through SAP Integration Suite MCP Gateway
-  Principal Propagation ensures end-to-end identity traceability
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
----
-
-### 🎯 Concepts in Action
-
-| Concept | In This Session |
-|---|---|
-| **Model Context Protocol (MCP)** | AI agent dynamically discovers and calls enterprise tools at runtime |
-| **SAP Integration Suite MCP Gateway** | Governed bridge between the AI agent and SAP backends — policy, security, analytics in one place |
-| **Event-Driven Architecture** | SAP Advanced Event Mesh triggers the agentic workflow in real time |
-| **Principal Propagation** | Logged-in user identity flows through every tool call for end-to-end traceability |
-| **API Composition — SAP Business Data Graph** | Complex SuccessFactors data unified into a single API call |
-| **Retrieval-Augmented Generation (RAG)** | AI decisions grounded in company HR policy documents, not model assumptions |
-| **Human-in-the-Loop** | Manager approval gate pauses the agent mid-workflow — no automation without consent |
-
 ## System URL and Login Details 
 To complete the exercises, the access to the following systems have been provided. \
 **In case you are not able to access any of these systems please contact the workshop instructors**.
