@@ -23,6 +23,8 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 ...steps...
 </details>
 
+**or**
+
 <details>
 <summary><strong>Route 2 —  Publish the Event directly from the AEM Try Me! Tool</strong></summary>
 
@@ -65,20 +67,32 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 10. Choose **`Queue`** radio button.
     ![Choose Queue](./images/ex82-10.png) 
 
-11. Enter **`IN261_0**`** as the Queue name (replace ** with your assigned participant number, e.g. `IN261_050`) — the same queue you created in Exercise 1. Change **`Delivery Mode`** to **`Direct`** and add the following **`Message Content`**:
+11. **Try different employee IDs to see different onboarding outcomes:** Each test employee has a different role and department — the HR Policy Lookup MCP will return different equipment, system access, and training requirements for each. Try any of the IDs below to explore different results.
+
+	| Employee ID | Employee Name | Role | Department |
+	|---|---|---|---|
+	| `asingh1` | Atif Singh | Engineer | Research & Development (RND) |
+	| `smilano1` | Susan Milano | Engineer | Research & Development (RND) |
+	| `bchrist1` | Barry Chen | Sales Manager | Sales (SALES) |
+	| `hfitch1` | Henry Fitch | Senior Sales Manager | Sales (SALES) |
+	| `bgonzalez1` | Brian Gonzalez | Marketing Manager | Marketing (MKTG) |
+	| `sshue1` | Susan Shue | Marketing Manager | Marketing (MKTG) |
+	| `pseliger1` |Patrick Seliger | Director, Manufacturing | Operations (OPS) |
+	| `jbowman1` | Jeff Bowman | Plant Manager | Plant Operations (OPS-PLNT) |
+
+12. Enter **`IN261_0**`** as the Queue name (replace ** with your assigned participant number, e.g. `IN261_050`) — the same queue you created in Exercise 1. Change **`Delivery Mode`** to **`Direct`** and add the following **`Message Content`**:
 	```json
 	{
 	  "context": {
-	    "employeeId": "bchrist1"
+	    "employeeId": "<replace with employee id of your choice from the table above>"
 	  }
 	}
 	```
 
     Click **"Publish"** to send your message to the queue.
-
     ![Publish message to the Queue](./images/ex82-11.png) 
 
-12. You see under **`Messages Published`** that 1 Direct message has been published successfully.
+13. You see under **`Messages Published`** that 1 Direct message has been published successfully.
 
 	> **💡 Direct message is delivered immediately to any active consumer (your running agent). If the consumer is not connected at the moment of publishing, the message is lost. No guarantee of delivery, so make sure your agent is running else run the agent and publish it again or change the Delivery Mode to Persistent.**
 
