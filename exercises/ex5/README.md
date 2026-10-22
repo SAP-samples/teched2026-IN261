@@ -38,63 +38,61 @@ The MCP Server was created from the SAP Service Cloud V2 OpenAPI Specification �
 > [!NOTE]
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will copy the MCP Server artifact from the solution package into your existing package — no need to create a new one.
 
-1. In SAP Integration Suite, navigate to **Design → Integrations and APIs**, search for and open **TechEd 2026 IN261 - Solution Package**.
+1. In **SAP Integration Suite** tenant, navigate to **`Design → Integrations and APIs`**, search for and open **`TechEd 2026 IN261 - Solution Package`**.
 
    ![Navigate to Solution Package](images/ex51-1.png)
 
-2. Go to the **Artifacts** tab.
+2. Go to the **`Artifacts`** tab.
 
    ![Artifacts tab](images/ex51-2.png)
 
-3. Find **IN261_Create_SupportCase_MCP** and click the **⋯** (three dots) to open the actions menu. Select **Copy**.
+3. Find **`IN261_Create_SupportCase_MCP`** and click the **⋯** (three dots) to open the actions menu. Select **`Copy`**.
 
    ![Open actions menu and select Copy](images/ex51-3.png)
 
-4. In the **Copy** dialog, update the **Name** field with your participant number:
+4. In the **`Copy`** dialog, update the **`Name`** field:
 
-   <b>IN261_0**_Create_SupportCase_MCP</b> *(replace ** with the participant number assigned to you)*
+   **`IN261_0**_Create_SupportCase_MCP`** *(replace ** with your assigned participant number)*
 
-   > **Note:** Remove the word "Copy" from the name suffix and replace it with your participant number as shown above.
+   > **Note:** Remove the word "Copy" from the name suffix and replace it with your assigned participant number as shown above.
 
-   Then click **Select** next to the Package field.
+   Then click **`Select`** next to the Package field.
 
    ![Update name with participant number](images/ex51-4.png)
 
-5. In the package selection dialog, search for your package <b>IN261_0**_TechEd_2026_Package</b> *(replace ** with the participant number assigned to you)* and click on it to select it.
+5. In the package selection dialog, search for your package **`IN261_0**_TechEd_2026_Package`** *(replace ** with your assigned participant number)* and click on it to select it.
 
    ![Select your package](images/ex51-5.png)
 
-6. Verify the name and package are correct, then click **Copy**.
+6. Verify the name and package are correct, then click **`Copy`**.
 
    ![Verify and click Copy](images/ex51-6.png)
 
-7. Once the success dialog appears, click **Navigate** to open your package where the MCP Server artifact has been copied.
+7. Once the success dialog appears, click **`Navigate`** to open your package where the MCP Server artifact has been copied.
 
    ![Navigate to your package](images/ex51-7.png)
 
 ## Exercise 5.2 — Update the MCP Path
-
 Each MCP Server must have a unique MCP path across the tenant — two artifacts with the same path cannot be deployed simultaneously. You need to update the path to include your participant number.
 
-1. In your package, open the copied MCP Server artifact <b>IN261_0**_Create_SupportCase_MCP</b> *(replace ** with the participant number assigned to you)*.
+1. In your package, open the copied MCP Server artifact **`IN261_0**_Create_SupportCase_MCP`** *(replace ** with your assigned participant number)*.
 
    ![Open copied MCP Server](images/ex52-1.png)
 
-2. Click **Edit** (top right) to enter edit mode.
+2. Click **`Edit`** (top right) to enter edit mode.
 
    ![Click Edit](images/ex52-2.png)
 
-3. In the **Overview** tab, update the **MCP Path** field to include your participant number:
+3. In the **`Overview`** tab, update the **`MCP Path`** field to include your participant number:
 
-   <b>/in261_0**_create_supportcase_mcp</b> *(replace ** with the participant number assigned to you)*
+   **`/in261_0**_create_supportcase_mcp`** *(replace ** with your assigned participant number)*
 
-   Click **Save** (top right).
+   Click **`Save`** (top right).
 
    ![Update MCP Path](images/ex52-3.png)
 
 ## Exercise 5.3 — Deploy the MCP Server
-
-1. Click **Deploy** (top right). In the confirmation dialog, verify the defaults and click **Deploy** to confirm:
+1. Click **`Deploy`** (top right). In the confirmation dialog, verify the defaults and click **`Deploy`** to confirm:
 
    - **Runtime Profile:** `Integration Cell`
    - **Virtual Host:** *(pre-selected, leave as default)*
