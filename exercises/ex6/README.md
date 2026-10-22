@@ -78,7 +78,7 @@ In this exercise, you select all your four deployed MCP Servers, and publish the
 
     ![Admin Center — Scheduled Requests](images/ex61-11.png)
 
-14. You will see your product **`IN261_0**` Employee Onboarding** listed with status **`In Progress`**.  Wait until the status changes to **`Success`** before proceeding. Click **`Refresh`** to update the status.
+14. You will see your product <b>`IN261_0** Employee Onboarding`</b> listed with status **`In Progress`**.  Wait until the status changes to **`Success`** before proceeding. Click **`Refresh`** to update the status.
 
     ![Scheduled Requests — In Progress](images/ex61-12.png)
 
