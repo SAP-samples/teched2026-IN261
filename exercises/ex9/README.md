@@ -173,7 +173,7 @@ With both backend records created, you will now open each one directly from the 
    ![SFSF OData Audit Log Entries](images/SFSF_Audit_3.png)
    
 > [!NOTE]
-> This is Principal Propagation in action — the agent called the MCP tool, the MCP Gateway forwarded the request with your identity token, and SuccessFactors logged it against your user — not a technical service account.
+> This is **Principal Propagation** in action — the agent called the MCP tool, the MCP Gateway forwarded the request with your identity token, and SuccessFactors logged it against your user — not a technical service account.
 
 ## Exercise 9.4 — View MCP Analytics in SAP Integration Suite
 
