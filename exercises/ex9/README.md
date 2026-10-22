@@ -14,10 +14,6 @@ You then **verify** both outcomes directly in **SAP S/4HANA and SAP Service Clou
 
 By the end, you have witnessed a complete, governed AI agentic workflow — from event to enterprise outcome, with a human in control at every critical step.
 
-The new hire event has been received. Your agent is now working — calling MCP tools, retrieving enterprise data, grounding decisions in company policy, and preparing an onboarding plan for your review.
-
-In this exercise, you will observe the agent orchestrate the full onboarding workflow in real time, approve the plan as the hiring manager, and verify the outcomes — a **Purchase Requisition in SAP S/4HANA** and a **Support Case in SAP Service Cloud V2**. You will also see end-to-end traceability on the **SAP SuccessFactors OData API Audit Log**. You will then close the loop by reviewing the MCP tool call analytics in SAP Integration Suite.
-
 > [!NOTE]
 > This exercise continues directly from [Exercise 8](../ex8/README.md). Your agent terminal must be open and the new hire event must have been triggered before proceeding.
 
@@ -187,7 +183,7 @@ Every tool call made by the agent was routed through the SAP Integration Suite M
 
 2. Under **Manage Integration Content**, you will see all deployed MCP Servers with their runtime status. Confirm that all your MCP Servers show **Started** and that the **Error** count is **0**.
 
-### Step 3: Navigate to Analyze
+### Step 2: Navigate to Analyze
 
 1. In the left navigation, click **Analyze**.
 2. Set the filters at the top of the page:
@@ -198,7 +194,7 @@ Every tool call made by the agent was routed through the SAP Integration Suite M
 
 3. The **Overview** tab shows three KPIs for the selected period — **Total MCP Calls**, **MCP Response Time**, and **Total MCP Errors** — giving you a health snapshot of all MCP activity across your tenant.
 
-### Step 4: Explore MCP Call Charts
+### Step 3: Explore MCP Call Charts
 
 Scroll down the Overview page to see the detailed charts.
 
@@ -210,7 +206,7 @@ Further down, **Top MCP Servers of the Week** shows which of your MCP Servers re
 
 ![Analyze Overview — Top MCP Servers and Top Subscriptions for Agents](images/Analyze_Top_MCP_Servers.png)
 
-### Step 5: Review the Health Tab
+### Step 4: Review the Health Tab
 
 Click the **Health** tab at the top of the Analyze page.
 
@@ -228,4 +224,6 @@ Every tool call made by the agent — **fetching employee data via API Compositi
 
 Your **identity propagated** end to end via **Principal Propagation**, ensuring every action is traceable back to you. And no backend system was touched without your explicit approval — the **human-in-the-loop** gate kept a human in control of every automated decision.
 
-This is what it means to enable governed access to AI agents in the enterprise: not just connecting agents to systems, but doing so with the security, observability, and control that production workloads demand.
+This is what it means to **enable governed access** to **AI agents** in the enterprise: not just connecting agents to systems, but doing so with the security, observability, and control that production workloads demand.
+
+**You have completed all exercises. Well done!** 🎉
