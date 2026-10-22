@@ -35,22 +35,22 @@ Instead of building this integration flow from scratch, you will use this pre-co
 > [!NOTE]
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will add a new MCP Server artifact to the existing package — no need to create a new one.
 
-1. In SAP Integration Suite tenant, navigate to **Design → Integrations and APIs**, search for and open your package <b>IN261_0**_TechEd_2026_Package</b> *(replace ** with the participant number assigned to you)*.
+1. In **SAP Integration Suite** tenant, navigate to **`Design → Integrations and APIs`**, search for and open your package **`IN261_0**_TechEd_2026_Package`** *(replace ** with your assigned participant number)*.
 
    ![Navigate to Integrations and APIs](images/Int_Package1.png)
 
-2. Go to the **Artifacts** tab and click **Edit** (top right) to enter edit mode.
-   <br>The <b>IN261_0**_Employee_Lookup_MCP artifact</b> from Exercise 2 and <b>IN261_0**_HR_Policy_Lookup_MCP</b> artifact from Exercise 3 will already be visible — you will add the Purchase Requisition MCP Server alongside it.
+2. Go to the **`Artifacts`** tab and click **`Edit`** (top right) to enter edit mode.
+   <br>The **`IN261_0**_Employee_Lookup_MCP artifact`** from Exercise 2 and **`IN261_0**_HR_Policy_Lookup_MCP`** artifact from Exercise 3 will already be visible — you will add the Purchase Requisition MCP Server alongside it.
 
    ![Open package and click Edit](images/Edit_Package.png)
 
 ## Exercise 4.2 — Create the MCP Server Artifact
 
-1. Click **Add** and select **MCP Server** from the dropdown.
+1. Click **`Add`** and select **`MCP Server`** from the dropdown.
 
    ![Add MCP Server](images/Add_MCP_Server.jpg)
 
-2. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
+2. In the **`Add MCP Server`** dialog, select **`HTTP Endpoint with OpenAPI Specification`** as the source type and click **`Next`**.
 
    ![Select Source Type](images/MCP_HTTP_Endpoint.jpg)
 
@@ -65,18 +65,18 @@ Instead of building this integration flow from scratch, you will use this pre-co
    | Source | `Destination` |
    | Destination | Select `in261_iflow_as_mcp` from the destination list |
    | Relative URL | `/http` |
-   | Name | <b>IN261_0**_Create_PR_S4Hana_MCP</b> *(replace ** with the participant number that is assigned to you)* |
+   | Name | **`IN261_0**_Create_PR_S4Hana_MCP`** *(replace ** with your assigned participant number)* |
    | ID | Auto populated |
-   | MCP Path | <b>/in261_0**_create_pr_s4hana_mcp</b> *(replace ** with the participant number that is assigned to you)* |
+   | MCP Path | **`/in261_0**_create_pr_s4hana_mcp`** *(replace ** with your assigned participant number)* |
    | Version | `1.0.0` |
 
    > **HINT:** The Destination and Relative URL are pre-configured for the workshop — copy exactly as shown, do not modify.
 
-   Click Next.
+   Click **`Next`**.
    
    ![Provide MCP Details](images/CreateMCP.jpg)
 
-5. On the **Create Tools** screen, select the **/newhire/equipments** tool and click **Add** to finish creating the MCP Server artifact.
+5. On the **`Create Tools`** screen, select the **`/newhire/equipments`** tool and click **`Add`** to finish creating the MCP Server artifact.
 
    ![Select Tools](images/Tool_Selection.jpg)
 
@@ -84,18 +84,18 @@ Instead of building this integration flow from scratch, you will use this pre-co
 
 The policy model for the Purchase Requisition MCP Server follows the same authentication configuration as Exercise 2 and 3 — External OAuth (OIDC) via IAS, ensuring every agent request is authenticated and authorized before reaching the S/4HANA backend.
 
-1. Navigate to **Policies** tab, click **Edit** (top right).
+1. Navigate to **`Policies`** tab, click **`Edit`** (top right).
 
    ![Navigate to Policies and Edit](images/Ex4_Edit_Policies.png)
    
-2. Then double click on the **Authentication** step to open its property sheet.
+2. Then double click on the **`Authentication`** step to open its property sheet.
    
    ![Navigate to Authentication Step](images/Ex4_Navigate_Authentication.png)
 
 3. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
-   - Check **External OAuth (OIDC)**
-   - Set **Configuration Type** to `Well-Known URL`
+   - Check **`External OAuth (OIDC)`**
+   - Set **`Configuration Type`** to **`Well-Known URL`**
 
       Then copy and paste each value below into the corresponding field:
 
@@ -118,13 +118,13 @@ The policy model for the Purchase Requisition MCP Server follows the same authen
 
    > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
 
-   Click **Save** (top right).
+   Click **`Save`** (top right).
 
    ![Authentication Policy Settings](images/Auth_Policy.jpg)
 
 ## Exercise 4.4 — Deploy the MCP Server
 
-1. Click **Deploy** (top right). In the confirmation dialog, verify the defaults and click **Deploy** to confirm:
+1. Click **`Deploy`** (top right). In the confirmation dialog, verify the defaults and click **`Deploy`** to confirm:
 
    - **Runtime Profile:** `Integration Cell`
    - **Virtual Host:** *(pre-selected, leave as default)*
