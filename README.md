@@ -38,8 +38,8 @@ For the full scenario walkthrough and architecture:
 - [📖 Scenario Introduction](intro/README.md)
 
 ## System URL and Login Details 
-To complete the exercises, the access to the following systems have been provided. \
-**In case you are not able to access any of these systems please contact the workshop instructors**.
+To complete the exercises, the access to the following systems have been provided.
+<br>**In case you are not able to access any of these systems please contact the workshop instructors**.
 
 - [SAP Integration Suite, advanced event mesh](https://url.sap/hu5r93)
 - [SAP SuccessFactors](https://url.sap/1ubd08)
