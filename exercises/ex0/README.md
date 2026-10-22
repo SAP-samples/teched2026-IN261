@@ -158,7 +158,7 @@ SAP Service Cloud V2 is where Support Cases are created for new hire IT system a
 | Case Type | `ZEST` — configured for new hire onboarding support cases |
 | Technical User | Pre-configured for MCP Server → Service Cloud connectivity via Client Credentials |
 | Employee Records | Test employees available for case creation |
-| MCP Server | Pre-deployed — `IN261_Create_SC_ServiceCloud_MCP` (see Exercise 5) |
+| MCP Server | Pre-deployed — `IN261_Create_SupportCase_MCP` (see Exercise 5) |
 
 **What you do:** Nothing in Service Cloud — the pre-deployed MCP Server handles case creation in **Exercise 7**.
 
