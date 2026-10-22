@@ -25,7 +25,7 @@ By the end, you will have a deployed MCP Server that gives the onboarding agent 
 
 <br>
 
-A **pre-configured Integration Flow (IN261_Prompt_to_HR_Policy_RAG_Pipeline_using_SAP_AI_Core)** has been configured and deployed for this session. It acts as the governed middleware between the MCP Server and the SAP AI Launchpad Orchestration Document Grounding API:
+A **pre-configured Integration Flow (`IN261_Prompt_to_HR_Policy_RAG_Pipeline_using_SAP_AI_Core`)** has been configured and deployed for this session. It acts as the governed middleware between the MCP Server and the SAP AI Launchpad Orchestration Document Grounding API:
 
 - Receives the policy query from the MCP tool call
 - Handles the API structure mapping and forwards the request to the SAP AI Launchpad Orchestration Document Grounding API
@@ -41,62 +41,62 @@ A **pre-configured Integration Flow (IN261_Prompt_to_HR_Policy_RAG_Pipeline_usin
 > [!NOTE]
 > This exercise builds on the same Integration Package created in [Exercise 2](../ex2/README.md). You will copy the MCP Server artifact from the solution package into your existing package — no need to create a new one.
 
-1. In SAP Integration Suite, navigate to **Design → Integrations and APIs**, search for and open **TechEd 2026 IN261 - Solution Package**.
+1. In **SAP Integration Suite**, navigate to **`Design → Integrations and APIs`**, search for and open **`TechEd 2026 IN261 - Solution Package`**.
 
    ![Navigate to Solution Package](images/ex31-1.png)
 
-2. Go to the **Artifacts** tab.
+2. Go to the **`Artifacts`** tab.
 
    ![Artifacts tab](images/ex31-2.png)
 
-3. Find **IN261_HR_Policy_Lookup_MCP** and click the **⋯** (three dots) to open the actions menu. Select **Copy**.
+3. Find **`IN261_HR_Policy_Lookup_MCP`** and click the **⋯** (three dots) to open the actions menu. Select **`Copy`**.
 
    ![Open actions menu and select Copy](images/ex31-3.png)
 
-4. In the **Copy** dialog, update the **Name** field with your participant number:
+4. In the **`Copy`** dialog, update the **`Name`** field with your participant number:
 
-   <b>IN261_0**_HR_Policy_Lookup_MCP</b> *(replace ** with the participant number assigned to you)*
+   **`IN261_0**_HR_Policy_Lookup_MCP`** *(replace ** with your assigned participant number)*
 
    > **Note:** Remove the word "Copy" from the name suffix and add your participant number as shown below.
 
-   Then click **Select** next to the Package field for selecting your package.
+   Then click **`Select`** next to the Package field for selecting your package.
 
    ![Update name with participant number](images/ex31-4.png)
 
-5. In the package selection dialog, search for your package <b>IN261_0**_TechEd_2026_Package</b> *(replace ** with the participant number assigned to you)* and click on it to select it.
+5. In the package selection dialog, search for your package **`IN261_0**_TechEd_2026_Package`** *(replace ** with your assigned participant number)* and click on it to select it.
 
    ![Select your package](images/ex31-5.png)
 
-6. Verify the name and package are correct, then click **Copy**.
+6. Verify the name and package are correct, then click **`Copy`**.
 
    ![Verify and click Copy](images/ex31-6.png)
 
-7. Once the success dialog appears, click **Navigate** to open your package where the MCP Server artifact has been copied.
+7. Once the success dialog appears, click **`Navigate`** to open your package where the MCP Server artifact has been copied.
 
    ![Navigate to your package](images/ex31-7.png)
    
 ## Exercise 3.2 — Update the MCP Path
 Each MCP Server must have a unique MCP path across the tenant — two artifacts with the same path cannot be deployed simultaneously. You need to update the path to include your participant number.
 
-1. In your package, open the copied MCP Server artifact <b>IN261_0**_HR_Policy_Lookup_MCP</b> *(replace ** with the participant number assigned to you)*.
+1. In your package, open the copied MCP Server artifact **`IN261_0**_HR_Policy_Lookup_MCP`** *(replace ** with your assigned participant number)*.
 
    ![Open copied MCP Server](images/ex32-1.png)
 
-2. Click **Edit** (top right) to enter edit mode.
+2. Click **`Edit`** (top right) to enter edit mode.
 
    ![Click Edit](images/ex32-2.png)
 
-3. In the **Overview** tab, update the **MCP Path** field to include your participant number:
+3. In the **`Overview`** tab, update the **`MCP Path`** field to include your participant number:
 
-   <b>/in261_0**_hr_policy_lookup_mcp</b> *(replace ** with the participant number assigned to you)*
+   **`/in261_0**_hr_policy_lookup_mcp`** *(replace ** with your assigned participant number)*
 
-   Click **Save** (top right).
+   Click **`Save`** (top right).
 
    ![Update MCP Path](images/ex32-3.png)
 
 ## Exercise 3.3 — Deploy the MCP Server
 
-1. Click **Deploy** (top right). In the confirmation dialog, verify the defaults and click **Deploy** to confirm:
+1. Click **`Deploy`** (top right). In the confirmation dialog, verify the defaults and click **`Deploy`** to confirm:
 
    - **Runtime Profile:** `Integration Cell`
    - **Virtual Host:** *(pre-selected, leave as default)*
