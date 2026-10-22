@@ -88,7 +88,7 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
       |---|---|
       | **`IN261_0**_HR_Policy_Lookup_MCP`** | **`"applicable-hr-policy-lookup-mcp"`** |
       | **`IN261_0**_Create_PR_S4Hana_MCP`** | **`"create-pr-s4hana-mcp"`** |
-      | **`IN261_0**Create_SupportCase_MCP`** | **`"create-supportcase-mcp"`** |
+      | **`IN261_0**_Create_SupportCase_MCP`** | **`"create-supportcase-mcp"`** |
 
    > [!IMPORTANT]
    > Each MCP Server URL must be pasted into the **exact matching `name` entry** in the **`active`** section. Pasting a URL into the wrong entry will cause the agent to call the wrong server and fail at runtime. Double-check the **`name`** field before saving.
@@ -105,90 +105,92 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
 
 ## Exercise 7.3 — Install Dependencies and Run Setup
 
-### Step 1: Open a Terminal
+1. In File Explorer, right-click on the **`IN261_employee_onboarding_ai_agent`** folder and select **`Open in Terminal`**.
 
-In File Explorer, right-click on the **`IN261_employee_onboarding_ai_agent`** folder and select **Open in Terminal**.
+   ![Right-click the folder — Open in Terminal](images/openTerminal.png)
 
-   <br>![Right-click the folder — Open in Terminal](/exercises/ex7/images/openTerminal.png)
-
-### Step 2: Verify Node.js and Install Dependencies
-
-In the terminal, run the following commands:
-
-```bash
-node -v
-```
-
-This confirms Node.js is installed. The version shown is fine — **do not update Node.js or npm**.
-
-```bash
-npm install
-```
-
-This installs all required dependencies. You may see a deprecation warning (`npm warn deprecated node-domexception`) — this is expected and can be safely ignored.
+2. In the **terminal**, run the following command:
+   
+   ```bash
+   npm install
+   ```
+   
+   This installs all required dependencies. You may see a deprecation warning (`npm warn deprecated node-domexception`) — this is expected and can be safely ignored.
 
 > [!IMPORTANT]
 > Do **not** run `npm install -g` or attempt to update npm. Doing so will break the installed dependencies.
 
-   <br>![Terminal — node -v and npm install complete](/exercises/ex7/images/Terminal1.png)
+   ![Terminal — node -v and npm install complete](images/Terminal1.png)
 
-### Step 3: Run Setup
+3. In the **terminal**, run the following command:
 
-```bash
-node setup.js
-```
+   ```bash
+   node setup.js
+   ```
+   
+   The setup wizard will ask you two things:
 
-The setup wizard will ask you two things:
+   1. **Workshop tenant** — enter **`1`** for **workshop 01a** or **`2`** for **workshop 01b**, as assigned by your instructor.
+   2. **AEM Queue name** — enter your assigned queue in the format **`IN261_0**`** (replace `**` with your assigned participant number, e.g. `IN261_050`)
 
-1. **Workshop tenant** — enter `1` for **workshop 01a** or `2` for **workshop 01b**, as assigned by your instructor
-2. **AEM Queue name** — enter your assigned queue in the format `IN261_0**` (replace `**` with your participant number, e.g. `IN261_050`)
+   Once complete, you will see:
+   ```
+   Setup complete! Run 'node agent.js' to start the agent.
+   ```
+   In case there are issues with your tenant selection or configured *`mcp-servers.json`*, you will see the following:
+   Fix it to move forward.
+   ```
+   ⚠ mcp-servers.json validation failed:
+     - One or more MCP Server URLs do not contain "workshop01b"
+   
+   Please update the "active" section in mcp-servers.json with your workshop 01b MCP server URLs.
+   Pre-deployed solution MCP server URLs are available in the "workshop_01b_solution" section of mcp-servers.json. Copy any or all URLs from that section into the "active" section and run setup.js again.
+   Once updated, run setup.js again.
+   ```
 
-Once complete, you will see:
-
-```
-Setup complete! Run 'node agent.js' to start the agent.
-```
-
-   <br>![Terminal — node setup.js complete, tenant and AEM queue set](/exercises/ex7/images/Terminal2.png)
+   ![Terminal — node setup.js complete, tenant and AEM queue set](images/Terminal2.png)
 
 ## Exercise 7.4 — Run the Agent
 
-```bash
-node agent.js
-```
+1. In the **terminal**, run the following command:
 
-Your browser will open automatically for SAP IAS login. Log in with your workshop credentials.
+   ```bash
+   node agent.js
+   ```
+   
+   Your browser will open automatically for SAP IAS login. Log in with your workshop credentials.
 
-   <br>![Terminal — node agent.js running, browser login initiated](/exercises/ex7/images/terminal3.png)
+   ![Terminal — node agent.js running, browser login initiated](images/terminal3.png)
 
-Once login is complete, the browser displays:
+2. Once login is complete, the browser displays:
 
-> *"Login successful! You can close this tab and return to the Employee Onboarding AI Agent Terminal."*
+   > *"Login successful! You can close this tab and return to the Employee Onboarding AI Agent Terminal."*
 
-Close this browser tab and return to the terminal.
+   Close this browser tab and return to the terminal.
 
-   <br>![Browser — login successful, close the tab](/exercises/ex7/images/Authentication_Done.png)
+   ![Browser — login successful, close the tab](images/Authentication_Done.png)
 
-Back in the terminal, the agent connects to all four MCP Servers and subscribes to your AEM queue. Once you see the following lines, the agent is ready:
+3. Back in the terminal, the agent connects to all four MCP Servers with 6 tools and subscribes to your AEM queue. Once you see the following lines, the agent is ready:
 
-```
-AEM Connected via AMQP to VPN: teched2026-in261
-AEM Subscribed to queue: IN261_050
-AEM Waiting for new hire events from SuccessFactors...
-```
+   ```
+   AEM Connected via AMQP to VPN: teched2026-in261
+   AEM Subscribed to queue: IN261_050
+   AEM Waiting for new hire events from SuccessFactors...
+   ```
 
-   <br>![Terminal — agent connected to all MCP tools and waiting for new hire events](/exercises/ex7/images/agentislistening.png)
+   ![Terminal — agent connected to all MCP tools and waiting for new hire events](images/agentislistening.png)
 
+4.  If you see any issues, kindly check with the instructor.
+   
 > [!NOTE]
-> Keep the terminal open and the agent running — you will need it in Exercise 8, where your instructor will trigger a new hire event and the agent will orchestrate the full onboarding workflow.
+> Keep the terminal open and the agent running — you will need it in Exercise 8, where you will trigger a new hire event and the agent will orchestrate the full employee onboarding workflow.
 
 ## Summary
+You have now downloaded, configured, and started the pre-delivered Employee Onboarding AI Agent.
 
-You have now set up and started the Employee Onboarding AI Agent.
+- The agent bundle was downloaded from the **`TechEd 2026 IN261 - Solution Package`** in SAP Integration Suite
+- The four MCP Server URLs from your published Developer Hub product are configured in **`mcp-servers.json`**
+- **`node setup.js`** set the correct workshop tenant and connected the agent to your AEM queue
+- The agent is running, authenticated, and subscribed to your AEM queue — waiting for a new hire event from SAP SuccessFactors
 
-- The agent bundle was downloaded from the **TechEd 2026 IN261 - Solution Package** in SAP Integration Suite
-- The four MCP Server URLs from your published Developer Hub product are configured in `mcp-servers.json`
-- `node setup.js` set the correct workshop tenant and connected the agent to your AEM queue
-- The agent is running and authenticated — ready to respond to new hire events
-
-Continue to - [Exercise 8](../ex8/README.md)
+Continue to - [Exercise 8 — Add a New Employee in SAP SuccessFactors](../ex8/README.md)
