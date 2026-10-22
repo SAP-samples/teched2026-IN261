@@ -17,7 +17,7 @@ By the end, you will have a deployed MCP Server that gives the onboarding agent 
 
 <br>
 
-A **pre-configured Integration Flow (IN261_Purchase_Requisition_Creation_in_SAP_S4HANA_for_New_Hire_Equipments)** has been configured for this session. It acts as the mediation layer between the MCP Server and SAP S/4HANA:
+A **pre-configured Integration Flow (`IN261_Purchase_Requisition_Creation_in_SAP_S4HANA_for_New_Hire_Equipments`)** has been configured for this session. It acts as the mediation layer between the MCP Server and SAP S/4HANA:
 
 - Receives the approved equipment payload from the MCP tool call
 - Handles data mapping and forwards the request to SAP S/4HANA
