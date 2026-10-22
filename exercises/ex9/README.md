@@ -154,7 +154,7 @@ With both backend records created, you will now open each one directly from the 
 
    ![SAP Service Cloud V2 — Case Training Details](images/ServiceCloud_Case_Trainings.png)
 
-### Step 3: Open the OData API Audit Log in SAP SuccessFactors to see the end-to-end tracability
+### Step 3: Open the OData API Audit Log in SAP SuccessFactors to see the end-to-end traceability
 
 1. Log on to [SAP SuccessFactors](https://url.sap/1ubd08) with your workshop credentials.
 
@@ -168,7 +168,7 @@ With both backend records created, you will now open each one directly from the 
 
    ![SFSF Go to OData API Audit Log](images/SFSF_Audit_2.png)
 
-4. You will see entries for the **`Query`** API calls made by the agent to the Employee and EmployeeJob entities — timestamped to the moment your agent ran. Each entry confirms the exact API call, the user identity i.e. **`IN261-0**`** *(replace ** with you assigned parycipnat number)* it was made under, and the entity accessed.
+4. You will see entries for the **`Query`** API calls made by the agent to the Employee and EmployeeJob entities — timestamped to the moment your agent ran. Each entry confirms the exact API call, the user identity i.e. **`IN261-0**`** *(replace ** with your assigned participant number)* it was made under, and the entity accessed.
  
    ![SFSF OData Audit Log Entries](images/SFSF_Audit_3.png)
    
