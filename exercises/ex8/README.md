@@ -9,7 +9,7 @@ Your agent is running and subscribed to your AEM queue — waiting for a **NEWHI
 There are two routes to choose from:
 
 - **Route 1: Add a New Employee in SAP SuccessFactors** — triggers a real **NEWHIRE** event through the standard SuccessFactors new hire flow. This is the production-realistic path.
-- **Route 2: Publish the Event directly from AEM** — uses the AEM Try Me feature to publish a pre-defined **NEWHIRE** event payload directly to your queue. This is the fallback path if SuccessFactors is unavailable or you want a faster trigger.
+- **Route 2: Publish the Event directly from AEM** — uses the AEM Try Me feature to publish a pre-defined **NEWHIRE** event payload directly to your queue.  This is the fallback path if you want a faster trigger, or if SAP SuccessFactors is unavailable or has some issues.
 
 By the end, a **NEWHIRE** event has been published to your AEM queue and your agent has received it — the onboarding workflow has begun.
 
