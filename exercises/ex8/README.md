@@ -31,12 +31,11 @@ By the end, a NEWHIRE event has been published to your AEM queue and your agent 
 ## Summary
 You have triggered the new hire onboarding workflow. Your agent has received the NEWHIRE event using the SAP Advanced Event Mesh and has begun orchestrating the onboarding process.
 
-Continue to Exercise 9 to:
+Continue to - [Exercise 9 — Observe, Approve, and Verify the AI-Orchestrated Onboarding Workflow](../ex9/README.md) to:
+
 - Observe the agent call MCP tools in real time in the terminal
 - Review and approve the onboarding plan as the hiring manager
 - Verify the Purchase Requisition created in SAP S/4HANA
 - Verify the Support Case created in SAP Service Cloud V2
 - Trace the end-to-end flow via SAP SuccessFactors OData API audit logs
 - Monitor MCP tool call analytics and health in SAP Integration Suite
-
-Continue to - [Exercise 9 — Observe, Approve, and Verify the AI-Orchestrated Onboarding Workflow](../ex9/README.md)
