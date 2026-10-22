@@ -13,7 +13,7 @@ This is the **human-in-the-loop** gate. No Purchase Requisition is raised in SAP
 
 You then verify both outcomes, directly in **SAP S/4HANA and SAP Service Cloud V2**. Trace every API call back to your identity in the **SAP SuccessFactors OData API Audit Log,** and review MCP tool call analytics in SAP Integration Suite — confirming the full governance story end to end.
 
-By the end, you have not just seen an AI agent work — you have seen it work safely, traceably, and with a human in control."
+By the end, you have not just seen an AI agent work — you have seen it work safely, traceably, and with a human in control.
 
 > [!NOTE]
 > This exercise continues directly from [Exercise 8](../ex8/README.md). Your agent terminal must be open and the new hire event must have been triggered before proceeding.
