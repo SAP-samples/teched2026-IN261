@@ -1,7 +1,7 @@
 # Exercise 6 — Publish Deployed MCP Servers as a Product and Subscribe to the AI Agent in Developer Hub
 In this exercise, you will publish your four deployed MCP Servers as a product in the Developer Hub and add your product to the existing AI Agent subscription — making your MCP tools available to the Employee Onboarding AI Agent.
 
-⏱ **Estimated time: 10 minutes**
+⏱ **Estimated time: 15 minutes**
 
 ## Overview
 With four MCP Servers deployed across Exercises 2, 3, 4, and 5, the employee onboarding AI agent now has governed access to employee data, HR policies, purchase requisition creation, and support case creation. But deployment alone is not enough — for an AI agent to discover and call these tools, they need to be published as a **Product** in the **Developer Hub** and linked to the **AI Agent subscription**.
