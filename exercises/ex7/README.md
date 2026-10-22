@@ -1,133 +1,107 @@
 # Exercise 7 — Download, Configure, and Run the Employee Onboarding AI Agent
+In this exercise, you will download the pre-built Employee Onboarding AI Agent from the Solution Package, configure it with your deployed MCP Server URLs, and run it — so it is ready to receive new hire events from SAP Advanced Event Mesh and orchestrate the full onboarding workflow.
 
-With all four MCP Servers deployed and published as a governed product in the Developer Hub, the last step is to connect an AI agent to them. In this exercise, you will download the pre-built employee onboarding agent from the Solution Package, configure it with your deployed MCP Server URLs, and run it — connecting it to your SAP Advanced Event Mesh (AEM) queue so it is ready to respond when a new hire event arrives.
+⏱ **Estimated time: 15 minutes**
 
-> [!NOTE]
-> This exercise builds on the MCP Servers deployed in [Exercise 2](../ex2/README.md), [Exercise 3](../ex3/README.md), [Exercise 4](../ex4/README.md) and [Exercise 5](../ex5/README.md), and the product published in [Exercise 6](../ex6/README.md). Ensure all four MCP Servers show **Runtime Status: STARTED** before proceeding.
+## Overview
+The Employee Onboarding AI Agent is a pre-built **Node.js agent** powered by **Claude via SAP AI Core**. It listens for **new hire events** from **SAP SuccessFactors via Advanced Event Mesh** and orchestrates the full onboarding process — **fetching employee data**, **retrieving HR policies**, presenting an **onboarding plan for manager approval**, and after approval **creating a Purchase Requisition** for approved equipments **in SAP S/4HANA** and a **Support Case** for approved system access and training enrollment **in SAP Service Cloud V2**.
 
-## What is the Employee Onboarding AI Agent?
+All tool calls are routed through the **SAP Integration Suite MCP Gateway** using the **four MCP Servers you deployed and published** in Exercises 2 through 6 — authenticated, authorized, and traceable end to end.
 
-The **Employee Onboarding AI Agent** listens for new hire events from SAP SuccessFactors via Advanced Event Mesh and orchestrates the full onboarding process through the four MCP Servers you have deployed.
-
-When a new hire event arrives, the agent:
-
-1. Fetches the new hire's full profile and job details via the **Employee Lookup MCP**
-2. Retrieves the applicable HR onboarding policies via the **HR Policy Lookup MCP**
-3. Presents an onboarding plan to the manager for approval (**human-in-the-loop**)
-4. After approval — creates a Purchase Requisition in SAP S/4HANA via the **Create PR MCP**
-5. After approval — creates a Support Case in SAP Service Cloud via the **Service Cloud MCP**
-
-All tool calls are routed through SAP Integration Suite MCP Gateway, which enforces authentication, authorization, and audit logging for every agent action.
+By the end, your agent is running, connected to your AEM queue, and waiting for a new hire event — ready for Exercise 8.
 
 ## Exercise 7.1 — Download the Agent Bundle
-
-In this sub-exercise, you download the pre-built agent bundle from the **TechEd 2026 IN261 - Solution Package** in SAP Integration Suite.
-
-### Step 1: Navigate to the Solution Package
+In this exercise, you download the pre-built agent bundle from the **TechEd 2026 IN261 - Solution Package** in SAP Integration Suite.
 
 1. In SAP Integration Suite, navigate to **Design → Integrations and APIs**.
 
-   <br>![Navigate to Integrations and APIs](/exercises/ex7/images/Navigate_to_SolutionPackage.png)
+   ![Navigate to Integrations and APIs](images/Navigate_to_SolutionPackage.png)
 
-2. In the search field, type **`TechEd 2026 IN261 - Sol`** and press Enter. Click on **TechEd 2026 IN261 - Solution Package** to open it.
+2. In the search field, type **`TechEd 2026 IN261 - Sol`** and press Enter. Click on **`TechEd 2026 IN261 - Solution Package`** to open it.
 
-   <br>![Search and open the Solution Package](/exercises/ex7/images/Navigate_to_SolutionPackage2.png)
+   ![Search and open the Solution Package](images/Navigate_to_SolutionPackage2.png)
 
-### Step 2: Download the Agent Bundle
+3. Inside the Solution Package, click the **Documents (1)** tab and then click on **`IN261 Best Run Employee Onboarding AI Agent`** to download it.
+   <br>The file **`IN261_employee_onboarding_ai_agent.zip`** will begin downloading — you will see it appear in your browser's download bar.
 
-1. Inside the Solution Package, click the **Documents (1)** tab.
-2. Click on **IN261 Best Run Employee Onboarding AI Agent** to download it.
+   ![Documents tab — download the agent bundle](images/Navigate_to_SolutionPackage3.png)
 
-The file `IN261_employee_onboarding_ai_agent.zip` will begin downloading — you will see it appear in your browser's download bar.
+4. Open your **Downloads** folder. You will find **`IN261_employee_onboarding_ai_agent.zip`** there.
 
-   <br>![Documents tab — download the agent bundle](/exercises/ex7/images/Navigate_to_SolutionPackage3.png)
+   ![Downloaded zip in Downloads folder](images/unzip.png)
 
-### Step 3: Extract the Bundle
+5. Right-click the zip file and select **Extract All...**.
 
-1. Open your **Downloads** folder. You will find `IN261_employee_onboarding_ai_agent.zip` there.
+   ![Right-click — Extract All](images/unzip2.png)
 
-   <br>![Downloaded zip in Downloads folder](/exercises/ex7/images/unzip.png)
+6. In the **Extract Compressed (Zipped) Folders** dialog, keep the default destination path and click **Extract**.
 
-2. Right-click the zip file and select **Extract All...**.
+   ![Extract dialog — click Extract](images/unzip3.png)
 
-   <br>![Right-click — Extract All](/exercises/ex7/images/unzip2.png)
+7. The extracted folder **`IN261_employee_onboarding_ai_agent`** now appears in your **Downloads** folder alongside the zip.
 
-3. In the **Extract Compressed (Zipped) Folders** dialog, keep the default destination path and click **Extract**.
-
-   <br>![Extract dialog — click Extract](/exercises/ex7/images/unzip3.png)
-
-4. The extracted folder **`IN261_employee_onboarding_ai_agent`** now appears in your Downloads folder alongside the zip.
-
-   <br>![Extracted folder in Downloads](/exercises/ex7/images/updateMCP.png)
+   ![Extracted folder in Downloads](images/updateMCP.png)
 
 ## Exercise 7.2 — Configure Your MCP Server URLs
-
-The agent bundle includes a file called `mcp-servers.json`. The **`active`** section of this file contains entries for all four MCP Servers — but their `url` fields are empty. You need to fill in the MCP Server URLs from your published product in the Developer Hub.
+The agent bundle folder includes a file called **`mcp-servers.json`**. The **`active`** section of this file contains entries for all four MCP Servers — but their **`url`** fields are empty. You need to fill in the MCP Server URLs from your published product in the Developer Hub.
 
 > [!TIP]
-> **Fast Track:** If you have not yet deployed your own MCP Servers, the same `mcp-servers.json` file already contains the instructor-deployed solution URLs under `workshop_01a_solution` or `workshop_01b_solution`. Copy the URL values from the section that matches your assigned tenant and paste them into the corresponding `url` fields in the `active` section, then proceed to Exercise 7.3.
-
-### Step 1: Open mcp-servers.json
+> **Fast Track:** If you have not yet deployed your own MCP Servers or ran into some issues, the same **`mcp-servers.json`** file already contains the instructor-deployed solution URLs under **`workshop_01a_solution`** or **`workshop_01b_solution`**. Copy the URL values from the section that matches your assigned tenant and paste them into the corresponding **`url`** fields in the **`active`** section, then proceed to Exercise 7.3.
 
 1. Open the extracted folder **`IN261_employee_onboarding_ai_agent`**.
+   
 2. Open **`mcp-servers.json`** in VS Code or any text editor.
 
-   <br>![Open the extracted folder — mcp-servers.json highlighted](/exercises/ex7/images/updateMCP2.png)
+   ![Open the extracted folder — mcp-servers.json highlighted](images/updateMCP2.png)
 
-3. In the `active` section you will see four MCP Server entries. All four `"url"` fields are currently empty — you will fill these in from your Developer Hub product.
+3. In the **`active`** section you will see four MCP Server entries. All four **`url`** fields are currently empty — you will fill these in from your Developer Hub product.
 
-   <br>![mcp-servers.json open — active section with empty URL fields](/exercises/ex7/images/updateMCP3.png)
+   ![mcp-servers.json open — active section with empty URL fields](images/updateMCP3.png)
 
-### Step 2: Navigate to Developer Hub
+4. Go back to the **Developer Hub** tab you opened in Exercise 6, or in SAP Integration Suite, click the **grid icon (⠿)** in the top-right navigation bar and select **Developer Hub**.
 
-1. In SAP Integration Suite, click the **grid icon (⠿)** in the top-right navigation bar and select **Developer Hub**.
+   ![Navigate to Developer Hub via grid icon](images/CopyMCP.png)
 
-   <br>![Navigate to Developer Hub via grid icon](/exercises/ex7/images/CopyMCP.png)
+5. In the Developer Hub search bar, type **`IN261_0** Employee Onboarding`** (replace ** with your assigned participant number) and click the search icon.
 
-2. In the Developer Hub search bar, type **`IN261_0XX Employee Onboarding`** (replace XX with your participant number) and click the search icon.
+   ![Search for your product in Developer Hub](images/SearchProduct.png)
 
-   <br>![Search for your product in Developer Hub](/exercises/ex7/images/SearchProduct.png)
+6. Under the **Products** tab in the search results, click on **`IN261_0** Employee Onboarding`** to open it.
 
-3. Under the **Products** tab in the search results, click on **`IN261_0XX Employee Onboarding`** to open it.
+   ![Search results — click your product](images/SearchProduct2.png)
 
-   <br>![Search results — click your product](/exercises/ex7/images/SearchProduct2.png)
+7. Click the **AI Artifacts** tab. You will see all four deployed MCP Servers in your product.
 
-### Step 3: Copy Each MCP Server URL
+   ![Product — AI Artifacts tab showing all four MCP Servers](images/EnterProduct_toCopyMCP.png)
 
-1. Click the **AI Artifacts** tab. You will see all four MCP Servers in your product.
+8. Click on **`IN261_0**_Employee_Lookup_MCP`** to open it. On the **Overview** page, locate the **MCP Server URL** field and click the **copy icon** next to it.
 
-   <br>![Product — AI Artifacts tab showing all four MCP Servers](/exercises/ex7/images/EnterProduct_toCopyMCP.png)
+   ![MCP artifact — copy the MCP Server URL](images/Copy_MCPhere.png)
 
-2. Click on **`IN261_0XX_Employee_Lookup_MCP`** to open it. On the **Overview** page, locate the **MCP Server URL** field and click the **copy icon** next to it.
+9. Switch back to **`mcp-servers.json`** in VS Code. Paste the copied URL into the **`url`** field of **`"employee-lookup-mcp"`** in the **`active`** section.
 
-   <br>![MCP artifact — copy the MCP Server URL](/exercises/ex7/images/Copy_MCPhere.png)
+   ![Paste the URL into the active section](images/paste_MCPURL.png)
 
-3. Switch back to `mcp-servers.json` in VS Code. Paste the copied URL into the `"url"` field of **`"employee-lookup-mcp"`** in the `active` section.
-
-   <br>![Paste the URL into the active section](/exercises/ex7/images/paste_MCPURL.png)
-
-4. Go back to the **AI Artifacts** tab and repeat the same process for the remaining three MCP Servers — click each one, copy its **MCP Server URL**, and paste it into the corresponding entry in the `active` section:
+10. Go back to the **AI Artifacts** tab and repeat the same process for the remaining three MCP Servers — click each one, copy its **MCP Server URL**, and paste it into the corresponding entry in the **`active`** section:
 
    | MCP Artifact in Developer Hub | Entry in `active` section |
    |---|---|
-   | `IN261_0XX_HR_Policy_Lookup_MCP` | `"applicable-hr-policy-lookup-mcp"` |
-   | `IN261_0XX_Create_PR_S4Hana_MCP` | `"create-pr-s4hana-mcp"` |
-   | `IN261_Create_SC_ServiceCloud_MCP` | `"create-sc-servicecloud-mcp"` |
+   | **`IN261_0**_HR_Policy_Lookup_MCP`** | **`"applicable-hr-policy-lookup-mcp"`** |
+   | **`IN261_0**_Create_PR_S4Hana_MCP`** | **`"create-pr-s4hana-mcp"`** |
+   | **`IN261_0**Create_SC_ServiceCloud_MCP`** | **`"create-sc-servicecloud-mcp"`** |
 
-> [!IMPORTANT]
-> Each MCP Server URL must be pasted into the **exact matching `name` entry** in the `active` section. Pasting a URL into the wrong entry will cause the agent to call the wrong server and fail at runtime. Double-check the `name` field before saving.
+   > [!IMPORTANT]
+   > Each MCP Server URL must be pasted into the **exact matching `name` entry** in the **`active`** section. Pasting a URL into the wrong entry will cause the agent to call the wrong server and fail at runtime. Double-check the **`name`** field before saving.
 
-   <br>![AI Artifacts — repeat for the remaining three MCP Servers](/exercises/ex7/images/Repeat_for_remaining_MCPs.png)
+   ![AI Artifacts — repeat for the remaining three MCP Servers](images/Repeat_for_remaining_MCPs.png)
 
-5. Once all four `"url"` fields are filled in, **save the file** (`Ctrl + S`).
+11. Once all four **`url`** fields are filled in the **`active`** section, **save the file** (`Ctrl + S`).
 
-   <br>![mcp-servers.json — all four URLs filled in and saved](/exercises/ex7/images/paste_all_four_MCP.png)
+   ![mcp-servers.json — all four URLs filled in and saved](images/paste_all_four_MCP.png)
 
-### Step 4: Return to the Folder
+12. After saving, go back to the **`IN261_employee_onboarding_ai_agent`** folder in File Explorer — you will open a terminal from here in the next step.
 
-After saving, go back to the **`IN261_employee_onboarding_ai_agent`** folder in File Explorer — you will open a terminal from here in the next step.
-
-   <br>![Return to the agent folder](/exercises/ex7/images/Save_and_return_to_folder.png)
+   ![Return to the agent folder](images/Save_and_return_to_folder.png)
 
 ## Exercise 7.3 — Install Dependencies and Run Setup
 
