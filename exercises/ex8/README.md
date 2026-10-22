@@ -1,5 +1,5 @@
 # Exercise 8 — Trigger a New Hire Event
-In this exercise, you will trigger a new hire event that your agent is waiting for. Choose the route that works best for you — both result in a NEWHIRE event arriving in your AEM queue and your agent starting the onboarding workflow.
+In this exercise, you will trigger a new hire event that your agent is waiting for. Choose the route that works best for you — both result in a **NEWHIRE** event arriving in your AEM queue and your agent starting the onboarding workflow.
 
 ⏱ **Estimated time: 10 minutes**
 
