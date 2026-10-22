@@ -14,8 +14,7 @@ By the end, your four deployed MCP Servers are bundled as a governed product in 
 
 ## Exercise 6.1 — Publish your Deployed MCP Servers as a Product
 In this exercise, you select all your four deployed MCP Servers, and publish them as a single product in Developer Hub.
-
-1. From your Integration Package **`IN261_0**_TechEd_2026_Package`** (replace ** with your participant number), click the **grid icon (⠿)** in the top-right navigation bar.
+1. From your Integration Package **`IN261_0**_TechEd_2026_Package`** *(replace ** with your assigned participant number)*, click the **grid icon (⠿)** in the top-right navigation bar.
 
    ![Click the grid icon from the Integration Package](images/ex61-1.png)
    
@@ -40,13 +39,13 @@ In this exercise, you select all your four deployed MCP Servers, and publish the
 
 7. Click the **`AI Artifacts`** tab. You will see all MCP Servers from all the participants deployed on this business system.
 
-8. Use the **`Search by Name`** field to filter by your participant number i.e. <b>`IN261_0**`</b> (replace ** with your participant number e.g. `IN261_050`). This narrows the list to your four MCP Servers.
+8. Use the **`Search by Name`** field to filter by your participant number i.e. <b>`IN261_0**`</b> *(replace ** with your assigned participant number e.g. `IN261_050`)*. This narrows the list to your four MCP Servers.
 
 9. Select all your four deployed MCP servers by checking the checkbox next to each entry:
-   - **`IN261_0**_Employee_Lookup_MCP`** (replace ** with your participant number)
-   - **`IN261_0**_HR_Policy_Lookup_MCP`** (replace ** with your participant number)
-   - **`IN261_0**_Create_PR_S4Hana_MCP`** (replace ** with your participant number)
-   - **`IN261_0**_Create_SupportCase_MCP`** (replace ** with your participant number)
+   - **`IN261_0**_Employee_Lookup_MCP`** *(replace ** with your assigned participant number)*
+   - **`IN261_0**_HR_Policy_Lookup_MCP`** *(replace ** with your assigned participant number)*
+   - **`IN261_0**_Create_PR_S4Hana_MCP`** *(replace ** with your assigned participant number)*
+   - **`IN261_0**_Create_SupportCase_MCP`** *(replace ** with your assigned participant number)*
 
    ![AI Artifacts — filter by participant number](images/ex61-7.png)
 
@@ -58,10 +57,10 @@ In this exercise, you select all your four deployed MCP Servers, and publish the
 
       | Field | Value |
       |---|---|
-      | Name |  **`IN261_0** Employee Onboarding`** (replace ** with your participant number) |
+      | Name |  **`IN261_0** Employee Onboarding`** *(replace ** with your assigned participant number)* |
       | ID | Auto Populated|
-      | Short Text | **`The IN261_0** Employee Onboarding MCP Artifacts are deployed as a product.`** (replace ** with your assigned participant number) |
-      | Description | **`The IN261_0** Employee Onboarding MCP Artifacts are deployed as a product.`** (replace ** with your assigned participant number)|
+      | Short Text | **`The IN261_0** Employee Onboarding MCP Artifacts are deployed as a product.`** *(replace ** with your assigned participant number)* |
+      | Description | **`The IN261_0** Employee Onboarding MCP Artifacts are deployed as a product.`** *(replace ** with your assigned participant number)*|
 
        Click **`Publish`**.
 
@@ -89,7 +88,7 @@ In this exercise, you select all your four deployed MCP Servers, and publish the
 ## Exercise 6.2 — Add your Product to the Existing AI Agent Subscription
 In this exercise, you add your published product to the existing AI Agent subscription — authorizing the employee onboarding agent to authenticate and call your MCP tools.
 
-1. From the Developer Hub home page, click on **`IN261_0** Employee Onboarding`** (replace ** with your participant number) to open it.
+1. From the Developer Hub home page, click on **`IN261_0** Employee Onboarding`** *(replace ** with your assigned participant number)* to open it.
 
    ![Product detail page](images/ex62-1.png)
 
