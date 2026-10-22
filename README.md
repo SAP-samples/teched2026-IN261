@@ -35,7 +35,7 @@ Every tool call flows through the **SAP Integration Suite MCP Gateway** — auth
 
 For the full scenario walkthrough and architecture:
 
-- [Scenario Introduction](intro/README.md)
+- [📖 Scenario Introduction](intro/README.md)
 
 ## System URL and Login Details 
 To complete the exercises, the access to the following systems have been provided. \
