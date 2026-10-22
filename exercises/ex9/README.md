@@ -111,7 +111,7 @@ With both backend records created, you will now open each one directly from the 
 1. In the terminal, **Ctrl+Click** the **PR Link** from the Onboarding Summary. Your browser will open the SAP S/4HANA login page.
 
 2. Log in with your workshop credentials:
-   - **User Name:** `IN261-0XX` *(replace XX with your participant number)*
+   - **User Name:** **`IN261-0**`** *(replace XX with your assigned participant number)*
    - **Password:** *will be shared by the instructors*
 
    Click **Continue**.
@@ -128,31 +128,31 @@ With both backend records created, you will now open each one directly from the 
 
 ### Step 2: Open the Support Case in SAP Service Cloud V2
 
-1. Return to the terminal and **Ctrl+Click** the **Case Link** from the Onboarding Summary. Your browser will open the SAP Service Cloud V2 login page.
+1. Return to the terminal and **Ctrl+Click** the **Case Link** from the Onboarding Summary. Your browser will open the **SAP Service Cloud V2** login page.
 
 2. Click **Sign in using SSO**.
 
    ![SAP Service Cloud V2 — login page, click Sign in using SSO](images/ServiceCloud_SSO_Login.png)
 
 3. On the IAS login page, enter your workshop credentials:
-   - **User Name:** `IN261-0XX` *(replace XX with your participant number)*
+   - **User Name:** **`IN261-0**`** *(replace XX with your assigned participant number)*
    - **Password:** *will be shared by the instructors*
 
    Click **Continue**.
 
    ![SAP Service Cloud V2 — IAS SSO login](images/ServiceCloud_IAS_Login.png)
 
-4. The Support Case opens directly on the **Timeline** tab. Verify the case subject, status, and creation timestamp.
+4. The Support Case opens. Verify the case details in the **`Submitted`** tab of the case flow.
 
-   ![SAP Service Cloud V2 — Case Timeline](images/ServiceCloud_Case_Timeline.png)
+   ![SAP Service Cloud V2 — Case Details](images/ServiceCloud_Case_Details.png)
 
-5. Click the **General** tab to see the **Involved Parties** — the processor, reporter, service team, and employee linked to this case.
+5. Click on the **`Assign System Access`** tab to see the **`System Access Details`**.
 
-   ![SAP Service Cloud V2 — Case General (Involved Parties)](images/ServiceCloud_Case_General.png)
+   ![SAP Service Cloud V2 — Case System Access Details](images/ServiceCloud_Case_SystemAccess.png)
 
-6. Click the **Changes** tab to see the **Document Flow** — confirming when the case was created and its current status.
+6. Click the **`Assign Trainings`** tab to see the **`Training Details`**.
 
-   ![SAP Service Cloud V2 — Case Changes (Document Flow)](images/ServiceCloud_Case_Changes.png)
+   ![SAP Service Cloud V2 — Case Training Details](images/ServiceCloud_Case_Trainings.png)
 
 ## Exercise 9.4 — View MCP Analytics in SAP Integration Suite
 
@@ -165,14 +165,6 @@ Every tool call made by the agent was routed through the SAP Integration Suite M
    ![Integration Suite — Monitor → Integrations and APIs](images/Monitor_Overview.png)
 
 2. Under **Manage Integration Content**, you will see all deployed MCP Servers with their runtime status. Confirm that all your MCP Servers show **Started** and that the **Error** count is **0**.
-
-### Step 2: Verify Your MCP Server Deployment
-
-1. Click on **`IN261_0XX_Employee_Lookup_MCP`** (replace XX with your participant number) from the Integration Content list.
-
-2. The detail panel on the right shows the **Endpoints** tab with your MCP Server URL, the **Status Details** confirming successful deployment, and the deployment metadata.
-
-   ![Monitor — MCP Server detail with Endpoints and deployment status](images/Monitor_MCP_Deployed.png)
 
 ### Step 3: Navigate to Analyze
 
@@ -211,7 +203,7 @@ The Health view shows **MCP Server Errors by Tool vs Resource** and the **MCP Po
 ## Summary
 You have now successfully completed the full employee onboarding workflow — from a **NEWHIRE** event in SAP SuccessFactors all the way to governed, traceable outcomes across multiple SAP systems, powered by an **AI agentic workflow** built on the **MCP Gateway of SAP Integration Suite**.
 
-Every tool call made by the agent — f**etching employee data via API Composition**, **retrieving HR policy via RAG-grounded AI Launchpad Orchestration**, **creating a Purchase Requisition in SAP S/4HANA**, and **raising a Support Case in SAP Service Cloud V2** — was routed through the **MCP Gateway** with authentication, authorization, and audit logging enforced at every step. 
+Every tool call made by the agent — **fetching employee data via API Composition**, **retrieving HR policy via RAG-grounded AI Launchpad Orchestration**, **creating a Purchase Requisition in SAP S/4HANA**, and **raising a Support Case in SAP Service Cloud V2** — was routed through the **MCP Gateway** with authentication, authorization, and audit logging enforced at every step. 
 
 Your **identity propagated** end to end via **Principal Propagation**, ensuring every action is traceable back to you. And no backend system was touched without your explicit approval — the **human-in-the-loop** gate kept a human in control of every automated decision.
 
