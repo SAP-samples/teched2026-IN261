@@ -9,7 +9,7 @@ Your agent is running and subscribed to your AEM queue — waiting for a **NEWHI
 There are two routes to choose from:
 
 - **Route 1: Add a New Employee in SAP SuccessFactors** — triggers a real **NEWHIRE** event through the standard SuccessFactors new hire flow. This is the production-realistic path.
-- **Route 2: Publish the Event directly from AEM** — uses the AEM Try Me feature to publish a pre-defined **NEWHIRE** event payload directly to your queue.  This is the fallback path if you want a faster trigger, or if SAP SuccessFactors is unavailable or has some issues.
+- **Route 2: Publish the Event directly from the AEM Try Me! Tool** — uses the AEM Try Me feature to publish a pre-defined **NEWHIRE** event payload directly to your queue.  This is the fallback path if you want a faster trigger, or if SAP SuccessFactors is unavailable or has some issues.
 
 By the end, a **NEWHIRE** event has been published to your AEM queue and your agent has received it — the onboarding workflow has begun.
 
@@ -24,8 +24,76 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 </details>
 
 <details>
-<summary><strong>Route 2 — Publish the Event directly from AEM</strong></summary>
-...steps...
+<summary><strong>Route 2 —  Publish the Event directly from the AEM Try Me! Tool</strong></summary>
+
+1. Log on to [AEM](https://url.sap/hu5r93) tenant using the user ID and password that is already provided by the instructors.
+   For login, use the participant number that is assigned to you.
+   ![Log on](images/ex82-1.png)
+
+2. Click **`Cluster Manager`** in the left navigation menu on the landing page.
+
+   ![Cluster Manager](images/ex82-2.png)
+   
+3. In the **`Cluster Manager: Services`** screen, click on the **`TechEd2026-IN261`** tile.
+   >**HINT:** If you cannot see the tile, uncheck the **`Only show my services`** checkbox.
+
+	![Cluster](images/ex82-3.png)
+
+4. Switch to the **`Manage`** tab.
+	
+	![Manage](images/ex82-4.png)
+
+5. Click on the **`Try Me!`** link on the left panel.
+
+	![Try Me](images/ex82-5.png)
+
+6. Press the **"expand" > Icon** to show the connection details. Please note, that the properties have to be adjusted else the connection will not work. We will update them in the next steps.
+	
+ 	![Pic 13](./images/ex1-13.png) 
+
+7. Keep your current browser tab open and **go back to the other/main tab** and click on the **"Connect"** tab. Select **View by "Protocol"**.
+
+	![Pic 14](./images/ex1-14.png) 
+
+8. Open the **"Solace Web Messaging"** entry and select **"Solace JavaScript API"**. Now the section on the right shows you the connection details.
+
+9.  Copy these details into the relevant fields of the "**Try Me!**" opened in step 2 and overwrite the existing values.
+   
+	![Pic 15-1](./images/ex1-15.png) 
+
+10. Press **"Connect"** button.
+
+	>**Important**: If your browser asks to select a certificate for authentication, press **"Cancel"** otherwise the connection will fail! If you accidentially clicked on a certificate, please restart your browser to show the dialog again.
+
+	![Pic 17](./images/ex1-17.png)  
+
+11. Choose **"Topic"** and provide the name of the topic subscribed in step 4 of previous exercise: user**XXX**/businesspartner/change  (replace **XXX** with your user number).
+
+12. Change "Deliver Mode" to **"Direct** and add the following "**Message Content**":
+	```json
+	
+	
+	```
+
+13. Click **"Publish"** to send your message to the topic.
+
+	![Pic 18](./images/ex1-18.png)  
+
+14. You should see 1 message got published.
+
+	![Pic 20](./images/ex1-19.png)  
+
+15. Switch back to the tab **"Queues"** and click on your queue.
+
+	![Pic 21](./images/ex1-20.png)  
+
+16. You should see 1 Message got Queued.
+
+	![Pic 22](./images/ex1-21.png)  
+
+	You have sent a message to a topic, and via the subscription this message has been persisted in your queue.
+
+17. You can leave it like this or you can play the same game a little longer: go back to the Try Me! tool and just click publish, and see in the other tab how the count of messages gets increased (don't forget to refresh the page).
 </details>
 
 ## Summary
