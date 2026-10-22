@@ -71,7 +71,6 @@ Here is how it flows in this exercise:
 </details>
 
 ## Exercise 2.1 — Create an Integration Package
-
 1. Log in to your assigned **SAP Integration Suite** tenant — refer to the [System URL and Login Details](../../README.md#system-url-and-login-details) for your SAP Integration Suite tenant URL.
    For login, use the participant number that is assigned to you.
 	
@@ -99,7 +98,6 @@ Here is how it flows in this exercise:
    ![Fill in Package Details](images/Create_IntegrationPackage2.png)
 
 ## Exercise 2.2 — Create the MCP Server Artifact
-
 1. Go to the **`Artifacts`** tab, click **Add** and select **`MCP Server`** from the dropdown.
 
    ![Add MCP Server](images/Add_MCP_Server.png)
@@ -136,7 +134,6 @@ Here is how it flows in this exercise:
    ![Create Tools](images/Add_MCP_Server4.png)
 
 ## Exercise 2.3 — Configure the MCP Server
-
 1. Navigate to **`MCP Configuration`** tab, click **`Edit`** (top right).
 
    ![Navigate to MCP Configurations and Edit](images/Edit_MCP.png)
@@ -248,7 +245,6 @@ Here is how it flows in this exercise:
    ![Authentication Policy Settings](images/Edit_Policies2.png)
 
 ## Exercise 2.4 — Deploy the MCP Server
-
 1.  Click **`Deploy`** (top right). In the confirmation dialog, verify the defaults and click **`Deploy`** to confirm:
       - **Runtime Profile:** `Integration Cell`
       - **Virtual Host:** *(pre-selected, leave as default)*
