@@ -70,10 +70,10 @@ SAP Advanced Event Mesh (AEM)
      SAP S/4HANA                     SAP Service Cloud V2
      (equipment)                     (system access + training)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   All tool calls flow through SAP Integration Suite MCP Gateway
   Principal Propagation ensures end-to-end identity traceability
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 ---
 
