@@ -53,7 +53,7 @@ A **pre-configured Integration Flow (`IN261_Prompt_to_HR_Policy_RAG_Pipeline_usi
 
    ![Open actions menu and select Copy](images/ex31-3.png)
 
-4. In the **`Copy`** dialog, update the **`Name`** field with your participant number:
+4. In the **`Copy`** dialog, update the **`Name`** field:
 
    **`IN261_0**_HR_Policy_Lookup_MCP`** *(replace ** with your assigned participant number)*
 
@@ -77,7 +77,6 @@ A **pre-configured Integration Flow (`IN261_Prompt_to_HR_Policy_RAG_Pipeline_usi
    
 ## Exercise 3.2 — Update the MCP Path
 Each MCP Server must have a unique MCP path across the tenant — two artifacts with the same path cannot be deployed simultaneously. You need to update the path to include your participant number.
-
 1. In your package, open the copied MCP Server artifact **`IN261_0**_HR_Policy_Lookup_MCP`** *(replace ** with your assigned participant number)*.
 
    ![Open copied MCP Server](images/ex32-1.png)
@@ -95,7 +94,6 @@ Each MCP Server must have a unique MCP path across the tenant — two artifacts 
    ![Update MCP Path](images/ex32-3.png)
 
 ## Exercise 3.3 — Deploy the MCP Server
-
 1. Click **`Deploy`** (top right). In the confirmation dialog, verify the defaults and click **`Deploy`** to confirm:
 
    - **Runtime Profile:** `Integration Cell`
