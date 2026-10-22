@@ -72,11 +72,15 @@ Here is how it flows in this exercise:
 
 ## Exercise 2.1 — Create an Integration Package
 
-1. Log in to your assigned SAP Integration Suite tenant — refer to the [System URL and Login Details](../../README.md#system-url-and-login-details) for your SAP Integration Suite tenant URL.
+1. Log in to your assigned **SAP Integration Suite** tenant — refer to the [System URL and Login Details](../../README.md#system-url-and-login-details) for your SAP Integration Suite tenant URL.
    For login, use the participant number that is assigned to you.
-
+	
+   - **User Name:** **`IN261-0**`** *(replace ** with your assigned participant number)*
+   - **Password:** *will be shared by the instructors*
+   
    ![Login to Integration Suite](images/Login_IntegrationSuite.png)
-2. After login, navigate to **Design → Integrations and APIs** and click **Create**.
+   
+2. After login, navigate to **`Design → Integrations and APIs`** and click **`Create`**.
 
    ![Navigate to Integrations and APIs](images/Create_IntegrationPackage1.png)
 
@@ -84,7 +88,7 @@ Here is how it flows in this exercise:
 
    | Field | Value |
    |---|---|
-   | Name | <b>IN261_0**_TechEd_2026_Package</b> *(replace ** with the participant number that is assigned to you)*|
+   | Name | **`IN261_0**_TechEd_2026_Package`** *(replace ** with your assigned participant number)*|
    | Technical Name | Auto populated |
    | Short Description | `Learn how the MCP Gateway in SAP Integration Suite applies policy, security, and analytics while curating MCP tools. Securely connect enterprise tools to an AI agent, including unified APIs with event-driven context and governed access.` |
    | Version | `1.0.0` |
@@ -96,11 +100,11 @@ Here is how it flows in this exercise:
 
 ## Exercise 2.2 — Create the MCP Server Artifact
 
-1. Go to the **Artifacts** tab, click **Add** and select **MCP Server** from the dropdown.
+1. Go to the **`Artifacts`** tab, click **Add** and select **`MCP Server`** from the dropdown.
 
    ![Add MCP Server](images/Add_MCP_Server.png)
 
-2. In the **Add MCP Server** dialog, select **HTTP Endpoint with OpenAPI Specification** as the source type and click **Next**.
+2. In the **`Add MCP Server`** dialog, select **`HTTP Endpoint with OpenAPI Specification`** as the source type and click **`Next`**.
 
    ![Select Source Type](images/Add_MCP_Server2.png)
 
@@ -115,34 +119,34 @@ Here is how it flows in this exercise:
    | Source | `Destination` |
    | Destination | Select `in261_hcmcloud_mcp` from the destination list |
    | Relative URL | `/api/in261-hcmcloud` |
-   | Name | <b>IN261_0**_Employee_Lookup_MCP</b> *(replace ** with the participant number that is assigned to you)* |
+   | Name | **`IN261_0**_Employee_Lookup_MCP`** *(replace ** with your assigned participant number)* |
    | ID | Auto populated |
-   | MCP Path | <b>/in261_0**_employee_lookup_mcp</b> *(replace ** with the participant number that is assigned to you)* |
+   | MCP Path | **`/in261_0**_employee_lookup_mcp`** *(replace ** with your assigned participant number)* |
    | Version | `1.0.0` |
 
    > **HINT:** The Destination and Relative URL are pre-configured for the workshop — copy exactly as shown, do not modify.
    
-   Click **Next**.
+   Click **`Next`**.
    
    ![Provide MCP Details](images/Add_MCP_Server3.png)
 
-5. On the **Create Tools** screen, two tools are available from the uploaded API specification.
-   <br>Select both and click **Add** to finish creating the MCP Server artifact.
+5. On the **`Create Tools`** screen, two tools are available from the uploaded API specification.
+   <br>Select both and click **`Add`** to finish creating the MCP Server artifact.
 
    ![Create Tools](images/Add_MCP_Server4.png)
 
 ## Exercise 2.3 — Configure the MCP Server
 
-1. Navigate to **MCP Configuration** tab, click **Edit** (top right).
+1. Navigate to **`MCP Configuration`** tab, click **`Edit`** (top right).
 
    ![Navigate to MCP Configurations and Edit](images/Edit_MCP.png)
 
-2. Then go to the **Prompts** sub-tab and click **Add**.
+2. Then go to the **`Prompts`** sub-tab and click **`Add`**.
    >**HINT:** A **Prompt** in an MCP Server is a reusable, parameterized instruction that tells the AI agent exactly what to do and how to call the tools. Instead of the agent deciding how to query SuccessFactors, the prompt defines the exact sequence — which tools to call, with which parameters, and how to combine the results.
    
    ![Add Prompt](images/Add_Prompt.png)
 
-3. In the **Add Prompt** dialog, fill in the following **Define Prompt** details and click **Next**.
+3. In the **`Add Prompt`** dialog, fill in the following **`Define Prompt`** details and click **`Next`**.
 
    | Field | Value |
    |---|---|
@@ -152,7 +156,7 @@ Here is how it flows in this exercise:
 
    ![Define Prompt](images/Add_Prompt2.png)
 
-4. On the **Define Arguments** screen, fill in the following details and click **Next**.
+4. On the **`Define Arguments`** screen, fill in the following details and click **`Next`**.
 
    | Field | Value |
    |---|---|
@@ -163,7 +167,7 @@ Here is how it flows in this exercise:
 
    ![Define Arguments](images/Add_Prompt3.png)
 
-5.  On the **Define Messages** screen, keep the **Role** as `User`, paste the following into the **Content** field, and click **Add** to save the prompt.
+5.  On the **`Define Messages`** screen, keep the **`Role`** as **`User`**, paste the following into the **`Content`** field, and click **`Add`** to save the prompt.
 
       ```
       Fetch the complete onboarding context for new hire {{ .employeeId }}.
@@ -200,23 +204,23 @@ Here is how it flows in this exercise:
       ```
       ![Define Messages](images/Add_Prompt4.png)
 
-6. Then click **Save** (top right) to save the artifact.
+6. Then click **`Save`** (top right) to save the artifact.
 
    ![Save MCP](images/Add_Prompt5.png)
    
-7. Now click on the **Policies** tab.
+7. Now click on the **`Policies`** tab.
    >**HINT:** The **Policy Model** defines how every agent request is authenticated and authorized before it reaches the backend. 
    
    ![Navigate to Policies](images/Edit_Policies.png)
 
-8. In the policy model diagram, double click on the **Authentication** step to open its property sheet.
+8. In the policy model diagram, double click on the **`Authentication`** step to open its property sheet.
 
    ![Navigate to Authentication Step](images/Navigate_Authentication.png)
    
 9. In the bottom panel, go to the **Policy Settings** tab and configure the following:
 
-   - Check **External OAuth (OIDC)**
-   - Set **Configuration Type** to `Well-Known URL`
+   - Check **`External OAuth (OIDC)`**
+   - Set **`Configuration Type`** to **`Well-Known URL`**
 
       Then copy and paste each value below into the corresponding field:
    
@@ -239,13 +243,13 @@ Here is how it flows in this exercise:
 
    > **HINT:** Audience is intentionally left empty — IAS tokens in this setup do not carry a fixed audience claim.
 
-10. Click **Save** (top right).
+10. Click **`Save`** (top right).
    
    ![Authentication Policy Settings](images/Edit_Policies2.png)
 
 ## Exercise 2.4 — Deploy the MCP Server
 
-1.  Click **Deploy** (top right). In the confirmation dialog, verify the defaults and click **Deploy** to confirm:
+1.  Click **`Deploy`** (top right). In the confirmation dialog, verify the defaults and click **`Deploy`** to confirm:
       - **Runtime Profile:** `Integration Cell`
       - **Virtual Host:** *(pre-selected, leave as default)*
 
