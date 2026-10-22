@@ -106,7 +106,7 @@ The agent closes with a final **Completed Steps** table confirming all five step
 
 With both backend records created, you will now open each one directly from the links in the Onboarding Summary and verify the details.
 
-### Step 1: Open the Purchase Requisition in SAP S/4HANA
+### Step 1: Open the created Purchase Requisition in SAP S/4HANA system
 
 1. In the terminal, **Ctrl+Click** the **PR Link** from the Onboarding Summary. Your browser will open the SAP S/4HANA login page.
 
@@ -126,7 +126,7 @@ With both backend records created, you will now open each one directly from the 
 
    ![SAP S/4HANA — Purchase Requisition Items](images/PR_Items.png)
 
-### Step 2: Open the Support Case in SAP Service Cloud V2
+### Step 2: Open the created Support Case in SAP Service Cloud V2 system
 
 1. Return to the terminal and **Ctrl+Click** the **Case Link** from the Onboarding Summary. Your browser will open the **SAP Service Cloud V2** login page.
 
@@ -153,6 +153,27 @@ With both backend records created, you will now open each one directly from the 
 6. Click the **`Assign Trainings`** tab to see the **`Training Details`**.
 
    ![SAP Service Cloud V2 — Case Training Details](images/ServiceCloud_Case_Trainings.png)
+
+### Step 3: Open the OData API Audit Log in SAP SuccessFactors to see the end-to-end tracability
+
+1. Log on to [SAP SuccessFactors](https://url.sap/1ubd08) with your workshop credentials.
+
+   ![SFSF Login](images/SFSF_Login.png)
+
+2. In the top-right corner, click the **profile icon** and select **`Admin Center`**.
+
+    ![SFSF Go to Admin Center](images/SFSF_Audit_1.png)
+
+3. In the **`Admin Center`** search bar, type **`OData API Audit Log`** and click on it to open it.
+
+   ![SFSF Go to OData API Audit Log](images/SFSF_Audit_2.png)
+
+4. You will see entries for the **`Query`** API calls made by the agent to the Employee and EmployeeJob entities — timestamped to the moment your agent ran. Each entry confirms the exact API call, the user identity i.e. **`IN261-0**`** *(replace ** with you assigned parycipnat number)* it was made under, and the entity accessed.
+ 
+   ![SFSF OData Audit Log Entries](images/SFSF_Audit_3.png)
+   
+> [!NOTE]
+> This is Principal Propagation in action — the agent called the MCP tool, the MCP Gateway forwarded the request with your identity token, and SuccessFactors logged it against your user — not a technical service account.
 
 ## Exercise 9.4 — View MCP Analytics in SAP Integration Suite
 
