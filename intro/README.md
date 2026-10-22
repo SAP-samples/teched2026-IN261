@@ -37,6 +37,42 @@ The **SAP Integration Suite MCP Gateway** provides all of this — sitting betwe
 
 The **Best Run Employee Onboarding AI Agent** is a Node.js agent powered by **Claude Sonnet via SAP AI Core**. It listens for **NEWHIRE** events from SAP SuccessFactors via **SAP Advanced Event Mesh** and orchestrates the full onboarding workflow across four MCP Servers — all governed through the **SAP Integration Suite MCP Gateway**.
 
+### 🔁 AI Agentic WorkFlow
+
+```
+New Hire joins Best Run company, details entered using SAP SuccessFactors
+        │
+        ▼
+SAP Advanced Event Mesh (AEM)
+        │
+        ▼  new hire event triggers the agent
+🤖 Best Run Employee Onboarding AI Agent  ──  Claude Sonnet via SAP AI Core
+        │
+        ├──────────────────────────────────────────────────────┐
+        ▼                                                      ▼
+👤 Employee Profile + Job Data                    📄 Best Run HR Onboarding Policy
+   SAP API Composition                           RAG via SAP AI Launchpad
+   (unified API over SuccessFactors)                 Orchestration
+        │                                                      │
+        └──────────────────┬───────────────────────────────────┘
+                           │
+                           ▼
+              📋 Onboarding Plan Prepared
+                           │
+                           ▼
+              ⏸️  Manager Approval  ← human-in-the-loop
+                           │
+           ┌───────────────┴───────────────┐
+           ▼                               ▼
+  🛒 Purchase Requisition         🎫 Support Case
+     SAP S/4HANA                     SAP Service Cloud V2
+     (equipment)                     (system access + training)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  All tool calls flow through SAP Integration Suite MCP Gateway
+  Principal Propagation ensures end-to-end identity traceability
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 <img src="images/architecture.png" width=100% height=100%>
 
 ---
