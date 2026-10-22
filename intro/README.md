@@ -1,50 +1,133 @@
 # Scenario Introduction
 
-This session immerses you in real-time vector grounding — connecting structured enterprise data to a large language model through **SAP HANA Cloud’s vector database, SAP Integration Suite and SAP Integration Suite, advanced event mesh.** You’ll experience how dynamic data updates can instantly refine the model’s responses, ensuring they remain current and contextually precise. By the end, you’ll have built an end-to-end, event-driven flow that reacts to **new sales order events from SAP S/4HANA Cloud** and **support case events from SAP Service Cloud Version 2**, providing the AI assistant with live contextual intelligence.
+**Estimated time: 15 minutes**
 
 ## Business Scenario
 
-Imagine your organization employs an **AI-powered Customer Success Digital Assistant** that helps customer success managers prepare for meetings by **summarizing the latest sales orders and support tickets**, and by suggesting relevant talking points. To provide accurate, real-time insights, the assistant requires continuous access to up-to-date sales and support data. In this session, we’ll leverage an event-driven integration pattern to deliver real-time grounding data — ensuring the AI system stays contextually aware and equipped with the latest business information to drive informed, accurate decisions.
+A new employee has just accepted an offer and completed their profile in **SAP SuccessFactors**. From this moment, multiple teams across the organization need to act — simultaneously and without dropping the ball:
+
+- **HR** needs to confirm the hire and ensure the right policies apply based on the employee's role and location
+- **IT** needs to provision system access — some on Day 1 automatically, some requiring a formal request
+- **Finance** needs to order the right equipment via a Purchase Requisition in SAP S/4HANA
+- **The hiring manager** needs visibility and control — approving the onboarding plan before any action is taken
+
+Traditionally, this involves manual handoffs, emails, spreadsheets, and tickets across disconnected systems. Steps get missed, approvals are delayed, and new hires arrive on Day 1 without the tools they need.
+
+In this session, an **AI agent** handles the entire flow automatically — triggered by a real-time **NEWHIRE** event from SAP SuccessFactors, grounded in company HR policy, and **governed at every step** through the **SAP Integration Suite MCP Gateway**.
+
+---
+
+## The Challenge: AI Agents Need Governed Access to Enterprise Systems
+
+AI agents are powerful — but connecting them directly to enterprise backends is not the answer. Direct connections bypass security policies, break audit trails, and create uncontrolled access paths that cannot be monitored or revoked.
+
+The **Model Context Protocol (MCP)** provides a standard for AI agents to discover and call enterprise tools — but MCP alone does not solve governance. An agent calling an MCP Server still needs:
+
+- **Authentication** — is the caller who they claim to be?
+- **Authorization** — is this caller allowed to call this tool?
+- **Audit logging** — what was called, by whom, when, and with what result?
+- **Policy enforcement** — rate limits, access controls, data filtering
+- **Analytics** — call volumes, response times, error rates
+
+The **SAP Integration Suite MCP Gateway** provides all of this — sitting between the AI agent and every backend system, enforcing policy on every tool call without the agent or the backend needing to know.
+
+---
 
 ## Scenario Architecture
 
-<img src="/intro/intro1/images/IN162_scenario_architecture.png" width=100% height=100%>
+The **Best Run Employee Onboarding AI Agent** is a Node.js agent powered by **Claude Sonnet via SAP AI Core**. It listens for **NEWHIRE** events from SAP SuccessFactors via **SAP Advanced Event Mesh** and orchestrates the full onboarding workflow across four MCP Servers — all governed through the **SAP Integration Suite MCP Gateway**.
 
-### Real-time grounding flow
+<img src="images/architecture.png" width=100% height=100%>
 
-1. The events are triggered/published from source SAP Cloud Solutions.
-    - Create a new sales order in **SAP S/4HANA Cloud** system. The new sales order event gets **published** using the **REST** interface directly to **SAP Integration Suite, advanced event mesh (AEM)** topic `sap/teched/2025/sap/s4/beh/salesorder/v1/SalesOrder/Created/v1`. For this, we need to do the proper [configurations](/intro/intro2) and this has already been done on the given **SAP S/4HANA Cloud** system.
-    - Create a new support case in **SAP Service Cloud Version 2** system. The new support case event gets **published** using the **REST** interface directly to **SAP Integration Suite, advanced event mesh (AEM)** topic `sap/teched/2025/servicecloud/supportcase/created`. For this, we need to do the proper [configurations](/intro/intro3) and this has already been done on the given **SAP Service Cloud Version 2** system.
+---
 
-> [!Note] 
-> The same can be accomplished with non-SAP applications as well—for example, **ServiceNow**.
+## The Agentic Workflow — Step by Step
 
-2. Within the **Cloud Integration capability of SAP Integration Suite**, two Integration Flows subscribe to new Sales Order and Support Case events via the Cloud Integration **Advanced Event Mesh sender adapter**, which uses the **Solace Message Format (SMF) protocol**.
-   
-3. Both Integration Flows then **perform lookup calls** to the downstream backend systems — **SAP S/4HANA Cloud** and **SAP Service Cloud Version 2** - to retrieve additional details for the respective sales order and support case. They then perform data transformation using message mapping and ultimately convert the payload to JSON format.
+### 1. New Hire Event Triggers the Agent
 
-4. The Integration Flows then **invoke the SAP AI Core API to generate embeddings for the JSON payload** using the `text-embedding-3-small` model.
+A new hire completes their profile in **SAP SuccessFactors**. SAP Integration Center constructs a **NEWHIRE** event payload and publishes it to a dynamically constructed topic in **SAP Advanced Event Mesh (AEM)**:
 
-5. Finally, the **generated embeddings are inserted into the SAP HANA Cloud vector database** using JDBC receiver adapter, ensuring real-time grounding of Sales Order and Support Case objects. In this session, we’ll create these two integration flows to demonstrate the complete real-time grounding process.
+```
+sap/sfsf/newhire/TechEd_IN261_0{employeeId}
+```
 
-### Customer Success Digital Assistant flow
+Your personal AEM queue is subscribed to your dedicated topic — the agent receives the event and begins processing.
 
-As the integration flows have been set up to ensure that newly created Sales Orders and Support Tickets are grounded in real-time using event-driven integration pattern, let’s see how this grounded data can be leveraged by the Joule-powered digital assistant, whose role is to help Customer Success Managers prepare for customer meetings by highlighting and summarizing the latest Sales Orders and Support Tickets, and by suggesting key talking points.
+### 2. Agent Fetches the New Hire Profile
 
-6. The **Customer Success Manager (CSM) enters a prompt** into the Joule-powered digital assistant, seeking assistance in preparing for an upcoming meeting with one of their customers.
+The agent calls the **Employee Lookup MCP Server** — backed by **SAP API Composition (Business Data Graph)**. A single MCP tool call returns the complete new hire profile: personal details, job title, department, business unit, manager, and location — unified from multiple SuccessFactors APIs into two clean entities.
 
-7. Joule Skill is created to extend SAP's co-pilot, Joule, to **trigger an integration flow within Cloud Integration capability of SAP Integration Suite** using Actions. 
-  
-8. The integration flow then **invokes the SAP AI Core API to generate an embedding of the prompt** using the same `text-embedding-3-small` model.
+This call uses **Principal Propagation** — your workshop identity flows from the agent through the MCP Gateway all the way to SAP SuccessFactors. The OData API Audit Log in SuccessFactors records the call under your user, not a shared service account.
 
-9. Using that embedding, the integration flow **queries the SAP HANA Cloud vector database for top cosine-similarity** matches among the customer’s sales orders and support tickets.
+### 3. Agent Retrieves Applicable HR Policies
 
-10. The integration flow ultimately invokes the `gpt-4.1` **LLM via the SAP AI Core API using the newly released AI Adapter**. The retrieved contextual data is provided to the model to summarize recent sales orders and support tickets and generate relevant meeting talking points, which are then returned through an SAP Build Action to Joule and presented to the CSM.
+The agent calls the **HR Policy Lookup MCP Server** — backed by a pre-configured Integration Flow that calls **SAP AI Launchpad Orchestration with Document Grounding**. The new hire's role and department are sent as a natural language policy query. The Document Grounding engine searches the indexed **BestRun HR Onboarding Policy** document and returns the most relevant policies — covering equipment provisioning, system access entitlements, and training requirements.
 
-With this setup, the CSM’s prompt is turned into a vector, matched against up-to-date structured data in SAP HANA Cloud, and then summarized with an LLM to produce relevant, timely talking points. The result is a practical, secure, and real-time RAG workflow integrated using Joule, SAP Build Actions, SAP Integration Suite, SAP AI Core, and SAP HANA Cloud’s vector engine.
+This is **Retrieval-Augmented Generation (RAG)** in action — the agent's decisions are grounded in real company policy documents, not model assumptions.
+
+### 4. Onboarding Plan Prepared and Presented
+
+The agent structures all retrieved data into a complete **Onboarding Plan** — covering:
+
+- **Equipment Provisioning** — items to be ordered via a Purchase Requisition in SAP S/4HANA
+- **System Access** — Day 1 auto-provisioned systems and additional systems requiring a Support Case
+- **Training Schedule** — mandatory and role-specific training courses with enrollment timelines
+
+The plan is presented in the terminal for the hiring manager's review.
+
+### 5. Human-in-the-Loop: Manager Approval
+
+The agent pauses and waits. **No backend system is touched until the hiring manager explicitly approves.**
+
+This is the **human-in-the-loop** gate — a fundamental governance principle that ensures no automated action is taken without human consent. The manager reviews the full plan and types `Approved` to proceed.
+
+### 6. Agent Creates the Backend Records
+
+Immediately after approval, the agent calls two MCP Servers in parallel:
+
+- **Create PR S/4HANA MCP** — calls a pre-configured Integration Flow that creates a **Purchase Requisition in SAP S/4HANA** for the new hire's equipment and returns the PR number and a direct link
+- **Create Support Case MCP** — calls the **SAP Service Cloud V2 API** directly to create a **Support Case** for IT system access and training enrollment, returning the Case ID and a direct link
+
+### 7. End-to-End Traceability
+
+Every tool call is routed through the **SAP Integration Suite MCP Gateway** — authenticated, authorized, logged, and traceable. The **OData API Audit Log** in SAP SuccessFactors confirms Principal Propagation end to end. The **MCP Analytics dashboard** in SAP Integration Suite shows call volumes, response times, and error patterns across all MCP Servers.
+
+---
+
+## What You Build in This Session
+
+Across nine exercises, you build every component of this architecture from scratch — then watch it run end to end:
+
+| Exercise | What You Build |
+|---|---|
+| **Ex 1** | Personal AEM queue subscribed to your NEWHIRE topic |
+| **Ex 2** | Employee Lookup MCP Server — backed by SAP API Composition with Principal Propagation |
+| **Ex 3** | HR Policy Lookup MCP Server — backed by RAG via SAP AI Launchpad Orchestration |
+| **Ex 4** | Purchase Requisition MCP Server — backed by SAP S/4HANA via Integration Flow |
+| **Ex 5** | Support Case MCP Server — backed directly by SAP Service Cloud V2 API |
+| **Ex 6** | Publish all four MCP Servers as a governed product in Developer Hub and subscribe to the AI Agent |
+| **Ex 7** | Download, configure, and run the Employee Onboarding AI Agent |
+| **Ex 8** | Trigger a NEWHIRE event to start the workflow |
+| **Ex 9** | Observe, approve, and verify the full AI-orchestrated onboarding workflow |
+
+---
+
+## Key Concepts
+
+| Concept | What It Means in This Session |
+|---|---|
+| **Model Context Protocol (MCP)** | Standard protocol for AI agents to discover and call enterprise tools at runtime |
+| **SAP Integration Suite MCP Gateway** | Governed bridge between the AI agent and SAP backends — authentication, authorization, policy enforcement, and analytics in one place |
+| **Event-Driven Architecture** | SAP Advanced Event Mesh delivers the NEWHIRE event in real time, triggering the agent automatically |
+| **Principal Propagation** | Your logged-in identity flows through every tool call — SuccessFactors sees you, not a service account |
+| **API Composition — SAP Business Data Graph** | Multiple SuccessFactors APIs unified into two clean entities — no context rot, no fragmented calls |
+| **Retrieval-Augmented Generation (RAG)** | Agent decisions grounded in real BestRun HR policy documents via SAP AI Launchpad Orchestration |
+| **Human-in-the-Loop** | Manager approval gate pauses the agent mid-workflow — no backend action without explicit consent |
+| **Developer Hub** | API and MCP tool catalog in SAP Integration Suite — governed self-service discovery and subscription for AI agents |
+
+---
 
 ## Summary
+You should now be familiar with the session scenario — a realistic, production-grade AI agentic workflow that governs every agent action through the **SAP Integration Suite MCP Gateway**, propagates identity end to end, and keeps a human in control at every critical decision point.
 
-You should now be familiar with the session scenario.
-
-Now, to learn all the configurations that has been done in **SAP S/4HANA Cloud** system to enable new sales order event publication to **SAP Integration Suite, advanced event mesh**, you can navigate to [SAP S/4HANA Cloud System Configuration](/intro/intro2/README.md) section.
+Return to the [main page](../README.md) to start the exercises.
