@@ -191,6 +191,6 @@ You have now downloaded, configured, and started the pre-delivered Employee Onbo
 - The agent bundle was downloaded from the **`TechEd 2026 IN261 - Solution Package`** in SAP Integration Suite
 - The four MCP Server URLs from your published Developer Hub product are configured in **`mcp-servers.json`**
 - **`node setup.js`** set the correct workshop tenant and connected the agent to your AEM queue
-- The agent is running, authenticated, and subscribed to your AEM queue — waiting for a new hire event from SAP SuccessFactors
+- The agent is running, authenticated, and subscribed to your AEM queue — waiting for a new hire event
 
-Continue to - [Exercise 8 — Add a New Employee in SAP SuccessFactors](../ex8/README.md)
+Continue to - [Exercise 8 — Trigger a New Hire Event](../ex8/README.md)
