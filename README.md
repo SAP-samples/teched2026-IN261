@@ -29,11 +29,11 @@ You will derive the most value from this session if you have some familiarity wi
 
 Enterprise AI agents are only as powerful as the systems they can reliably and securely access. This session demonstrates how to build a **production-grade AI agentic workflow** that orchestrates a complete employee onboarding workflow across multiple SAP systems — governed, traceable, and identity-aware.
 
-A new employee has just accepted an offer and completed their profile in SAP SuccessFactors. From this moment, multiple teams — HR, IT, Finance, and the hiring manager — need to act: equipment must be ordered, system access provisioned, training enrolled, and the manager kept in the loop.
+A new employee has just joined **Best Run** and completed their profile in SAP SuccessFactors. A **NEWHIRE** event triggers an AI agent that fetches the employee profile via **API Composition**, retrieves applicable HR policies via **RAG-grounded AI Launchpad Orchestration**, and prepares a complete onboarding plan — covering equipment, system access, and training. The hiring manager reviews and approves the plan. Only then does the agent create a **Purchase Requisition in SAP S/4HANA** and a **Support Case in SAP Service Cloud V2**.
 
-Traditionally this involves manual handoffs, emails, and tickets across disconnected systems. In this session, an AI agent handles the entire flow automatically — triggered by a real-time event, grounded in company policy, and governed at every step.
+Every tool call flows through the **SAP Integration Suite MCP Gateway** — authenticated, authorized, and traceable via **Principal Propagation** end to end. No backend is touched without policy enforcement. No action is taken without human approval.
 
-The following chapter explains the scenario in more detail:
+For the full scenario walkthrough and architecture:
 
 - [Scenario Introduction](intro/README.md)
 
