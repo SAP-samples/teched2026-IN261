@@ -61,7 +61,7 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 
    ![Paste Client Password](./images/ex82-8.png) 
 
-9. You will see the **`Connected`** text appear unders the **`Publisher`** section.
+9. You will see the **`Connected`** text appear under the **`Publisher`** section.
     ![Connected](./images/ex82-9.png) 
 
 10. Choose **`Queue`** radio button.
