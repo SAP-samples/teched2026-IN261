@@ -84,11 +84,11 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
 
 10. Go back to the **AI Artifacts** tab and repeat the same process for the remaining three MCP Servers — click each one, copy its **MCP Server URL**, and paste it into the corresponding entry in the **`active`** section:
 
-   | MCP Artifact in Developer Hub | Entry in `active` section |
-   |---|---|
-   | **`IN261_0**_HR_Policy_Lookup_MCP`** | **`"applicable-hr-policy-lookup-mcp"`** |
-   | **`IN261_0**_Create_PR_S4Hana_MCP`** | **`"create-pr-s4hana-mcp"`** |
-   | **`IN261_0**Create_SC_ServiceCloud_MCP`** | **`"create-sc-servicecloud-mcp"`** |
+      | MCP Artifact in Developer Hub | Entry in **`active`** section |
+      |---|---|
+      | **`IN261_0**_HR_Policy_Lookup_MCP`** | **`"applicable-hr-policy-lookup-mcp"`** |
+      | **`IN261_0**_Create_PR_S4Hana_MCP`** | **`"create-pr-s4hana-mcp"`** |
+      | **`IN261_0**Create_SupportCase_MCP`** | **`"create-supportcase-mcp"`** |
 
    > [!IMPORTANT]
    > Each MCP Server URL must be pasted into the **exact matching `name` entry** in the **`active`** section. Pasting a URL into the wrong entry will cause the agent to call the wrong server and fail at runtime. Double-check the **`name`** field before saving.
@@ -97,11 +97,11 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
 
 11. Once all four **`url`** fields are filled in the **`active`** section, **save the file** (`Ctrl + S`).
 
-   ![mcp-servers.json — all four URLs filled in and saved](images/paste_all_four_MCP.png)
+    ![mcp-servers.json — all four URLs filled in and saved](images/paste_all_four_MCP.png)
 
 12. After saving, go back to the **`IN261_employee_onboarding_ai_agent`** folder in File Explorer — you will open a terminal from here in the next step.
 
-   ![Return to the agent folder](images/Save_and_return_to_folder.png)
+    ![Return to the agent folder](images/Save_and_return_to_folder.png)
 
 ## Exercise 7.3 — Install Dependencies and Run Setup
 
