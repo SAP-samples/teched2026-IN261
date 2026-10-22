@@ -16,6 +16,10 @@ The MCP Server connects to a pre-configured Integration Flow that retrieves HR p
 
 By the end, you will have a deployed MCP Server that gives the onboarding agent governed, real-time access to HR policies — ready to be consumed alongside the Employee Lookup MCP from Exercise 2.
 
+> **Want to see the HR policies the agent is grounded in?** The agent retrieves policies from the **BestRun HR Onboarding Policy** — a hypothetical policy document covering equipment provisioning, system access entitlements, and training requirements by role and department. Download and open it to see exactly what the agent uses to build the onboarding plan:
+>
+> [📄 BestRun HR Onboarding Policy](onboarding-hr-policy.pdf)
+
 <details>
 <summary><strong>📖 Pre-Configured: Integration Flow for HR Policy Lookup</strong></summary>
 
