@@ -132,7 +132,7 @@ With both backend records created, you will now open each one directly from the 
    ![SAP Service Cloud V2 — login page, click Sign in using SSO](images/ServiceCloud_SSO_Login.png)
 
 3. On the IAS login page, enter your workshop credentials:
-   - **User Name:** **`IN261-0**`** *(replace XX with your assigned participant number)*
+   - **User Name:** **`IN261-0**`** *(replace ** with your assigned participant number)*
    - **Password:** *will be shared by the instructors*
 
    Click **Continue**.
