@@ -1,7 +1,7 @@
 # Exercise 7 — Download, Configure, and Run the Employee Onboarding AI Agent
 In this exercise, you will download the pre-built Employee Onboarding AI Agent from the Solution Package, configure it with your deployed MCP Server URLs, and run it — so it is ready to receive new hire events from SAP Advanced Event Mesh and orchestrate the full onboarding workflow.
 
-⏱ **Estimated time: 15 minutes**
+⏱ **Estimated time: 20 minutes**
 
 ## Overview
 The Employee Onboarding AI Agent is a pre-built **Node.js agent** powered by **Claude via SAP AI Core**. It listens for **new hire events** from **SAP SuccessFactors via Advanced Event Mesh** and orchestrates the full onboarding process — **fetching employee data**, **retrieving HR policies**, presenting an **onboarding plan for manager approval**, and after approval **creating a Purchase Requisition** for approved equipments **in SAP S/4HANA** and a **Support Case** for approved system access and training enrollment **in SAP Service Cloud V2**.
