@@ -4,7 +4,7 @@
 > **No Action Required — Skip to Exercise 1**
 > <br>You do not need to read this page to complete the session. All backend systems are already set up and ready. This page is for reference only — read it offline, after the session, or if you're curious about what was pre-configured and why.
 
-System URLs and login credentials are in the [main README](../../README.md#system-url-and-login-details). Your participant number is printed on your seat card.
+System URLs are in the [main README](../../README.md#system-url-and-login-details). Your participant number is printed on your seat card.
 
 ---
 
@@ -23,12 +23,9 @@ SAP SuccessFactors is the system of record for new hire data. When a new hire co
 | What | Details |
 |---|---|
 | Tenant | BestRun company — `apisalesdemo8.successfactors.eu` |
-| Test Employees | One test employee per participant — hired and ready in the system |
 | New Hire Event | Configured to publish `NEWHIRE` events to AEM — dynamic topic per participant |
 | OAuth Client | Configured for BTP Destination to call SuccessFactors APIs via SAML Bearer Assertion |
 | BTP Destination | `in261_hcmcloud_mcp` — points to the Business Data Graph endpoint |
-
-**What you do:** Nothing in SuccessFactors — your instructor triggers the new hire event in Exercise 8.
 
 <details>
 <summary><strong>📖 For the Curious: How the New Hire Event Pipeline Works in SAP SuccessFactors</strong></summary>
@@ -96,7 +93,6 @@ The Business Data Graph (BDG) unifies multiple SuccessFactors APIs into two clea
 | Composed API | Two custom entities: `bestrun.hcmcloud.employee` and `bestrun.hcmcloud.employeeJob` |
 | Employee Details entity | Consolidates personal profile — name, DOB, hire date, email, employment status |
 | Employee Job Details entity | Consolidates job data — title, manager, company, dept, BU, division, location |
-| OpenAPI Specification | `SAP_HCM_Graph.json` — available in [release assets](https://github.com/SAP-samples/teched2026-IN261/releases/download/exercise-assets/SAP_HCM_Graph.json) |
 
 **What you do:** Use this pre-configured Composed API as the backend for your MCP Server in **Exercise 2**.
 
