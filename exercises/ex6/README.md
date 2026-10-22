@@ -52,39 +52,39 @@ In this exercise, you select all your four deployed MCP Servers, and publish the
 
 10. Verify you have **4 Selected AI artifacts**, then click **Create Product**.
 
-   ![AI Artifacts — 4 selected, click Create Product](/exercises/ex6/images/ex61-8.png)
+    ![AI Artifacts — 4 selected, click Create Product](/exercises/ex6/images/ex61-8.png)
 
 11. Fill in the product details:
 
-   | Field | Value |
-   |---|---|
-   | Name |  <b>IN261_0** Employee Onboarding</b> (replace ** with your participant number) |
-   | ID | Auto Populated|
-   | Short Text | <b>The IN261_0** Employee Onboarding MCP Artifacts are deployed as a product.</b> (replace ** with your assigned participant number) |
-   | Description | <b>The IN261_0** Employee Onboarding MCP Artifacts are deployed as a product.</b> (replace ** with your assigned participant number)|
+      | Field | Value |
+      |---|---|
+      | Name |  <b>IN261_0** Employee Onboarding</b> (replace ** with your participant number) |
+      | ID | Auto Populated|
+      | Short Text | <b>The IN261_0** Employee Onboarding MCP Artifacts are deployed as a product.</b> (replace ** with your assigned participant number) |
+      | Description | <b>The IN261_0** Employee Onboarding MCP Artifacts are deployed as a product.</b> (replace ** with your assigned participant number)|
 
-   Click **Publish**.
+       Click **Publish**.
 
-   ![Create Product dialog — fill in details and click Publish](images/ex61-9.png)
+      ![Create Product dialog — fill in details and click Publish](images/ex61-9.png)
 
 12. An **Information** dialog confirms your publish request has been submitted. Click **Close**.
 
-   ![Information dialog — request submitted](images/ex61-10.png)
+    ![Information dialog — request submitted](images/ex61-10.png)
 
-   > [!NOTE]
-   > Publishing triggers an AI-assisted content creation process in the background. You can monitor progress in **Admin Center → Scheduled Requests**.
+      > [!NOTE]
+      > Publishing triggers an AI-assisted content creation process in the background. You can monitor progress in **Admin Center → Scheduled Requests**.
 
 13. Click **Admin Center** and select **Scheduled Requests** from the dropdown menu options.
 
-   ![Admin Center — Scheduled Requests](images/ex61-11.png)
+    ![Admin Center — Scheduled Requests](images/ex61-11.png)
 
-14. You will see your product <b>IN261_0** Employee Onboarding</b> listed with status **In Progress**. Wait until the status changes to **Success** before proceeding.
+14. You will see your product <b>IN261_0** Employee Onboarding</b> listed with status **In Progress**.  Wait until the status changes to **Success** before proceeding. Click **Refresh** to update the status.
 
-   ![Scheduled Requests — In Progress](images/ex61-12.png)
+    ![Scheduled Requests — In Progress](images/ex61-12.png)
 
 15. Once the Scheduled Request shows **Success**, click **Developer Hub** in the top navigation bar to return to the home page. Your product <b>IN261_0** Employee Onboarding</b> should now appear in the catalog.
 
-   ![Developer Hub home — product live in catalog](images/ex61-13.png)
+    ![Developer Hub home — product live in catalog](images/ex61-13.png)
 
 ## Exercise 6.2 — Add your Product to the Existing AI Agent Subscription
 In this exercise, you add your published product to the existing AI Agent subscription — authorizing the employee onboarding agent to authenticate and call your MCP tools.
