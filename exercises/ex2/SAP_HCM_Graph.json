@@ -41,6 +41,10 @@
             "type": "string",
             "example": "IN261-000"
           },
+          "employeeName": {
+            "type": "string",
+            "example": "Sunny Kapoor"
+          },
           "dateOfBirth": {
             "type": "string",
             "format": "date",
@@ -74,16 +78,6 @@
             "type": "string",
             "example": "IN261-000"
           },
-          "employeeStartDate": {
-            "type": "string",
-            "format": "date",
-            "example": "2026-10-04"
-          },
-          "employeeName": {
-            "type": "string",
-            "example": "Sunny Kapoor",
-            "nullable": true
-          },
           "employeeFirstName": {
             "type": "string",
             "example": "Sunny",
@@ -98,6 +92,11 @@
             "type": "string",
             "example": "M",
             "nullable": true
+          },
+          "employeeHireDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-10-04"
           }
         }
       },
@@ -141,16 +140,6 @@
           "managerName": {
             "type": "string",
             "example": "Wes Lin Chang",
-            "nullable": true
-          },
-          "managerJobTitle": {
-            "type": "string",
-            "example": "ABC",
-            "nullable": true
-          },
-          "managerEmailAddress": {
-            "type": "string",
-            "example": "manager@company.com",
             "nullable": true
           },
           "eventReason": {
@@ -228,11 +217,6 @@
             "type": "string",
             "example": "USA",
             "nullable": true
-          },
-          "companyCurrency": {
-            "type": "string",
-            "example": "USD",
-            "nullable": true
           }
         }
       },
@@ -292,11 +276,6 @@
           "locationName": {
             "type": "string",
             "example": "New York",
-            "nullable": true
-          },
-          "locationTimezone": {
-            "type": "string",
-            "example": "US/Eastern",
             "nullable": true
           }
         }
@@ -401,21 +380,21 @@
                   "value": [
                     {
                       "employeeId": "IN261-000",
+                      "employeeName": "Sunny Kapoor",
                       "dateOfBirth": "1996-10-04",
                       "countryOfBirth": "IND",
                       "personalInfo": [
                         {
                           "employeeId": "IN261-000",
-                          "employeeStartDate": "2026-10-04",
-                          "employeeName": "Sunny Kapoor",
                           "employeeFirstName": "Sunny",
                           "employeeLastName": "Kapoor",
-                          "employeeGender": "M"
+                          "employeeGender": "M",
+                          "employeeHireDate": "2026-10-04"
                         }
                       ],
                       "emailInfo": [
                         {
-                          "emailAddress": "simplykapoor@gmail.com",
+                          "emailAddress": "skapoor@gmail.com",
                           "isPrimaryEmailAddress": true
                         }
                       ]
@@ -491,8 +470,6 @@
                       "hireDate": "2026-10-04",
                       "managerEmployeeId": "M2",
                       "managerName": "Wes Lin Chang",
-                      "managerJobTitle": "Director",
-                      "managerEmailAddress": "wes@bestrun.com",
                       "eventReason": "HIRNEW",
                       "positionInfo": [
                         {
@@ -504,8 +481,7 @@
                         {
                           "companyCode": "10000",
                           "companyName": "BestRun",
-                          "companyCountry": "USA",
-                          "companyCurrency": "USD"
+                          "companyCountry": "USA"
                         }
                       ],
                       "businessUnitInfo": [
@@ -529,8 +505,7 @@
                       "locationInfo": [
                         {
                           "locationCode": "10000-0002",
-                          "locationName": "New York",
-                          "locationTimezone": "US/Eastern"
+                          "locationName": "New York"
                         }
                       ]
                     }
