@@ -105,6 +105,7 @@ In this exercise, you add your published product to the existing AI Agent subscr
    ![Confirmation — product added to subscription](images/ex62-4.png)
 
 5. And in **`Associated Subscriptions`** tab, you see the AI Agent subscription.
+   > It may take a moment to reflect — reload the browser if the changes are not visible.
 
    ![Confirmation — product added to subscription](images/ex62-5.png)
 
