@@ -97,14 +97,15 @@ In this exercise, you add your published product to the existing AI Agent subscr
    ![Subscribe — Add To Existing Subscription for Agent](images/ex62-2.png)
    
 3. In the dialog, find and select **`IN261 Employee Onboarding AI Agent`** and Click **`Add`**.
+   > Sometimes the entry may be disabled and you will not be able to add it — please call the instructor for support.
 
    ![Select existing subscription and click Add](images/ex62-3.png)
 
-4. Your product is now linked to the existing AI Agent subscription and in **`AI Artifacts`** you see your four deployed MCP servers.
+5. Your product is now linked to the existing AI Agent subscription and in **`AI Artifacts`** you see your four deployed MCP servers.
 
    ![Confirmation — product added to subscription](images/ex62-4.png)
 
-5. And in **`Associated Subscriptions`** tab, you see the AI Agent subscription.
+6. And in **`Associated Subscriptions`** tab, you see the AI Agent subscription.
    > It may take a moment to reflect — reload the browser if the changes are not visible.
 
    ![Confirmation — product added to subscription](images/ex62-5.png)
