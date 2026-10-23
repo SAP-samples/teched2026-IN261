@@ -62,12 +62,12 @@ By the end, you will have a personal AEM queue subscribed to your dedicated new 
 
 	![Create Queue Subscriptions](images/ex11-11.png)  
 
-13. In the pop up, enter the topic: **`sap/sfsf/newhire/TechEd_IN261_0**`**  *(replace ** with your assigned participant number)* and click on the **`Create`** button.
+13. In the pop up, enter the topic: **`sap/sfsf/newhire/IN261_0**`**  *(replace ** with your assigned participant number)* and click on the **`Create`** button.
     >**HINT:** Each participant will have their own topic, dynamically created by SAP SuccessFactors based on the new hire's employee ID.
 
     ![Add Topic Subscriptions](images/ex11-12.png)
 
-14. Verify that your newly created topic subscription **`sap/sfsf/newhire/TechEd_IN261_0**`** appears in the list.
+14. Verify that your newly created topic subscription **`sap/sfsf/newhire/IN261_0**`** appears in the list.
 
 	![Check Topic Subscriptions](images/ex11-13.png)
 
