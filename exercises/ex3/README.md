@@ -57,7 +57,8 @@ A **pre-configured Integration Flow (`IN261_Prompt_to_HR_Policy_RAG_Pipeline_usi
 
    **`IN261_0**_HR_Policy_Lookup_MCP`** *(replace ** with your assigned participant number)*
 
-   > **Note:** Remove the word "Copy" from the name suffix and add your participant number as shown below.
+   > **Note:** Remove the word "Copy" from the name suffix and replace it with your assigned participant number as shown below.
+   > <br> Make sure you follow the same naming convention. If the name exceeds 32 characters, it will still be copied but you will not be able to edit and save it later.
 
    Then click **`Select`** next to the Package field for selecting your package.
 
