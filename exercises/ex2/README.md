@@ -42,8 +42,6 @@ The entities and their underlying source mappings are:
 
 If an AI agent were to call each of these APIs as separate MCP tools, it would quickly run into **context rot** — a problem where the agent's context window fills up with redundant, overlapping, or inconsistently structured data from too many tool calls. The agent loses coherence, misses relationships between fields, and produces unreliable results. The Composed API solves this by surfacing exactly these two focused entities — nothing more, nothing less.
 
-![BDG Overview](images/BDG_Overview.png)
-
 > **Note:** For a deeper understanding of the capability, refer to [SAP Help: API Composition in SAP Integration Suite](https://help.sap.com/docs/api-composition/isuite-api-composition/what-is-api-composition?locale=en-US)
 </details>
 
