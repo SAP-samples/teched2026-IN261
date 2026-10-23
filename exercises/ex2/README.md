@@ -19,16 +19,16 @@ By the end, you will have a deployed MCP Server that exposes the complete new hi
 <details>
 <summary><strong>📖 Pre-Configured: Composed API via SAP API Composition (Business Data Graph)</strong></summary>
 
-For this hands-on session, the Composed API has been pre-configured for you, giving the onboarding agent exactly what it needs in two focused calls, with no noise.
+For this hands-on session, the Composed API - **`in261-hcmcloud-bdg`** has been pre-configured for you, giving the onboarding agent exactly what it needs in two focused calls, with no noise.
 You will use this pre-configured Composed API as the data source for your MCP Server — it comes with an **OpenAPI Specification** that you will upload in the next steps.
 
 The Composed API is built from multiple SuccessFactors data entities — each representing a different domain:
 
-![BDG Data Sources](images/BDG_DataSource.png)
+![BDG Data Sources](images/BDG_Overview.png)
 
 From these, two custom entities have been created to give the onboarding agent exactly what it needs:
 
-- **Employee Details entity** — consolidates personal profile information such as name, contact details, and employment status
+- **Employee Details entity** — consolidates personal profile information such as name, personal and contact details
 - **Employee Job Details entity** — consolidates job-related information including role, location, business unit, department, and manager
 
 ![BDG Custom Entities](images/BDG_CustomEntities.png)
@@ -37,7 +37,7 @@ The entities and their underlying source mappings are:
 
 | Entity | Source Entities |
 |---|---|
-| `employee` | `sap.hcm/PerPerson`, `sap.hcm/PerPersonal`, `sap.hcm/PerEmail` |
+| `employee` | `sap.hcm/PerPerson`, `sap.hcm/PerPersonal`, `sap.hcm/PerEmail`, `sap.hcm/User`|
 | `employeeJob` | `sap.hcm/EmpJob`, `sap.hcm/User`, `sap.hcm/Position`, `sap.hcm/FOCompany`, `sap.hcm/FOLocation`, `sap.hcm/FODivision`, `sap.hcm/FOBusinessUnit`, `sap.hcm/FODepartment`|
 
 If an AI agent were to call each of these APIs as separate MCP tools, it would quickly run into **context rot** — a problem where the agent's context window fills up with redundant, overlapping, or inconsistently structured data from too many tool calls. The agent loses coherence, misses relationships between fields, and produces unreliable results. The Composed API solves this by surfacing exactly these two focused entities — nothing more, nothing less.
