@@ -19,7 +19,7 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 ## Exercise 8.1 — Choose your Route and Trigger the Event
 
 <details>
-<summary><strong>Route 1 — Add a New Employee in SAP SuccessFactors</strong></summary>
+<summary><strong>Route 1 — Add a New Employee in SAP SuccessFactors to Trigger a New Hire Event</strong></summary>
 
 1. Logon to the [SAP SuccessFactors](https://url.sap/1bfohh) tenant using the user ID and password that is already provided by the instructors.
    For login, use the participant number that is assigned to you.
@@ -104,7 +104,7 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 **or**
 
 <details>
-<summary><strong>Route 2 —  Publish the Event directly from the AEM Try Me! Tool</strong></summary>
+<summary><strong>Route 2 —  Publish the New Hire Event directly from the AEM Try Me! Tool</strong></summary>
 
 1. Log on to [AEM](https://url.sap/hu5r93) tenant using the user ID and password that is already provided by the instructors.
    For login, use the participant number that is assigned to you.
