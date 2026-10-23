@@ -77,7 +77,7 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 
 	<blockquote>
 	<b>⚠️ Important</b><br>
-	You can choose any available position. Note that the BestRun equipment, system access, and training enrollment are determined by division — specifically <b>Research and Development</b>, <b>Sales</b>, <b>Marketing</b>, <b>Manufacturing</b>, and <b>Default</b>. The department of your selected position will determine the equipment, system access, and training requirements in the onboarding plan.
+	You can choose any available position. Note that the BestRun equipment, system access, and training enrollment are determined by position, department, division, etc. — specifically <b>Research and Development</b>, <b>Sales</b>, <b>Marketing</b>, <b>Manufacturing</b>, and <b>Default</b>. The selected position will determine the equipment, system access, and training requirements in the onboarding plan.
 	</blockquote>
 
 	**Select Position:** From drop down list - Select any available position (It automatically fills all the other fields)
@@ -114,44 +114,44 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
    	  
    ![Log on](images/ex82-1.png)
 
-3. Click **`Cluster Manager`** in the left navigation menu on the landing page.
+2. Click **`Cluster Manager`** in the left navigation menu on the landing page.
 
    ![Cluster Manager](images/ex82-2.png)
    
-4. In the **`Cluster Manager: Services`** screen, click on the **`TechEd2026-IN261`** tile.
+3. In the **`Cluster Manager: Services`** screen, click on the **`TechEd2026-IN261`** tile.
    >**HINT:** If you cannot see the tile, uncheck the **`Only show my services`** checkbox.
 
 	![Cluster](images/ex82-3.png)
 
-5. Switch to the **`Try Me!`** tab.
+4. Switch to the **`Try Me!`** tab.
 	
 	![Try Me!](images/ex82-4.png)
 
-6. To connect to the event broker, **copy** the **`Client Password`**.
+5. To connect to the event broker, **copy** the **`Client Password`**.
 
    ![Copy Client Password](./images/ex82-5.png)
 
-7. Once you copy the Client Password, click on **`Open Broker Manager`** button.
+6. Once you copy the Client Password, click on **`Open Broker Manager`** button.
 
    ![Open Broker Manager](./images/ex82-6.png)
    
-8. A new browser tab will open. Click on the **expand** **`>`** **Icon** under **`Publisher`** section to show the connection details.
+7. A new browser tab will open. Click on the **expand** **`>`** **Icon** under **`Publisher`** section to show the connection details.
 
    ![Expand](./images/ex82-7.png) 
 
-9. Paste the copied client password from step 5 into the **`Client Password`** field and click on the **"Connect"** button.
+8. Paste the copied client password from step 5 into the **`Client Password`** field and click on the **"Connect"** button.
 
    ![Paste Client Password](./images/ex82-8.png) 
 
-10. You will see the **`Connected`** text appear under the **`Publisher`** section.
+9. You will see the **`Connected`** text appear under the **`Publisher`** section.
     ![Connected](./images/ex82-9.png) 
 
-11. Choose **`Queue`** radio button.
+10. Choose **`Queue`** radio button.
     ![Choose Queue](./images/ex82-10.png) 
 
-12. Enter **`IN261_0**`** as the Queue name *(replace ** with your assigned participant number, e.g. `IN261_050`)* — the same queue you created in Exercise 1. Change **`Delivery Mode`** to **`Direct`**.
+11. Enter **`IN261_0**`** as the Queue name *(replace ** with your assigned participant number, e.g. `IN261_050`)* — the same queue you created in Exercise 1. Change **`Delivery Mode`** to **`Direct`**.
 
-13.  Choose an employee from the table below and copy their Employee ID — the HR Policy Lookup MCP will return different equipment, system access, and training requirements based on the employee's role and department:
+12.  Choose an employee from the table below and copy their Employee ID — the HR Policy Lookup MCP will return different equipment, system access, and training requirements based on the employee's role and department:
 
 		| Employee ID | Employee Name | Role |
 		|---|---|---|
@@ -177,7 +177,7 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 	
     	![Publish message to the Queue](./images/ex82-11.png) 
 
-15. You see under **`Messages Published`** that 1 Direct message has been published successfully.
+13. You see under **`Messages Published`** that 1 Direct message has been published successfully.
 
 	> **💡 Direct message is delivered immediately to any active consumer (your running agent). If the consumer is not connected at the moment of publishing, the message is lost. No guarantee of delivery, so make sure your agent is running else run the agent and publish it again or change the Delivery Mode to Persistent.**
 
