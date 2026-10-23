@@ -114,7 +114,7 @@ Here is how it flows in this exercise:
    | File Name | Upload the `SAP_HCM_Graph.json` downloaded in the previous step |
    | Source | `Destination` |
    | Destination | Select `in261_hcmcloud_mcp` from the destination list |
-   | Relative URL | `/api/in261-hcmcloud` |
+   | Relative URL | `/api/in261-hcmcloud-bdg` |
    | Name | **`IN261_0**_Employee_Lookup_MCP`** *(replace ** with your assigned participant number)* |
    | ID | Auto populated |
    | MCP Path | **`/in261_0**_employee_lookup_mcp`** *(replace ** with your assigned participant number)* |
@@ -174,27 +174,30 @@ Here is how it flows in this exercise:
       Combine both responses into a single new hire context object with fields:
       {
         "employeeId": "...",
+        "employeeName": "...",
         "employeeFirstName": "...",
         "employeeLastName": "...",
-        "employeeName": "...",
-        "hireDate": "...",
-        "gender": "...",
+        "employeeHireDate": "...",
+        "employeeGender": "...",
         "dateOfBirth": "...",
-        "email": "...",
-        "managerId": "...",
+        "countryOfBirth": "...",
+        "emailAddress": "...",
+        "managerEmployeeId": "...",
         "managerName": "...",
-        "jobTitle": "...",
-        "company": "...",
-        "companyText": "...",
-        "departmentCode": "...",
-        "departmentText": "...",
+        "eventReason": "...",
+        "positionCode": "...",
+        "positionTitle": "...",
+        "companyCode": "...",
+        "companyName": "...",
+        "companyCountry": "...",
         "businessUnitCode": "...",
         "businessUnitText": "...",
         "divisionCode": "...",
         "divisionText": "...",
+        "departmentCode": "...",
+        "departmentText": "...",
         "locationCode": "...",
-        "locationText": "...",
-        "country": "..."
+        "locationText": "..."
       }
       ```
       ![Define Messages](images/Add_Prompt4.png)
