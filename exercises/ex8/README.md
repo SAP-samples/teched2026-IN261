@@ -30,46 +30,50 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 
 1. Log on to [AEM](https://url.sap/hu5r93) tenant using the user ID and password that is already provided by the instructors.
    For login, use the participant number that is assigned to you.
+	
+	- **User Name:** **`IN261-0**`** *(replace ** with your assigned participant number)*
+   	- **Password:** *will be shared by the instructors*
+   	  
    ![Log on](images/ex82-1.png)
 
-2. Click **`Cluster Manager`** in the left navigation menu on the landing page.
+3. Click **`Cluster Manager`** in the left navigation menu on the landing page.
 
    ![Cluster Manager](images/ex82-2.png)
    
-3. In the **`Cluster Manager: Services`** screen, click on the **`TechEd2026-IN261`** tile.
+4. In the **`Cluster Manager: Services`** screen, click on the **`TechEd2026-IN261`** tile.
    >**HINT:** If you cannot see the tile, uncheck the **`Only show my services`** checkbox.
 
 	![Cluster](images/ex82-3.png)
 
-4. Switch to the **`Try Me!`** tab.
+5. Switch to the **`Try Me!`** tab.
 	
 	![Try Me!](images/ex82-4.png)
 
-5. To connect to the event broker, **copy** the **`Client Password`**.
+6. To connect to the event broker, **copy** the **`Client Password`**.
 
    ![Copy Client Password](./images/ex82-5.png)
 
-6. Once you copy the Client Password, click on **`Open Broker Manager`** button.
+7. Once you copy the Client Password, click on **`Open Broker Manager`** button.
 
    ![Open Broker Manager](./images/ex82-6.png)
    
-7. A new browser tab will open. Click on the **expand** **`>`** **Icon** under **`Publisher`** section to show the connection details.
+8. A new browser tab will open. Click on the **expand** **`>`** **Icon** under **`Publisher`** section to show the connection details.
 
    ![Expand](./images/ex82-7.png) 
 
-8. Paste the copied client password from step 5 into the **`Client Password`** field and click on the **"Connect"** button.
+9. Paste the copied client password from step 5 into the **`Client Password`** field and click on the **"Connect"** button.
 
    ![Paste Client Password](./images/ex82-8.png) 
 
-9. You will see the **`Connected`** text appear under the **`Publisher`** section.
+10. You will see the **`Connected`** text appear under the **`Publisher`** section.
     ![Connected](./images/ex82-9.png) 
 
-10. Choose **`Queue`** radio button.
+11. Choose **`Queue`** radio button.
     ![Choose Queue](./images/ex82-10.png) 
 
-11. Enter **`IN261_0**`** as the Queue name *(replace ** with your assigned participant number, e.g. `IN261_050`)* — the same queue you created in Exercise 1. Change **`Delivery Mode`** to **`Direct`**.
+12. Enter **`IN261_0**`** as the Queue name *(replace ** with your assigned participant number, e.g. `IN261_050`)* — the same queue you created in Exercise 1. Change **`Delivery Mode`** to **`Direct`**.
 
-12.  Choose an employee from the table below and copy their Employee ID — the HR Policy Lookup MCP will return different equipment, system access, and training requirements based on the employee's role and department:
+13.  Choose an employee from the table below and copy their Employee ID — the HR Policy Lookup MCP will return different equipment, system access, and training requirements based on the employee's role and department:
 
 		| Employee ID | Employee Name | Role | Department |
 		|---|---|---|---|
@@ -95,7 +99,7 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 	
     	![Publish message to the Queue](./images/ex82-11.png) 
 
-13. You see under **`Messages Published`** that 1 Direct message has been published successfully.
+14. You see under **`Messages Published`** that 1 Direct message has been published successfully.
 
 	> **💡 Direct message is delivered immediately to any active consumer (your running agent). If the consumer is not connected at the moment of publishing, the message is lost. No guarantee of delivery, so make sure your agent is running else run the agent and publish it again or change the Delivery Mode to Persistent.**
 
