@@ -20,7 +20,85 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 
 <details>
 <summary><strong>Route 1 — Add a New Employee in SAP SuccessFactors</strong></summary>
-...steps...
+
+1. Logon to the [SAP SuccessFactors](https://url.sap/1bfohh) tenant using the user ID and password that is already provided by the instructors.
+   For login, use the participant number that is assigned to you.
+   	
+	- **User Name:** **`IN261-0**`** *(replace ** with your assigned participant number)*
+   	- **Password:** *will be shared by the instructors*
+   	  
+   	![Log on to SAP Success Factors](images/ex81-1.png)
+   
+2. Search for `Add new Employee` and select **`Add New Employee`** list entry and this would bring us to the **Add New Employee Wizard**.
+
+   ![Add New Employee](images/ex81-2.png)
+
+3. In the **Identity** section, enter the following details:
+   
+   	| Field | Value |
+	|---|---|
+	| **Hire Date** | Keep the default current date |
+	| **Company** | From the drop-down list — BestRun (10000) |
+	| **Event Reason** | From the drop-down list — New Hire (HIRNEW) |
+	| **First Name** | Any name of your choice |
+	| **Last Name** | Any name of your choice |
+      
+	 ![Add New Employee Identity](images/ex81-3.png)
+
+4. In the **Biographical** and **Employee Information** section, enter the following details:
+   
+   	| Field | Value |
+	|---|---|
+	| **Date of Birth** | Select any date, e.g. Feb 29, 1992 |
+	| **Country of Birth** | Select any country, e.g. India |
+	| **Person ID** | **`IN261_0**`** *(replace ** with your assigned participant number)* |
+	| **User Name** | **`IN261-0**`** *(replace ** with your assigned participant number)* |
+
+    Then we click **`Continue`** to continue the wizard.
+	
+	![Add New Employee Biographical and Employee Information](images/ex81-4.png)
+
+5. In the **Personal Information** section, enter the following details:
+	| Field | Value |
+	|---|---|
+	| **Gender** | Your choice |
+	| **Preferred Language** | Select any from the drop-down list, e.g. English (UK) |
+	| **Nationality** | Pre-filled |
+	| **Email Type** | **`Business`** |
+	| **Email Address** | Enter any email address of your choice |
+	| **Is Primary** | From the drop-down list — **`Yes`** |
+
+	Then we click **`Continue`** to continue the wizard.
+
+	![Add New Employee Personal Information](images/ex81-5.png)
+	![Add New Employee Email Information](images/ex81-6.png)
+
+6. In the **Job Information** section, enter the following details:
+
+	<blockquote>
+	<b>⚠️ Important</b><br>
+	You can choose any available position. Note that the BestRun equipment, system access, and training enrollment are determined by division — specifically <b>Research and Development</b>, <b>Sales</b>, <b>Marketing</b>, <b>Manufacturing</b>, and <b>Default</b>. The department of your selected position will determine the equipment, system access, and training requirements in the onboarding plan.
+	</blockquote>
+
+	**Select Position:** From drop down list - Select any available position (It automatically fills all the other fields)
+    
+	![Add New Employee Job Information](images/ex81-7.png)
+
+7. Scroll down, in **Employment Details**, set the **First Date Worked** as same as **Hire Date** i.e. today's date.
+   
+   Then we click **`Continue`** to continue the wizard.
+	
+	![Add New Employee Personal Information](images/ex81-8.png)
+
+8. As a final step to create a new employee, click on the **`Submit`** button.
+
+   ![Submit to Add New Employee](images/ex81-9.png)
+   
+9. When the employee has been added successfully, the following screen appears.
+   <br>This will also trigger a new hire event to AEM, which in turn triggers the Employee Onboarding AI Agent that you started in Exercise 7.
+    
+   ![Confirmation of New Employee](images/ex81-10.png)
+
 </details>
 
 **or**
