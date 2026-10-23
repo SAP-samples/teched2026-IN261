@@ -42,7 +42,7 @@ To complete the exercises, the access to the following systems have been provide
 <br>**In case you are not able to access any of these systems please contact the workshop instructors**.
 
 - [SAP Integration Suite, advanced event mesh](https://url.sap/hu5r93)
-- [SAP SuccessFactors](https://url.sap/1ubd08)
+- [SAP SuccessFactors](https://url.sap/1bfohh)
 - [SAP S/4HANA Cloud](https://url.sap/3iahmk)
 - [SAP Service Cloud Version 2](https://url.sap/5bivj9)
 - **SAP Integration Suite Tenant** - Participants are split across two pre-configured SAP Integration Suite tenants.
