@@ -54,7 +54,8 @@ The MCP Server was created from the SAP Service Cloud V2 OpenAPI Specification â
 
    **`IN261_0**_Create_SupportCase_MCP`** *(replace ** with your assigned participant number)*
 
-   > **Note:** Remove the word "Copy" from the name suffix and replace it with your assigned participant number as shown above.
+   > **Note:** Remove the word "Copy" from the name suffix and replace it with your assigned participant number as shown below.
+   > <br> Make sure you follow the same naming convention. If the name exceeds 32 characters, it will still be copied but you will not be able to edit and save it later.
 
    Then click **`Select`** next to the Package field.
 
