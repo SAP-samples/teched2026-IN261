@@ -156,11 +156,14 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
    node agent.js
    ```
    
-   Your browser will open automatically for SAP IAS login. Log in with your workshop credentials.
+     Your browser will open automatically and you may be logged in automatically if you have an existing session with the same SAP IAS tenant. If it asks for login details, log in with your workshop credentials.
+
+      - **User Name:** **`IN261-0**`** *(replace ** with your assigned participant number)*
+      - **Password:** *will be shared by the instructors*
 
    ![Terminal — node agent.js running, browser login initiated](images/terminal3.png)
 
-2. Once login is complete, the browser displays:
+3. Once login is complete, the browser displays:
 
    > *"Login successful! You can close this tab and return to the Employee Onboarding AI Agent Terminal."*
 
@@ -168,7 +171,7 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
 
    ![Browser — login successful, close the tab](images/Authentication_Done.png)
 
-3. Back in the terminal, the agent connects to all four MCP Servers with 6 tools and subscribes to your AEM queue. Once you see the following lines, the agent is ready:
+4. Back in the terminal, the agent connects to all four MCP Servers with 6 tools and subscribes to your AEM queue. Once you see the following lines, the agent is ready:
 
    ```
    AEM Connected via AMQP to VPN: teched2026-in261
@@ -178,7 +181,7 @@ The agent bundle folder includes a file called **`mcp-servers.json`**. The **`ac
 
    ![Terminal — agent connected to all MCP tools and waiting for new hire events](images/agentislistening.png)
 
-4.  If you see any issues, kindly check with the instructor.
+5.  If you see any issues, kindly check with the instructor.
    
 > [!NOTE]
 > Keep the terminal open and the agent running — you will need it in Exercise 8, where you will trigger a new hire event and the agent will orchestrate the full employee onboarding workflow.
