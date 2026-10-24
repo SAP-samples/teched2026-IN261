@@ -31,8 +31,8 @@ The terminal confirms that the AEM message has arrived from SAP SuccessFactors. 
 
 The agent makes three tool calls in sequence:
 
-1. **`get_bestrun_hcm_employee`** (via Employee Lookup MCP) — fetches the new hire's personal details from SAP SuccessFactors
-2. **`get_bestrun_hcm_employeeJob`** (via Employee Lookup MCP) — fetches job title, department, manager, business unit, and location
+1. **`get_bestrun_hcmcloud_employee`** (via Employee Lookup MCP) — fetches the new hire's personal details from SAP SuccessFactors
+2. **`gget_bestrun_hcmcloud_employeeJob`** (via Employee Lookup MCP) — fetches job title, department, manager, business unit, and location
 3. **`post_newhire_applicable_hr_policy`** (via HR Policy Lookup MCP) — sends the employee context to the RAG-grounded policy engine and retrieves the applicable equipment list, system access entitlements, and training requirements
 
 All three calls are routed through the SAP Integration Suite MCP Gateway, authenticated with your identity token.
