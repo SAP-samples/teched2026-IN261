@@ -155,8 +155,8 @@ By the end, a **NEWHIRE** event has been published to your AEM queue and your ag
 
 		| Employee ID | Employee Name | Role |
 		|---|---|---|
-		| `E12` | Elizabeth Miller | Engineer III | 
-		| `E10` | Fonda Yen | Engineer I | 
+		| `E12` | Elizabeth Miller | Development Engineer III | 
+		| `E10` | Fonda Yen | Development Engineer I | 
 		| `awegner` | Anna Wegner | Sales Manager | 
 		| `ATPUSER` | Andrew Phillips | Sales Representative |
 		| `MCARTER` | Mary Carter | Marketing Manager |
