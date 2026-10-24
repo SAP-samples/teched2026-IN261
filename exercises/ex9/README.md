@@ -108,7 +108,7 @@ With both backend records created, you will now open each one directly from the 
 1. In the terminal, **Ctrl+Click** the **PR Link** from the Onboarding Summary. Your browser will open the SAP S/4HANA login page.
 
 2. Log in with your workshop credentials:
-   - **User Name:** **`IN261-0**`** *(replace XX with your assigned participant number)*
+   - **User Name:** **`IN261-0**`** *(replace ** with your assigned participant number)*
    - **Password:** *will be shared by the instructors*
 
    Click **Continue**.
