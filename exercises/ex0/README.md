@@ -188,7 +188,7 @@ AEM is the event backbone that connects SAP SuccessFactors to your AI agent — 
 | What | Details |
 |---|---|
 | Cluster | `TechEd2026-IN261` — shared across all participants |
-| Topics | One dedicated topic per participant: `sap/sfsf/newhire/TechEd_IN261_0**` |
+| Topics | One dedicated topic per participant: `sap/sfsf/newhire/IN261_0**` |
 | Credentials | Pre-provided in the AI agent `.env` file (Exercise 7) |
 
 **What you do:** Create your personal queue and subscribe to your topic in **Exercise 1**.
