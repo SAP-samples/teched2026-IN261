@@ -51,7 +51,7 @@ In this exercise, you select all your four deployed MCP Servers, and publish the
 
 10. Verify you have **4 Selected AI artifacts**, then click **`Create Product`**.
 
-    ![AI Artifacts — 4 selected, click Create Product](/exercises/ex6/images/ex61-8.png)
+    ![AI Artifacts — 4 selected, click Create Product](/images/ex61-8.png)
 
 11. Fill in the product details:
 
