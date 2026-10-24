@@ -53,10 +53,10 @@ Rather than publishing every new hire event to a single shared AEM topic, the to
 The topic pattern is:
 
 ```
-sap/sfsf/newhire/TechEd_IN261_0{employeeId}
+sap/sfsf/newhire/IN261_0**
 ```
 
-This means each participant has their own dedicated topic — `sap/sfsf/newhire/TechEd_IN261_001`, `sap/sfsf/newhire/TechEd_IN261_002`, and so on. The employee ID is substituted from the payload at runtime by the Integration Center outbound mapping.
+This means each participant has their own dedicated topic — `sap/sfsf/newhire/IN261_001`, `sap/sfsf/newhire/IN261_002`, and so on. The employee ID is substituted from the payload at runtime by the Integration Center outbound mapping.
 
 This dynamic topic pattern is what you subscribe your personal AEM queue to in **Exercise 1** — ensuring your agent only receives events for your assigned test employee, not every participant's event on the shared tenant.
 
@@ -72,7 +72,7 @@ Intelligent Services — detects "New Employee Hire" event
 SAP Integration Center — builds JSON payload with employeeId, name, hireDate, jobTitle, location
         │
         ▼
-Publishes to AEM topic: sap/sfsf/newhire/TechEd_IN261_0{employeeId}
+Publishes to AEM topic: sap/sfsf/newhire/IN261_0**
         │
         ▼
 Your AEM queue (subscribed to your topic) — delivers event to AI agent
