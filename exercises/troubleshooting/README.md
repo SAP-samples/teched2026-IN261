@@ -14,7 +14,7 @@ This guide covers the most common issues participants encounter across the exerc
 
 **Participant number confusion — artifacts named incorrectly**
 > Your participant number is printed on your seat card. All artifacts must include your participant number in their name and path. Artifacts with wrong numbers may conflict with other participants and cause deployment failures.
-> All artifacts in this session use underscore (`_`) i.e. **`IN261_0**`**. Hyphen is only used in the login username (**`IN261-0**`**). So make sure you dont use hyphen (`-`) while naming your artifacts.
+> All artifacts in this session use underscore (`_`) i.e. **`IN261_0**`**. Hyphen is only used in the login username (**`IN261-0**`**). So make sure you don't use hyphen (`-`) while naming your artifacts.
 
 **Any system is unreachable**
 > Contact the instructors — system URLs and credentials are listed on the [main page](../../README.md#system-url-and-login-details).
