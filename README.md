@@ -76,6 +76,12 @@ This section also serves as a Table of Content; use the breadcrumb navigation at
 - [Exercise 8 — Trigger a New Hire Event](exercises/ex8/README.md)
 - [Exercise 9 — Observe, Approve, and Verify the AI-Orchestrated Onboarding Workflow](exercises/ex9/README.md)
 
+## Troubleshooting
+
+Stuck or seeing an unexpected error? Check the troubleshooting guide — it covers the most common issues across all exercises.
+
+- [🔧 Troubleshooting Guide](exercises/troubleshooting/README.md)
+
 ## Feedback
 Kindly provide your feedback on this hands-on session i.e. **IN261**.
 
