@@ -53,6 +53,7 @@ This guide covers the most common issues participants encounter across the exerc
 
 **Authentication policy — where to find the Well-Known URL and ClientID Key**
 > These values are the same for all participants — copy them exactly as shown in the exercise. The Audience field must be left **empty** — IAS tokens in this setup do not carry a fixed audience claim. Filling it in will cause authentication failures.
+
 ---
 
 ## Exercise 3 — HR Policy Lookup MCP Server
@@ -83,7 +84,7 @@ This guide covers the most common issues participants encounter across the exerc
 > Wait a moment and refresh the page. Deployment to the Integration Cell takes a few seconds. Do not click Deploy again — check the status bar first.
 
 **MCP Server deployed but status is not STARTED**
-> Check if the MCP Path was saved correctly before deployment. The path must be unique across the tenant — if another participant has the same path, deployment will fail. Verify your path includes your participant number: **`/in261_0**_employee_lookup_mcp`**.
+> Check if the MCP Path was saved correctly before deployment. The path must be unique across the tenant — if another participant has the same path, deployment will fail. Verify your path includes your participant number: **`/in261_0**_create_pr_s4hana_mcp*`**.
 
 **Authentication policy — where to find the Well-Known URL and ClientID Key**
 > These values are the same for all participants — copy them exactly as shown in the exercise. The Audience field must be left **empty** — IAS tokens in this setup do not carry a fixed audience claim. Filling it in will cause authentication failures.
@@ -103,6 +104,7 @@ This guide covers the most common issues participants encounter across the exerc
 
 **Deployment fails with path conflict error**
 > Two participants cannot share the same MCP path on the same tenant. Verify your path includes your participant number and is not already in use.
+
 ---
 
 ## Exercise 6 — Developer Hub: Publish and Subscribe
