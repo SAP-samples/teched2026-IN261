@@ -54,7 +54,7 @@ Finally, the **Training Schedule** lists mandatory courses by day 5, 10, and 30,
 ![Terminal — training schedule](images/Training_Schedule.png)
 
 ## Exercise 9.2 — Approve the Onboarding Plan
-In this sub-exercise, you act as the hiring manager and approve the onboarding plan. This is the **human-in-the-loop** gate — the agent has paused and is waiting for your explicit response before taking any action in backend systems.
+In this exercise, you act as the hiring manager and approve the onboarding plan. This is the **human-in-the-loop** gate — the agent has paused and is waiting for your explicit response before taking any action in backend systems.
 
 ### Step 1: Review the Approval Prompt
 
@@ -98,7 +98,6 @@ The agent closes with a final **Completed Steps** table confirming all five step
 ![Terminal — all five steps completed](images/Completed_Steps.png)
 
 ## Exercise 9.3 — Verify the Results
-
 With both backend records created, you will now open each one directly from the links in the Onboarding Summary and verify the details.
 
 ### Step 1: Open the created Purchase Requisition in SAP S/4HANA system
@@ -113,14 +112,12 @@ With both backend records created, you will now open each one directly from the 
 
    ![SAP S/4HANA — login page](images/S4HANA_Login.png)
 
-3. After login, the Purchase Requisition opens directly. Verify the **General Information** tab — PR number, employee name, number of items, and total value.
-
+3. After login, the Purchase Requisition opens directly. Verify the PR number, employee name, number of items, and total value.
+   <br>Click the **Items** tab to see the individual equipment lines ordered for the new hire.
+   
    ![SAP S/4HANA — Purchase Requisition General Information](images/PR_General_Summary.png)
-
-4. Click the **Items** tab to see the individual equipment lines ordered for the new hire.
-
-   ![SAP S/4HANA — Purchase Requisition Items](images/PR_Items.png)
-
+   ![SAP S/4HANA — Purchase Requisition General Information](images/PR_Info_with_Items.png)
+   
 ### Step 2: Open the created Support Case in SAP Service Cloud V2 system
 
 1. Return to the terminal and **Ctrl+Click** the **Case Link** from the Onboarding Summary. Your browser will open the **SAP Service Cloud V2** login page.
