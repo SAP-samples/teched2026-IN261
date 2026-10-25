@@ -78,11 +78,9 @@ Approved
 Immediately after your approval, the agent calls the two remaining MCP tools:
 
 1. **`post_newhire_equipments`** (via Create PR S/4HANA MCP) — creates a Purchase Requisition in SAP S/4HANA for the new hire's equipment and returns the PR number and a direct link
-2. **`post_sap_c4c_api_v1_case_service_cases`** (via Create SC Service Cloud MCP) — creates a Support Case in SAP Service Cloud V2 for system access and training assignment and returns the case ID and a direct link
+2. **`post_sap_c4c_api_v1_case_service_cases`** (via Create SupportCase MCP) — creates a Support Case in SAP Service Cloud V2 for system access and training assignment and returns the case ID and a direct link
 
-![Terminal — agent creating Purchase Requisition in SAP S/4HANA](images/Approved_PR_Created.png)
-
-![Terminal — agent creating Support Case in SAP Service Cloud V2](images/Approved_SC_Created.png)
+![Terminal — agent creating Purchase Requisition and Support Case](images/Approved_PR_and_SC_Created.png)
 
 ### Step 4: Review the Onboarding Summary
 
@@ -95,7 +93,7 @@ Once both actions complete, the agent prints a full **Onboarding Summary** in th
 
 ### Step 5: Confirm the Workflow is Complete
 
-The agent closes with a final **Completed Steps** table confirming all five steps finished successfully.
+The agent closes with a final **Completed Steps** table confirming all five steps finished successfully and waits ready for the next new hire event.
 
 ![Terminal — all five steps completed](images/Completed_Steps.png)
 
