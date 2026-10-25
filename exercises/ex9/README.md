@@ -19,7 +19,7 @@ By the end, you have not just seen an AI agent work — you have seen it work sa
 > This exercise continues directly from [Exercise 8](../ex8/README.md). Your agent terminal must be open and the new hire event must have been triggered before proceeding.
 
 ## Exercise 9.1 — Observe the Agent Orchestrate the Workflow
-In this sub-exercise, you watch the agent process the new hire event step by step in the terminal — receiving the event, calling MCP tools, and building the full onboarding plan.
+In this exercise, you watch the agent process the new hire event step by step in the terminal — receiving the event, calling MCP tools, and building the full onboarding plan.
 
 ### Step 1: New Hire Event Received
 
@@ -153,7 +153,7 @@ With both backend records created, you will now open each one directly from the 
 
 ### Step 3: Open the OData API Audit Log in SAP SuccessFactors to see the end-to-end traceability
 
-1. Log on to [SAP SuccessFactors](https://url.sap/1ubd08) with your workshop credentials.
+1. Log on to [SAP SuccessFactors](https://url.sap/1bfohh) with your workshop credentials.
 
    ![SFSF Login](images/SFSF_Login.png)
 
