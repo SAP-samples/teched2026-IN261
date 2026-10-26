@@ -113,9 +113,11 @@ With both backend records created, you will now open each one directly from the 
    ![SAP S/4HANA — login page](images/S4HANA_Login.png)
 
 3. After login, the Purchase Requisition opens directly. Verify the PR number, employee name, number of items, and total value.
-   <br>Click the **Items** tab to see the individual equipment lines ordered for the new hire.
    
    ![SAP S/4HANA — Purchase Requisition General Information](images/PR_General_Summary.png)
+
+4. Click the **Items** tab to see the individual equipment lines ordered for the new hire.
+
    ![SAP S/4HANA — Purchase Requisition General Information](images/PR_Info_with_Items.png)
    
 ### Step 2: Open the created Support Case in SAP Service Cloud V2 system
