@@ -32,7 +32,7 @@ A **pre-configured Integration Flow (`IN261_Prompt_to_HR_Policy_RAG_Pipeline_usi
 - Extracts and structures the relevant HR policy content from the Orchestration API response
 - Returns the policy content back to the agent
 
-> **Note:** For a deeper understanding, refer to [SAP AI Launchpad Document Grounding](https://help.sap.com/docs/sap-ai-launchpad)
+> **Note:** For a deeper understanding, refer to [SAP AI Launchpad Document Grounding](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/grounding?locale=en-US)
 
 ![Pre-configured iFlow: IN261_Prompt_to_HR_Policy_RAG_Pipeline_using_SAP_AI_Core](images/IFlow_Image.png)
 </details>
