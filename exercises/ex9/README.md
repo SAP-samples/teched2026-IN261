@@ -169,19 +169,31 @@ With both backend records created, you will now open each one directly from the 
 > [!NOTE]
 > This is **Principal Propagation** in action — the agent called the MCP tool, the MCP Gateway forwarded the request with your identity token, and SuccessFactors logged it against your user — not a technical service account.
 
-## Exercise 9.4 — View MCP Analytics in SAP Integration Suite
+## Exercise 9.4 — Monitor in SAP Integration Suite
+
+Every tool call made by the agent was routed through the SAP Integration Suite MCP Gateway — authenticated, authorized, logged, and traceable. In this sub-exercise, you verify that your MCP Servers executed fine and verify the same using monitoeing view of SAP Integration Suite.
+
+### Step 1: Navigate to Monitor to Filter Messages Processed by Your MCP Servers
+
+1. In **SAP Integration Suite** tenan, navigate to **Monitor → Integrations and APIs -> Monitor Message Processing (first tile)**, choose Runtime as **`Integration Cell`**, add your package initials in the Package filter — **`IN261_0**_TechEd_2026_Package`** *(replace ** with your assigned participant number)* — and click **`Go`**.
+
+   You will see completed messages across all four of your MCP Servers, confirming the tool calls executed by the agent during the onboarding workflow.
+
+   ![Integration Suite — Monitor MCP Server](images/Monitor_MCPServers.png)
+
+2. Similarly, you can monitor the completion of the integration flows executed by your MCP Servers — particularly the HR Policy Lookup iFlow (calling SAP AI Launchpad with Document Grounding) and the Purchase Requisition Creation iFlow (calling SAP S/4HANA).
+
+   In **SAP Integration Suite** tenan, navigate to **Monitor → Integrations and APIs -> Monitor Message Processing (first tile)**, choose Runtime as **`Cloud Integration`**, enter your logged-in username — **`IN261-0**`** (replace ** with your assigned participant number) — in the `Application Message ID` search box, and click **`Go`**.
+
+   You will see completed messages for the integration flows executed by your MCP Servers, confirming the underlying iFlows called by the agent during the onboarding workflow.
+
+   ![Integration Suite — Monitor MCP Server](images/Monitor_IFlows.png)
+
+## Exercise 9.5 — Analyze in SAP Integration Suite
 
 Every tool call made by the agent was routed through the SAP Integration Suite MCP Gateway — authenticated, authorized, logged, and traceable. In this sub-exercise, you verify that your MCP Servers are running and explore the analytics dashboard to see call volumes, response times, and error patterns for your MCP tools.
 
-### Step 1: Navigate to Monitor
-
-1. In SAP Integration Suite, navigate to **Monitor → Integrations and APIs** in the left navigation.
-
-   ![Integration Suite — Monitor → Integrations and APIs](images/Monitor_Overview.png)
-
-2. Under **Manage Integration Content**, you will see all deployed MCP Servers with their runtime status. Confirm that all your MCP Servers show **Started** and that the **Error** count is **0**.
-
-### Step 2: Navigate to Analyze
+### Step 1: Navigate to Analyze
 
 1. In the left navigation, click **Analyze**.
 2. Set the filters at the top of the page:
@@ -192,7 +204,7 @@ Every tool call made by the agent was routed through the SAP Integration Suite M
 
 3. The **Overview** tab shows three KPIs for the selected period — **Total MCP Calls**, **MCP Response Time**, and **Total MCP Errors** — giving you a health snapshot of all MCP activity across your tenant.
 
-### Step 3: Explore MCP Call Charts
+### Step 2: Explore MCP Call Charts
 
 Scroll down the Overview page to see the detailed charts.
 
@@ -204,7 +216,7 @@ Further down, **Top MCP Servers of the Week** shows which of your MCP Servers re
 
 ![Analyze Overview — Top MCP Servers and Top Subscriptions for Agents](images/Analyze_Top_MCP_Servers.png)
 
-### Step 4: Review the Health Tab
+### Step 3: Review the Health Tab
 
 Click the **Health** tab at the top of the Analyze page.
 
