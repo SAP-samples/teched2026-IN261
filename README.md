@@ -1,6 +1,6 @@
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2026-IN261)](https://api.reuse.software/info/github.com/SAP-samples/teched2026-IN261)
-
 # IN261 — Model context protocol (MCP) unlocked: Enable governed access to AI agents 
+
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/teched2026-IN261)](https://api.reuse.software/info/github.com/SAP-samples/teched2026-IN261)
 
 ## Description
 
