@@ -166,4 +166,4 @@ Across nine exercises, you build every component of this architecture from scrat
 ## Summary
 You should now be familiar with the session scenario — a realistic, production-grade AI agentic workflow that governs every agent action through the **SAP Integration Suite MCP Gateway**, propagates identity end to end, and keeps a human in control at every critical decision point.
 
-Return to the [main page](../README.md) to start the exercises.
+Return to the [Exercises](../README.md#exercises) to start with the first exercise.
